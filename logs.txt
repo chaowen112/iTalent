@@ -1,0 +1,33 @@
+1553425398 ERROR  Error: name and password required
+    at router.get (/Users/chaowen/talents_backend/src/routers/posts.js:13:19)
+    at Layer.handle [as handle_request] (/Users/chaowen/talents_backend/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/chaowen/talents_backend/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/chaowen/talents_backend/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/chaowen/talents_backend/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/chaowen/talents_backend/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/chaowen/talents_backend/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/chaowen/talents_backend/node_modules/express/lib/router/index.js:275:10)
+    at jsonParser (/Users/chaowen/talents_backend/node_modules/body-parser/lib/types/json.js:110:7)
+    at Layer.handle [as handle_request] (/Users/chaowen/talents_backend/node_modules/express/lib/router/layer.js:95:5)
+1553425422 ERROR  Error: name and password required
+    at router.get (/Users/chaowen/talents_backend/src/routers/posts.js:13:19)
+    at Layer.handle [as handle_request] (/Users/chaowen/talents_backend/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/chaowen/talents_backend/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/chaowen/talents_backend/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/chaowen/talents_backend/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/chaowen/talents_backend/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/chaowen/talents_backend/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/chaowen/talents_backend/node_modules/express/lib/router/index.js:275:10)
+    at jsonParser (/Users/chaowen/talents_backend/node_modules/body-parser/lib/types/json.js:110:7)
+    at Layer.handle [as handle_request] (/Users/chaowen/talents_backend/node_modules/express/lib/router/layer.js:95:5)
+1553425426 ERROR  Error: name and password required
+    at router.get (/Users/chaowen/talents_backend/src/routers/posts.js:13:19)
+    at Layer.handle [as handle_request] (/Users/chaowen/talents_backend/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/chaowen/talents_backend/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/chaowen/talents_backend/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/chaowen/talents_backend/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/chaowen/talents_backend/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/chaowen/talents_backend/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/chaowen/talents_backend/node_modules/express/lib/router/index.js:275:10)
+    at jsonParser (/Users/chaowen/talents_backend/node_modules/body-parser/lib/types/json.js:110:7)
+    at Layer.handle [as handle_request] (/Users/chaowen/talents_backend/node_modules/express/lib/router/layer.js:95:5)
