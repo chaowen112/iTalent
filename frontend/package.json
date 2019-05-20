@@ -1,7 +1,7 @@
 {
-    "name": "lab-react-weathermood",
+    "name": "iTalent",
     "version": "1.0.0",
-    "description": "WeatherMood allows people to share moods under different weather conditions.",
+    "description": "",
     "main": "src/index.jsx",
     "scripts": {
         "build": "webpack -p",
@@ -21,8 +21,7 @@
         "react-addons-transition-group": "^15.4.2",
         "react-bootstrap": "^1.0.0-beta.6",
         "react-dom": "^16.3",
-        "react-router-dom": "^4.0.0",
-        "reactstrap": "^4.3.0"
+        "react-router-dom": "^4.0.0"
     },
     "devDependencies": {
         "babel-core": "^6.24.0",
@@ -33,6 +32,7 @@
         "babel-preset-react": "^6.23.0",
         "css-loader": "^0.27.3",
         "file-loader": "^3.0.1",
+        "reactstrap": "^4.8.0",
         "style-loader": "^0.14.1",
         "url-loader": "^1.1.2",
         "webpack": "^2.3.1",

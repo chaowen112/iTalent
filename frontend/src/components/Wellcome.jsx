@@ -9,7 +9,7 @@ import {
 } from 'react-bootstrap';
 import './Wellcome.css';
 // import React_icon from './img/React-icon.png';
-
+import Recommend from './Recommend.jsx'
 export default class Wellcome extends React.Component{
 
     constructor(props){
@@ -28,30 +28,7 @@ export default class Wellcome extends React.Component{
             <Container>
                 <Row>
                     <Col>
-                        <Carousel className={`d-block w-100`}>
-                            <Carousel.Item>
-                                <img
-                                    className={`d-block w-100`}
-                                    src={`images/React-icon.png`}
-                                    alt="React"
-                                />
-                                <Carousel.Caption>
-                                    <h2 style={carousel_title}>Find Artisians?</h2>
-                                    <p style={carousel_second_title}>Here is the right place</p>
-                                </Carousel.Caption>
-                            </Carousel.Item>
-                            <Carousel.Item>
-                                <img
-                                    className={`d-block w-100`}
-                                    src={`images/React-icon.png`}
-                                    alt="React"
-                                />
-                                <Carousel.Caption>
-                                    <h2 style={carousel_title}>Find Artisians?</h2>
-                                    <p style={carousel_second_title}>Here is the right place</p>
-                                </Carousel.Caption>
-                            </Carousel.Item>
-                        </Carousel>
+                        <Recommend title="Recommended Artists"/>
                     </Col>
                 </Row>
             </Container>
