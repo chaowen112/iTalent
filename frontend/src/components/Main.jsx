@@ -1,4 +1,6 @@
 import React from 'react';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, UncontrolledDropdown} from 'reactstrap';
+
 import {
     BrowserRouter as Router,
     Route,
@@ -26,8 +28,10 @@ export default class Main extends React.Component {
 
         this.state = {
             unit: 'metric',
-            navbarToggle: false
+            navbarToggle: false,
+            dropdownOpen: false
         };
+        this.toggle = this.toggle.bind(this);
 
         this.handleNavbarToggle = this.handleNavbarToggle.bind(this);
         this.handleUnitChange = this.handleUnitChange.bind(this);
@@ -36,13 +40,36 @@ export default class Main extends React.Component {
     render() {
         return (
             <Router>
+
                 <div className={`main bg-faded ${this.state.group}`}>
                     <div className='container'>
+
                         <Navbar color="faded" light toggleable>
                             <NavbarBrand className='text-info' href="/">Talents</NavbarBrand>
+
+
                             <NavbarToggler left onClick={this.handleNavbarToggle}/>
-                            <Collapse isOpen={this.state.navbarToggle} navbar>
+                            <Collapse isOpen={this.state.navbarToggle} navbar >
+
                                 <Nav navbar>
+                                <UncontrolledDropdown nav inNavbar>
+                                  <DropdownToggle nav caret>
+                                    Options
+                                  </DropdownToggle>
+                                  <DropdownMenu right>
+                                    <DropdownItem>
+                                      Option 1
+                                    </DropdownItem>
+                                    <DropdownItem>
+                                      Option 2
+                                    </DropdownItem>
+                                    <DropdownItem divider />
+                                    <DropdownItem>
+                                      Reset
+                                    </DropdownItem>
+                                  </DropdownMenu>
+                                </UncontrolledDropdown>
+
                                     <NavItem>
                                         <NavLink tab={Link} to='/'>Talents</NavLink>
                                     </NavItem>
@@ -54,6 +81,7 @@ export default class Main extends React.Component {
                                     </NavItem>
                                 </Nav>
                             </Collapse>
+
                         </Navbar>
                     </div>
 
@@ -70,7 +98,11 @@ export default class Main extends React.Component {
             </Router>
         );
     }
-
+    toggle() {
+        this.setState(prevState => ({
+          dropdownOpen: !prevState.dropdownOpen
+        }));
+    }
     handleNavbarToggle() {
         this.setState((prevState, props) => ({
             navbarToggle: !prevState.navbarToggle

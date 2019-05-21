@@ -2,3 +2,17 @@
     background-color: aliceblue;
     height: 100%;
 }
+
+#id_footer {
+
+  /* 設定footer的高度 */
+  height: 100px;
+  box-sizing: border-box;
+  /* 設定footer絕對位置在底部 */
+  position: absolute;
+  bottom: 0;
+  /* 展開footer寬度 */
+  width: 100%;
+  background-color:black;
+  color:white;
+}
