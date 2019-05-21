@@ -45,14 +45,14 @@ export default class Main extends React.Component {
                     <div className='container'>
 
                         <Navbar color="faded" light toggleable>
-                            <NavbarBrand className='text-info' href="/">Talents</NavbarBrand>
+                            <NavbarBrand className='text-info' href="/">iTalents</NavbarBrand>
 
 
                             <NavbarToggler left onClick={this.handleNavbarToggle}/>
                             <Collapse isOpen={this.state.navbarToggle} navbar >
 
                                 <Nav navbar>
-                                <UncontrolledDropdown >
+                                <UncontrolledDropdown>
                                   <DropdownToggle nav caret>
                                     Options
                                   </DropdownToggle>

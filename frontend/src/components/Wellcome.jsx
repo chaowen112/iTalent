@@ -44,6 +44,8 @@ export default class Wellcome extends React.Component{
                 <Row>
                     <Col>
                         <Recommend title="Recommended Artists"/>
+                        <Recommend title="Recommended Artists"/>
+                        <Recommend title="Recommended Artists"/>
                     </Col>
                 </Row>
             </Container>
