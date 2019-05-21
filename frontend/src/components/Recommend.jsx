@@ -50,6 +50,13 @@ export default class Recommend extends React.Component{
                 text: 'I can concour the universe',
                 img: `images/React-icon.png`,
                 updated: '2019/05/19'
+            },
+            {
+                key: 6,
+                title: 'Andy',
+                text: 'I can concour the universe',
+                img: `images/React-icon.png`,
+                updated: '2019/05/19'
             }
         ]
         console.log(data.length)
@@ -72,12 +79,12 @@ export default class Recommend extends React.Component{
 
         return(
         <div>
+            <h1 className="title">{this.props.title}</h1>
             <Row className='justify-content-md-center'>
-                <h1 className="title">{this.props.title}</h1>
+                <CardDeck style={{display: 'flex', flexDirection: 'row'}}>
+                    {cards}
+                </CardDeck>
             </Row>
-            <CardColumns>
-                {cards}
-            </CardColumns>
         </div>);
     }
 }

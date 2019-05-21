@@ -3,6 +3,13 @@
     margin: 0 auto;
 }
 
-Card{
-    width: 18rem;
+.row {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+Card {
+    display: inline-block;
+    float: none;
+    min-width: 18em;
 }

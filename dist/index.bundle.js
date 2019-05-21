@@ -11129,9 +11129,9 @@ function (_React$Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Card__ = __webpack_require__(210);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_7__Card__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__CardColumns__ = __webpack_require__(211);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_8__CardColumns__["a"]; });
+/* unused harmony reexport CardColumns */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__CardDeck__ = __webpack_require__(212);
-/* unused harmony reexport CardDeck */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_9__CardDeck__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__CardImg__ = __webpack_require__(91);
 /* unused harmony reexport CardImg */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__CardGroup__ = __webpack_require__(213);
@@ -13809,7 +13809,7 @@ var Main = function (_React$Component) {
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_1_reactstrap__["b" /* NavbarBrand */],
                                 { className: 'text-info', href: '/' },
-                                'Talents'
+                                'iTalents'
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_reactstrap__["c" /* NavbarToggler */], { left: true, onClick: this.handleNavbarToggle }),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -13820,7 +13820,7 @@ var Main = function (_React$Component) {
                                     { navbar: true },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         __WEBPACK_IMPORTED_MODULE_1_reactstrap__["f" /* UncontrolledDropdown */],
-                                        { nav: true, inNavbar: true },
+                                        null,
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             __WEBPACK_IMPORTED_MODULE_1_reactstrap__["g" /* DropdownToggle */],
                                             { nav: true, caret: true },
@@ -15089,6 +15089,12 @@ var Recommend = function (_React$Component) {
                 text: 'I can concour the universe',
                 img: 'images/React-icon.png',
                 updated: '2019/05/19'
+            }, {
+                key: 6,
+                title: 'Andy',
+                text: 'I can concour the universe',
+                img: 'images/React-icon.png',
+                updated: '2019/05/19'
             }];
             console.log(data.length);
 
@@ -15130,18 +15136,18 @@ var Recommend = function (_React$Component) {
                 'div',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'h1',
+                    { className: 'title' },
+                    this.props.title
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["b" /* Row */],
                     { className: 'justify-content-md-center' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'h1',
-                        { className: 'title' },
-                        this.props.title
+                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* CardDeck */],
+                        { style: { display: 'flex', flexDirection: 'row' } },
+                        cards
                     )
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* CardColumns */],
-                    null,
-                    cards
                 )
             );
         }
@@ -15614,6 +15620,8 @@ var Wellcome = function (_React$Component) {
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_3_react_bootstrap__["c" /* Col */],
                             null,
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__Recommend_jsx__["a" /* default */], { title: 'Recommended Artists' }),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__Recommend_jsx__["a" /* default */], { title: 'Recommended Artists' }),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__Recommend_jsx__["a" /* default */], { title: 'Recommended Artists' })
                         )
                     )
@@ -17734,7 +17742,7 @@ exports = module.exports = __webpack_require__(14)(undefined);
 
 
 // module
-exports.push([module.i, ".main {\n    height: 100%;\n}\n", ""]);
+exports.push([module.i, ".main {\n    height: 100%;\n}\n\n.row {\n    margin: 1em 0;\n}", ""]);
 
 // exports
 
@@ -17748,7 +17756,7 @@ exports = module.exports = __webpack_require__(14)(undefined);
 
 
 // module
-exports.push([module.i, ".title{\n    text-align: center;\n    margin: 0 auto;\n}\n\nCard{\n    width: 18rem;\n}", ""]);
+exports.push([module.i, ".title{\n    text-align: center;\n    margin: 0 auto;\n}\n\n.row {\n    overflow-x: auto;\n    white-space: nowrap;\n}\n\nCard {\n    display: inline-block;\n    float: none;\n    min-width: 18em;\n}", ""]);
 
 // exports
 
@@ -22491,7 +22499,7 @@ Card.ImgOverlay = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__utils_creat
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_createWithBsPrefix__ = __webpack_require__(10);
 
-/* harmony default export */ __webpack_exports__["a"] = (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__utils_createWithBsPrefix__["a" /* default */])('card-columns'));
+/* unused harmony default export */ var _unused_webpack_default_export = (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__utils_createWithBsPrefix__["a" /* default */])('card-columns'));
 
 /***/ }),
 /* 212 */
@@ -22500,7 +22508,7 @@ Card.ImgOverlay = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__utils_creat
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_createWithBsPrefix__ = __webpack_require__(10);
 
-/* unused harmony default export */ var _unused_webpack_default_export = (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__utils_createWithBsPrefix__["a" /* default */])('card-deck'));
+/* harmony default export */ __webpack_exports__["a"] = (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__utils_createWithBsPrefix__["a" /* default */])('card-deck'));
 
 /***/ }),
 /* 213 */
