@@ -19,7 +19,7 @@ import {
 import Today from 'components/Today.jsx';
 import Forecast from 'components/Forecast.jsx';
 import Wellcome from 'components/Wellcome.jsx';
-
+import Login from 'components/Login.jsx';
 import './Main.css';
 
 export default class Main extends React.Component {
@@ -52,7 +52,7 @@ export default class Main extends React.Component {
                             <Collapse isOpen={this.state.navbarToggle} navbar >
 
                                 <Nav navbar>
-                                <UncontrolledDropdown nav inNavbar>
+                                <UncontrolledDropdown >
                                   <DropdownToggle nav caret>
                                     Options
                                   </DropdownToggle>
@@ -92,7 +92,7 @@ export default class Main extends React.Component {
                         <Today unit={this.state.unit} onUnitChange={this.handleUnitChange} />
                     )}/>
                     <Route exact path="/login" render={() => (
-                        <Forecast unit={this.state.unit} onUnitChange={this.handleUnitChange} />
+                        <Login />
                     )}/>
                 </div>
             </Router>

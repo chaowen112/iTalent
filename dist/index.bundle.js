@@ -2590,8 +2590,8 @@ Fade.defaultProps = defaultProps;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return NavLink; });
 /* unused harmony export Breadcrumb */
 /* unused harmony export BreadcrumbItem */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return Button; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return ButtonDropdown; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return Button; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return ButtonDropdown; });
 /* unused harmony export ButtonGroup */
 /* unused harmony export ButtonToolbar */
 /* unused harmony export Dropdown */
@@ -2600,7 +2600,7 @@ Fade.defaultProps = defaultProps;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return DropdownToggle; });
 /* unused harmony export Fade */
 /* unused harmony export Badge */
-/* unused harmony export Card */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return Card; });
 /* unused harmony export CardLink */
 /* unused harmony export CardGroup */
 /* unused harmony export CardDeck */
@@ -2625,11 +2625,11 @@ Fade.defaultProps = defaultProps;
 /* unused harmony export Tooltip */
 /* unused harmony export Table */
 /* unused harmony export ListGroup */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return Form; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return Form; });
 /* unused harmony export FormFeedback */
 /* unused harmony export FormGroup */
 /* unused harmony export FormText */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return Input; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return Input; });
 /* unused harmony export InputGroup */
 /* unused harmony export InputGroupAddon */
 /* unused harmony export InputGroupButton */
@@ -13747,8 +13747,9 @@ function canAcceptRef(component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_components_Today_jsx__ = __webpack_require__(163);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_components_Forecast_jsx__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_components_Wellcome_jsx__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Main_css__ = __webpack_require__(298);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Main_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__Main_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_components_Login_jsx__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Main_css__ = __webpack_require__(298);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Main_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__Main_css__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -13820,7 +13821,7 @@ var Main = function (_React$Component) {
                                     { navbar: true },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         __WEBPACK_IMPORTED_MODULE_1_reactstrap__["f" /* UncontrolledDropdown */],
-                                        { nav: true, inNavbar: true },
+                                        null,
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             __WEBPACK_IMPORTED_MODULE_1_reactstrap__["g" /* DropdownToggle */],
                                             { nav: true, caret: true },
@@ -13885,7 +13886,7 @@ var Main = function (_React$Component) {
                             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_components_Today_jsx__["a" /* default */], { unit: _this2.state.unit, onUnitChange: _this2.handleUnitChange });
                         } }),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { exact: true, path: '/login', render: function render() {
-                            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_components_Forecast_jsx__["a" /* default */], { unit: _this2.state.unit, onUnitChange: _this2.handleUnitChange });
+                            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6_components_Login_jsx__["a" /* default */], null);
                         } })
                 )
             );
@@ -15019,7 +15020,7 @@ var Forecast = function (_React$Component) {
     return Forecast;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (Forecast);
+/* unused harmony default export */ var _unused_webpack_default_export = (Forecast);
 
 /***/ }),
 /* 162 */
@@ -15452,14 +15453,14 @@ var WeatherForm = function (_React$Component) {
                 'div',
                 { className: 'weather-form' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_2_reactstrap__["l" /* Form */],
+                    __WEBPACK_IMPORTED_MODULE_2_reactstrap__["n" /* Form */],
                     { className: 'form-inline justify-content-center', onSubmit: this.handleSubmit },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["m" /* Input */], { type: 'text', name: 'city', getRef: function getRef(el) {
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["o" /* Input */], { type: 'text', name: 'city', getRef: function getRef(el) {
                             _this2.inputEl = el;
                         }, value: this.state.inputValue, onChange: this.handleInputChange }),
                     '\xA0',
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_reactstrap__["n" /* ButtonDropdown */],
+                        __WEBPACK_IMPORTED_MODULE_2_reactstrap__["p" /* ButtonDropdown */],
                         { type: 'buttom', isOpen: this.state.tempToggle, toggle: this.handleTempToggle },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_2_reactstrap__["g" /* DropdownToggle */],
@@ -15484,7 +15485,7 @@ var WeatherForm = function (_React$Component) {
                     ),
                     '\xA0',
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_reactstrap__["o" /* Button */],
+                        __WEBPACK_IMPORTED_MODULE_2_reactstrap__["m" /* Button */],
                         { color: 'info' },
                         'Check'
                     )
@@ -17790,7 +17791,7 @@ exports = module.exports = __webpack_require__(14)(undefined);
 
 
 // module
-exports.push([module.i, ".wellcome{\n    background-color: aliceblue;\n    height: 100%;\n}\n\n#id_footer {\n\n  /* 設定footer的高度 */\n  height: 100px;\n  box-sizing: border-box;\n  /* 設定footer絕對位置在底部 */\n  position: absolute;\n  bottom: 0;\n  /* 展開footer寬度 */\n  width: 100%;\n  background-color:black;\n  color:white;\n}\n", ""]);
+exports.push([module.i, ".wellcome{\n    background-color: aliceblue;\n    height: 100%;\n}\n\n#id_footer {\n\n  /* 設定footer的高度 */\n  height: 100px;\n  box-sizing: border-box;\n  /* 設定footer絕對位置在底部 */\n  position: absolute;\n  \n  margin-top: -50px;\n  /* 展開footer寬度 */\n  width: 100%;\n  background-color:black;\n  color:white;\n}\n", ""]);
 
 // exports
 
@@ -31685,6 +31686,238 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = warning;
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+
+/***/ }),
+/* 307 */,
+/* 308 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_reactstrap__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_bootstrap__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Wellcome_css__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Wellcome_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__Wellcome_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_components_Mycollection_jsx__ = __webpack_require__(313);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Login_css__ = __webpack_require__(312);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Login_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__Login_css__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+// import React_icon from './img/React-icon.png';
+
+
+
+
+var Wellcome = function (_React$Component) {
+    _inherits(Wellcome, _React$Component);
+
+    function Wellcome(props) {
+        _classCallCheck(this, Wellcome);
+
+        var _this = _possibleConstructorReturn(this, (Wellcome.__proto__ || Object.getPrototypeOf(Wellcome)).call(this, props));
+
+        _this.toggle = _this.toggle.bind(_this);
+        _this.state = {
+            dropdownOpen: false
+        };
+        return _this;
+    }
+
+    _createClass(Wellcome, [{
+        key: 'toggle',
+        value: function toggle() {
+            this.setState(function (prevState) {
+                return {
+                    dropdownOpen: !prevState.dropdownOpen
+                };
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+
+            var carousel_title = {
+                color: 'black'
+            };
+            var carousel_second_title = {
+                color: 'black'
+            };
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["a" /* BrowserRouter */],
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    null,
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_1_reactstrap__["l" /* Card */],
+                        { body: true, id: 'login_option' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_reactstrap__["m" /* Button */],
+                            null,
+                            '\u500B\u4EBA\u8CC7\u6599'
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_1_reactstrap__["l" /* Card */],
+                        { body: true, className: 'text-center', id: 'login_option' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_reactstrap__["m" /* Button */],
+                            { tag: __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */], to: '/mycollection' },
+                            '\u6211\u7684\u6536\u85CF'
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_1_reactstrap__["l" /* Card */],
+                        { body: true, className: 'text-center', id: 'login_option' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_reactstrap__["m" /* Button */],
+                            null,
+                            '\u8A02\u55AE\u8A18\u9304'
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_1_reactstrap__["l" /* Card */],
+                        { body: true, className: 'text-right', id: 'login_option' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_1_reactstrap__["m" /* Button */],
+                            null,
+                            '\u767B\u51FA'
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { exact: true, path: '/mycollection', render: function render() {
+                            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_components_Mycollection_jsx__["a" /* default */], null);
+                        } })
+                )
+            );
+        }
+    }]);
+
+    return Wellcome;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["a"] = (Wellcome);
+
+/***/ }),
+/* 309 */,
+/* 310 */,
+/* 311 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(14)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n#login_option{\n  width:140px;\n  height:80px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 312 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(311);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// add the styles to the DOM
+var update = __webpack_require__(17)(content, {});
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../node_modules/css-loader/index.js??ref--1-1!./Login.css", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js??ref--1-1!./Login.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 313 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_api_open_weather_map_js__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__weather_css__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__weather_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__weather_css__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+var Forecast = function (_React$Component) {
+    _inherits(Forecast, _React$Component);
+
+    function Forecast(props) {
+        _classCallCheck(this, Forecast);
+
+        var _this = _possibleConstructorReturn(this, (Forecast.__proto__ || Object.getPrototypeOf(Forecast)).call(this, props));
+
+        _this.state = {
+            loading: false,
+            masking: false
+        };
+
+        // TODO
+        return _this;
+    }
+
+    _createClass(Forecast, [{
+        key: 'render',
+        value: function render() {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: 'forecast weather-bg ' + this.state.group },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'mask ' + (this.state.masking ? 'masking' : '') },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'h1',
+                        { className: 'text-center' },
+                        'Forecast (unit: ',
+                        this.props.unit,
+                        ')'
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Forecast;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["a"] = (Forecast);
 
 /***/ })
 ],[167]);

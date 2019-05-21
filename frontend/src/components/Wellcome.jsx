@@ -38,7 +38,7 @@ export default class Wellcome extends React.Component{
         return(
 
         <div className="wellcome">
-        
+
 
             <Container>
                 <Row>
