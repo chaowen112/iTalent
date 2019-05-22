@@ -19,6 +19,8 @@ import {
 import Today from 'components/Today.jsx';
 import Forecast from 'components/Forecast.jsx';
 import Wellcome from 'components/Wellcome.jsx';
+import Artist from 'components/Artist.jsx';
+
 import Login from 'components/Login.jsx';
 import './Main.css';
 
@@ -79,6 +81,9 @@ export default class Main extends React.Component {
                                     <NavItem>
                                         <NavLink tag={Link} to='/login'>Login</NavLink>
                                     </NavItem>
+                                    <NavItem>
+                                        <NavLink tag={Link} to='/artist'>Artist</NavLink>
+                                    </NavItem>
                                 </Nav>
                             </Collapse>
 
@@ -93,6 +98,9 @@ export default class Main extends React.Component {
                     )}/>
                     <Route exact path="/login" render={() => (
                         <Login />
+                    )}/>                    
+                    <Route exact path="/artist" render={() => (
+                        <Artist/>
                     )}/>
                 </div>
             </Router>
