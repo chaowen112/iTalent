@@ -21,6 +21,7 @@ import Forecast from 'components/Forecast.jsx';
 import Wellcome from 'components/Wellcome.jsx';
 import Artist from 'components/Artist.jsx';
 
+import Login from 'components/Login.jsx';
 import './Main.css';
 
 export default class Main extends React.Component {
@@ -96,7 +97,7 @@ export default class Main extends React.Component {
                         <Today unit={this.state.unit} onUnitChange={this.handleUnitChange} />
                     )}/>
                     <Route exact path="/login" render={() => (
-                        <Forecast unit={this.state.unit} onUnitChange={this.handleUnitChange} />
+                        <Login />
                     )}/>                    
                     <Route exact path="/artist" render={() => (
                         <Artist/>
