@@ -81,33 +81,29 @@ export default class Recommend extends React.Component{
             <div>
             <Container>
                 <Row>
-                    <Col sm={12} lg={12}>
-                        <h1>Artist</h1>
-                    </Col>
-                </Row>
-                <Row>
                     <Col sm={12} lg={6}>
-                        <Image roundedCircle src={this.state.data.photo}/>
-                        <h6>Name: {this.state.data.nama}</h6>
-                        <span>posts: {this.state.data.posts} </span><span>subscribers: {this.state.data.subscribers} </span><span>jobs: {this.state.data.jobs} </span><br/>
+                        <h1>Artist</h1>
+                        <Image style={{width:'100%'}}roundedCircle src={this.state.data.photo}/>
+                        <h6>Name: {this.state.data.name}</h6>
+                        <span>Posts: {this.state.data.posts} </span><span> Subscribers: {this.state.data.subscribers} </span><span> Jobs: {this.state.data.jobs} </span>
                         <ButtonToolbar>
-                            <Button variant='primary'>Subscribe</Button> 
-                            <Button variant='success'>Contact</Button>
+                            <Button variant='outline-info'>Subscribe</Button> 
+                            <Button variant='outline-success'>Contact</Button>
                         </ButtonToolbar>
+                        <hr/>
                         {this.state.introduction}
-                        <Button onClick={this.toggleIntro}>Load</Button>
+                            <Button variant="outline-secondary" onClick={this.toggleIntro}>顯示完整訊息</Button>
+                        <hr/>
+                    <Comment/>
+                    <Comment/>
+                    <Comment/>
                     </Col>
-                    <Col>
+                    <Col className="post-col" sm={12} lg={6}>
                         <Post/>
                         <Post/>
                         <Post/>
                         <Post/>
                     </Col>
-                </Row>
-                <Row>
-                    <Comment/>
-                    <Comment/>
-                    <Comment/>
                 </Row>
             </Container>
             </div>

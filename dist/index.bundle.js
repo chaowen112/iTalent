@@ -1238,11 +1238,11 @@ var makeEventKey = function makeEventKey(eventKey, href) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ButtonToolbar__ = __webpack_require__(227);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_6__ButtonToolbar__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Card__ = __webpack_require__(228);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_7__Card__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_7__Card__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__CardColumns__ = __webpack_require__(229);
 /* unused harmony reexport CardColumns */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__CardDeck__ = __webpack_require__(230);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_9__CardDeck__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_9__CardDeck__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__CardImg__ = __webpack_require__(93);
 /* unused harmony reexport CardImg */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__CardGroup__ = __webpack_require__(231);
@@ -1294,7 +1294,7 @@ var makeEventKey = function makeEventKey(eventKey, href) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__Media__ = __webpack_require__(247);
 /* unused harmony reexport Media */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__Modal__ = __webpack_require__(248);
-/* unused harmony reexport Modal */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_35__Modal__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__ModalBody__ = __webpack_require__(106);
 /* unused harmony reexport ModalBody */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__ModalDialog__ = __webpack_require__(108);
@@ -15068,85 +15068,74 @@ var Recommend = function (_React$Component) {
                         null,
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["c" /* Col */],
-                            { sm: 12, lg: 12 },
+                            { sm: 12, lg: 6 },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'h1',
                                 null,
                                 'Artist'
-                            )
-                        )
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["b" /* Row */],
-                        null,
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["c" /* Col */],
-                            { sm: 12, lg: 6 },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["d" /* Image */], { roundedCircle: true, src: this.state.data.photo }),
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["d" /* Image */], { style: { width: '100%' }, roundedCircle: true, src: this.state.data.photo }),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'h6',
                                 null,
                                 'Name: ',
-                                this.state.data.nama
+                                this.state.data.name
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'span',
                                 null,
-                                'posts: ',
+                                'Posts: ',
                                 this.state.data.posts,
                                 ' '
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'span',
                                 null,
-                                'subscribers: ',
+                                ' Subscribers: ',
                                 this.state.data.subscribers,
                                 ' '
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'span',
                                 null,
-                                'jobs: ',
+                                ' Jobs: ',
                                 this.state.data.jobs,
                                 ' '
                             ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* ButtonToolbar */],
                                 null,
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["f" /* Button */],
-                                    { variant: 'primary' },
+                                    { variant: 'outline-info' },
                                     'Subscribe'
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["f" /* Button */],
-                                    { variant: 'success' },
+                                    { variant: 'outline-success' },
                                     'Contact'
                                 )
                             ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null),
                             this.state.introduction,
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["f" /* Button */],
-                                { onClick: this.toggleIntro },
-                                'Load'
-                            )
+                                { variant: 'outline-secondary', onClick: this.toggleIntro },
+                                '\u986F\u793A\u5B8C\u6574\u8A0A\u606F'
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_components_Comment_jsx__["a" /* default */], null),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_components_Comment_jsx__["a" /* default */], null),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_components_Comment_jsx__["a" /* default */], null)
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["c" /* Col */],
-                            null,
+                            { className: 'post-col', sm: 12, lg: 6 },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_components_Post_jsx__["a" /* default */], null),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_components_Post_jsx__["a" /* default */], null),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_components_Post_jsx__["a" /* default */], null),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_components_Post_jsx__["a" /* default */], null)
                         )
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["b" /* Row */],
-                        null,
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_components_Comment_jsx__["a" /* default */], null),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_components_Comment_jsx__["a" /* default */], null),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_components_Comment_jsx__["a" /* default */], null)
                     )
                 )
             );
@@ -15280,24 +15269,57 @@ var Comment = function (_React$Component) {
     function Comment(props) {
         _classCallCheck(this, Comment);
 
-        return _possibleConstructorReturn(this, (Comment.__proto__ || Object.getPrototypeOf(Comment)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Comment.__proto__ || Object.getPrototypeOf(Comment)).call(this, props));
+
+        _this.state = {
+            data: [{
+                username: 'Romeo',
+                text: 'i love u',
+                isReply: false,
+                date: '2018/04/12'
+            }, {
+                username: 'Juliate',
+                text: 'i love u too',
+                isReply: true,
+                date: '2018/04/13'
+            }]
+        };
+        return _this;
     }
 
     _createClass(Comment, [{
         key: 'render',
         value: function render() {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["c" /* Col */],
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            var comments = this.state.data.map(function (c, it) {
+                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["b" /* Row */],
                     null,
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'h1',
-                        null,
-                        'Comment'
+                        'div',
+                        { key: it, style: { 'marginLeft': c.isReply ? '50px' : 0, display: 'block' } },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'p',
+                            { style: { 'fontWeight': 'bold' } },
+                            c.username
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'p',
+                            null,
+                            c.text
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'p',
+                            null,
+                            'date: ',
+                            c.date
+                        )
                     )
-                )
+                );
+            });
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["c" /* Col */],
+                null,
+                comments
             );
         }
     }]);
@@ -15597,31 +15619,31 @@ var Recommend = function (_React$Component) {
 
             var cards = data.map(function (d) {
                 return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Card */],
+                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["h" /* Card */],
                     { key: d.key, id: 'collection_data' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Card */].Img, { src: d.img }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["h" /* Card */].Img, { src: d.img }),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Card */].Body,
+                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["h" /* Card */].Body,
                         null,
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Card */].Title,
+                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["h" /* Card */].Title,
                             null,
                             d.title
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Card */].Text,
+                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["h" /* Card */].Text,
                             null,
                             d.text
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Card */].Text,
+                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["h" /* Card */].Text,
                             null,
                             'score:',
                             d.score
                         )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Card */].Footer,
+                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["h" /* Card */].Footer,
                         null,
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'small',
@@ -15647,7 +15669,7 @@ var Recommend = function (_React$Component) {
                     __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["b" /* Row */],
                     { className: 'justify-content-md-center' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["h" /* CardDeck */],
+                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["i" /* CardDeck */],
                         { style: { display: 'flex', flexDirection: 'row' } },
                         cards
                     )
@@ -15726,13 +15748,13 @@ var Recommend = function (_React$Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
                     null,
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Card */].Img, { className: 'imgsize', src: 'images/React-icon.png' })
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["h" /* Card */].Img, { className: 'imgsize', src: 'images/React-icon.png' })
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Card */].Body,
+                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["h" /* Card */].Body,
                     null,
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Card */].Title,
+                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["h" /* Card */].Title,
                         null,
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'p',
@@ -15777,7 +15799,7 @@ var Recommend = function (_React$Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_youtube__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_components_PostModal_jsx__ = __webpack_require__(339);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -15799,7 +15821,14 @@ var Post = function (_React$Component) {
     function Post(props) {
         _classCallCheck(this, Post);
 
-        return _possibleConstructorReturn(this, (Post.__proto__ || Object.getPrototypeOf(Post)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Post.__proto__ || Object.getPrototypeOf(Post)).call(this, props));
+
+        _this.state = {
+            isModalShow: false
+        };
+        _this.closeModal = _this.closeModal.bind(_this);
+        _this.openModal = _this.openModal.bind(_this);
+        return _this;
     }
 
     _createClass(Post, [{
@@ -15813,12 +15842,6 @@ var Post = function (_React$Component) {
                     autoplay: 0
                 }
             };
-
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_youtube__["a" /* default */], {
-                videoId: '2g811Eo7K8U',
-                opts: opts,
-                onReady: this._onReady
-            });
 
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["c" /* Col */],
@@ -15834,7 +15857,7 @@ var Post = function (_React$Component) {
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["b" /* Row */],
-                    null,
+                    { onClick: this.openModal },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["d" /* Image */], { style: { width: '30%', height: '100%', display: 'inline' }, src: 'images/React-icon.png' }),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'p',
@@ -15853,9 +15876,24 @@ var Post = function (_React$Component) {
                             null,
                             'Introduction'
                         )
-                    )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_components_PostModal_jsx__["a" /* default */], { onHide: this.closeModal, show: this.state.isModalShow })
                 )
             );
+        }
+    }, {
+        key: 'openModal',
+        value: function openModal() {
+            this.setState({ isModalShow: true });
+            console.log('openModal', this.state.isModalShow);
+        }
+    }, {
+        key: 'closeModal',
+        value: function closeModal(e) {
+            console.log(e);
+            e.stopPropagation();
+            this.setState({ isModalShow: false });
+            console.log('closeModal', this.state.isModalShow);
         }
     }]);
 
@@ -15943,25 +15981,25 @@ var Recommend = function (_React$Component) {
 
             var cards = data.map(function (d) {
                 return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Card */],
+                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["h" /* Card */],
                     { key: d.key, style: { minWidth: '200px' } },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Card */].Img, { variant: 'top', src: d.img }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["h" /* Card */].Img, { variant: 'top', src: d.img }),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Card */].Body,
+                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["h" /* Card */].Body,
                         null,
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Card */].Title,
+                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["h" /* Card */].Title,
                             null,
                             d.title
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Card */].Text,
+                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["h" /* Card */].Text,
                             null,
                             d.text
                         )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Card */].Footer,
+                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["h" /* Card */].Footer,
                         null,
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'small',
@@ -15987,7 +16025,7 @@ var Recommend = function (_React$Component) {
                     __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["b" /* Row */],
                     { className: 'justify-content-md-center scrollbar', style: { margin: "50px 80px" } },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["h" /* CardDeck */],
+                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["i" /* CardDeck */],
                         { style: { flexFlow: "row nowrap", margin: "10px 0" } },
                         cards
                     )
@@ -16484,7 +16522,7 @@ var Wellcome = function (_React$Component) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'span',
                                     { className: 'email' },
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'images/emails.png',
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { style: { width: '20px' }, src: 'images/emails.png',
                                         alt: 'email icon' })
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -16495,7 +16533,7 @@ var Wellcome = function (_React$Component) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'span',
                                     { className: 'phone' },
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'images/phone.png', alt: 'phone icon' })
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { style: { width: '20px' }, src: 'images/phone.png', alt: 'phone icon' })
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'b',
@@ -18585,7 +18623,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "div.exactFit {\r\n    word-wrap: break-word;\r\n}", ""]);
+exports.push([module.i, "div.exactFit {\r\n    word-wrap: break-word;\r\n}\r\n\r\nimg{\r\n    width: 100%;\r\n}\r\n\r\n.post-col {\r\n    background: rgb(198, 231, 229)\r\n}\r\n\r\nspan {\r\n    margin-right: 5px;\r\n    align-self: center;\r\n}\r\n\r\n.btn {\r\n    margin-right: 10px;\r\n    align-self: center;\r\n}\r\n\r\n.btn-outline-info {\r\n    margin-left: auto;\r\n}", ""]);
 
 // exports
 
@@ -18613,7 +18651,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, ".main {\r\n    height: 100%;\r\n}\r\n\r\n.row {\r\n    margin: 1em 0;\r\n}\r\n", ""]);
+exports.push([module.i, ".main {\r\n    height: 100%;\r\n}\r\n\r\n.row {\r\n    margin: 1em 0;\r\n}\r\n\r\nImage{\r\n    max-width: 100%;\r\n    max-height: 100%;\r\n}", ""]);
 
 // exports
 
@@ -25613,7 +25651,7 @@ DecoratedModal.Footer = __WEBPACK_IMPORTED_MODULE_13__ModalFooter__["a" /* defau
 DecoratedModal.Dialog = __WEBPACK_IMPORTED_MODULE_12__ModalDialog__["a" /* default */];
 DecoratedModal.TRANSITION_DURATION = 300;
 DecoratedModal.BACKDROP_TRANSITION_DURATION = 150;
-/* unused harmony default export */ var _unused_webpack_default_export = (DecoratedModal);
+/* harmony default export */ __webpack_exports__["a"] = (DecoratedModal);
 
 /***/ }),
 /* 249 */
@@ -34683,6 +34721,140 @@ exports.default = function (emitter) {
 };
 
 module.exports = exports['default'];
+
+/***/ }),
+/* 338 */,
+/* 339 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_youtube__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__PostModal_css__ = __webpack_require__(341);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__PostModal_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__PostModal_css__);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+
+
+var PostModal = function (_React$Component) {
+    _inherits(PostModal, _React$Component);
+
+    function PostModal(props) {
+        _classCallCheck(this, PostModal);
+
+        return _possibleConstructorReturn(this, (PostModal.__proto__ || Object.getPrototypeOf(PostModal)).call(this, props));
+    }
+
+    _createClass(PostModal, [{
+        key: 'render',
+        value: function render() {
+
+            var opts = {
+                width: '100%',
+                playerVars: { // https://developers.google.com/youtube/player_parameters
+                    autoplay: 0
+                }
+            };
+
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Modal */],
+                _extends({}, this.props, {
+                    size: 'lg',
+                    'aria-labelledby': 'contained-modal-title-vcenter',
+                    centered: true
+                }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Modal */].Header,
+                    null,
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Modal */].Title,
+                        { id: 'contained-modal-title-vcenter' },
+                        'Modal heading'
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Modal */].Body,
+                    null,
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_youtube__["a" /* default */], {
+                        videoId: 'ERFO-yoFBVA',
+                        opts: opts,
+                        onReady: this._onReady
+                    })
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Modal */].Footer,
+                    null,
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["f" /* Button */],
+                        { onClick: this.props.onHide },
+                        'Close'
+                    )
+                )
+            );
+        }
+    }]);
+
+    return PostModal;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["a"] = (PostModal);
+
+/***/ }),
+/* 340 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(12)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/***/ }),
+/* 341 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(340);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// add the styles to the DOM
+var update = __webpack_require__(13)(content, {});
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../node_modules/css-loader/index.js??ref--1-1!./PostModal.css", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js??ref--1-1!./PostModal.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
 
 /***/ })
 ],[176]);
