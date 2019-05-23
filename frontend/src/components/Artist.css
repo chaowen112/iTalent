@@ -1,3 +1,7 @@
 div.exactFit {
     word-wrap: break-word;
 }
+
+img{
+    width: 100%;
+}
