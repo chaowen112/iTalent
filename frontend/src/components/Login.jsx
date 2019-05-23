@@ -13,49 +13,46 @@ import './Wellcome.css';
 // import React_icon from './img/React-icon.png';
 import Sidebar from "react-sidebar";
 import Mycollection from 'components/Mycollection.jsx';
+import Personaldata from 'components/Personaldata.jsx';
+import Booking from 'components/Booking.jsx';
 import './Login.css';
-export default class Wellcome extends React.Component{
+export default class Login extends React.Component{
 
     constructor(props){
         super(props);
-        this.toggle = this.toggle.bind(this);
+        //this.toggle = this.toggle.bind(this);
         this.state = {
-          dropdownOpen: false,
+
           sidebarOpen: false
         };
         this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
     }
     onSetSidebarOpen(open) {
-    this.setState({ sidebarOpen: open });
-  }
-    toggle() {
-        this.setState(prevState => ({
-          dropdownOpen: !prevState.dropdownOpen
-        }));
+      this.setState({ sidebarOpen: open });
     }
+    //toggle() {
+      //  this.setState(prevState => ({
+      //    dropdownOpen: !prevState.dropdownOpen
+      //  }));
+    //}
 
     render(){
 
-        const carousel_title={
-            color: 'black'
-        };
-        const carousel_second_title={
-            color: 'black'
-        };
+
         return(
           <Router>
               <div>
                   <Sidebar
                   sidebar={<div>
-                              <button className="button1">訂單</button>
+                              <button className="button1"><Link to='/booking'>訂單</Link></button>
                               <br></br>
                               <button className="button1">收件匣</button>
                               <br></br>
                               <button className="button1">評鑑</button>
                               <br></br>
-                              <button className="button1" tag={Link} to='/mycollection'>我的收藏</button>
+                              <button className="button1"> <Link to='/mycollection'>我的收藏</Link></button>
                               <br></br>
-                              <button className="button1">個人資料</button>
+                              <button className="button1"><Link to='/personaldata'>個人資料</Link></button>
                            </div>
 
 
@@ -64,14 +61,25 @@ export default class Wellcome extends React.Component{
 
                   open={this.state.sidebarOpen}
                   onSetOpen={this.onSetSidebarOpen}
-                  styles={{ sidebar: { background: "white" ,width:200} }}
-                  docked={true}
+                  styles={{ sidebar: { background: "white" ,width:160,top:200,bottom:150} }}
+
                 >
-                  
+                <button className="button2" onClick={() => this.onSetSidebarOpen(true)}>
+                  功能列
+                </button>
 
                 </Sidebar>
+                <Route exact path="/booking" render={() => (
+                            <Booking/>
+
+                )}/>
                 <Route exact path="/mycollection" render={() => (
                             <Mycollection/>
+
+                )}/>
+                <Route exact path="/personaldata" render={() => (
+                            <Personaldata/>
+
                 )}/>
 
             </div>

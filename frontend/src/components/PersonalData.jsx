@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 
 import {Card, CardDeck , Container, Row, Col, CardColumns}from 'react-bootstrap';
-import './Recommend.css';
+import './PersonalData.css';
 export default class Recommend extends React.Component{
 
     constructor(props){
@@ -26,30 +26,39 @@ export default class Recommend extends React.Component{
         ]
 
 
-        let cards = data.map(d => {
-            return (
-            <Card key={d.key}>
-                <Card.Img variant="top" src={d.img}/>
-                <Card.Body>
-                    <Card.Title>{d.title}</Card.Title>
-                    <Card.Text>{d.text}</Card.Text>
-                </Card.Body>
-                <Card.Footer>
-                    <small className="text-muted">Last updated on {d.updated}</small>
-                </Card.Footer>
-            </Card>)
-        });
-
-
-
-        return(
+        //let cards = data.map(d => {
+            //return (
+            //<Card key={d.key}>
+                //<Card.Img variant="top" src={d.img}/>
+                //<Card.Body>
+                    //<Card.Title>{d.title}</Card.Title>
+                    //<Card.Text>{d.text}</Card.Text>
+                //</Card.Body>
+                //<Card.Footer>
+                  //  <small className="text-muted">Last updated on {d.updated}</small>
+              //  </Card.Footer>
+          //</Card>)
+      //  });
+      return (
         <div>
-            <h1 className="title">{this.props.title}</h1>
-            <Row className='justify-content-md-center'>
-                <CardDeck style={{display: 'flex', flexDirection: 'row'}}>
-                    {cards}
-                </CardDeck>
-            </Row>
-        </div>);
+        <div >
+        <Card.Img className="imgsize"  src={`images/React-icon.png`}/>
+        </div>
+        <Card.Body>
+            <Card.Title ><p className="card_title">姓名：Andrew</p>
+                         <br></br>
+                         <p className="card_title">生日：1996/05/23</p>
+                         <br></br>
+                         <p className="card_title">性別：男</p>
+                         <br></br>
+                         <p className="card_title">才藝：吉他</p>
+            </Card.Title>
+
+        </Card.Body>
+        </div>
+      )
+
+
+
     }
 }

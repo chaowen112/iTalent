@@ -20,7 +20,7 @@ import Today from 'components/Today.jsx';
 import Forecast from 'components/Forecast.jsx';
 import Wellcome from 'components/Wellcome.jsx';
 import Artist from 'components/Artist.jsx';
-
+import Testing from 'components/Testing.jsx';
 import Login from 'components/Login.jsx';
 import './Main.css';
 
@@ -54,35 +54,22 @@ export default class Main extends React.Component {
                             <Collapse isOpen={this.state.navbarToggle} navbar >
 
                                 <Nav navbar>
-                                <UncontrolledDropdown>
-                                  <DropdownToggle nav caret>
-                                    Options
-                                  </DropdownToggle>
-                                  <DropdownMenu right>
-                                    <DropdownItem>
-                                      Option 1
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                      Option 2
-                                    </DropdownItem>
-                                    <DropdownItem divider />
-                                    <DropdownItem>
-                                      Reset
-                                    </DropdownItem>
-                                  </DropdownMenu>
-                                </UncontrolledDropdown>
+
 
                                     <NavItem>
-                                        <NavLink tab={Link} to='/'>Talents</NavLink>
+                                        <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/' >Talents </NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink tag={Link} to='/register'>Register</NavLink>
+                                        <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/register' >Register</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink tag={Link} to='/login'>Login</NavLink>
+                                        <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/login'>Login</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink tag={Link} to='/artist'>Artist</NavLink>
+                                        <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/artist'>Artist</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/tesing'>Testing</NavLink>
                                     </NavItem>
                                 </Nav>
                             </Collapse>
@@ -94,13 +81,16 @@ export default class Main extends React.Component {
                         <Wellcome/>
                     )}/>
                     <Route exact path="/register" render={() => (
-                        <Today unit={this.state.unit} onUnitChange={this.handleUnitChange} />
+                        <Today  />
                     )}/>
                     <Route exact path="/login" render={() => (
                         <Login />
-                    )}/>                    
+                    )}/>
                     <Route exact path="/artist" render={() => (
                         <Artist/>
+                    )}/>
+                    <Route exact path="/testing" render={() => (
+                        <Testing/>
                     )}/>
                 </div>
             </Router>

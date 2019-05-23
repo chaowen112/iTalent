@@ -4,6 +4,11 @@
   height:80px;
 }
 .button1{
-  width:200px;
+  width:160px;
   height:80px;
+}
+.button2{
+  position: absolute;
+  top:170px;
+  width:160px;
 }
