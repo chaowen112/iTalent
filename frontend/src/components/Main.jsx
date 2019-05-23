@@ -20,7 +20,6 @@ import Today from 'components/Today.jsx';
 import Forecast from 'components/Forecast.jsx';
 import Wellcome from 'components/Wellcome.jsx';
 import Artist from 'components/Artist.jsx';
-import Testing from 'components/Testing.jsx';
 import Login from 'components/Login.jsx';
 import Account from 'components/Account.jsx';
 import './Main.css';

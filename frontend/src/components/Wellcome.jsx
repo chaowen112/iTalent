@@ -56,10 +56,10 @@ export default class Wellcome extends React.Component{
 
 
                         <p>
-                            <span className="email"><img src={`images/emails.png`}
+                            <span className="email"><img style={{width: '20px'}} src={`images/emails.png`}
                                     alt="email icon" /></span><b>chaowen.nthu@gmail.com</b>
 
-                            <span className="phone"><img src="images/phone.png" alt="phone icon" /></span><b>+886-931-875-878</b>
+                                <span className="phone"><img style={{ width: '20px' }} src="images/phone.png" alt="phone icon" /></span><b>+886-931-875-878</b>
                         </p>
 
                         <ul className="navbar-nav float-left social-links footer-social">

@@ -5,11 +5,4 @@
 
 .row {
     overflow-x: auto;
-    white-space: nowrap;
-}
-
-Card {
-    display: inline-block;
-    float: none;
-    min-width: 18em;
 }

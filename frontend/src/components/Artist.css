@@ -5,3 +5,21 @@ div.exactFit {
 img{
     width: 100%;
 }
+
+.post-col {
+    background: rgb(198, 231, 229)
+}
+
+span {
+    margin-right: 5px;
+    align-self: center;
+}
+
+.btn {
+    margin-right: 10px;
+    align-self: center;
+}
+
+.btn-outline-info {
+    margin-left: auto;
+}
