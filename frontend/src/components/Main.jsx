@@ -20,7 +20,6 @@ import Today from 'components/Today.jsx';
 import Forecast from 'components/Forecast.jsx';
 import Wellcome from 'components/Wellcome.jsx';
 import Artist from 'components/Artist.jsx';
-import Testing from 'components/Testing.jsx';
 import Login from 'components/Login.jsx';
 import './Main.css';
 
@@ -68,9 +67,7 @@ export default class Main extends React.Component {
                                     <NavItem>
                                         <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/artist'>Artist</NavLink>
                                     </NavItem>
-                                    <NavItem>
-                                        <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/tesing'>Testing</NavLink>
-                                    </NavItem>
+                                   
                                 </Nav>
                             </Collapse>
 
@@ -89,9 +86,7 @@ export default class Main extends React.Component {
                     <Route exact path="/artist" render={() => (
                         <Artist/>
                     )}/>
-                    <Route exact path="/testing" render={() => (
-                        <Testing/>
-                    )}/>
+                   
                 </div>
             </Router>
         );

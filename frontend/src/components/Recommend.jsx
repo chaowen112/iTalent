@@ -5,7 +5,7 @@ import {
     Link
 } from 'react-router-dom';
 
-import {Card, CardDeck , Container, Row, Col, CardColumns}from 'react-bootstrap';
+import {Card, CardDeck , Container, Row, Col, CardColumns, Button}from 'react-bootstrap';
 import './Recommend.css';
 export default class Recommend extends React.Component{
 
@@ -63,7 +63,7 @@ export default class Recommend extends React.Component{
 
         let cards = data.map(d => {
             return (
-            <Card key={d.key}>
+            <Card key={d.key} style={{minWidth: '200px'}}>
                 <Card.Img variant="top" src={d.img}/>
                 <Card.Body>
                     <Card.Title>{d.title}</Card.Title>
@@ -80,8 +80,8 @@ export default class Recommend extends React.Component{
         return(
         <div>
             <h1 className="title">{this.props.title}</h1>
-            <Row className='justify-content-md-center'>
-                <CardDeck style={{display: 'flex', flexDirection: 'row'}}>
+            <Row className='justify-content-md-center scrollbar' style={{margin: "50px 80px"}}>
+                <CardDeck style={{flexFlow: "row nowrap", margin: "10px 0"}}>
                     {cards}
                 </CardDeck>
             </Row>

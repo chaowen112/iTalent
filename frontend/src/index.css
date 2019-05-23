@@ -1,3 +1,21 @@
 html, body, #root {
     height: 100%;
 }
+
+/* Scroll Bar */
+.scrollbar::-webkit-scrollbar {
+    min-width: 2px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background: #aaa;
+    border-radius: 10px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
