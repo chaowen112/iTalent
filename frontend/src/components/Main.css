@@ -5,3 +5,8 @@
 .row {
     margin: 1em 0;
 }
+
+Image{
+    max-width: 100%;
+    max-height: 100%;
+}

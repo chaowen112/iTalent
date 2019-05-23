@@ -81,13 +81,9 @@ export default class Recommend extends React.Component{
             <div>
             <Container>
                 <Row>
-                    <Col sm={12} lg={12}>
-                        <h1>Artist</h1>
-                    </Col>
-                </Row>
-                <Row>
                     <Col sm={12} lg={6}>
-                        <Image roundedCircle src={this.state.data.photo}/>
+                        <h1>Artist</h1>
+                        <Image style={{width:'100%'}}roundedCircle src={this.state.data.photo}/>
                         <h6>Name: {this.state.data.nama}</h6>
                         <span>posts: {this.state.data.posts} </span><span>subscribers: {this.state.data.subscribers} </span><span>jobs: {this.state.data.jobs} </span><br/>
                         <ButtonToolbar>
@@ -96,18 +92,16 @@ export default class Recommend extends React.Component{
                         </ButtonToolbar>
                         {this.state.introduction}
                         <Button onClick={this.toggleIntro}>Load</Button>
+                    <Comment/>
+                    <Comment/>
+                    <Comment/>
                     </Col>
-                    <Col>
+                    <Col sm={12} lg={6}>
                         <Post/>
                         <Post/>
                         <Post/>
                         <Post/>
                     </Col>
-                </Row>
-                <Row>
-                    <Comment/>
-                    <Comment/>
-                    <Comment/>
                 </Row>
             </Container>
             </div>

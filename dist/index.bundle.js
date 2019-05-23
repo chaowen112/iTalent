@@ -13910,7 +13910,7 @@ var Main = function (_React$Component) {
                             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6_components_Artist_jsx__["a" /* default */], null);
                         } }),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { exact: true, path: '/testing', render: function render() {
-                            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_components_Testing_jsx__["default"], null);
+                            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_components_Testing_jsx___default.a, null);
                         } })
                 )
             );
@@ -15083,21 +15083,13 @@ var Recommend = function (_React$Component) {
                         null,
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["c" /* Col */],
-                            { sm: 12, lg: 12 },
+                            { sm: 12, lg: 6 },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'h1',
                                 null,
                                 'Artist'
-                            )
-                        )
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["b" /* Row */],
-                        null,
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["c" /* Col */],
-                            { sm: 12, lg: 6 },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["d" /* Image */], { roundedCircle: true, src: this.state.data.photo }),
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["d" /* Image */], { style: { width: '100%' }, roundedCircle: true, src: this.state.data.photo }),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'h6',
                                 null,
@@ -15145,23 +15137,19 @@ var Recommend = function (_React$Component) {
                                 __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["f" /* Button */],
                                 { onClick: this.toggleIntro },
                                 'Load'
-                            )
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_components_Comment_jsx__["a" /* default */], null),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_components_Comment_jsx__["a" /* default */], null),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_components_Comment_jsx__["a" /* default */], null)
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["c" /* Col */],
-                            null,
+                            { sm: 12, lg: 6 },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_components_Post_jsx__["a" /* default */], null),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_components_Post_jsx__["a" /* default */], null),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_components_Post_jsx__["a" /* default */], null),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_components_Post_jsx__["a" /* default */], null)
                         )
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["b" /* Row */],
-                        null,
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_components_Comment_jsx__["a" /* default */], null),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_components_Comment_jsx__["a" /* default */], null),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_components_Comment_jsx__["a" /* default */], null)
                     )
                 )
             );
@@ -15295,24 +15283,57 @@ var Comment = function (_React$Component) {
     function Comment(props) {
         _classCallCheck(this, Comment);
 
-        return _possibleConstructorReturn(this, (Comment.__proto__ || Object.getPrototypeOf(Comment)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Comment.__proto__ || Object.getPrototypeOf(Comment)).call(this, props));
+
+        _this.state = {
+            data: [{
+                username: 'Romeo',
+                text: 'i love u',
+                isReply: false,
+                date: '2018/04/12'
+            }, {
+                username: 'Juliate',
+                text: 'i love u too',
+                isReply: true,
+                date: '2018/04/13'
+            }]
+        };
+        return _this;
     }
 
     _createClass(Comment, [{
         key: 'render',
         value: function render() {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["c" /* Col */],
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            var comments = this.state.data.map(function (c, it) {
+                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["b" /* Row */],
                     null,
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'h1',
-                        null,
-                        'Comment'
+                        'div',
+                        { key: it, style: { 'margin-left': c.isReply ? '50px' : 0, display: 'block' } },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'p',
+                            { style: { 'font-weight': 'bold' } },
+                            c.username
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'p',
+                            null,
+                            c.text
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'p',
+                            null,
+                            'date: ',
+                            c.date
+                        )
                     )
-                )
+                );
+            });
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["c" /* Col */],
+                null,
+                comments
             );
         }
     }]);
@@ -16018,9 +16039,10 @@ var Recommend = function (_React$Component) {
 
 /***/ }),
 /* 172 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__) {
 
-throw new Error("Module build failed: SyntaxError: Unexpected token (34:21)\n\n\u001b[0m \u001b[90m 32 | \u001b[39m                  \u001b[90m// Add your code here\u001b[39m\n \u001b[90m 33 | \u001b[39m              }}\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 34 | \u001b[39m              console\u001b[33m.\u001b[39mlog(\u001b[32m'testing'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    | \u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 35 | \u001b[39m        \u001b[33m>\u001b[39m\n \u001b[90m 36 | \u001b[39m        \u001b[33m<\u001b[39m\u001b[33mSideNav\u001b[39m\u001b[33m.\u001b[39m\u001b[33mToggle\u001b[39m \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 37 | \u001b[39m        \u001b[33m<\u001b[39m\u001b[33mSideNav\u001b[39m\u001b[33m.\u001b[39m\u001b[33mNav\u001b[39m defaultSelected\u001b[33m=\u001b[39m\u001b[32m\"home\"\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n");
+"use strict";
+
 
 /***/ }),
 /* 173 */
@@ -18606,7 +18628,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "div.exactFit {\n    word-wrap: break-word;\n}", ""]);
+exports.push([module.i, "div.exactFit {\n    word-wrap: break-word;\n}\n\nimg{\n    width: 100%;\n}", ""]);
 
 // exports
 
@@ -18634,7 +18656,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, ".main {\n    height: 100%;\n}\n\n.row {\n    margin: 1em 0;\n}\n", ""]);
+exports.push([module.i, ".main {\n    height: 100%;\n}\n\n.row {\n    margin: 1em 0;\n}\n\nImage{\n    max-width: 100%;\n    max-height: 100%;\n}", ""]);
 
 // exports
 
