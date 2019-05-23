@@ -1,0 +1,13 @@
+#table_position{
+
+  margin-top: 500px;
+
+}
+.card{
+  width:40%;
+}
+.cardsize{
+  margin-left: 20px;
+  position: absolute;
+  left:300px;
+}

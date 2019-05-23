@@ -5,3 +5,18 @@
 .row {
     margin: 1em 0;
 }
+#register{
+  position: absolute;
+  right:500px;
+  top:10px;
+}
+#login_position{
+  position: absolute;
+  right:400px;
+  top:10px;
+}
+#artist_position{
+  position: absolute;
+  right:300px;
+  top:10px;
+}

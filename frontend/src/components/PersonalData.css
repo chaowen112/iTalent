@@ -1,13 +1,11 @@
-.imgsize{
-  height:200px;
-  width:200px;
-}
-.card_title{
-  position: absolute;
-  left:180px;
-  width:200px;
-}
+
 Card {
     display: inline-block;
+
+}
+.cardsize{
   
+  left:50px;
+  margin-left: 550px;
+  margin-top: 20px;
 }
