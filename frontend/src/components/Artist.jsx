@@ -8,6 +8,9 @@ import {
 import {Container, Row, Col, Button, ButtonGroup, ButtonToolbar, Image} from 'react-bootstrap';
 import './Artist.css';
 
+import Post from 'components/Post.jsx';
+import Comment from 'components/Comment.jsx';
+
 export default class Recommend extends React.Component{
 
     constructor(props){
@@ -91,11 +94,20 @@ export default class Recommend extends React.Component{
                             <Button variant='primary'>Subscribe</Button> 
                             <Button variant='success'>Contact</Button>
                         </ButtonToolbar>
-                    </Col>
-                    <Col sm={12} lg={6}>
                         {this.state.introduction}
                         <Button onClick={this.toggleIntro}>Load</Button>
                     </Col>
+                    <Col>
+                        <Post/>
+                        <Post/>
+                        <Post/>
+                        <Post/>
+                    </Col>
+                </Row>
+                <Row>
+                    <Comment/>
+                    <Comment/>
+                    <Comment/>
                 </Row>
             </Container>
             </div>
