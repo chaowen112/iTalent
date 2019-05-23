@@ -40,9 +40,10 @@ export default class Recommend extends React.Component{
           //</Card>)
       //  });
       return (
-        <div>
+        <div style={{width:'40%',left:1000}}>
+        <Card>
         <div >
-        <Card.Img className="imgsize"  src={`images/React-icon.png`}/>
+        <Card.Img  className="imgsize"  src={`images/React-icon.png`}/>
         </div>
         <Card.Body>
             <Card.Title ><p className="card_title">姓名：Andrew</p>
@@ -55,6 +56,7 @@ export default class Recommend extends React.Component{
             </Card.Title>
 
         </Card.Body>
+        </Card>
         </div>
       )
 

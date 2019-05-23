@@ -50,32 +50,27 @@ export default class Main extends React.Component {
                             <NavbarBrand className='text-info' href="/">iTalents</NavbarBrand>
 
 
-                            <NavbarToggler left onClick={this.handleNavbarToggle}/>
-                            <Collapse isOpen={this.state.navbarToggle} navbar >
+
+
 
                                 <Nav navbar>
 
 
+
                                     <NavItem>
-                                        <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/' >Talents </NavLink>
+                                        <NavLink id="register" left onClick={this.handleNavbarToggle} tag={Link} to='/register' >Register</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/register' >Register</NavLink>
+                                        <NavLink id="login_position" left onClick={this.handleNavbarToggle} tag={Link} to='/login'>Login</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/login'>Login</NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/artist'>Artist</NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/tesing'>Testing</NavLink>
+                                        <NavLink id="artist_position" left onClick={this.handleNavbarToggle} tag={Link} to='/artist'>Artist</NavLink>
                                     </NavItem>
                                     <NavItem>
                                         <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/account'>Account</NavLink>
                                     </NavItem>
                                 </Nav>
-                            </Collapse>
+
 
                         </Navbar>
                     </div>
