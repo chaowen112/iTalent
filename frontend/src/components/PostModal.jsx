@@ -9,6 +9,7 @@ import {Modal, Button} from 'react-bootstrap';
 import YouTube from 'react-youtube';
 
 import './PostModal.css';
+import Post from 'components/Post.jsx';
 
 export default class PostModal extends React.Component{
     constructor(props){
@@ -42,6 +43,7 @@ export default class PostModal extends React.Component{
                 opts={opts}
                 onReady={this._onReady}
             />
+            <Post/>
             </Modal.Body>
             <Modal.Footer>
               <Button onClick={this.props.onHide}>Close</Button>
