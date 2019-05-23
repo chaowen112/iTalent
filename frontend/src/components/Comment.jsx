@@ -34,8 +34,8 @@ export default class Comment extends React.Component{
         let comments = this.state.data.map((c, it) => {
             return(
                 <Row>
-            <div key={it} style={{'margin-left': c.isReply ? '50px': 0, display: 'block'}}>
-                <p style={{'font-weight': 'bold'}}>{c.username}</p>
+            <div key={it} style={{'marginLeft': c.isReply ? '50px': 0, display: 'block'}}>
+                <p style={{'fontWeight': 'bold'}}>{c.username}</p>
                 <p>{c.text}</p>
                 <p>date: {c.date}</p>
             </div>
