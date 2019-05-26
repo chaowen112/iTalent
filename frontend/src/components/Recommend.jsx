@@ -65,13 +65,13 @@ export default class Recommend extends React.Component{
             return (
             <Card key={d.key} style={{minWidth: '200px'}}>
                 <Card.Img variant="top" src={d.img}/>
-                <Card.Body>
+                <Card.Body style={{textAlign: 'center'}}>
                     <Card.Title>{d.title}</Card.Title>
                     <Card.Text>{d.text}</Card.Text>
                 </Card.Body>
-                <Card.Footer>
+                {/* <Card.Footer>
                     <small className="text-muted">Last updated on {d.updated}</small>
-                </Card.Footer>
+                </Card.Footer> */}
             </Card>)
         });
 

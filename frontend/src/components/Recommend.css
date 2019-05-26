@@ -1,6 +1,8 @@
 .title{
     text-align: center;
-    margin: 0 auto;
+    margin: 1.2rem;
+    color: #333;
+    font-size: 2rem;
 }
 
 .row {
