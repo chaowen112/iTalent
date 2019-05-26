@@ -1,7 +1,5 @@
 node_modules
-<<<<<<< HEAD
 .vscode/
-=======
 
 #amplify
 amplify/\#current-cloud-backend
@@ -13,4 +11,3 @@ dist/
 node_modules/
 aws-exports.js
 awsconfiguration.json
->>>>>>> 173a4063497e9a7f82d979341f23bc614c52b7d4
