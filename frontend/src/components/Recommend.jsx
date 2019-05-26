@@ -20,42 +20,42 @@ export default class Recommend extends React.Component{
                 key: 0,
                 title: 'Andrew',
                 text: 'I can play guitar',
-                img: `images/React-icon.png`,
+                img: `images/guitar.jpg`,
                 updated: '2019/05/18'
             },
             {
                 key: 1,
                 title: 'Lawson',
                 text: 'I can tell stories',
-                img: `images/React-icon.png`,
+                img: `images/guitar.jpg`,
                 updated: '2019/05/10'
             },
             {
                 key: 2,
                 title: 'Andy',
                 text: 'I can concour the universe',
-                img: `images/React-icon.png`,
+                img: `images/piano.jpg`,
                 updated: '2019/05/19'
             },
             {
                 key: 3,
                 title: 'Andy',
                 text: 'I can concour the universe',
-                img: `images/React-icon.png`,
+                img: `images/sing.jpg`,
                 updated: '2019/05/19'
             },
             {
                 key: 5,
                 title: 'Andy',
                 text: 'I can concour the universe',
-                img: `images/React-icon.png`,
+                img: `images/ballet.jpg`,
                 updated: '2019/05/19'
             },
             {
                 key: 6,
                 title: 'Andy',
                 text: 'I can concour the universe',
-                img: `images/React-icon.png`,
+                img: `images/clown.jpg`,
                 updated: '2019/05/19'
             }
         ]
@@ -64,7 +64,7 @@ export default class Recommend extends React.Component{
         let cards = data.map(d => {
             return (
             <Card key={d.key} style={{minWidth: '200px'}}>
-                <Card.Img variant="top" src={d.img}/>
+                <Card.Img className="carding" style={{width:'150px',height:'150px',borderRadius:'50%',marginLeft:'22px',marginTop:'10px',border:'solid 5px #eee'}} variant="top" src={d.img}/>
                 <Card.Body>
                     <Card.Title>{d.title}</Card.Title>
                     <Card.Text>{d.text}</Card.Text>
