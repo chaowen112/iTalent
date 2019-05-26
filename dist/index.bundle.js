@@ -9175,19 +9175,19 @@ var Emails = function (_React$Component) {
         key: 0,
         name: 'Andrew',
         text: 'I can play guitar',
-        img: 'images/React-icon.png',
+        img: 'images/guitar.jpg',
         updated: '2019/05/18'
       }, {
         key: 1,
         name: 'Jim',
         text: 'Nice to meet you!',
-        img: 'images/React-icon.png',
+        img: 'images/ballet.jpg',
         updated: '2019/05/13'
       }, {
         key: 2,
         name: 'Alex',
         text: 'hello, i am Lee.',
-        img: 'images/React-icon.png',
+        img: 'images/piano.jpg',
         updated: '2019/05/10'
       }];
       console.log(data.length);
@@ -9199,7 +9199,7 @@ var Emails = function (_React$Component) {
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             { className: 'user-photo' },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: d.img })
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { style: { width: '10vh', height: '10vh', borderRadius: '50%', marginLeft: '22px', marginTop: '10px', border: 'solid 5px #eee' }, src: d.img })
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
@@ -9285,21 +9285,21 @@ var Recommend = function (_React$Component) {
                 key: 0,
                 title: 'Andrew',
                 text: 'I can play guitar',
-                img: 'images/React-icon.png',
+                img: 'images/guitar.jpg',
                 updated: '2019/05/18',
                 score: 8.5
             }, {
                 key: 1,
                 title: 'Lawson',
                 text: 'I can tell stories',
-                img: 'images/React-icon.png',
+                img: 'images/ballet.jpg',
                 updated: '2019/05/10',
                 score: 9.5
             }, {
                 key: 2,
                 title: 'Andy',
                 text: 'I can concour the universe',
-                img: 'images/React-icon.png',
+                img: 'images/piano.jpg',
                 updated: '2019/05/19',
                 score: 7
             }];
@@ -9309,7 +9309,7 @@ var Recommend = function (_React$Component) {
                 return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["f" /* Card */],
                     { key: d.key, id: 'collection_data' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["f" /* Card */].Img, { src: d.img }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["f" /* Card */].Img, { style: { width: '150px', height: '150px', borderRadius: '50%', marginLeft: '22px', marginTop: '10px', border: 'solid 5px #eee' }, src: d.img }),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["f" /* Card */].Body,
                         null,
@@ -16201,7 +16201,7 @@ var OrderList = function (_React$Component) {
                 talent: 'guitar',
                 price: '4000',
                 payment: '已付款',
-                img: 'images/React-icon.png',
+                img: 'images/guitar.jpg',
                 updated: '2019/05/18',
                 score: 8.5
             }];
