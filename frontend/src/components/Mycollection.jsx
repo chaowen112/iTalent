@@ -20,7 +20,7 @@ export default class Recommend extends React.Component{
                 key: 0,
                 title: 'Andrew',
                 text: 'I can play guitar',
-                img: `images/React-icon.png`,
+                img: `images/guitar.jpg`,
                 updated: '2019/05/18',
                 score:8.5
             },
@@ -28,7 +28,7 @@ export default class Recommend extends React.Component{
                 key: 1,
                 title: 'Lawson',
                 text: 'I can tell stories',
-                img: `images/React-icon.png`,
+                img: `images/ballet.jpg`,
                 updated: '2019/05/10',
                 score:9.5
             },
@@ -36,7 +36,7 @@ export default class Recommend extends React.Component{
                 key: 2,
                 title: 'Andy',
                 text: 'I can concour the universe',
-                img: `images/React-icon.png`,
+                img: `images/piano.jpg`,
                 updated: '2019/05/19',
                 score:7
             },
@@ -47,7 +47,7 @@ export default class Recommend extends React.Component{
         let cards = data.map(d => {
             return (
             <Card key={d.key} id="collection_data">
-                <Card.Img  src={d.img}/>
+                <Card.Img style={{width:'150px',height:'150px',borderRadius:'50%',marginLeft:'22px',marginTop:'10px',border:'solid 5px #eee'}} src={d.img}/>
                 <Card.Body>
                     <Card.Title>{d.title}</Card.Title>
                     <Card.Text>{d.text}</Card.Text>

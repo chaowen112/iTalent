@@ -24,7 +24,7 @@ export default class OrderList extends React.Component{
               talent:'guitar',
               price:'4000',
               payment:'已付款',
-              img: `images/React-icon.png`,
+              img: `images/guitar.jpg`,
               updated: '2019/05/18',
               score:8.5
           }
