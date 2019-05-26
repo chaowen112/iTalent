@@ -9,6 +9,8 @@ import {Col, Row, Button, Container, Tab, Nav, Sonnet} from 'react-bootstrap';
 import './Account.css';
 
 import OrderList from 'components/OrderList.jsx';
+import Mycollection from 'components/Mycollection.jsx';
+import PersonalData from 'components/PersonalData.jsx';
 
 export default class Account extends React.Component{
 
@@ -24,10 +26,16 @@ export default class Account extends React.Component{
                     <Col sm={3}>
                     <Nav variant="pills" className="flex-column">
                         <Nav.Item>
-                        <Nav.Link eventKey="first">Tab 1</Nav.Link>
+                        <Nav.Link eventKey="first">訂單查詢</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                        <Nav.Link eventKey="second">Tab 2</Nav.Link>
+                        <Nav.Link eventKey="second">收件匣</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                        <Nav.Link eventKey="third">我的收藏</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                        <Nav.Link eventKey="fourth">個人資料</Nav.Link>
                         </Nav.Item>
                     </Nav>
                     </Col>
@@ -37,6 +45,13 @@ export default class Account extends React.Component{
                         <OrderList/>
                         </Tab.Pane>
                         <Tab.Pane eventKey="second">
+
+                        </Tab.Pane>
+                        <Tab.Pane eventKey="third">
+                        <Mycollection/>
+                        </Tab.Pane>
+                        <Tab.Pane eventKey="fourth">
+                        <PersonalData/>
                         </Tab.Pane>
                     </Tab.Content>
                     </Col>

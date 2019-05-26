@@ -1034,17 +1034,17 @@ module.exports = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__BreadcrumbItem__ = __webpack_require__(91);
 /* unused harmony reexport BreadcrumbItem */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Button__ = __webpack_require__(40);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_4__Button__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return __WEBPACK_IMPORTED_MODULE_4__Button__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ButtonGroup__ = __webpack_require__(52);
 /* unused harmony reexport ButtonGroup */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ButtonToolbar__ = __webpack_require__(233);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_6__ButtonToolbar__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_6__ButtonToolbar__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Card__ = __webpack_require__(234);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_7__Card__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__CardColumns__ = __webpack_require__(235);
 /* unused harmony reexport CardColumns */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__CardDeck__ = __webpack_require__(236);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_9__CardDeck__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_9__CardDeck__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__CardImg__ = __webpack_require__(93);
 /* unused harmony reexport CardImg */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__CardGroup__ = __webpack_require__(237);
@@ -1082,7 +1082,7 @@ module.exports = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__Container__ = __webpack_require__(240);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_27__Container__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__Image__ = __webpack_require__(104);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_28__Image__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_28__Image__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__Figure__ = __webpack_require__(244);
 /* unused harmony reexport Figure */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__InputGroup__ = __webpack_require__(250);
@@ -1096,7 +1096,7 @@ module.exports = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__Media__ = __webpack_require__(253);
 /* unused harmony reexport Media */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__Modal__ = __webpack_require__(254);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return __WEBPACK_IMPORTED_MODULE_35__Modal__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_35__Modal__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__ModalBody__ = __webpack_require__(106);
 /* unused harmony reexport ModalBody */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__ModalDialog__ = __webpack_require__(108);
@@ -9200,7 +9200,7 @@ var Post = function (_React$Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["c" /* Row */],
                     { onClick: this.openModal },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Image */], { style: { width: '30%', height: '100%', display: 'inline' }, src: 'images/React-icon.png' }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["h" /* Image */], { style: { width: '30%', height: '100%', display: 'inline' }, src: 'images/React-icon.png' }),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'p',
                         null,
@@ -13969,15 +13969,6 @@ var Main = function (_React$Component) {
                                     null,
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         __WEBPACK_IMPORTED_MODULE_1_reactstrap__["e" /* NavLink */],
-                                        { id: 'login_position', left: true, onClick: this.handleNavbarToggle, tag: __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */], to: '/login' },
-                                        'Login'
-                                    )
-                                ),
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_1_reactstrap__["d" /* NavItem */],
-                                    null,
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_1_reactstrap__["e" /* NavLink */],
                                         { id: 'artist_position', left: true, onClick: this.handleNavbarToggle, tag: __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */], to: '/artist' },
                                         'Artist'
                                     )
@@ -15119,6 +15110,8 @@ module.exports = function spread(callback) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Account_css__ = __webpack_require__(325);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Account_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__Account_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_components_OrderList_jsx__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_components_Mycollection_jsx__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_components_PersonalData_jsx__ = __webpack_require__(348);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -15126,6 +15119,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
 
 
 
@@ -15168,7 +15163,7 @@ var Account = function (_React$Component) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* Nav */].Link,
                                         { eventKey: 'first' },
-                                        'Tab 1'
+                                        '\u8A02\u55AE\u67E5\u8A62'
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -15177,7 +15172,25 @@ var Account = function (_React$Component) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* Nav */].Link,
                                         { eventKey: 'second' },
-                                        'Tab 2'
+                                        '\u6536\u4EF6\u5323'
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* Nav */].Item,
+                                    null,
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* Nav */].Link,
+                                        { eventKey: 'third' },
+                                        '\u6211\u7684\u6536\u85CF'
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* Nav */].Item,
+                                    null,
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["e" /* Nav */].Link,
+                                        { eventKey: 'fourth' },
+                                        '\u500B\u4EBA\u8CC7\u6599'
                                     )
                                 )
                             )
@@ -15193,7 +15206,17 @@ var Account = function (_React$Component) {
                                     { eventKey: 'first' },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_components_OrderList_jsx__["a" /* default */], null)
                                 ),
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["b" /* Tab */].Pane, { eventKey: 'second' })
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["b" /* Tab */].Pane, { eventKey: 'second' }),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["b" /* Tab */].Pane,
+                                    { eventKey: 'third' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_components_Mycollection_jsx__["a" /* default */], null)
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["b" /* Tab */].Pane,
+                                    { eventKey: 'fourth' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6_components_PersonalData_jsx__["a" /* default */], null)
+                                )
                             )
                         )
                     )
@@ -15289,7 +15312,7 @@ var Recommend = function (_React$Component) {
                                 null,
                                 'Artist'
                             ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* Image */], { style: { width: '100%' }, roundedCircle: true, src: this.state.data.photo }),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["h" /* Image */], { style: { width: '100%' }, roundedCircle: true, src: this.state.data.photo }),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'h6',
                                 null,
@@ -15318,15 +15341,15 @@ var Recommend = function (_React$Component) {
                                 ' '
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["h" /* ButtonToolbar */],
+                                __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["i" /* ButtonToolbar */],
                                 null,
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["i" /* Button */],
+                                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["j" /* Button */],
                                     { variant: 'outline-info' },
                                     'Subscribe'
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["i" /* Button */],
+                                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["j" /* Button */],
                                     { variant: 'outline-success' },
                                     'Contact'
                                 )
@@ -15334,7 +15357,7 @@ var Recommend = function (_React$Component) {
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null),
                             this.state.introduction,
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["i" /* Button */],
+                                __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["j" /* Button */],
                                 { variant: 'outline-secondary', onClick: this.toggleIntro },
                                 '\u986F\u793A\u5B8C\u6574\u8A0A\u606F'
                             ),
@@ -15528,7 +15551,7 @@ var Booking = function (_React$Component) {
                     __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["c" /* Row */],
                     { className: 'justify-content-md-center' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["k" /* CardDeck */],
+                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* CardDeck */],
                         { style: { display: 'flex', flexDirection: 'row' } },
                         cards
                     )
@@ -15970,7 +15993,7 @@ var Recommend = function (_React$Component) {
                     __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["c" /* Row */],
                     { className: 'justify-content-md-center' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["k" /* CardDeck */],
+                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* CardDeck */],
                         { style: { display: 'flex', flexDirection: 'row' } },
                         cards
                     )
@@ -16133,16 +16156,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var Recommend = function (_React$Component) {
-    _inherits(Recommend, _React$Component);
+var PersonalData = function (_React$Component) {
+    _inherits(PersonalData, _React$Component);
 
-    function Recommend(props) {
-        _classCallCheck(this, Recommend);
+    function PersonalData(props) {
+        _classCallCheck(this, PersonalData);
 
-        return _possibleConstructorReturn(this, (Recommend.__proto__ || Object.getPrototypeOf(Recommend)).call(this, props));
+        return _possibleConstructorReturn(this, (PersonalData.__proto__ || Object.getPrototypeOf(PersonalData)).call(this, props));
     }
 
-    _createClass(Recommend, [{
+    _createClass(PersonalData, [{
         key: 'render',
         value: function render() {
 
@@ -16169,10 +16192,10 @@ var Recommend = function (_React$Component) {
             //  });
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
-                { style: { width: '40%', left: 1000 } },
+                null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["f" /* Card */],
-                    null,
+                    { style: { width: '80%' } },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         null,
@@ -16214,10 +16237,10 @@ var Recommend = function (_React$Component) {
         }
     }]);
 
-    return Recommend;
+    return PersonalData;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (Recommend);
+/* harmony default export */ __webpack_exports__["a"] = (PersonalData);
 
 /***/ }),
 /* 173 */
@@ -16272,23 +16295,23 @@ var PostModal = function (_React$Component) {
             };
 
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["j" /* Modal */],
+                __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["k" /* Modal */],
                 _extends({}, this.props, {
                     size: 'lg',
                     'aria-labelledby': 'contained-modal-title-vcenter',
                     centered: true
                 }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["j" /* Modal */].Header,
+                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["k" /* Modal */].Header,
                     null,
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["j" /* Modal */].Title,
+                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["k" /* Modal */].Title,
                         { id: 'contained-modal-title-vcenter' },
                         'Modal heading'
                     )
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["j" /* Modal */].Body,
+                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["k" /* Modal */].Body,
                     null,
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_youtube__["a" /* default */], {
                         videoId: 'ERFO-yoFBVA',
@@ -16298,10 +16321,10 @@ var PostModal = function (_React$Component) {
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_components_Post_jsx__["a" /* default */], null)
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["j" /* Modal */].Footer,
+                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["k" /* Modal */].Footer,
                     null,
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["i" /* Button */],
+                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["j" /* Button */],
                         { onClick: this.props.onHide },
                         'Close'
                     )
@@ -16438,7 +16461,7 @@ var Recommend = function (_React$Component) {
                     __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["c" /* Row */],
                     { className: 'justify-content-md-center scrollbar', style: { margin: "50px 80px" } },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["k" /* CardDeck */],
+                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["g" /* CardDeck */],
                         { style: { flexFlow: "row nowrap", margin: "10px 0" } },
                         cards
                     )
@@ -19120,7 +19143,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, "\nCard {\n    display: inline-block;\n\n}\n.cardsize{\n  \n  left:50px;\n  margin-left: 550px;\n  margin-top: 20px;\n}\n", ""]);
+exports.push([module.i, "\nCard {\n    display: inline-block;\n    \n}\n.cardsize{\n\n  left:50px;\n  margin-left: 550px;\n  margin-top: 20px;\n}\n", ""]);
 
 // exports
 
@@ -35254,6 +35277,118 @@ exports.default = function (emitter) {
 };
 
 module.exports = exports['default'];
+
+/***/ }),
+/* 347 */,
+/* 348 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PersonalData_css__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PersonalData_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__PersonalData_css__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+var PersonalData = function (_React$Component) {
+    _inherits(PersonalData, _React$Component);
+
+    function PersonalData(props) {
+        _classCallCheck(this, PersonalData);
+
+        return _possibleConstructorReturn(this, (PersonalData.__proto__ || Object.getPrototypeOf(PersonalData)).call(this, props));
+    }
+
+    _createClass(PersonalData, [{
+        key: 'render',
+        value: function render() {
+
+            var data = [{
+                key: 0,
+                title: 'Andrew',
+                text: 'I can play guitar',
+                img: 'images/React-icon.png',
+                updated: '2019/05/18'
+            }];
+
+            //let cards = data.map(d => {
+            //return (
+            //<Card key={d.key}>
+            //<Card.Img variant="top" src={d.img}/>
+            //<Card.Body>
+            //<Card.Title>{d.title}</Card.Title>
+            //<Card.Text>{d.text}</Card.Text>
+            //</Card.Body>
+            //<Card.Footer>
+            //  <small className="text-muted">Last updated on {d.updated}</small>
+            //  </Card.Footer>
+            //</Card>)
+            //  });
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["f" /* Card */],
+                    { style: { width: '80%' } },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        null,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["f" /* Card */].Img, { className: 'imgsize', src: 'images/React-icon.png' })
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["f" /* Card */].Body,
+                        null,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["f" /* Card */].Title,
+                            null,
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'p',
+                                { className: 'card_title' },
+                                '\u59D3\u540D\uFF1AAndrew'
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'p',
+                                { className: 'card_title' },
+                                '\u751F\u65E5\uFF1A1996/05/23'
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'p',
+                                { className: 'card_title' },
+                                '\u6027\u5225\uFF1A\u7537'
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'p',
+                                { className: 'card_title' },
+                                '\u624D\u85DD\uFF1A\u5409\u4ED6'
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return PersonalData;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["a"] = (PersonalData);
 
 /***/ })
 ],[179]);

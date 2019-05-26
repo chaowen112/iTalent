@@ -7,7 +7,7 @@ import {
 
 import {Card, CardDeck , Container, Row, Col, CardColumns}from 'react-bootstrap';
 import './PersonalData.css';
-export default class Recommend extends React.Component{
+export default class PersonalData extends React.Component{
 
     constructor(props){
         super(props)
@@ -40,8 +40,8 @@ export default class Recommend extends React.Component{
           //</Card>)
       //  });
       return (
-        <div style={{width:'40%',left:1000}}>
-        <Card>
+        <div >
+        <Card style={{width:'80%'}}>
         <div >
         <Card.Img  className="imgsize"  src={`images/React-icon.png`}/>
         </div>

@@ -60,9 +60,7 @@ export default class Main extends React.Component {
                                     <NavItem>
                                         <NavLink id="register" left onClick={this.handleNavbarToggle} tag={Link} to='/register' >Register</NavLink>
                                     </NavItem>
-                                    <NavItem>
-                                        <NavLink id="login_position" left onClick={this.handleNavbarToggle} tag={Link} to='/login'>Login</NavLink>
-                                    </NavItem>
+                                    
                                     <NavItem>
                                         <NavLink id="artist_position" left onClick={this.handleNavbarToggle} tag={Link} to='/artist'>Artist</NavLink>
                                     </NavItem>
@@ -81,7 +79,7 @@ export default class Main extends React.Component {
                     <Route exact path="/register" render={() => (
                         <Today  />
                     )}/>
-                    <Route exact path="/login" render={() => (
+                   <Route exact path="/login" render={() => (
                         <Login />
                     )}/>
                     <Route exact path="/artist" render={() => (
