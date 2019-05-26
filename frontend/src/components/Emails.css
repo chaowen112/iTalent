@@ -1,0 +1,35 @@
+.chat-box {
+  z-index: 10;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  flex-direction: row;
+  padding: 0.6rem;
+  width: 80%;
+  margin: 20px auto;
+}
+
+.chat-box img {
+  height: 8vh;
+  width: auto;
+  border-radius: 100%;
+  margin: 0 0.6rem;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.user-name {
+  font-weight: 600;
+}
+
+.text {
+  color: #999;
+}
+
+.date {
+  color: #999;
+  font-size: 0.8rem;
+}
