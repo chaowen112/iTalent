@@ -19050,7 +19050,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, "div.exactFit {\r\n    word-wrap: break-word;\r\n}\r\n\r\nimg{\r\n    width: 100%;\r\n}\r\n\r\n.post-col {\r\n    background: rgb(198, 231, 229)\r\n}\r\n\r\nspan {\r\n    margin-right: 5px;\r\n    align-self: center;\r\n}\r\n\r\n.btn {\r\n    margin-right: 10px;\r\n    align-self: center;\r\n}\r\n\r\n.btn-outline-info {\r\n    margin-left: auto;\r\n}", ""]);
+exports.push([module.i, "div.exactFit {\n    word-wrap: break-word;\n}\n\nimg{\n    width: 100%;\n}\n\n.post-col {\n    background: rgb(198, 231, 229)\n}\n\nspan {\n    margin-right: 5px;\n    align-self: center;\n}\n\n.btn {\n    margin-right: 10px;\n    align-self: center;\n}\n\n.btn-outline-info {\n    margin-left: auto;\n}", ""]);
 
 // exports
 
@@ -19064,7 +19064,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, "#table_position{\r\n\r\n  margin-top: 500px;\r\n\r\n}\r\n.card{\r\n  width:40%;\r\n}\r\n.cardsize{\r\n  margin-left: 20px;\r\n  position: absolute;\r\n  left:300px;\r\n}\r\n", ""]);
+exports.push([module.i, "#table_position{\n\n  margin-top: 500px;\n\n}\n.card{\n  width:40%;\n}\n.cardsize{\n  margin-left: 20px;\n  position: absolute;\n  left:300px;\n}\n", ""]);
 
 // exports
 
@@ -19078,7 +19078,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, "\r\n#login_option{\r\n  width:140px;\r\n  height:80px;\r\n}\r\n.button1{\r\n  width:160px;\r\n  height:80px;\r\n}\r\n.button2{\r\n  position: absolute;\r\n  top:20px;\r\n  left:140px;\r\n  width:160px;\r\n}\r\n", ""]);
+exports.push([module.i, "\n#login_option{\n  width:140px;\n  height:80px;\n}\n.button1{\n  width:160px;\n  height:80px;\n}\n.button2{\n  position: absolute;\n  top:20px;\n  left:140px;\n  width:160px;\n}\n", ""]);
 
 // exports
 
@@ -19092,7 +19092,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, ".main {\r\n    height: 100%;\r\n}\r\n\r\n.row {\r\n    margin: 1em 0;\r\n}\r\n#register{\r\n  position: absolute;\r\n  right:500px;\r\n  top:10px;\r\n}\r\n#login_position{\r\n  position: absolute;\r\n  right:400px;\r\n  top:10px;\r\n}\r\n#artist_position{\r\n  position: absolute;\r\n  right:300px;\r\n  top:10px;\r\n}\r\n", ""]);
+exports.push([module.i, ".main {\n    height: 100%;\n}\n\n.row {\n    margin: 1em 0;\n}\n#register{\n  position: absolute;\n  right:500px;\n  top:10px;\n}\n#login_position{\n  position: absolute;\n  right:400px;\n  top:10px;\n}\n#artist_position{\n  position: absolute;\n  right:300px;\n  top:10px;\n}\n", ""]);
 
 // exports
 
@@ -19106,7 +19106,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, "#collection_data{\r\n  width:200px;\r\n}\r\n", ""]);
+exports.push([module.i, "#collection_data{\n  width:200px;\n}\n", ""]);
 
 // exports
 
@@ -19120,7 +19120,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, "\r\nCard {\r\n    display: inline-block;\r\n\r\n}\r\n.cardsize{\r\n  \r\n  left:50px;\r\n  margin-left: 550px;\r\n  margin-top: 20px;\r\n}\r\n", ""]);
+exports.push([module.i, "\nCard {\n    display: inline-block;\n\n}\n.cardsize{\n  \n  left:50px;\n  margin-left: 550px;\n  margin-top: 20px;\n}\n", ""]);
 
 // exports
 
@@ -19148,7 +19148,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, ".title{\r\n    text-align: center;\r\n    margin: 0 auto;\r\n}\r\n\r\n.row {\r\n    overflow-x: auto;\r\n}", ""]);
+exports.push([module.i, ".title{\n    text-align: center;\n    margin: 0 auto;\n}\n\n.row {\n    overflow-x: auto;\n}", ""]);
 
 // exports
 
@@ -19162,7 +19162,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, ".weather-display {\r\n    color: #fff;\r\n    text-align: center;\r\n    text-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.3), 0 0 1rem rgba(0, 0, 0, 0.7);\r\n    padding: 1rem;\r\n    position: relative;\r\n\r\n    width: 100%;\r\n    max-width: 24rem;\r\n    margin: 0 auto;\r\n\r\n    transition: all 0.3s;\r\n    opacity: 1;\r\n}\r\n\r\n.weather-display.masking {\r\n    opacity: 0;\r\n}\r\n\r\n.weather-display .description {\r\n    position: absolute;\r\n    margin: 0 auto;\r\n    top: 2rem;\r\n    right: 2rem;\r\n    text-transform: capitalize;\r\n    opacity: 0.7;\r\n}\r\n\r\n.weather-display .temp {\r\n    position: absolute;\r\n    margin: 0 auto;\r\n    bottom: 2rem;\r\n    left: 2rem;\r\n}\r\n\r\n.weather-display img {\r\n    display: block;\r\n    width: 100%;\r\n    max-width: 20rem;\r\n    margin: 0 auto;\r\n}\r\n", ""]);
+exports.push([module.i, ".weather-display {\n    color: #fff;\n    text-align: center;\n    text-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.3), 0 0 1rem rgba(0, 0, 0, 0.7);\n    padding: 1rem;\n    position: relative;\n\n    width: 100%;\n    max-width: 24rem;\n    margin: 0 auto;\n\n    transition: all 0.3s;\n    opacity: 1;\n}\n\n.weather-display.masking {\n    opacity: 0;\n}\n\n.weather-display .description {\n    position: absolute;\n    margin: 0 auto;\n    top: 2rem;\n    right: 2rem;\n    text-transform: capitalize;\n    opacity: 0.7;\n}\n\n.weather-display .temp {\n    position: absolute;\n    margin: 0 auto;\n    bottom: 2rem;\n    left: 2rem;\n}\n\n.weather-display img {\n    display: block;\n    width: 100%;\n    max-width: 20rem;\n    margin: 0 auto;\n}\n", ""]);
 
 // exports
 
@@ -19176,7 +19176,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, ".weather-form {\r\n    text-align: center;\r\n}\r\n\r\n.weather-form input {\r\n    margin-top: 0.25rem;\r\n    width: 12rem;\r\n}\r\n\r\n.weather-form button {\r\n    margin-top: 0.25rem;\r\n}\r\n", ""]);
+exports.push([module.i, ".weather-form {\n    text-align: center;\n}\n\n.weather-form input {\n    margin-top: 0.25rem;\n    width: 12rem;\n}\n\n.weather-form button {\n    margin-top: 0.25rem;\n}\n", ""]);
 
 // exports
 
@@ -19190,7 +19190,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, ".wellcome{\r\n    background-color: aliceblue;\r\n    height: 100%;\r\n}\r\n\r\n#id_footer {\r\n\r\n  /* 設定footer的高度 */\r\n  height: 100px;\r\n  box-sizing: border-box;\r\n  /* 設定footer絕對位置在底部 */\r\n  position: absolute;\r\n  \r\n  margin-top: -50px;\r\n  /* 展開footer寬度 */\r\n  width: 100%;\r\n  background-color:black;\r\n  color:white;\r\n}\r\n", ""]);
+exports.push([module.i, ".wellcome{\n    background-color: aliceblue;\n    height: 100%;\n}\n\n#id_footer {\n\n  /* 設定footer的高度 */\n  height: 100px;\n  box-sizing: border-box;\n  /* 設定footer絕對位置在底部 */\n  position: absolute;\n  \n  margin-top: -50px;\n  /* 展開footer寬度 */\n  width: 100%;\n  background-color:black;\n  color:white;\n}\n", ""]);
 
 // exports
 
@@ -19204,7 +19204,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, ".weather-bg {\r\n    height: 100%;\r\n    background-position: center;\r\n    background-attachment: fixed;\r\n    background-size: cover;\r\n}\r\n\r\n.weather-bg .mask {\r\n    height: 100%;\r\n    background-color: rgba(0, 0, 0, 0.5);\r\n    transition: all 0.6s;\r\n    padding-top: 4rem;\r\n}\r\n\r\n.weather-bg .mask.masking {\r\n    background-color: #000;\r\n}\r\n\r\n.weather-bg.thunderstorm {\r\n    background-image: url('images/w-thunderstorm-bg.jpg');\r\n}\r\n\r\n.weather-bg.drizzle {\r\n    background-image: url('images/w-drizzle-bg.jpg');\r\n}\r\n\r\n.weather-bg.rain {\r\n    background-image: url('images/w-rain-bg.jpg');\r\n}\r\n\r\n.weather-bg.snow {\r\n    background-image: url('images/w-snow-bg.jpg');\r\n}\r\n\r\n.weather-bg.atmosphere {\r\n    background-image: url('images/w-atmosphere-bg.jpg');\r\n}\r\n\r\n.weather-bg.clear {\r\n    background-image: url('images/w-clear-bg.jpg');\r\n}\r\n\r\n.weather-bg.clouds {\r\n    background-image: url('images/w-clouds-bg.jpg');\r\n}\r\n\r\n.weather-bg.na {\r\n    background-image: url('images/w-na-bg.jpg');\r\n}\r\n", ""]);
+exports.push([module.i, ".weather-bg {\n    height: 100%;\n    background-position: center;\n    background-attachment: fixed;\n    background-size: cover;\n}\n\n.weather-bg .mask {\n    height: 100%;\n    background-color: rgba(0, 0, 0, 0.5);\n    transition: all 0.6s;\n    padding-top: 4rem;\n}\n\n.weather-bg .mask.masking {\n    background-color: #000;\n}\n\n.weather-bg.thunderstorm {\n    background-image: url('images/w-thunderstorm-bg.jpg');\n}\n\n.weather-bg.drizzle {\n    background-image: url('images/w-drizzle-bg.jpg');\n}\n\n.weather-bg.rain {\n    background-image: url('images/w-rain-bg.jpg');\n}\n\n.weather-bg.snow {\n    background-image: url('images/w-snow-bg.jpg');\n}\n\n.weather-bg.atmosphere {\n    background-image: url('images/w-atmosphere-bg.jpg');\n}\n\n.weather-bg.clear {\n    background-image: url('images/w-clear-bg.jpg');\n}\n\n.weather-bg.clouds {\n    background-image: url('images/w-clouds-bg.jpg');\n}\n\n.weather-bg.na {\n    background-image: url('images/w-na-bg.jpg');\n}\n", ""]);
 
 // exports
 
@@ -19218,7 +19218,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, "html, body, #root {\r\n    height: 100%;\r\n}\r\n\r\n/* Scroll Bar */\r\n.scrollbar::-webkit-scrollbar {\r\n    min-width: 2px;\r\n}\r\n\r\n.scrollbar::-webkit-scrollbar-track {\r\n    background: #fff;\r\n}\r\n\r\n.scrollbar::-webkit-scrollbar-thumb {\r\n    background: #aaa;\r\n    border-radius: 10px;\r\n}\r\n\r\n.scrollbar::-webkit-scrollbar-thumb:hover {\r\n    background: #999;\r\n}", ""]);
+exports.push([module.i, "html, body, #root {\n    height: 100%;\n}\n\n/* Scroll Bar */\n.scrollbar::-webkit-scrollbar {\n    min-width: 2px;\n}\n\n.scrollbar::-webkit-scrollbar-track {\n    background: #fff;\n}\n\n.scrollbar::-webkit-scrollbar-thumb {\n    background: #aaa;\n    border-radius: 10px;\n}\n\n.scrollbar::-webkit-scrollbar-thumb:hover {\n    background: #999;\n}", ""]);
 
 // exports
 
