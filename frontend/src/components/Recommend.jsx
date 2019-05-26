@@ -65,13 +65,11 @@ export default class Recommend extends React.Component{
             return (
             <Card key={d.key} style={{minWidth: '200px'}}>
                 <Card.Img className="carding" style={{width:'150px',height:'150px',borderRadius:'50%',marginLeft:'22px',marginTop:'10px',border:'solid 5px #eee'}} variant="top" src={d.img}/>
-                <Card.Body>
-                    <Card.Title>{d.title}</Card.Title>
+                <Card.Body style={{textAlign: 'center'}}>
+                    <Card.Title >{d.title}</Card.Title>
                     <Card.Text>{d.text}</Card.Text>
                 </Card.Body>
-                <Card.Footer>
-                    <small className="text-muted">Last updated on {d.updated}</small>
-                </Card.Footer>
+
             </Card>)
         });
 

@@ -15,6 +15,7 @@ import Sidebar from "react-sidebar";
 import Mycollection from 'components/Mycollection.jsx';
 import Personaldata from 'components/Personaldata.jsx';
 import Booking from 'components/Booking.jsx';
+import Emails from  'components/Emails.jsx';
 import './Login.css';
 export default class Login extends React.Component{
 
@@ -46,7 +47,7 @@ export default class Login extends React.Component{
                   sidebar={<div>
                               <button className="button1"><Link to='/booking'>訂單</Link></button>
                               <br></br>
-                              <button className="button1">收件匣</button>
+                              <button className="button1"><Link to='/emails'>收件匣</Link></button>
                               <br></br>
                               <button className="button1">評鑑</button>
                               <br></br>
@@ -62,7 +63,6 @@ export default class Login extends React.Component{
                   open={this.state.sidebarOpen}
                   onSetOpen={this.onSetSidebarOpen}
                   styles={{ sidebar: { background: "white" ,width:160,top:200,bottom:150} }}
-
                 >
                 <button className="button2" onClick={() => this.onSetSidebarOpen(true)}>
                   功能列
@@ -71,6 +71,10 @@ export default class Login extends React.Component{
                 </Sidebar>
                 <Route exact path="/booking" render={() => (
                             <Booking/>
+
+                )}/>
+                <Route exact path="/emails" render={() => (
+                            <Emails/>
 
                 )}/>
                 <Route exact path="/mycollection" render={() => (

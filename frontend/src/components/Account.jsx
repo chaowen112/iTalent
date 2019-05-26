@@ -11,6 +11,7 @@ import './Account.css';
 import OrderList from 'components/OrderList.jsx';
 import Mycollection from 'components/Mycollection.jsx';
 import PersonalData from 'components/PersonalData.jsx';
+import Emails from 'components/Emails.jsx';
 
 export default class Account extends React.Component{
 
@@ -45,7 +46,7 @@ export default class Account extends React.Component{
                         <OrderList/>
                         </Tab.Pane>
                         <Tab.Pane eventKey="second">
-
+                        <Emails/>
                         </Tab.Pane>
                         <Tab.Pane eventKey="third">
                         <Mycollection/>
