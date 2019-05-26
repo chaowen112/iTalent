@@ -39,7 +39,7 @@ export default class PostModal extends React.Component{
             </Modal.Header>
             <Modal.Body>
             <YouTube
-                videoId="ERFO-yoFBVA"
+                videoId="GsrIZ1mnOvU"
                 opts={opts}
                 onReady={this._onReady}
             />

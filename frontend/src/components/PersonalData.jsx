@@ -20,7 +20,7 @@ export default class PersonalData extends React.Component{
                 key: 0,
                 title: 'Andrew',
                 text: 'I can play guitar',
-                img: `images/React-icon.png`,
+                img: `images/guitar.jpg`,
                 updated: '2019/05/18'
             }
         ]
@@ -43,7 +43,7 @@ export default class PersonalData extends React.Component{
         <div >
         <Card style={{width:'80%'}}>
         <div >
-        <Card.Img  className="imgsize"  src={`images/React-icon.png`}/>
+        <Card.Img  className="imgsize"  src={`images/guitar.jpg`}/>
         </div>
         <Card.Body>
             <Card.Title ><p className="card_title">姓名：Andrew</p>

@@ -33,28 +33,28 @@ export default class Recommend extends React.Component{
             {
                 key: 2,
                 title: 'Andy',
-                text: 'I can concour the universe',
+                text: 'I can play piano',
                 img: `images/piano.jpg`,
                 updated: '2019/05/19'
             },
             {
                 key: 3,
                 title: 'Andy',
-                text: 'I can concour the universe',
+                text: 'I can sing',
                 img: `images/sing.jpg`,
                 updated: '2019/05/19'
             },
             {
                 key: 5,
                 title: 'Andy',
-                text: 'I can concour the universe',
+                text: 'I can dance',
                 img: `images/ballet.jpg`,
                 updated: '2019/05/19'
             },
             {
                 key: 6,
                 title: 'Andy',
-                text: 'I can concour the universe',
+                text: 'I can be a clown',
                 img: `images/clown.jpg`,
                 updated: '2019/05/19'
             }

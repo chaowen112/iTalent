@@ -27,6 +27,16 @@ export default class OrderList extends React.Component{
               img: `images/guitar.jpg`,
               updated: '2019/05/18',
               score:8.5
+          },
+          {
+              key: 1,
+              title: 'Andy',
+              talent:'piano',
+              price:'5000',
+              payment:'已付款',
+              img: `images/piano.jpg`,
+              updated: '2019/05/13',
+              score:9.0
           }
 
       ]
@@ -40,7 +50,7 @@ export default class OrderList extends React.Component{
           <Row>
           <Col>
           <Card  key={d.key} id="collection_data" style={{width:'100%'}}>
-              <Card.Img  style={{width:'40%'}} src={d.img}/>
+              <Card.Img  style={{width:'40vh',height:'30vh'}} src={d.img}/>
               <Card.Body className="cardsize" >
                   <Card.Title>姓名：{d.title}</Card.Title>
                   <Card.Text>才藝：{d.talent}</Card.Text>

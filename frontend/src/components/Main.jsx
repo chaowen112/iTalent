@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, UncontrolledDropdown} from 'reactstrap';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, UncontrolledDropdown} from 'react-bootstrap';
 
 import {
     BrowserRouter as Router,
@@ -17,7 +17,7 @@ import {
 } from 'reactstrap';
 
 import Today from 'components/Today.jsx';
-import Forecast from 'components/Forecast.jsx';
+
 import Wellcome from 'components/Wellcome.jsx';
 import Artist from 'components/Artist.jsx';
 import Login from 'components/Login.jsx';
@@ -58,11 +58,23 @@ export default class Main extends React.Component {
 
 
                                     <NavItem>
-                                        <NavLink id="register" left onClick={this.handleNavbarToggle} tag={Link} to='/register' >Register</NavLink>
+                                        <NavLink style={{position:'absolute',left:'750px',top:'10px'}} left onClick={this.handleNavbarToggle} tag={Link} to='/register' >Register</NavLink>
                                     </NavItem>
-                                    
+                                    <NavItem style={{position:'absolute',left:'200px',top:'10px'}}>
+                                    <Dropdown>
+                                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                          Category
+                                        </Dropdown.Toggle>
+
+                                        <Dropdown.Menu>
+                                          <Dropdown.Item href="#/action-1">音樂</Dropdown.Item>
+                                          <Dropdown.Item href="#/action-2">運動</Dropdown.Item>
+                                          <Dropdown.Item href="#/action-3">學業</Dropdown.Item>
+                                        </Dropdown.Menu>
+                                    </Dropdown>
+                                    </NavItem>
                                     <NavItem>
-                                        <NavLink id="artist_position" left onClick={this.handleNavbarToggle} tag={Link} to='/artist'>Artist</NavLink>
+                                        <NavLink style={{position:'absolute',left:'560px',top:'10px'}} left onClick={this.handleNavbarToggle} tag={Link} to='/artist'>Artist</NavLink>
                                     </NavItem>
                                     <NavItem>
                                         <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/account'>Account</NavLink>
@@ -76,18 +88,12 @@ export default class Main extends React.Component {
                     <Route exact path="/" render={() => (
                         <Wellcome/>
                     )}/>
-                    <Route exact path="/register" render={() => (
-                        <Today  />
-                    )}/>
-                   <Route exact path="/login" render={() => (
-                        <Login />
-                    )}/>
+
+
                     <Route exact path="/artist" render={() => (
                         <Artist/>
                     )}/>
-                    <Route exact path="/testing" render={() => (
-                        <Testing/>
-                    )}/>
+
                     <Route exact path="/account" render={() => (
                         <Account/>
                     )}/>
