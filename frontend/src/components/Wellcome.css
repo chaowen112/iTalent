@@ -10,10 +10,20 @@
   box-sizing: border-box;
   /* 設定footer絕對位置在底部 */
   position: absolute;
-  
+
   margin-top: -50px;
   /* 展開footer寬度 */
   width: 100%;
   background-color:black;
   color:white;
+}
+
+   .form-control-borderless {
+    border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
 }

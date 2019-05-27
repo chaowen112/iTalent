@@ -16642,37 +16642,37 @@ var Recommend = function (_React$Component) {
                 key: 0,
                 title: 'Andrew',
                 text: 'I can play guitar',
-                img: 'images/React-icon.png',
+                img: 'images/guitar.jpg',
                 updated: '2019/05/18'
             }, {
                 key: 1,
                 title: 'Lawson',
                 text: 'I can tell stories',
-                img: 'images/React-icon.png',
+                img: 'images/guitar.jpg',
                 updated: '2019/05/10'
             }, {
                 key: 2,
                 title: 'Andy',
                 text: 'I can concour the universe',
-                img: 'images/React-icon.png',
+                img: 'images/piano.jpg',
                 updated: '2019/05/19'
             }, {
                 key: 3,
                 title: 'Andy',
                 text: 'I can concour the universe',
-                img: 'images/React-icon.png',
+                img: 'images/sing.jpg',
                 updated: '2019/05/19'
             }, {
                 key: 5,
                 title: 'Andy',
                 text: 'I can concour the universe',
-                img: 'images/React-icon.png',
+                img: 'images/ballet.jpg',
                 updated: '2019/05/19'
             }, {
                 key: 6,
                 title: 'Andy',
                 text: 'I can concour the universe',
-                img: 'images/React-icon.png',
+                img: 'images/clown.jpg',
                 updated: '2019/05/19'
             }];
             console.log(data.length);
@@ -16681,7 +16681,7 @@ var Recommend = function (_React$Component) {
                 return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["f" /* Card */],
                     { key: d.key, style: { minWidth: '200px' } },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["f" /* Card */].Img, { variant: 'top', src: d.img }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["f" /* Card */].Img, { className: 'carding', style: { width: '150px', height: '150px', borderRadius: '50%', marginLeft: '22px', marginTop: '10px', border: 'solid 5px #eee' }, variant: 'top', src: d.img }),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["f" /* Card */].Body,
                         { style: { textAlign: 'center' } },
@@ -17180,6 +17180,41 @@ var Wellcome = function (_React$Component) {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: 'wellcome' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'container' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'row justify-content-center' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { className: 'col-12 col-md-10 col-lg-8' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'form',
+                                { className: 'card card-sm', style: { margin: 'auto', width: '80%' } },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'card-body row no-gutters align-items-center' },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'col' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control form-control-lg form-control-borderless', type: 'search', placeholder: 'Search topics or keywords' })
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'col-auto' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'button',
+                                            { className: 'btn btn-lg btn-success', type: 'submit' },
+                                            'Search'
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_3_react_bootstrap__["a" /* Container */],
                     null,
@@ -19437,7 +19472,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, ".title{\r\n    text-align: center;\r\n    margin: 1.2rem;\r\n    color: #333;\r\n    font-size: 2rem;\r\n}\r\n\r\n.row {\r\n    overflow-x: auto;\r\n}", ""]);
+exports.push([module.i, ".title{\r\n    text-align: center;\r\n    margin: 1.2rem;\r\n    color: #333;\r\n    font-size: 2rem;\r\n}\r\n\r\n.row {\r\n    overflow-x: auto;\r\n}\r\n", ""]);
 
 // exports
 
@@ -19479,7 +19514,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, ".wellcome{\r\n    background-color: aliceblue;\r\n    height: 100%;\r\n}\r\n\r\n#id_footer {\r\n\r\n  /* 設定footer的高度 */\r\n  height: 100px;\r\n  box-sizing: border-box;\r\n  /* 設定footer絕對位置在底部 */\r\n  position: absolute;\r\n  \r\n  margin-top: -50px;\r\n  /* 展開footer寬度 */\r\n  width: 100%;\r\n  background-color:black;\r\n  color:white;\r\n}\r\n", ""]);
+exports.push([module.i, ".wellcome{\r\n    background-color: aliceblue;\r\n    height: 100%;\r\n}\r\n\r\n#id_footer {\r\n\r\n  /* 設定footer的高度 */\r\n  height: 100px;\r\n  box-sizing: border-box;\r\n  /* 設定footer絕對位置在底部 */\r\n  position: absolute;\r\n\r\n  margin-top: -50px;\r\n  /* 展開footer寬度 */\r\n  width: 100%;\r\n  background-color:black;\r\n  color:white;\r\n}\r\n\r\n   .form-control-borderless {\r\n    border: none;\r\n}\r\n\r\n.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {\r\n    border: none;\r\n    outline: none;\r\n    box-shadow: none;\r\n}\r\n", ""]);
 
 // exports
 
