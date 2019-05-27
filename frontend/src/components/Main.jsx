@@ -53,14 +53,10 @@ export default class Main extends React.Component {
 
 
 
-                                <Nav navbar>
+                                <Nav navbar style={{display: "flex", flexDirection: "row"}}>
 
 
-
-                                    <NavItem>
-                                        <NavLink style={{position:'absolute',left:'750px',top:'10px'}} left onClick={this.handleNavbarToggle} tag={Link} to='/register' >Register</NavLink>
-                                    </NavItem>
-                                    <NavItem style={{position:'absolute',left:'200px',top:'10px'}}>
+                                    <NavItem style={{marginLeft: "10px"}}>
                                     <Dropdown>
                                         <Dropdown.Toggle variant="success" id="dropdown-basic">
                                           Category
@@ -73,11 +69,19 @@ export default class Main extends React.Component {
                                         </Dropdown.Menu>
                                     </Dropdown>
                                     </NavItem>
-                                    <NavItem>
-                                        <NavLink style={{position:'absolute',left:'560px',top:'10px'}} left onClick={this.handleNavbarToggle} tag={Link} to='/artist'>Artist</NavLink>
+                                    <NavItem style={{marginLeft: "10px"}}>
+                                        <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/register' >Register</NavLink>
                                     </NavItem>
-                                    <NavItem>
+                                    <NavItem style={{marginLeft: "10px"}}>
+                                        <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/artist'>Artist</NavLink>
+                                    </NavItem>
+                                    <NavItem style={{marginLeft: "10px"}}>
                                         <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/account'>Account</NavLink>
+                                    </NavItem>
+                                    <NavItem style={{marginLeft: "50px"}}>
+                                        <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/'>
+                                          <img src="images/coins.png" style={{width: "20px", marginRight: "10px"}}></img><span>餘額 ： 0 元</span>
+                                          </NavLink>
                                     </NavItem>
                                 </Nav>
 

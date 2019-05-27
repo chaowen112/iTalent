@@ -83,7 +83,7 @@ export default class Recommend extends React.Component{
                 <Row>
                     <Col sm={12} lg={6}>
                         <h1>Artist</h1>
-                        <Image style={{width:'100%'}}roundedCircle src={this.state.data.photo1}/>
+                        <Image style={{width:'100%', borderRadius: "10px", border: "5px solid #eee", margin: "2rem 0"}} src={this.state.data.photo1}/>
                         <h6>Name: {this.state.data.name}</h6>
                         <span>Posts: {this.state.data.posts} </span><span> Subscribers: {this.state.data.subscribers} </span><span> Jobs: {this.state.data.jobs} </span>
                         <ButtonToolbar>

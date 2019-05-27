@@ -9353,7 +9353,7 @@ var Post = function (_React$Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["d" /* Row */],
                     { onClick: this.openModal },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["i" /* Image */], { style: { width: '30%', height: '100%', display: 'inline' }, src: 'images/guitar.jpg' }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["i" /* Image */], { style: { width: '30%', height: '100%', display: 'inline', borderRadius: "10px", border: "3px solid #eee", marginRight: "0.5rem" }, src: 'images/guitar.jpg' }),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'p',
                         null,
@@ -14107,19 +14107,10 @@ var Main = function (_React$Component) {
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_3_reactstrap__["c" /* Nav */],
-                                { navbar: true },
+                                { navbar: true, style: { display: "flex", flexDirection: "row" } },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     __WEBPACK_IMPORTED_MODULE_3_reactstrap__["d" /* NavItem */],
-                                    null,
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_3_reactstrap__["e" /* NavLink */],
-                                        { style: { position: 'absolute', left: '750px', top: '10px' }, left: true, onClick: this.handleNavbarToggle, tag: __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */], to: '/register' },
-                                        'Register'
-                                    )
-                                ),
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_3_reactstrap__["d" /* NavItem */],
-                                    { style: { position: 'absolute', left: '200px', top: '10px' } },
+                                    { style: { marginLeft: "10px" } },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["a" /* Dropdown */],
                                         null,
@@ -14151,20 +14142,43 @@ var Main = function (_React$Component) {
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     __WEBPACK_IMPORTED_MODULE_3_reactstrap__["d" /* NavItem */],
-                                    null,
+                                    { style: { marginLeft: "10px" } },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         __WEBPACK_IMPORTED_MODULE_3_reactstrap__["e" /* NavLink */],
-                                        { style: { position: 'absolute', left: '560px', top: '10px' }, left: true, onClick: this.handleNavbarToggle, tag: __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */], to: '/artist' },
+                                        { left: true, onClick: this.handleNavbarToggle, tag: __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */], to: '/register' },
+                                        'Register'
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_3_reactstrap__["d" /* NavItem */],
+                                    { style: { marginLeft: "10px" } },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        __WEBPACK_IMPORTED_MODULE_3_reactstrap__["e" /* NavLink */],
+                                        { left: true, onClick: this.handleNavbarToggle, tag: __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */], to: '/artist' },
                                         'Artist'
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     __WEBPACK_IMPORTED_MODULE_3_reactstrap__["d" /* NavItem */],
-                                    null,
+                                    { style: { marginLeft: "10px" } },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         __WEBPACK_IMPORTED_MODULE_3_reactstrap__["e" /* NavLink */],
                                         { left: true, onClick: this.handleNavbarToggle, tag: __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */], to: '/account' },
                                         'Account'
+                                    )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    __WEBPACK_IMPORTED_MODULE_3_reactstrap__["d" /* NavItem */],
+                                    { style: { marginLeft: "50px" } },
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        __WEBPACK_IMPORTED_MODULE_3_reactstrap__["e" /* NavLink */],
+                                        { left: true, onClick: this.handleNavbarToggle, tag: __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */], to: '/' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'images/coins.png', style: { width: "20px", marginRight: "10px" } }),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'span',
+                                            null,
+                                            '\u9918\u984D \uFF1A 0 \u5143'
+                                        )
                                     )
                                 )
                             )
@@ -15580,7 +15594,7 @@ var Recommend = function (_React$Component) {
                                 null,
                                 'Artist'
                             ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["i" /* Image */], { style: { width: '100%' }, roundedCircle: true, src: this.state.data.photo1 }),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["i" /* Image */], { style: { width: '100%', borderRadius: "10px", border: "5px solid #eee", margin: "2rem 0" }, src: this.state.data.photo1 }),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'h6',
                                 null,

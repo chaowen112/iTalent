@@ -35,7 +35,7 @@ export default class Post extends React.Component{
                     <h1>Post</h1>
                 </Row>
                 <Row onClick={this.openModal}>
-                    <Image style={{width:'30%', height: '100%', display: 'inline'}} src={`images/guitar.jpg`}/>
+                    <Image style={{width:'30%', height: '100%', display: 'inline', borderRadius: "10px", border: "3px solid #eee", marginRight: "0.5rem"}} src={`images/guitar.jpg`}/>
                     <p><span>Title: </span></p>
                     <p><span>Introduction</span></p>
                     <PostModal onHide={this.closeModal} show={this.state.isModalShow}/>
