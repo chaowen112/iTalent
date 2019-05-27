@@ -22,6 +22,7 @@ import Wellcome from 'components/Wellcome.jsx';
 import Artist from 'components/Artist.jsx';
 import Login from 'components/Login.jsx';
 import Account from 'components/Account.jsx';
+import PostForm from 'components/PostForm.jsx';
 import './Main.css';
 
 export default class Main extends React.Component {
@@ -48,19 +49,10 @@ export default class Main extends React.Component {
 
                         <Navbar color="faded" light toggleable>
                             <NavbarBrand className='text-info' href="/">iTalents</NavbarBrand>
-
-
-
-
-
                                 <Nav navbar>
-
-
-
                                     <NavItem>
                                         <NavLink id="register" left onClick={this.handleNavbarToggle} tag={Link} to='/register' >Register</NavLink>
                                     </NavItem>
-                                    
                                     <NavItem>
                                         <NavLink id="artist_position" left onClick={this.handleNavbarToggle} tag={Link} to='/artist'>Artist</NavLink>
                                     </NavItem>
@@ -68,8 +60,6 @@ export default class Main extends React.Component {
                                         <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/account'>Account</NavLink>
                                     </NavItem>
                                 </Nav>
-
-
                         </Navbar>
                     </div>
 
@@ -90,6 +80,9 @@ export default class Main extends React.Component {
                     )}/>
                     <Route exact path="/account" render={() => (
                         <Account/>
+                    )}/>
+                    <Route exact path="/upload" render={() => (
+                        <PostForm/>
                     )}/>
                 </div>
             </Router>
