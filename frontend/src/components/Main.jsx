@@ -22,6 +22,7 @@ import Wellcome from 'components/Wellcome.jsx';
 import Artist from 'components/Artist.jsx';
 import Login from 'components/Login.jsx';
 import Account from 'components/Account.jsx';
+import PostForm from 'components/PostForm.jsx';
 import './Main.css';
 
 export default class Main extends React.Component {
@@ -84,8 +85,6 @@ export default class Main extends React.Component {
                                           </NavLink>
                                     </NavItem>
                                 </Nav>
-
-
                         </Navbar>
                     </div>
 
@@ -100,6 +99,9 @@ export default class Main extends React.Component {
 
                     <Route exact path="/account" render={() => (
                         <Account/>
+                    )}/>
+                    <Route exact path="/upload" render={() => (
+                        <PostForm/>
                     )}/>
                 </div>
             </Router>
