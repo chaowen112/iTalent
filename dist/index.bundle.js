@@ -16482,6 +16482,7 @@ var PersonalData = function (_React$Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_reactstrap__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_youtube__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__api_post_js__ = __webpack_require__(352);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -16499,6 +16500,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
 var PostForm = function (_React$Component) {
   _inherits(PostForm, _React$Component);
 
@@ -16511,22 +16513,21 @@ var PostForm = function (_React$Component) {
 
     _this.state = {
       inputValue: '',
-      toggle: false,
       youtubeId: '',
-      yt_ready: 'none'
+      yt_ready: 'none',
+      title: '',
+      category: '演員/女演員',
+      experience: '',
+      price: '',
+      detail: ''
     };
 
-    _this.handleInputChange = _this.handleInputChange.bind(_this);
-    _this.handleToggle = _this.handleToggle.bind(_this);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.handleLinkChange = _this.handleLinkChange.bind(_this);
     return _this;
   }
 
   _createClass(PostForm, [{
-    key: 'componentWillUpdate',
-    value: function componentWillUpdate() {}
-  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
@@ -16558,7 +16559,9 @@ var PostForm = function (_React$Component) {
                   { 'for': 'title' },
                   'Title'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["l" /* Input */], { type: 'text', name: 'title', id: 'post-title', placeholder: 'Your Title' })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["l" /* Input */], { required: true, type: 'text', name: 'title', id: 'post-title', placeholder: 'Your Title', onChange: function onChange(e) {
+                    _this2.setState({ title: e.target.value });
+                  } })
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 __WEBPACK_IMPORTED_MODULE_2_reactstrap__["j" /* FormGroup */],
@@ -16570,7 +16573,14 @@ var PostForm = function (_React$Component) {
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   __WEBPACK_IMPORTED_MODULE_2_reactstrap__["l" /* Input */],
-                  { type: 'select', name: 'select', id: 'exampleSelect' },
+                  {
+                    required: true,
+                    type: 'select',
+                    name: 'select',
+                    id: 'exampleSelect',
+                    onChange: function onChange(e) {
+                      _this2.setState({ category: e.target.value });
+                    } },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'option',
                     null,
@@ -16671,7 +16681,9 @@ var PostForm = function (_React$Component) {
                   { 'for': 'experience' },
                   '\u7D93\u9A57'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["l" /* Input */], { type: 'text', name: 'expeience', id: 'experience' })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["l" /* Input */], { required: true, type: 'text', name: 'expeience', id: 'experience', onChange: function onChange(e) {
+                    _this2.setState({ experience: e.target.value });
+                  } })
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 __WEBPACK_IMPORTED_MODULE_2_reactstrap__["j" /* FormGroup */],
@@ -16681,17 +16693,9 @@ var PostForm = function (_React$Component) {
                   { 'for': 'price' },
                   '\u552E\u50F9'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["l" /* Input */], { type: 'text', name: 'price', id: 'price' })
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_2_reactstrap__["j" /* FormGroup */],
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  __WEBPACK_IMPORTED_MODULE_2_reactstrap__["k" /* Label */],
-                  { 'for': 'price' },
-                  '\u552E\u50F9'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["l" /* Input */], { type: 'text', name: 'price', id: 'price' })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["l" /* Input */], { required: true, type: 'text', name: 'price', id: 'price', onChange: function onChange(e) {
+                    _this2.setState({ price: e.target.value });
+                  } })
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 __WEBPACK_IMPORTED_MODULE_2_reactstrap__["j" /* FormGroup */],
@@ -16701,7 +16705,9 @@ var PostForm = function (_React$Component) {
                   { 'for': 'detail' },
                   '\u670D\u52D9\u8A73\u60C5'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["l" /* Input */], { type: 'textarea', name: 'detail', id: 'detail' })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["l" /* Input */], { required: true, type: 'textarea', name: 'detail', id: 'detail', onChange: function onChange(e) {
+                    _this2.setState({ detail: e.target.value });
+                  } })
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 __WEBPACK_IMPORTED_MODULE_2_reactstrap__["j" /* FormGroup */],
@@ -16711,7 +16717,7 @@ var PostForm = function (_React$Component) {
                   { 'for': 'yt-link' },
                   'YouTube \u9023\u7D50'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["l" /* Input */], { type: 'text', name: 'yt-link', id: 'yt-link', getRef: function getRef(el) {
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["l" /* Input */], { required: true, type: 'text', name: 'yt-link', id: 'yt-link', getRef: function getRef(el) {
                     _this2.inputEl = el;
                   }, onChange: this.handleLinkChange, value: this.state.inputValue }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -16730,7 +16736,7 @@ var PostForm = function (_React$Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   __WEBPACK_IMPORTED_MODULE_2_reactstrap__["k" /* Label */],
                   { check: true },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["l" /* Input */], { type: 'checkbox' }),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["l" /* Input */], { required: true, type: 'checkbox' }),
                   '\u6211\u540C\u610F\u4EE5\u4E0A\u8CC7\u6599\u4F9BiTalent\u4F7F\u7528'
                 )
               ),
@@ -16751,47 +16757,29 @@ var PostForm = function (_React$Component) {
   }, {
     key: 'handleLinkChange',
     value: function handleLinkChange(e) {
-
       try {
         var link = new URL(e.target.value);
         var id = '';
         console.log(e.target.value);
         if (link.hostname == 'youtu.be') {
-          this.setState({ youtubeId: link.pathname.split('/')[1] });
           id = link.pathname.split('/')[1];
         } else if (link.hostname == 'www.youtube.com') {
-          this.setState({ youtubeId: link.searchParams.get('v') });
           id = link.searchParams.get('v');
         } else {
-          this.setState({ youtubeId: '' });
           id = '';
         }
-
-        this.setState({ inputValue: e.target.value });
-
-        if (id.length == 11) this.setState({ yt_ready: 'block' });else this.setState({ yt_ready: 'none' });
-
-        console.log(id, id.length);
+        this.setState({ inputValue: e.target.value, youtubeId: id, yt_ready: id.length == 11 ? 'block' : 'none' });
       } catch (error) {
         this.setState({ inputValue: e.target.value });
         console.log('error');
       }
     }
   }, {
-    key: 'handleInputChange',
-    value: function handleInputChange() {
-      console.log('input change');
-    }
-  }, {
-    key: 'handleToggle',
-    value: function handleToggle() {
-      console.log('toggle');
-    }
-  }, {
     key: 'handleSubmit',
     value: function handleSubmit(e) {
       e.preventDefault();
       console.log("submit");
+      __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__api_post_js__["a" /* newPost */])(this.state.title, this.state.category, this.state.experience, this.state.price, this.state.detail, this.state.youtubeId);
     }
   }]);
 
@@ -35909,6 +35897,22 @@ exports.default = function (emitter) {
 };
 
 module.exports = exports['default'];
+
+/***/ }),
+/* 351 */,
+/* 352 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = newPost;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+
+
+function newPost(title, category, experience, price, detail, id) {
+    // TODO insert to database
+    return 'success';
+}
 
 /***/ })
 ],[181]);

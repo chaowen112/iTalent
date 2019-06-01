@@ -10,6 +10,7 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap';
 
 import YouTube from 'react-youtube';
+import {newPost} from '../api/post.js';
 
 export default class PostForm extends React.Component{
     
@@ -20,19 +21,17 @@ export default class PostForm extends React.Component{
 
         this.state={
             inputValue: '',
-            toggle: false,
             youtubeId: '',
-            yt_ready: 'none'
+            yt_ready: 'none',
+            title: '',
+            category: '演員/女演員',
+            experience: '',
+            price: '',
+            detail: ''
         };
 
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleToggle = this.handleToggle.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleLinkChange = this.handleLinkChange.bind(this);
-    }
-
-    componentWillUpdate(){
-      
     }
 
     render(){
@@ -51,11 +50,18 @@ export default class PostForm extends React.Component{
               <Form onSubmit={this.handleSubmit} action='/upload' method='post'>
                 <FormGroup>
                   <Label for="title">Title</Label>
-                  <Input type="text" name="title" id="post-title" placeholder="Your Title" />
+                  <Input required type="text" name="title" id="post-title" placeholder="Your Title" onChange={e => {this.setState({title: e.target.value})}} />
                 </FormGroup>
                 <FormGroup>
                   <Label for="category">類別</Label>
-                  <Input type="select" name="select" id="exampleSelect">
+                  <Input 
+                    required 
+                    type="select" 
+                    name="select" 
+                    id="exampleSelect" 
+                    onChange={e => {
+                      this.setState({category: e.target.value});
+                    }}>
                     <option>演員/女演員</option>
                     <option>樂隊/音樂人</option>
                     <option>書法藝術家</option>
@@ -78,23 +84,19 @@ export default class PostForm extends React.Component{
                 </FormGroup>
                 <FormGroup>
                   <Label for="experience">經驗</Label>
-                  <Input type='text' name="expeience" id="experience" />
+                  <Input required type='text' name="expeience" id="experience" onChange={e => {this.setState({experience: e.target.value})}} />
                 </FormGroup>
                 <FormGroup>
                   <Label for="price">售價</Label>
-                  <Input type="text" name="price" id="price" />
-                </FormGroup>
-                <FormGroup>
-                  <Label for="price">售價</Label>
-                  <Input type="text" name="price" id="price" />
+                  <Input required type="text" name="price" id="price"  onChange={e => {this.setState({price: e.target.value})}} />
                 </FormGroup>
                 <FormGroup>
                   <Label for="detail">服務詳情</Label>
-                  <Input type="textarea" name="detail" id="detail" />
+                  <Input required type="textarea" name="detail" id="detail"  onChange={e => {this.setState({detail: e.target.value})}} />
                 </FormGroup>
                 <FormGroup>
                   <Label for="yt-link">YouTube 連結</Label>
-                  <Input type="text" name="yt-link" id="yt-link" getRef={el => {this.inputEl = el}}  onChange={this.handleLinkChange} value={this.state.inputValue}/>
+                  <Input required type="text" name="yt-link" id="yt-link" getRef={el => {this.inputEl = el}}  onChange={this.handleLinkChange} value={this.state.inputValue}/>
                   <div style={{display: this.state.yt_ready}}>
                     <YouTube
                       videoId={this.state.youtubeId}
@@ -105,7 +107,7 @@ export default class PostForm extends React.Component{
                 </FormGroup>
                 <FormGroup check>
                   <Label check>
-                    <Input type="checkbox" />
+                    <Input required type="checkbox" />
                     我同意以上資料供iTalent使用
                   </Label>
                 </FormGroup>
@@ -120,32 +122,20 @@ export default class PostForm extends React.Component{
     }
 
     handleLinkChange(e){
-
       try{
         let link = new URL(e.target.value);
         let id = ''
         console.log(e.target.value)
         if(link.hostname=='youtu.be'){
-          this.setState({youtubeId: link.pathname.split('/')[1]});
-          id=link.pathname.split('/')[1];
+          id = link.pathname.split('/')[1];
         }
         else if(link.hostname=='www.youtube.com'){
-          this.setState({youtubeId: link.searchParams.get('v')});
           id = link.searchParams.get('v');
         }
         else{
-          this.setState({youtubeId: ''});
           id = '';
         }
-
-        this.setState({inputValue: e.target.value});
-
-        if(id.length==11)
-          this.setState({yt_ready: 'block'});
-        else
-          this.setState({yt_ready: 'none'});
-
-        console.log(id, id.length);
+        this.setState({inputValue: e.target.value, youtubeId: id, yt_ready: id.length == 11 ? 'block' : 'none'});
       }
       catch(error){
         this.setState({inputValue: e.target.value});
@@ -153,16 +143,9 @@ export default class PostForm extends React.Component{
       }
     }
 
-    handleInputChange(){
-        console.log('input change');
-    }
-
-    handleToggle(){
-        console.log('toggle');
-    }
-
     handleSubmit(e){
       e.preventDefault();
-        console.log("submit");
+      console.log("submit");
+      newPost(this.state.title, this.state.category, this.state.experience, this.state.price, this.state.detail, this.state.youtubeId);
     }
 }
