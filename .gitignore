@@ -12,3 +12,4 @@ node_modules/
 aws-exports.js
 awsconfiguration.json
 *bundle*
+.env
