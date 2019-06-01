@@ -6,16 +6,14 @@
 #id_footer {
 
   /* 設定footer的高度 */
-  height: 100px;
-  box-sizing: border-box;
+  height: 5rem;
   /* 設定footer絕對位置在底部 */
-  position: absolute;
-
-  margin-top: -50px;
+  position: fixed;
   /* 展開footer寬度 */
   width: 100%;
   background-color:black;
   color:white;
+  bottom: 0;
 }
 
    .form-control-borderless {

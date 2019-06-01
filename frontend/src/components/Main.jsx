@@ -62,16 +62,19 @@ export default class Main extends React.Component {
                                         </Dropdown.Menu>
                                     </Dropdown>
                                     </NavItem>
-                                    <NavItem style={{marginLeft: "10px"}}>
+                                    <NavItem>
                                         <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/register' >Register</NavLink>
                                     </NavItem>
-                                    <NavItem style={{marginLeft: "10px"}}>
+                                    <NavItem>
                                         <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/artist'>Artist</NavLink>
                                     </NavItem>
-                                    <NavItem style={{marginLeft: "10px"}}>
+                                    <NavItem>
                                         <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/account'>Account</NavLink>
                                     </NavItem>
-                                    <NavItem style={{marginLeft: "50px"}}>
+                                    <NavItem>
+                                        <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/upload'>Upload</NavLink>
+                                    </NavItem>
+                                    <NavItem>
                                         <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/'>
                                           <img src="images/coins.png" style={{width: "20px", marginRight: "10px"}}></img><span>餘額 ： 0 元</span>
                                           </NavLink>
