@@ -5,6 +5,8 @@ import {
   Link
 } from 'react-router-dom';
 
+import Chatroom from './Chatroom.jsx';
+
 import { Card, CardDeck, Container, Row, Col, CardColumns, Button } from 'react-bootstrap';
 import './Emails.css';
 export default class Emails extends React.Component {
@@ -60,7 +62,7 @@ export default class Emails extends React.Component {
 
     var component = cards;
     if (this.state.isChat) {
-      component = null;
+      component = <Chatroom></Chatroom>;
     }
     return (
       <Container>

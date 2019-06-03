@@ -47,6 +47,7 @@ class Main extends React.Component {
 
         this.handleNavbarToggle = this.handleNavbarToggle.bind(this);
         this.handleUnitChange = this.handleUnitChange.bind(this);
+        console.log(this.props.authData);
     }
 
     render() {

@@ -60,15 +60,11 @@ export default class Chatroom extends React.Component {
       )
     });
 
-    console.log(cards);
+    console.log(posts);
 
-    var component = cards;
-    if (this.state.isChat) {
-      component = null;
-    }
     return (
       <Container>
-        {component}
+        {posts}
       </Container>);
   }
 }
