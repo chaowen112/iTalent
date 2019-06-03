@@ -20,6 +20,8 @@ export default class Wellcome extends React.Component{
         this.state = {
           dropdownOpen: false
         };
+
+        this._validAuthStates = ['signedIn'];
     }
     toggle() {
         this.setState(prevState => ({

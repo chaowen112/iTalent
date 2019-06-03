@@ -1,4 +1,13 @@
 import React from 'react';
+
+import SignInWithGoogle from './SignInWithGoogle.jsx';
+import OAuthButton from './OAuthButton.jsx';
+import {withAuthenticator, Authenticator} from 'aws-amplify-react';
+import Amplify, {Auth, Hub} from 'aws-amplify';
+import awsmobile from '../aws-exports';
+
+Amplify.configure(awsmobile);
+
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, UncontrolledDropdown} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button'
 import {
@@ -27,7 +36,7 @@ import PostModal from 'components/PostModal.jsx';
 import Store from 'components/Store.jsx';
 import './Main.css';
 
-export default class Main extends React.Component {
+class Main extends React.Component {
     constructor(props) {
         super(props);
         console.log(props);
@@ -51,7 +60,6 @@ export default class Main extends React.Component {
     render() {
         return (
             <Router>
-
                 <div className={`main bg-faded ${this.state.group}`}>
                     <div className='container'>
 
@@ -73,12 +81,18 @@ export default class Main extends React.Component {
                                           <Dropdown.Item href="#/action-1">音樂</Dropdown.Item>
                                           <Dropdown.Item href="#/action-2">運動</Dropdown.Item>
                                           <Dropdown.Item href="#/action-3">學業</Dropdown.Item>
+                                          <Dropdown.Item href="#/action-3">主持</Dropdown.Item>
                                         </Dropdown.Menu>
                                     </Dropdown>
                                     </NavItem>
+                                    {/* { authState === 'signedIn' &&
                                     <NavItem>
-                                        <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/register' >Register</NavLink>
+                                        <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/register' >Sign out</NavLink>
                                     </NavItem>
+                                    }
+                                    { authState === 'signIn' &&
+                                        <OAuthButton/>
+                                    } */}
                                     <NavItem>
                                         <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/artist'>Artist</NavLink>
                                     </NavItem>
@@ -147,3 +161,17 @@ export default class Main extends React.Component {
         });
     }
 }
+
+export default withAuthenticator(Main, {
+    // Render a sign out button once logged in
+    includeGreetings: true,
+    // Show only certain components
+    // authenticatorComponents: [MyComponents],
+    // display federation/social provider buttons
+    // federated: { myFederatedConfig },
+    // customize the UI/styling
+    // theme: { myCustomTheme }
+});
+
+
+// export default Main;

@@ -34,19 +34,40 @@ const schemaSql = `
         title       TEXT NOT NULL, 
         category    category NOT NULL,
         ts          BIGINT NOT NULL DEFAULT (EXTRACT(EPOCH FROM NOW())),
+        by_hour     BOOL NOT NULL DEFAULT TRUE,
         price       INTEGER NOT NULL DEFAULT 0,
         experience  INTEGER NOT NULL DEFAULT 0, 
         detail      TEXT NOT NULL, 
-        youtubeID   TEXT NOT NULL
+        youtubeId   TEXT NOT NULL,
+        views       INTEGER NOT NULL DEFAULT 0
     );
+    CREATE TABLE history (
+        id          SERIAL PRIMARY KEY NOT NULL,
+        postId      INTEGER NOT NULL,
+        userId      TEXT NOT NULL
+    )
 `;
 
 const selectCategory = `select enum_range (null::category);`;
 
+const dataSql = `
+        INSERT INTO posts (title, category, price, experience, detail, youtubeId, ts)
+        SELECT 'title', 
+            '其他', 
+            i,
+            i+1,
+            'detail',
+            'id',
+            i+100000
+        FROM generate_series(1, 100) AS s(i);
+`
 
 db.none(schemaSql).then(() => {
     console.log('Schema created');
-    pgp.end();
+    db.none(dataSql).then(() => {
+        console.log('data populated');
+        pgp.end();
+    })
 }).catch(err => {
     console.log('Error creating schema', err);
 });

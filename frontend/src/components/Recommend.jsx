@@ -39,21 +39,21 @@ export default class Recommend extends React.Component{
             },
             {
                 key: 3,
-                title: 'Andy',
+                title: 'Allen',
                 text: 'I can sing',
                 img: `images/sing.jpg`,
                 updated: '2019/05/19'
             },
             {
                 key: 5,
-                title: 'Andy',
+                title: 'John',
                 text: 'I can dance',
                 img: `images/ballet.jpg`,
                 updated: '2019/05/19'
             },
             {
                 key: 6,
-                title: 'Andy',
+                title: 'Lisa',
                 text: 'I can be a clown',
                 img: `images/clown.jpg`,
                 updated: '2019/05/19'
