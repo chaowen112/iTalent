@@ -27,6 +27,7 @@ export default class PostForm extends React.Component{
             category: '演員/女演員',
             experience: '',
             price: '',
+            by_hour: false,
             detail: ''
         };
 
@@ -90,6 +91,12 @@ export default class PostForm extends React.Component{
                   <Label for="price">售價</Label>
                   <Input required type="text" name="price" id="price"  onChange={e => {this.setState({price: e.target.value})}} />
                 </FormGroup>
+                <FormGroup check>
+                  <Label check>
+                    <Input required type="checkbox" onChange={e=>{this.setState({by_hour: e.target.value})}} />
+                    計時收費
+                  </Label>
+                </FormGroup>
                 <FormGroup>
                   <Label for="detail">服務詳情</Label>
                   <Input required type="textarea" name="detail" id="detail"  onChange={e => {this.setState({detail: e.target.value})}} />
@@ -146,6 +153,6 @@ export default class PostForm extends React.Component{
     handleSubmit(e){
       e.preventDefault();
       console.log("submit");
-      newPost(this.state.title, this.state.category, this.state.experience, this.state.price, this.state.detail, this.state.youtubeId);
+      newPost(this.state.title, this.state.category, this.state.experience, this.state.price, this.state.by_hour, this.state.detail, this.state.youtubeId);
     }
 }
