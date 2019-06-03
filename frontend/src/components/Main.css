@@ -1,5 +1,6 @@
 .main {
     height: 100%;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .row {
@@ -19,4 +20,8 @@
   position: absolute;
   right:300px;
   top:10px;
+}
+
+.nav-item{
+  margin: 10px;
 }

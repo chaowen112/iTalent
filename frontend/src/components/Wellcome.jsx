@@ -20,6 +20,8 @@ export default class Wellcome extends React.Component{
         this.state = {
           dropdownOpen: false
         };
+
+        this._validAuthStates = ['signedIn'];
     }
     toggle() {
         this.setState(prevState => ({
@@ -72,39 +74,30 @@ export default class Wellcome extends React.Component{
                 </Row>
             </Container>
         <footer className="container-fluid fh5co-footer" id="id_footer">
-            <div className="container" >
-
-                    <div className="col-lg-5" >
-
-
-                        <p>
-                            <span className="email"><img style={{width: '20px'}} src={`images/emails.png`}
-                                    alt="email icon" /></span><b>chaowen.nthu@gmail.com</b>
-
-                                <span className="phone"><img style={{ width: '20px' }} src="images/phone.png" alt="phone icon" /></span><b>+886-931-875-878</b>
-                        </p>
-
-                        <ul className="navbar-nav float-left social-links footer-social">
-
-
-                            <li className="nav-item"><a href="http://www.google.com" >facebook</a> <a href="http://www.google.com">instagram</a>
-                            </li>
-                            <li className="nav-item"><span>copyright</span>
-                            </li>
-
-
-
-                        </ul>
-
-                    </div>
-
-
-
-            </div>
+            <Container>
+                <Row>
+                    <Col lg={6} sm={12} className='justify-content-center d-flex'>
+                        <div className='p-2'>
+                            <a href='www.facebook.com'><b>Facebook</b></a>
+                        </div>
+                        <div className='p-2'>
+                            <a href='www.instagram.com'><b>Instagram</b></a>
+                        </div>
+                    </Col>
+                    <Col lg={6} sm={12}>
+                        <div>
+                            <span className="email"><img style={{width: '20px'}} src={`images/emails.png`} alt="email icon" /></span>
+                            <b>chaowen.nthu@gmail.com</b>
+                        </div>
+                        <div>
+                            <span className="phone"><img style={{ width: '20px' }} src="images/phone.png" alt="phone icon" /></span>
+                            <b>+886-931-875-878</b>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
        </footer>
        </div>
-
        );
-
     }
 }

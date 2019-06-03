@@ -10,7 +10,8 @@ import './Emails.css';
 export default class Emails extends React.Component {
 
   constructor(props) {
-    super(props)
+    super(props);
+    this.state = {isChat: false};
   }
 
   render() {
@@ -42,7 +43,7 @@ export default class Emails extends React.Component {
 
     let cards = data.map(d => {
       return (
-        <div key={d.key} className="chat-box" onClick={this.startChat}>
+        <div key={d.key} className="chat-box" onClick={this.startChat.bind(this, d.name)}>
           <div className="user-photo">
             <img style={{width:'10vh',height:'10vh',borderRadius:'50%',marginLeft:'22px',marginTop:'10px',border:'solid 5px #eee'}} src={d.img}/>
           </div>
@@ -55,16 +56,21 @@ export default class Emails extends React.Component {
       )
     });
 
-    console.log(cards)
+    console.log(cards);
 
+    var component = cards;
+    if (this.state.isChat) {
+      component = null;
+    }
     return (
       <Container>
-        {cards}
+        {component}
       </Container>);
   }
 
-  startChat() {
-    console.log('chat')
+  startChat(name) {
+    console.log('chat with : ', name);
+    this.setState({isChat: true});
   }
 
 }
