@@ -1,4 +1,5 @@
 node_modules
+.vscode/
 
 #amplify
 amplify/\#current-cloud-backend
