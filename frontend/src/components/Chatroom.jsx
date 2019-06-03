@@ -47,7 +47,7 @@ export default class Chatroom extends React.Component {
       return (
         <div className={`talk-box ${reverse}`}>
           <div className="user-img">
-            <img src={`./img/${d.img}`} alt="" />
+            <img src={`${d.img}`} alt="" />
           </div>
           <div className={`talk-info ${reverse}`}>
             <div className="user-name">{d.name}</div>
@@ -64,7 +64,11 @@ export default class Chatroom extends React.Component {
 
     return (
       <Container>
+        <i className="fas fa-chevron-left back-btn" onClick={this.props.backOnClick}></i>
         {posts}
+        <div className="talk-input">
+          <input type="text" placeholder="Message..." id="inputMsg" />
+        </div>
       </Container>);
   }
 }
