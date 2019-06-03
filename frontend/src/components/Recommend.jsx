@@ -7,10 +7,16 @@ import {
 
 import {Card, CardDeck , Container, Row, Col, CardColumns, Button}from 'react-bootstrap';
 import './Recommend.css';
+import PostModal from 'components/PostModal.jsx';
 export default class Recommend extends React.Component{
 
     constructor(props){
-        super(props)
+        super(props);
+        this.state={
+            isModalShow: false
+        }
+        this.closeModal = this.closeModal.bind(this);
+        this.openModal = this.openModal.bind(this);
     }
 
     render(){
@@ -63,13 +69,13 @@ export default class Recommend extends React.Component{
 
         let cards = data.map(d => {
             return (
-            <Card key={d.key} style={{minWidth: '200px'}}>
+            <Card onClick={this.openModal} key={d.key} style={{minWidth: '200px'}}>
                 <Card.Img className="carding" style={{width:'150px',height:'150px',borderRadius:'50%',marginLeft:'22px',marginTop:'10px',border:'solid 5px #eee'}} variant="top" src={d.img}/>
                 <Card.Body style={{textAlign: 'center'}}>
                     <Card.Title >{d.title}</Card.Title>
                     <Card.Text>{d.text}</Card.Text>
                 </Card.Body>
-
+                <PostModal onHide={this.closeModal} show={this.state.isModalShow}/>
             </Card>)
         });
 
@@ -84,5 +90,16 @@ export default class Recommend extends React.Component{
                 </CardDeck>
             </Row>
         </div>);
+    }
+    openModal(){
+        this.setState({isModalShow: true});
+        console.log('openModal', this.state.isModalShow)
+    }
+
+    closeModal(e){
+        console.log(e)
+        e.stopPropagation();
+        this.setState({isModalShow: false})
+        console.log('closeModal', this.state.isModalShow)
     }
 }

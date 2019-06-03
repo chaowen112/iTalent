@@ -9,7 +9,7 @@ import awsmobile from '../aws-exports';
 Amplify.configure(awsmobile);
 
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, UncontrolledDropdown} from 'react-bootstrap';
-
+import Button from 'react-bootstrap/Button'
 import {
     BrowserRouter as Router,
     Route,
@@ -32,22 +32,29 @@ import Artist from 'components/Artist.jsx';
 import Login from 'components/Login.jsx';
 import Account from 'components/Account.jsx';
 import PostForm from 'components/PostForm.jsx';
+import PostModal from 'components/PostModal.jsx';
+import Store from 'components/Store.jsx';
 import './Main.css';
 
 class Main extends React.Component {
     constructor(props) {
         super(props);
-
+        console.log(props);
         this.state = {
             unit: 'metric',
             navbarToggle: false,
             dropdownOpen: false,
+            isModalShow: false,
+            cashNumber:100
+
         };
         this.toggle = this.toggle.bind(this);
 
         this.handleNavbarToggle = this.handleNavbarToggle.bind(this);
         this.handleUnitChange = this.handleUnitChange.bind(this);
-        console.log(this.props.authData);
+        this.closeModal = this.closeModal.bind(this);
+        this.openModal = this.openModal.bind(this);
+        this.updatemoney = this.updatemoney.bind(this);
     }
 
     render() {
@@ -59,6 +66,12 @@ class Main extends React.Component {
                         <Navbar color="faded" light toggleable>
                             <NavbarBrand className='text-info' href="/">iTalents</NavbarBrand>
                                 <Nav navbar style={{display: "flex", flexDirection: "row"}}>
+                                    <NavItem>
+                                        <Button onClick={this.openModal}>儲值
+                                             <Store triggerchangemoney={this.updatemoney} onHide={this.closeModal} show={this.state.isModalShow}/>
+
+                                        </Button>
+                                    </NavItem>
                                     <NavItem style={{marginLeft: "10px"}}>
                                     <Dropdown>
                                         <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -91,7 +104,9 @@ class Main extends React.Component {
                                     </NavItem>
                                     <NavItem>
                                         <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/'>
-                                          <img src="images/coins.png" style={{width: "20px", marginRight: "10px"}}></img><span>餘額 ： 0 元</span>
+                                          <img src="images/coins.png" style={{width: "20px", marginRight: "10px"}}></img>
+                                          <span>餘額 ： {this.state.cashNumber} 元</span>
+
                                           </NavLink>
                                     </NavItem>
                                 </Nav>
@@ -113,6 +128,21 @@ class Main extends React.Component {
                 </div>
             </Router>
         );
+    }
+    updatemoney(cash)
+    {
+      console.log(cash);
+      this.setState({cashNumber:this.state.cashNumber+Number(cash)});
+    }
+    openModal(){
+        this.setState({isModalShow: true});
+        //console.log('openModal', this.state.isModalShow)
+    }
+    closeModal(e){
+        console.log(e)
+        e.stopPropagation();
+        this.setState({isModalShow: false})
+        console.log('closeModal', this.state.isModalShow)
     }
     toggle() {
         this.setState(prevState => ({
@@ -137,7 +167,7 @@ export default withAuthenticator(Main, {
     includeGreetings: true,
     // Show only certain components
     // authenticatorComponents: [MyComponents],
-    // display federation/social provider buttons 
+    // display federation/social provider buttons
     // federated: { myFederatedConfig },
     // customize the UI/styling
     // theme: { myCustomTheme }
