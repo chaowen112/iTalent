@@ -13,3 +13,4 @@ aws-exports.js
 awsconfiguration.json
 *bundle*
 .env
+logs.txt
