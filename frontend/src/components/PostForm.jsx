@@ -93,7 +93,9 @@ export default class PostForm extends React.Component{
                 </FormGroup>
                 <FormGroup check>
                   <Label check>
-                    <Input required type="checkbox" onChange={e=>{this.setState({by_hour: e.target.value})}} />
+                    <Input type="checkbox" 
+                    checked={this.state.by_hour}
+                    onChange={e=>{this.setState({by_hour: e.target.checked})}} />
                     計時收費
                   </Label>
                 </FormGroup>

@@ -17101,8 +17101,10 @@ var PostForm = function (_React$Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   __WEBPACK_IMPORTED_MODULE_2_reactstrap__["k" /* Label */],
                   { check: true },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["l" /* Input */], { required: true, type: 'checkbox', onChange: function onChange(e) {
-                      _this2.setState({ by_hour: e.target.value });
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_reactstrap__["l" /* Input */], { type: 'checkbox',
+                    checked: this.state.by_hour,
+                    onChange: function onChange(e) {
+                      _this2.setState({ by_hour: e.target.checked });
                     } }),
                   '\u8A08\u6642\u6536\u8CBB'
                 )
