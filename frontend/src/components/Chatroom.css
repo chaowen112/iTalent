@@ -1,0 +1,59 @@
+.talk {
+  height: 92vh;
+  width: 100%;
+  overflow-y: scroll;
+  border-bottom: 1px solid #eee;
+}
+
+.talk-box {
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.talk-box.reverse {
+  flex-direction: row-reverse;
+}
+
+.talk-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.talk-info.reverse {
+  align-items: flex-end;
+}
+
+.user-img img {
+  height: 8vh;
+  border-radius: 100%;
+  margin: 0 0.6rem;
+}
+
+.message {
+  display: flex;
+  color: #000;
+}
+
+.message.reverse {
+  flex-direction: row-reverse;
+}
+
+.user-message {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin: 0.2rem 0.2rem 0 0.2rem;
+  max-width: 500px;
+}
+
+.user-message.reverse {
+  background: rgb(57, 235, 131);
+  border: none;
+}
+
+.send-time {
+  align-self: flex-end;
+  font-size: 0.8rem;
+  color: #777;
+}
