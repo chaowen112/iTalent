@@ -62,7 +62,7 @@ export default class Emails extends React.Component {
 
     var component = cards;
     if (this.state.isChat) {
-      component = <Chatroom></Chatroom>;
+      component = <Chatroom backOnClick={this.closeChatroom.bind(this)}></Chatroom>;
     }
     return (
       <Container>
@@ -73,6 +73,10 @@ export default class Emails extends React.Component {
   startChat(name) {
     console.log('chat with : ', name);
     this.setState({isChat: true});
+  }
+
+  closeChatroom() {
+    this.setState({isChat: false});
   }
 
 }
