@@ -6,12 +6,11 @@ import {
 } from 'react-router-dom';
 
 import { Card, CardDeck, Container, Row, Col, CardColumns, Button } from 'react-bootstrap';
-import './Emails.css';
-export default class Emails extends React.Component {
+import './Chatroom.css';
+export default class Chatroom extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {isChat: false};
   }
 
   render() {
@@ -41,16 +40,21 @@ export default class Emails extends React.Component {
     ]
     console.log(data.length)
 
-    let cards = data.map(d => {
+    var UserName = 'Alex';
+
+    let posts = data.map(d => {
+      let reverse = d.name === UserName ? 'reverse' : '';
       return (
-        <div key={d.key} className="chat-box" onClick={this.startChat.bind(this, d.name)}>
-          <div className="user-photo">
-            <img style={{width:'10vh',height:'10vh',borderRadius:'50%',marginLeft:'22px',marginTop:'10px',border:'solid 5px #eee'}} src={d.img}/>
+        <div className={`talk-box ${reverse}`}>
+          <div className="user-img">
+            <img src={`./img/${d.img}`} alt="" />
           </div>
-          <div className="user-info">
+          <div className={`talk-info ${reverse}`}>
             <div className="user-name">{d.name}</div>
-            <div className="text">{d.text}</div>
-            <div className="date">{d.updated}</div>
+            <div className={`message ${reverse}`}>
+              <div className={`user-message ${reverse}`}>{d.text}</div>
+              <div className="send-time">{d.updated}</div>
+            </div>
           </div>
         </div>
       )
@@ -67,10 +71,4 @@ export default class Emails extends React.Component {
         {component}
       </Container>);
   }
-
-  startChat(name) {
-    console.log('chat with : ', name);
-    this.setState({isChat: true});
-  }
-
 }

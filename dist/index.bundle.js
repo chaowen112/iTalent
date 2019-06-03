@@ -9083,7 +9083,10 @@ var Emails = function (_React$Component) {
   function Emails(props) {
     _classCallCheck(this, Emails);
 
-    return _possibleConstructorReturn(this, (Emails.__proto__ || Object.getPrototypeOf(Emails)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Emails.__proto__ || Object.getPrototypeOf(Emails)).call(this, props));
+
+    _this.state = { isChat: false };
+    return _this;
   }
 
   _createClass(Emails, [{
@@ -9115,7 +9118,7 @@ var Emails = function (_React$Component) {
       var cards = data.map(function (d) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
-          { key: d.key, className: 'chat-box', onClick: _this2.startChat },
+          { key: d.key, className: 'chat-box', onClick: _this2.startChat.bind(_this2, d.name) },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             { className: 'user-photo' },
@@ -9145,16 +9148,21 @@ var Emails = function (_React$Component) {
 
       console.log(cards);
 
+      var component = cards;
+      if (this.state.isChat) {
+        component = null;
+      }
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_2_react_bootstrap__["b" /* Container */],
         null,
-        cards
+        component
       );
     }
   }, {
     key: 'startChat',
-    value: function startChat() {
-      console.log('chat');
+    value: function startChat(name) {
+      console.log('chat with : ', name);
+      this.setState({ isChat: true });
     }
   }]);
 
@@ -14408,17 +14416,22 @@ function canAcceptRef(component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_reactstrap__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_components_Today_jsx__ = __webpack_require__(179);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_components_Wellcome_jsx__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_components_Artist_jsx__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_components_Login_jsx__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_components_Account_jsx__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_components_PostForm_jsx__ = __webpack_require__(176);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Main_css__ = __webpack_require__(334);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Main_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__Main_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SignInWithGoogle_jsx__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__OAuthButton_jsx__ = __webpack_require__(353);
+throw new Error("Cannot find module \"aws-amplify-react\"");
+throw new Error("Cannot find module \"aws-amplify\"");
+throw new Error("Cannot find module \"../aws-exports\"");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_bootstrap__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_router_dom__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_reactstrap__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_components_Today_jsx__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_components_Wellcome_jsx__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_components_Artist_jsx__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_components_Login_jsx__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_components_Account_jsx__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_components_PostForm_jsx__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__Main_css__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__Main_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__Main_css__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -14427,6 +14440,15 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+
+
+
+
+
+
+
+
+__WEBPACK_IMPORTED_MODULE_4_aws_amplify___default.a.configure(__WEBPACK_IMPORTED_MODULE_5__aws_exports___default.a);
 
 
 
@@ -14466,7 +14488,7 @@ var Main = function (_React$Component) {
         key: 'render',
         value: function render() {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["a" /* BrowserRouter */],
+                __WEBPACK_IMPORTED_MODULE_7_react_router_dom__["a" /* BrowserRouter */],
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
@@ -14475,90 +14497,86 @@ var Main = function (_React$Component) {
                         'div',
                         { className: 'container' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_3_reactstrap__["a" /* Navbar */],
+                            __WEBPACK_IMPORTED_MODULE_8_reactstrap__["a" /* Navbar */],
                             { color: 'faded', light: true, toggleable: true },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_3_reactstrap__["b" /* NavbarBrand */],
+                                __WEBPACK_IMPORTED_MODULE_8_reactstrap__["b" /* NavbarBrand */],
                                 { className: 'text-info', href: '/' },
                                 'iTalents'
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_3_reactstrap__["c" /* Nav */],
+                                __WEBPACK_IMPORTED_MODULE_8_reactstrap__["c" /* Nav */],
                                 { navbar: true, style: { display: "flex", flexDirection: "row" } },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_3_reactstrap__["d" /* NavItem */],
+                                    __WEBPACK_IMPORTED_MODULE_8_reactstrap__["d" /* NavItem */],
                                     { style: { marginLeft: "10px" } },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["a" /* Dropdown */],
+                                        __WEBPACK_IMPORTED_MODULE_6_react_bootstrap__["a" /* Dropdown */],
                                         null,
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["a" /* Dropdown */].Toggle,
+                                            __WEBPACK_IMPORTED_MODULE_6_react_bootstrap__["a" /* Dropdown */].Toggle,
                                             { variant: 'success', id: 'dropdown-basic' },
                                             'Category'
                                         ),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["a" /* Dropdown */].Menu,
+                                            __WEBPACK_IMPORTED_MODULE_6_react_bootstrap__["a" /* Dropdown */].Menu,
                                             null,
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["a" /* Dropdown */].Item,
+                                                __WEBPACK_IMPORTED_MODULE_6_react_bootstrap__["a" /* Dropdown */].Item,
                                                 { href: '#/action-1' },
                                                 '\u97F3\u6A02'
                                             ),
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["a" /* Dropdown */].Item,
+                                                __WEBPACK_IMPORTED_MODULE_6_react_bootstrap__["a" /* Dropdown */].Item,
                                                 { href: '#/action-2' },
                                                 '\u904B\u52D5'
                                             ),
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                                __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["a" /* Dropdown */].Item,
+                                                __WEBPACK_IMPORTED_MODULE_6_react_bootstrap__["a" /* Dropdown */].Item,
                                                 { href: '#/action-3' },
                                                 '\u5B78\u696D'
+                                            ),
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                __WEBPACK_IMPORTED_MODULE_6_react_bootstrap__["a" /* Dropdown */].Item,
+                                                { href: '#/action-3' },
+                                                '\u4E3B\u6301'
                                             )
                                         )
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_3_reactstrap__["d" /* NavItem */],
+                                    __WEBPACK_IMPORTED_MODULE_8_reactstrap__["d" /* NavItem */],
                                     null,
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_3_reactstrap__["e" /* NavLink */],
-                                        { left: true, onClick: this.handleNavbarToggle, tag: __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */], to: '/register' },
-                                        'Register'
-                                    )
-                                ),
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_3_reactstrap__["d" /* NavItem */],
-                                    null,
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_3_reactstrap__["e" /* NavLink */],
-                                        { left: true, onClick: this.handleNavbarToggle, tag: __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */], to: '/artist' },
+                                        __WEBPACK_IMPORTED_MODULE_8_reactstrap__["e" /* NavLink */],
+                                        { left: true, onClick: this.handleNavbarToggle, tag: __WEBPACK_IMPORTED_MODULE_7_react_router_dom__["b" /* Link */], to: '/artist' },
                                         'Artist'
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_3_reactstrap__["d" /* NavItem */],
+                                    __WEBPACK_IMPORTED_MODULE_8_reactstrap__["d" /* NavItem */],
                                     null,
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_3_reactstrap__["e" /* NavLink */],
-                                        { left: true, onClick: this.handleNavbarToggle, tag: __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */], to: '/account' },
+                                        __WEBPACK_IMPORTED_MODULE_8_reactstrap__["e" /* NavLink */],
+                                        { left: true, onClick: this.handleNavbarToggle, tag: __WEBPACK_IMPORTED_MODULE_7_react_router_dom__["b" /* Link */], to: '/account' },
                                         'Account'
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_3_reactstrap__["d" /* NavItem */],
+                                    __WEBPACK_IMPORTED_MODULE_8_reactstrap__["d" /* NavItem */],
                                     null,
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_3_reactstrap__["e" /* NavLink */],
-                                        { left: true, onClick: this.handleNavbarToggle, tag: __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */], to: '/upload' },
+                                        __WEBPACK_IMPORTED_MODULE_8_reactstrap__["e" /* NavLink */],
+                                        { left: true, onClick: this.handleNavbarToggle, tag: __WEBPACK_IMPORTED_MODULE_7_react_router_dom__["b" /* Link */], to: '/upload' },
                                         'Upload'
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    __WEBPACK_IMPORTED_MODULE_3_reactstrap__["d" /* NavItem */],
+                                    __WEBPACK_IMPORTED_MODULE_8_reactstrap__["d" /* NavItem */],
                                     null,
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        __WEBPACK_IMPORTED_MODULE_3_reactstrap__["e" /* NavLink */],
-                                        { left: true, onClick: this.handleNavbarToggle, tag: __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */], to: '/' },
+                                        __WEBPACK_IMPORTED_MODULE_8_reactstrap__["e" /* NavLink */],
+                                        { left: true, onClick: this.handleNavbarToggle, tag: __WEBPACK_IMPORTED_MODULE_7_react_router_dom__["b" /* Link */], to: '/' },
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'images/coins.png', style: { width: "20px", marginRight: "10px" } }),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'span',
@@ -14570,17 +14588,17 @@ var Main = function (_React$Component) {
                             )
                         )
                     ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { exact: true, path: '/', render: function render() {
-                            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_components_Wellcome_jsx__["a" /* default */], null);
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_react_router_dom__["c" /* Route */], { exact: true, path: '/', render: function render() {
+                            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_10_components_Wellcome_jsx__["a" /* default */], null);
                         } }),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { exact: true, path: '/artist', render: function render() {
-                            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6_components_Artist_jsx__["a" /* default */], null);
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_react_router_dom__["c" /* Route */], { exact: true, path: '/artist', render: function render() {
+                            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_11_components_Artist_jsx__["a" /* default */], null);
                         } }),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { exact: true, path: '/account', render: function render() {
-                            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8_components_Account_jsx__["a" /* default */], null);
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_react_router_dom__["c" /* Route */], { exact: true, path: '/account', render: function render() {
+                            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_13_components_Account_jsx__["a" /* default */], null);
                         } }),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { exact: true, path: '/upload', render: function render() {
-                            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9_components_PostForm_jsx__["a" /* default */], null);
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_react_router_dom__["c" /* Route */], { exact: true, path: '/upload', render: function render() {
+                            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14_components_PostForm_jsx__["a" /* default */], null);
                         } })
                 )
             );
@@ -14615,7 +14633,18 @@ var Main = function (_React$Component) {
     return Main;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (Main);
+/* harmony default export */ __webpack_exports__["a"] = (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_aws_amplify_react__["withAuthenticator"])(Main, {
+    // Render a sign out button once logged in
+    includeGreetings: true
+    // Show only certain components
+    // authenticatorComponents: [MyComponents],
+    // display federation/social provider buttons 
+    // federated: { myFederatedConfig },
+    // customize the UI/styling
+    // theme: { myCustomTheme }
+}));
+
+// export default Main;
 
 /***/ }),
 /* 142 */
@@ -17354,19 +17383,19 @@ var Recommend = function (_React$Component) {
                 updated: '2019/05/19'
             }, {
                 key: 3,
-                title: 'Andy',
+                title: 'Allen',
                 text: 'I can sing',
                 img: 'images/sing.jpg',
                 updated: '2019/05/19'
             }, {
                 key: 5,
-                title: 'Andy',
+                title: 'John',
                 text: 'I can dance',
                 img: 'images/ballet.jpg',
                 updated: '2019/05/19'
             }, {
                 key: 6,
-                title: 'Andy',
+                title: 'Lisa',
                 text: 'I can be a clown',
                 img: 'images/clown.jpg',
                 updated: '2019/05/19'
@@ -17851,6 +17880,8 @@ var Wellcome = function (_React$Component) {
         _this.state = {
             dropdownOpen: false
         };
+
+        _this._validAuthStates = ['signedIn'];
         return _this;
     }
 
@@ -20065,7 +20096,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "div.exactFit {\n    word-wrap: break-word;\n}\n\nimg{\n    width: 100%;\n}\n\n.post-col {\n    background: rgb(198, 231, 229)\n}\n\nspan {\n    margin-right: 5px;\n    align-self: center;\n}\n\n.btn {\n    margin-right: 10px;\n    align-self: center;\n}\n\n.btn-outline-info {\n    margin-left: auto;\n}", ""]);
+exports.push([module.i, "div.exactFit {\n    word-wrap: break-word;\n}\n\nimg{\n    width: 100%;\n}\n\n.post-col {\n    background: white;\n}\n\nspan {\n    margin-right: 5px;\n    align-self: center;\n}\n\n.btn {\n    margin-right: 10px;\n    align-self: center;\n}\n\n.btn-outline-info {\n    margin-left: auto;\n}", ""]);
 
 // exports
 
@@ -35940,6 +35971,160 @@ exports.default = function (emitter) {
 };
 
 module.exports = exports['default'];
+
+/***/ }),
+/* 352 */,
+/* 353 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+throw new Error("Cannot find module \"aws-amplify-react\"");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+var OAuthButton = function (_React$Component) {
+  _inherits(OAuthButton, _React$Component);
+
+  function OAuthButton() {
+    _classCallCheck(this, OAuthButton);
+
+    return _possibleConstructorReturn(this, (OAuthButton.__proto__ || Object.getPrototypeOf(OAuthButton)).apply(this, arguments));
+  }
+
+  _createClass(OAuthButton, [{
+    key: 'render',
+    value: function render() {
+      return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
+        'button',
+        { onClick: this.props.OAuthSignIn },
+        'Sign in'
+      );
+    }
+  }]);
+
+  return OAuthButton;
+}(__WEBPACK_IMPORTED_MODULE_1_react___default.a.Component);
+
+/* unused harmony default export */ var _unused_webpack_default_export = (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_aws_amplify_react__["withOAuth"])(OAuthButton));
+
+/***/ }),
+/* 354 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+throw new Error("Cannot find module \"aws-amplify\"");
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+// To federated sign in from Google
+
+var SignInWithGoogle = function (_React$Component) {
+  _inherits(SignInWithGoogle, _React$Component);
+
+  function SignInWithGoogle(props) {
+    _classCallCheck(this, SignInWithGoogle);
+
+    var _this = _possibleConstructorReturn(this, (SignInWithGoogle.__proto__ || Object.getPrototypeOf(SignInWithGoogle)).call(this, props));
+
+    _this.signIn = _this.signIn.bind(_this);
+    return _this;
+  }
+
+  _createClass(SignInWithGoogle, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var ga = window.gapi && window.gapi.auth2 ? window.gapi.auth2.getAuthInstance() : null;
+      if (!ga) this.createScript();
+    }
+  }, {
+    key: 'signIn',
+    value: function signIn() {
+      var _this2 = this;
+
+      var ga = window.gapi.auth2.getAuthInstance();
+      ga.signIn().then(function (googleUser) {
+        _this2.getAWSCredentials(googleUser);
+      }, function (error) {
+        console.log(error);
+      });
+    }
+  }, {
+    key: 'getAWSCredentials',
+    value: async function getAWSCredentials(googleUser) {
+      var _googleUser$getAuthRe = googleUser.getAuthResponse(),
+          id_token = _googleUser$getAuthRe.id_token,
+          expires_at = _googleUser$getAuthRe.expires_at;
+
+      var profile = googleUser.getBasicProfile();
+      var user = {
+        email: profile.getEmail(),
+        name: profile.getName()
+      };
+
+      var credentials = await __WEBPACK_IMPORTED_MODULE_1_aws_amplify__["Auth"].federatedSignIn('google', { token: id_token, expires_at: expires_at }, user);
+      console.log('credentials', credentials);
+    }
+  }, {
+    key: 'createScript',
+    value: function createScript() {
+      // load the Google SDK
+      var script = document.createElement('script');
+      script.src = 'https://apis.google.com/js/platform.js';
+      script.async = true;
+      script.onload = this.initGapi;
+      document.body.appendChild(script);
+    }
+  }, {
+    key: 'initGapi',
+    value: function initGapi() {
+      // init the Google SDK client
+      var g = window.gapi;
+      g.load('auth2', function () {
+        g.auth2.init({
+          client_id: 'your_google_client_id',
+          // authorized scopes
+          scope: 'profile email openid'
+        });
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        null,
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'button',
+          { onClick: this.signIn },
+          'Sign in with Google'
+        )
+      );
+    }
+  }]);
+
+  return SignInWithGoogle;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+/* unused harmony default export */ var _unused_webpack_default_export = (SignInWithGoogle);
 
 /***/ })
 ],[183]);
