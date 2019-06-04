@@ -65,7 +65,6 @@ export default class Recommend extends React.Component{
                 updated: '2019/05/19'
             }
         ]
-        console.log(data.length)
 
         let cards = data.map(d => {
             return (
@@ -79,8 +78,6 @@ export default class Recommend extends React.Component{
             </Card>)
         });
 
-        console.log(cards)
-
         return(
         <div>
             <h1 className="title">{this.props.title}</h1>
@@ -93,13 +90,10 @@ export default class Recommend extends React.Component{
     }
     openModal(){
         this.setState({isModalShow: true});
-        console.log('openModal', this.state.isModalShow)
     }
 
     closeModal(e){
-        console.log(e)
         e.stopPropagation();
         this.setState({isModalShow: false})
-        console.log('closeModal', this.state.isModalShow)
     }
 }

@@ -50,7 +50,7 @@ const schemaSql = `
         userId      TEXT NOT NULL
     );
 
-    CREATE table USERS (
+    CREATE TABLE users (
         id          TEXT NOT NULL,
         money       INTEGER NOT NULL DEFAULT 0
     );
@@ -61,7 +61,7 @@ const selectCategory = `select enum_range (null::category);`;
 const dataSql = `
         INSERT INTO posts (userId, title, category, price, experience, detail, youtubeId, ts)
         SELECT
-            i-100, 
+            'b3ca56e6-7a33-4d42-bcda-5e25e799566a', 
             'title', 
             '其他', 
             i,
