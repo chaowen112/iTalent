@@ -1,11 +1,13 @@
 const express = require('express');
 
 const postRouter = require('./routers/posts.js');
+const userRouter = require('./routers/users.js');
 const errorHandler = require('./middleware/errorHandler.js');
 
 const app = express();
 
 app.use(express.static('dist'));
+app.use('/api', userRouter);
 app.use('/api', postRouter);
 app.use(errorHandler);
 

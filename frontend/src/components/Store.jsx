@@ -51,6 +51,7 @@ export default class Store extends React.Component{
                iTalent 儲值
              </Modal.Title>
            </Modal.Header>
+           <Modal.Body>
            <Form>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>卡號</Form.Label>
@@ -68,10 +69,11 @@ export default class Store extends React.Component{
             <Form.Group controlId="formBasicChecbox">
               <Form.Check type="checkbox" label="我不是機器人" />
             </Form.Group>
-            <Button onClick={() => {this.props.triggerchangemoney(this.state.intro)}}  variant="primary" >
+            <Button onClick={() => {this.props.addMoney(this.state.intro)}}  variant="primary" >
               Submit
             </Button>
           </Form>
+          </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.props.onHide}>Close</Button>
           </Modal.Footer>

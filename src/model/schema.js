@@ -7,6 +7,8 @@ const schemaSql = `
     -- Drop (droppable only when no dependency)
     DROP TABLE IF EXISTS posts;
     DROP TYPE IF EXISTS category;
+    DROP TABLE IF EXISTS history;
+    DROP TABLE IF EXISTS users;
 
     -- Create
     CREATE TYPE category AS ENUM (
@@ -31,6 +33,7 @@ const schemaSql = `
     );
     CREATE TABLE posts (
         id          SERIAL PRIMARY KEY NOT NULL,
+        userId      TEXT NOT NULL,
         title       TEXT NOT NULL, 
         category    category NOT NULL,
         ts          BIGINT NOT NULL DEFAULT (EXTRACT(EPOCH FROM NOW())),
@@ -45,14 +48,21 @@ const schemaSql = `
         id          SERIAL PRIMARY KEY NOT NULL,
         postId      INTEGER NOT NULL,
         userId      TEXT NOT NULL
-    )
+    );
+
+    CREATE TABLE users (
+        id          TEXT NOT NULL,
+        money       INTEGER NOT NULL DEFAULT 0
+    );
 `;
 
 const selectCategory = `select enum_range (null::category);`;
 
 const dataSql = `
-        INSERT INTO posts (title, category, price, experience, detail, youtubeId, ts)
-        SELECT 'title', 
+        INSERT INTO posts (userId, title, category, price, experience, detail, youtubeId, ts)
+        SELECT
+            'b3ca56e6-7a33-4d42-bcda-5e25e799566a', 
+            'title', 
             '其他', 
             i,
             i+1,

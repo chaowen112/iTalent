@@ -26,6 +26,8 @@ import {
     NavLink
 } from 'reactstrap';
 
+import {getUserData} from '../api/user.js';
+
 import Today from 'components/Today.jsx';
 
 import Wellcome from 'components/Wellcome.jsx';
@@ -46,8 +48,8 @@ class Main extends React.Component {
             navbarToggle: false,
             dropdownOpen: false,
             isModalShow: false,
-            cashNumber:100,
-
+            money: 0,
+            userData: null
 
         };
         this.toggle = this.toggle.bind(this);
@@ -57,7 +59,15 @@ class Main extends React.Component {
         this.closeModal = this.closeModal.bind(this);
         this.openModal = this.openModal.bind(this);
         this.updateMoney = this.updateMoney.bind(this);
-        
+        this.getUserData = this.getUserData.bind(this);
+
+        if(this.props.authState == "signedIn"){
+            this.getUserData(this.props.authData.attributes.sub);
+        }
+    }
+
+    componentWillMount(){
+
     }
 
     render() {
@@ -111,7 +121,7 @@ class Main extends React.Component {
                                     <NavItem>
                                         <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/'>
                                           <img src="images/coins.png" style={{width: "20px", marginRight: "10px"}}></img>
-                                          <span>餘額 ： {this.state.cashNumber} 元</span>
+                                          <span>餘額 ： {this.state.money} 元</span>
 
                                           </NavLink>
                                     </NavItem>
@@ -138,8 +148,7 @@ class Main extends React.Component {
 
     updateMoney(cash)
     {
-      console.log(cash);
-      this.setState({cashNumber:this.state.cashNumber+Number(cash)});
+      this.setState({money:this.state.money+Number(money)});
     }
     openModal(){
         this.setState({isModalShow: true});
@@ -166,6 +175,12 @@ class Main extends React.Component {
         this.setState({
             unit: unit
         });
+    }
+
+    getUserData(id){
+        let data = getUserData(id);
+        console.log(data);
+        this.setState({userData: data});
     }
 }
 

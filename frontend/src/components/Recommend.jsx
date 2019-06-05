@@ -92,13 +92,10 @@ export default class Recommend extends React.Component{
     }
     openModal(){
         this.setState({isModalShow: true});
-        console.log('openModal', this.state.isModalShow)
     }
 
     closeModal(e){
-        console.log(e)
         e.stopPropagation();
         this.setState({isModalShow: false})
-        console.log('closeModal', this.state.isModalShow)
     }
 }
