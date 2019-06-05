@@ -10,6 +10,7 @@ import YouTube from 'react-youtube';
 
 import './PostModal.css';
 import Post from 'components/Post.jsx';
+import Availability from './Availability.jsx';
 
 export default class PostModal extends React.Component{
     constructor(props){
@@ -34,7 +35,7 @@ export default class PostModal extends React.Component{
             >
             <Modal.Header>
               <Modal.Title id="contained-modal-title-vcenter">
-                Modal heading
+                Title
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -44,6 +45,7 @@ export default class PostModal extends React.Component{
                 onReady={this._onReady}
             />
             <Post/>
+            <Availability/>
             </Modal.Body>
             <Modal.Footer>
               <Button onClick={this.props.onHide}>Close</Button>

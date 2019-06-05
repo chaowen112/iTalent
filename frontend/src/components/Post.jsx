@@ -51,8 +51,8 @@ export default class Post extends React.Component{
 
     closeModal(e){
         console.log(e)
-        e.stopPropagation();
+        if(e)
+            e.stopPropagation();
         this.setState({isModalShow: false})
-        console.log('closeModal', this.state.isModalShow)
     }
 }
