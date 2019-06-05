@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-
+import axios from 'axios';
 import {
     BrowserRouter as Router,
     Route,
@@ -10,18 +10,29 @@ import {
     Carousel, Container, Row, Col
 } from 'react-bootstrap';
 import './Wellcome.css';
+import Button from 'react-bootstrap/Button'
 // import React_icon from './img/React-icon.png';
 import Recommend from './Recommend.jsx'
+import {newPost,getHot} from 'api/post.js';
 export default class Wellcome extends React.Component{
 
     constructor(props){
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = {
-          dropdownOpen: false
+          loading:false,
+          dropdownOpen: false,
+          title:[],
+          category:[],
+          by_hour:[],
+          price:[],
+          detail:[],
+          id:[],
+          experience:[]
         };
 
         this._validAuthStates = ['signedIn'];
+
     }
     toggle() {
         this.setState(prevState => ({
@@ -67,7 +78,7 @@ export default class Wellcome extends React.Component{
             <Container>
                 <Row>
                     <Col>
-                        <Recommend title="熱門"/>
+                        <Recommend showId='hot' name={this.state.title} title="熱門"/>
                         <Recommend title="最新"/>
                         <Recommend title="推薦"/>
                     </Col>
@@ -100,4 +111,5 @@ export default class Wellcome extends React.Component{
        </div>
        );
     }
-}
+
+  }

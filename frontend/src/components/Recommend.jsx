@@ -4,92 +4,91 @@ import {
     Route,
     Link
 } from 'react-router-dom';
-
+import axios from 'axios';
 import {Card, CardDeck , Container, Row, Col, CardColumns, Button}from 'react-bootstrap';
 import './Recommend.css';
+import {newPost,getHot} from 'api/post.js';
 import PostModal from 'components/PostModal.jsx';
 export default class Recommend extends React.Component{
 
     constructor(props){
         super(props);
+
         this.state={
-            isModalShow: false
+            isModalShow: false,
+            Title:[],
+            category:[],
+            ts:[],
+            by_hour:[],
+            price:[],
+            experience:[],
+            dataAllocate:[],
+            datas:[]
         }
+
         this.closeModal = this.closeModal.bind(this);
         this.openModal = this.openModal.bind(this);
+        this.addCollection = this.addCollection.bind(this);
+
+
     }
 
+
+
     render(){
+      var titles=[]
+      var categorys=[]
+      var data=[]
+      let cards
+      getHot().then(res=>{
 
-        let data = [
-            {
-                key: 0,
-                title: 'Andrew',
-                text: 'I can play guitar',
-                img: `images/guitar.jpg`,
-                updated: '2019/05/18'
-            },
-            {
-                key: 1,
-                title: 'Lawson',
-                text: 'I can tell stories',
-                img: `images/guitar.jpg`,
-                updated: '2019/05/10'
-            },
-            {
-                key: 2,
-                title: 'Andy',
-                text: 'I can play piano',
-                img: `images/piano.jpg`,
-                updated: '2019/05/19'
-            },
-            {
-                key: 3,
-                title: 'Allen',
-                text: 'I can sing',
-                img: `images/sing.jpg`,
-                updated: '2019/05/19'
-            },
-            {
-                key: 5,
-                title: 'John',
-                text: 'I can dance',
-                img: `images/ballet.jpg`,
-                updated: '2019/05/19'
-            },
-            {
-                key: 6,
-                title: 'Lisa',
-                text: 'I can be a clown',
-                img: `images/clown.jpg`,
-                updated: '2019/05/19'
-            }
-        ]
-        console.log(data.length)
+        res.data.forEach((data)=>{
 
-        let cards = data.map(d => {
-            return (
-            <Card onClick={this.openModal} key={d.key} style={{minWidth: '200px'}}>
-                <Card.Img className="carding" style={{width:'150px',height:'150px',borderRadius:'50%',marginLeft:'22px',marginTop:'10px',border:'solid 5px #eee'}} variant="top" src={d.img}/>
-                <Card.Body style={{textAlign: 'center'}}>
-                    <Card.Title >{d.title}</Card.Title>
-                    <Card.Text>{d.text}</Card.Text>
-                </Card.Body>
-                <PostModal onHide={this.closeModal} show={this.state.isModalShow}/>
-            </Card>)
-        });
+          titles.push(data.title);
+          categorys.push(data.category);
 
-        console.log(cards)
+        })
+        for(var i=0;i<titles.length;i++)
+        {
+          data.push({
+            img: `images/guitar.jpg`,
+            text:titles[i],
+            category:categorys[i]
+          })
+        }
 
-        return(
-        <div>
-            <h1 className="title">{this.props.title}</h1>
-            <Row className='justify-content-md-center scrollbar' style={{margin: "50px 80px"}}>
-                <CardDeck style={{flexFlow: "row nowrap", margin: "10px 0"}}>
-                    {cards}
-                </CardDeck>
-            </Row>
-        </div>);
+      }).then(res=>{
+           this.setState({
+             datas:data
+           })
+        })
+      cards = this.state.datas.map(d => {
+           return (
+
+           <Card onClick={this.openModal} key={d.key} style={{minWidth: '200px'}}>
+               <Card.Img className="carding" style={{width:'150px',height:'150px',borderRadius:'50%',marginLeft:'22px',marginTop:'10px',border:'solid 5px #eee'}} variant="top" src={d.img}/>
+               <Card.Body style={{textAlign: 'center'}}>
+                     <Card.Title >{this.props.name}</Card.Title>
+                     <Card.Text>{d.text}</Card.Text>
+                     <Button onClick={this.addCollection}>add</Button>
+               </Card.Body>
+              <PostModal onHide={this.closeModal} show={this.state.isModalShow}/>
+           </Card>)
+       });
+      return(
+      <div>
+          <h1 className="title">{this.props.title}</h1>
+          <Row className='justify-content-md-center scrollbar' style={{margin: "50px 80px"}}>
+              <CardDeck style={{flexFlow: "row nowrap", margin: "10px 0"}}>
+                  {cards}
+             </CardDeck>
+          </Row>
+      </div>
+      );
+
+    }
+    addCollection(){
+        console.log('add');
     }
     openModal(){
         this.setState({isModalShow: true});
