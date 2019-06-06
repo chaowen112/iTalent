@@ -32,10 +32,19 @@ function getLatest(){
     return db.any(sql);
 }
 
-function create(title, category, by_hour, price, experience, detail, id){
+function create(userid,title, category, by_hour, price, experience, detail, youtubeid){
+  console.log('enter create');
     console.log(title);
     sql = `
-        INSERT INTO posts (title, category, by_hour, price, experience, detail, youtubeId)
+        INSERT INTO posts (userid,title, category, by_hour, price, experience, detail, youtubeId)
+        VALUES ($<userid>,$<title>, $<category>, $<by_hour>, $<price>, $<experience>, $<detail>, $<youtubeid>)
+    `;
+    return db.any(sql, {userid,title, category, by_hour, price, experience, detail, youtubeid});
+}
+function addCollect(title, category, by_hour, price, experience, detail, id){
+    console.log(title);
+    sql = `
+        INSERT INTO collects (title, category, by_hour, price, experience, detail, youtubeId)
         VALUES ($<title>, $<category>, $<by_hour>, $<price>, $<experience>, $<detail>, $<id>)
     `;
     return db.any(sql, {title, category, by_hour, price, experience, detail, id});
@@ -44,7 +53,7 @@ function create(title, category, by_hour, price, experience, detail, id){
 function addView(postId){
     console.log(postId);
     sql = `
-        UPDATE posts 
+        UPDATE posts
         SET views = (SELECT views FROM posts WHERE id = $<postId>)+1 WHERE id = $<postId>;
     `
     return db.any(sql, {postId});
@@ -56,5 +65,6 @@ module.exports = {
     getHot,
     getLatest,
     create,
-    addView
+    addView,
+    addCollect
 };

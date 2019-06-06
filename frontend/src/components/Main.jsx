@@ -66,10 +66,7 @@ class Main extends React.Component {
         }
     }
 
-    componentWillMount(){
-
-    }
-
+    
     render() {
         return (
             <Router>
@@ -148,7 +145,7 @@ class Main extends React.Component {
 
     updateMoney(cash)
     {
-      this.setState({money:this.state.money+Number(money)});
+      this.setState({money:this.state.money+Number(cash)});
     }
     openModal(){
         this.setState({isModalShow: true});
