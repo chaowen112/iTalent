@@ -64,10 +64,11 @@ export default class Recommend extends React.Component{
            })
         })
       cards = this.state.datas.map(d => {
+        var cardStyle = {boxShadow: "0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)", minWidth: '200px'}
            return (
 
-           <Card onClick={this.openModal} key={d.key} style={{minWidth: '200px'}}>
-               <Card.Img className="carding" style={{width:'150px',height:'150px',borderRadius:'50%',marginLeft:'22px',marginTop:'10px',border:'solid 5px #eee'}} variant="top" src={d.img}/>
+           <Card onClick={this.openModal} key={d.key} style={cardStyle}>
+               <Card.Img className="carding" style={{ width: '150px', height: '150px', borderRadius: '50%', marginLeft: '22px', marginTop: '10px', border:'solid 5px #17a3b873'}} variant="top" src={d.img}/>
                <Card.Body style={{textAlign: 'center'}}>
                      <Card.Title >{this.props.name}</Card.Title>
                      <Card.Text>{d.text}</Card.Text>
@@ -78,7 +79,9 @@ export default class Recommend extends React.Component{
        });
       return(
       <div>
+          <hr/>
           <h1 className="title">{this.props.title}</h1>
+          <hr/>
           <div style={{display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center"}}>
             <i className="fas fa-chevron-circle-left fa-3x arrow-btn" onClick={this.handleLeftScroll.bind(this)}></i>
             <Row className='justify-content-md-center scrollbar' style={{margin: "20px", maxWidth: "680px"}}>
@@ -88,7 +91,16 @@ export default class Recommend extends React.Component{
             </Row>
             <i className="fas fa-chevron-circle-right fa-3x arrow-btn" onClick={this.handleRightScroll.bind(this)}></i>
           </div>
-
+          <div className="circles">
+            <i className="fas fa-circle highlight"></i>
+            <i className="fas fa-circle"></i>
+            <i className="fas fa-circle"></i>
+            <i className="fas fa-circle"></i>
+            <i className="fas fa-circle"></i>
+            <i className="fas fa-circle"></i>
+            <i className="fas fa-circle"></i>
+            <i className="fas fa-circle"></i>
+          </div>
       </div>
       );
 
@@ -108,12 +120,24 @@ export default class Recommend extends React.Component{
     handleRightScroll(e) {
       var el = $(e.target).prev();
       var width = el.scrollLeft() + 230;
+      var remove_hi = el.parent().next().children('.highlight');
+      var add_hi = remove_hi.next();
+      if (add_hi.length === 1) {
+        remove_hi.removeClass("highlight");
+        add_hi.addClass("highlight");
+      }
       el.animate({scrollLeft: width}, 500, 'swing', () => {});
     }
 
     handleLeftScroll(e) {
       var el = $(e.target).next();
       var width = el.scrollLeft() - 230;
+      var remove_hi = el.parent().next().children('.highlight');
+      var add_hi = remove_hi.prev();
+      if (add_hi.length === 1) {
+        remove_hi.removeClass("highlight");
+        add_hi.addClass("highlight");
+      }
       el.animate({scrollLeft: width}, 500, 'swing', () => {});
     }
 }
