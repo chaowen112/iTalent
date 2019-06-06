@@ -9,6 +9,8 @@ const schemaSql = `
     DROP TYPE IF EXISTS category;
     DROP TABLE IF EXISTS history;
     DROP TABLE IF EXISTS users;
+    DROP TABLE IF EXISTS chatlists;
+    DROP TABLE IF EXISTS chats;
 
     -- Create
     CREATE TYPE category AS ENUM (
@@ -54,6 +56,24 @@ const schemaSql = `
         id          TEXT NOT NULL,
         money       INTEGER NOT NULL DEFAULT 0
     );
+
+    CREATE TABLE chatlists (
+        key         SERIAL PRIMARY KEY NOT NULL,
+        id          TEXT NOT NULL,
+        name        TEXT NOT NULL,
+        img         TEXT NOT NULL,
+        text        TEXT NOT NULL,
+        updated     TEXT NOT NULL,
+        roomkey     INTEGER NOT NULL DEFAULT 0
+    );
+
+    CREATE TABLE chats (
+        key         SERIAL PRIMARY KEY NOT NULL,
+        owner       TEXT NOT NULL,
+        text        TEXT NOT NULL,
+        updated     TEXT NOT NULL,
+        roomkey     INTEGER NOT NULL DEFAULT 0
+    )
 `;
 
 const selectCategory = `select enum_range (null::category);`;
@@ -70,6 +90,43 @@ const dataSql = `
             'id',
             i+100000
         FROM generate_series(1, 100) AS s(i);
+
+        -- create chat list
+        INSERT INTO chatlists(id, name, img, text, updated, roomkey)
+        VALUES(
+            'b3ca56e6-7a33-4d42-bcda-5e25e799566a',
+            'Andrew',
+            'images/guitar.jpg',
+            'how old are you?',
+            '23:44',
+            1
+            );
+        INSERT INTO chatlists(id, name, img, text, updated, roomkey)
+        VALUES(
+            'b3ca56e6-7a33-4d42-bcda-5e25e799566a',
+            'Alex',
+            'images/piano.jpg',
+            'How are you?',
+            '14:39',
+            2
+        );
+        INSERT INTO chatlists(id, name, img, text, updated, roomkey)
+        VALUES(
+            'b3ca56e6-7a33-4d42-bcda-5e25e799566a',
+            'Samuel',
+            'images/ballet.jpg',
+            'Are you free now?',
+            '12:16',
+            3
+        );
+
+        -- create chat log
+        INSERT INTO chats(owner, text, updated, roomkey)
+        VALUES('b3ca56e6-7a33-4d42-bcda-5e25e799566a', 'hi', '23:43', 1);
+        INSERT INTO chats(owner, text, updated, roomkey)
+        VALUES('b3ca56e6-7a33-4d42-bcda-5e25e799566b', 'hi', '23:43', 1);
+        INSERT INTO chats(owner, text, updated, roomkey)
+        VALUES('b3ca56e6-7a33-4d42-bcda-5e25e799566b', 'how old are you?', '23:44', 1);
 `
 
 db.none(schemaSql).then(() => {

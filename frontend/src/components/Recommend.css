@@ -8,3 +8,13 @@
 .row {
     overflow-x: auto;
 }
+
+.arrow-btn {
+    cursor: pointer;
+    transition: all .01s;
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.arrow-btn:hover {
+    transform: scale(1.05);
+}

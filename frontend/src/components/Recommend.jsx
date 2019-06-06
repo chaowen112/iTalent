@@ -9,6 +9,7 @@ import {Card, CardDeck , Container, Row, Col, CardColumns, Button}from 'react-bo
 import './Recommend.css';
 import {newPost,getHot} from 'api/post.js';
 import PostModal from 'components/PostModal.jsx';
+import { $$asyncIterator } from 'iterall';
 export default class Recommend extends React.Component{
 
     constructor(props){
@@ -87,11 +88,16 @@ export default class Recommend extends React.Component{
       return(
       <div>
           <h1 className="title">{this.props.title}</h1>
-          <Row className='justify-content-md-center scrollbar' style={{margin: "50px 80px"}}>
-              <CardDeck style={{flexFlow: "row nowrap", margin: "10px 0"}}>
-                  {cards}
-             </CardDeck>
-          </Row>
+          <div style={{display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center"}}>
+            <i className="fas fa-chevron-circle-left fa-3x arrow-btn" onClick={this.handleLeftScroll.bind(this)}></i>
+            <Row className='justify-content-md-center scrollbar' style={{margin: "20px", maxWidth: "680px"}}>
+              <CardDeck style={{flexFlow: "row nowrap", margin: "10px 0", width: "100%"}}>
+                {cards}
+              </CardDeck>
+            </Row>
+            <i className="fas fa-chevron-circle-right fa-3x arrow-btn" onClick={this.handleRightScroll.bind(this)}></i>
+          </div>
+
       </div>
       );
 
@@ -106,5 +112,17 @@ export default class Recommend extends React.Component{
     closeModal(e){
         e.stopPropagation();
         this.setState({isModalShow: false})
+    }
+
+    handleRightScroll(e) {
+      var el = $(e.target).prev();
+      var width = el.scrollLeft() + 230;
+      el.animate({scrollLeft: width}, 500, 'swing', () => {});
+    }
+
+    handleLeftScroll(e) {
+      var el = $(e.target).next();
+      var width = el.scrollLeft() - 230;
+      el.animate({scrollLeft: width}, 500, 'swing', () => {});
     }
 }

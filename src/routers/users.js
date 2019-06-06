@@ -12,6 +12,6 @@ router.get('/user/data', (req, res, next) => {
     users.getUserData(id)
     .then(result => res.json(result))
     .catch(e => next(e));
-})
+});
 
 module.exports = router;

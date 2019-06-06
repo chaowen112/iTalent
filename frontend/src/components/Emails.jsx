@@ -5,6 +5,8 @@ import {
   Link
 } from 'react-router-dom';
 
+import {getChatList} from '../api/chatlists.js';
+
 import Chatroom from './Chatroom.jsx';
 
 import { Card, CardDeck, Container, Row, Col, CardColumns, Button } from 'react-bootstrap';
@@ -13,39 +15,32 @@ export default class Emails extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {isChat: false};
+    this.state = {isChat: false, data: [], other: {}};
+  }
+
+  componentWillMount() {
+    let userId = 'b3ca56e6-7a33-4d42-bcda-5e25e799566a'
+    getChatList(userId).then(res => {
+      this.setState({data: res});
+    })
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    let userId = 'b3ca56e6-7a33-4d42-bcda-5e25e799566a'
+    getChatList(userId).then(res => {
+      this.setState({ data: res });
+    })    
   }
 
   render() {
 
-    let data = [
-      {
-        key: 0,
-        name: 'Andrew',
-        text: 'I can play guitar',
-        img: `images/guitar.jpg`,
-        updated: '2019/05/18',
-      },
-      {
-        key: 1,
-        name: 'Jim',
-        text: 'Nice to meet you!',
-        img: `images/ballet.jpg`,
-        updated: '2019/05/13',
-      },
-      {
-        key: 2,
-        name: 'Alex',
-        text: 'hello, i am Lee.',
-        img: `images/piano.jpg`,
-        updated: '2019/05/10',
-      },
-    ]
-    console.log(data.length)
+    let data = this.state.data;
+
+    // console.log(data.length)
 
     let cards = data.map(d => {
       return (
-        <div key={d.key} className="chat-box" onClick={this.startChat.bind(this, d.name)}>
+        <div key={d.key} className="chat-box" onClick={this.startChat.bind(this, d)}>
           <div className="user-photo">
             <img style={{width:'10vh',height:'10vh',borderRadius:'50%',marginLeft:'22px',marginTop:'10px',border:'solid 5px #eee'}} src={d.img}/>
           </div>
@@ -58,21 +53,23 @@ export default class Emails extends React.Component {
       )
     });
 
-    console.log(cards);
+    // console.log(cards);
 
     var component = cards;
     if (this.state.isChat) {
-      component = <Chatroom backOnClick={this.closeChatroom.bind(this)}></Chatroom>;
+      component = <Chatroom
+                    other={this.state.other}
+                    backOnClick={this.closeChatroom.bind(this)}
+                  ></Chatroom>;
     }
     return (
-      <Container>
+      <Container style={{display: 'flex', flexDirection: 'column-reverse'}}>
         {component}
       </Container>);
   }
 
-  startChat(name) {
-    console.log('chat with : ', name);
-    this.setState({isChat: true});
+  startChat(other) {
+    this.setState({isChat: true, other});
   }
 
   closeChatroom() {
