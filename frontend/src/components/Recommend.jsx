@@ -8,6 +8,7 @@ import {
 import {Card, CardDeck , Container, Row, Col, CardColumns, Button}from 'react-bootstrap';
 import './Recommend.css';
 import PostModal from 'components/PostModal.jsx';
+import Post from 'components/Post.jsx';
 export default class Recommend extends React.Component{
 
     constructor(props){
@@ -71,10 +72,8 @@ export default class Recommend extends React.Component{
             <Card onClick={this.openModal} key={d.key} style={{minWidth: '200px'}}>
                 <Card.Img className="carding" style={{width:'150px',height:'150px',borderRadius:'50%',marginLeft:'22px',marginTop:'10px',border:'solid 5px #eee'}} variant="top" src={d.img}/>
                 <Card.Body style={{textAlign: 'center'}}>
-                    <Card.Title >{d.title}</Card.Title>
-                    <Card.Text>{d.text}</Card.Text>
+                    <Post userId={this.props.userId}/>
                 </Card.Body>
-                <PostModal onHide={this.closeModal} show={this.state.isModalShow}/>
             </Card>)
         });
 
