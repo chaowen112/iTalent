@@ -69,7 +69,7 @@ export default class Store extends React.Component{
             <Form.Group controlId="formBasicChecbox">
               <Form.Check type="checkbox" label="我不是機器人" />
             </Form.Group>
-            <Button onClick={() => {this.props.addMoney(this.state.intro)}}  variant="primary" >
+            <Button onClick={() => {this.props.triggerchangemoney(this.state.intro)}}  variant="primary" >
               Submit
             </Button>
           </Form>

@@ -39,6 +39,8 @@ export default class Recommend extends React.Component{
       var titles=[]
       var categorys=[]
       var data=[]
+      var prices = []
+      var experiences=[]
       let cards
       getHot().then(res=>{
 
@@ -46,14 +48,17 @@ export default class Recommend extends React.Component{
 
           titles.push(data.title);
           categorys.push(data.category);
-
+          prices.push(data.price);
+          experiences.push(data.experience);
         })
         for(var i=0;i<titles.length;i++)
         {
           data.push({
             img: `images/guitar.jpg`,
             text:titles[i],
-            category:categorys[i]
+            category:categorys[i],
+            price:prices[i],
+            experience:experiences[i]
           })
         }
 
@@ -66,10 +71,14 @@ export default class Recommend extends React.Component{
            return (
 
            <Card onClick={this.openModal} key={d.key} style={{minWidth: '200px'}}>
-               <Card.Img className="carding" style={{width:'150px',height:'150px',borderRadius:'50%',marginLeft:'22px',marginTop:'10px',border:'solid 5px #eee'}} variant="top" src={d.img}/>
+               <Card.Text>{d.category}</Card.Text>
+               <Card.Img className="carding" style={{width:'150px',height:'150px',borderRadius:'50%',marginLeft:'20px',marginTop:'10px',border:'solid 5px #eee'}} variant="top" src={d.img}/>
                <Card.Body style={{textAlign: 'center'}}>
+
                      <Card.Title >{this.props.name}</Card.Title>
                      <Card.Text>{d.text}</Card.Text>
+                     <Card.Text>經驗：{d.experience}</Card.Text>
+                     <Card.Text>{d.price}$</Card.Text>
                      <Button onClick={this.addCollection}>add</Button>
                </Card.Body>
               <PostModal onHide={this.closeModal} show={this.state.isModalShow}/>

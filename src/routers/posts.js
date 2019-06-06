@@ -43,6 +43,18 @@ router.get('/posts/latest', (req, res) => {
 });
 
 router.post('/posts/new', (req, res) => {
+    const {userid,title, category, by_hour, price, experience, detail, id} = req.body
+    console.log('router posts');
+    console.log(req.body);
+    post.create(userid,title, category, by_hour, price, experience, detail, id)
+    .then((result) => {
+        res.json('success');
+    })
+    .catch(e => {
+        console.log(e);
+    });
+});
+router.post('/posts/collect', (req, res) => {
     const {title, category, by_hour, price, experience, detail, id} = req.body
     post.create(title, category, by_hour, price, experience, detail, id)
     .then((result) => {
@@ -52,7 +64,6 @@ router.post('/posts/new', (req, res) => {
         console.log(e);
     });
 });
-
 router.post('/posts/view/add', (req, res) => {
     console.log(req.body)
     const {postId} = req.body;

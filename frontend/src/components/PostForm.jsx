@@ -13,7 +13,7 @@ import YouTube from 'react-youtube';
 import {newPost} from '../api/post.js';
 
 export default class PostForm extends React.Component{
-    
+
     constructor(props){
         super(props);
 
@@ -28,11 +28,13 @@ export default class PostForm extends React.Component{
             experience: '',
             price: '',
             by_hour: false,
-            detail: ''
+            detail: '',
+            userid:123
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleLinkChange = this.handleLinkChange.bind(this);
+
     }
 
     render(){
@@ -55,11 +57,11 @@ export default class PostForm extends React.Component{
                 </FormGroup>
                 <FormGroup>
                   <Label for="category">類別</Label>
-                  <Input 
-                    required 
-                    type="select" 
-                    name="select" 
-                    id="exampleSelect" 
+                  <Input
+                    required
+                    type="select"
+                    name="select"
+                    id="exampleSelect"
                     onChange={e => {
                       this.setState({category: e.target.value});
                     }}>
@@ -93,7 +95,7 @@ export default class PostForm extends React.Component{
                 </FormGroup>
                 <FormGroup check>
                   <Label check>
-                    <Input type="checkbox" 
+                    <Input type="checkbox"
                     checked={this.state.by_hour}
                     onChange={e=>{this.setState({by_hour: e.target.checked})}} />
                     計時收費
@@ -121,7 +123,7 @@ export default class PostForm extends React.Component{
                   </Label>
                 </FormGroup>
                 <FormGroup className='p-2'>
-                  <Button type='submit'>Submit</Button>
+                  <Button  type='submit'>Submit</Button>
                 </FormGroup>
               </Form>
             </Col>
@@ -135,7 +137,7 @@ export default class PostForm extends React.Component{
         let link = new URL(e.target.value);
         let id = ''
         console.log(e.target.value)
-        if(link.hostname=='youtu.be'){
+        if(link.hostname=='youtube'){
           id = link.pathname.split('/')[1];
         }
         else if(link.hostname=='www.youtube.com'){
@@ -144,9 +146,11 @@ export default class PostForm extends React.Component{
         else{
           id = '';
         }
+        
         this.setState({inputValue: e.target.value, youtubeId: id, yt_ready: id.length == 11 ? 'block' : 'none'});
       }
       catch(error){
+        console.log(error);
         this.setState({inputValue: e.target.value});
         console.log('error')
       }
@@ -155,6 +159,7 @@ export default class PostForm extends React.Component{
     handleSubmit(e){
       e.preventDefault();
       console.log("submit");
-      newPost(this.state.title, this.state.category, this.state.experience, this.state.price, this.state.by_hour, this.state.detail, this.state.youtubeId);
+
+      newPost(this.state.userid,this.state.title, this.state.category, this.state.experience, this.state.price, this.state.by_hour, this.state.detail, this.state.youtubeId);
     }
 }

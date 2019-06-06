@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-export function newPost(title, category, experience, price, by_hour, detail, id){
-    console.log('truly enter');
-    // TODO insert to database
+export function newPost(userid,title, category, experience, price, by_hour, detail, id){
+  // TODO insert to database
+   console.log('truly enter');
     axios.post('/api/posts/new', {
+        userid:userid,
         title: title,
         category: category,
         experience: experience,
