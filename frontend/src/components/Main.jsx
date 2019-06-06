@@ -10,6 +10,7 @@ Amplify.configure(awsmobile);
 
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, UncontrolledDropdown} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button'
+
 import {
     BrowserRouter as Router,
     Route,
@@ -64,10 +65,7 @@ class Main extends React.Component {
         }
     }
 
-    componentWillMount(){
-
-    }
-
+    
     render() {
         return (
             <Router>
@@ -78,8 +76,11 @@ class Main extends React.Component {
                             <NavbarBrand className='text-info' href="/">iTalents</NavbarBrand>
                                 <Nav navbar style={{display: "flex", flexDirection: "row"}}>
                                     <NavItem>
+
+                                    </NavItem>
+                                    <NavItem>
                                         <Button onClick={this.openModal}>儲值
-                                             <Store addMoney={this.updateMoney} onHide={this.closeModal} show={this.state.isModalShow}/>
+                                             <Store triggerchangemoney={this.updateMoney} onHide={this.closeModal} show={this.state.isModalShow}/>
 
                                         </Button>
                                     </NavItem>
@@ -140,9 +141,10 @@ class Main extends React.Component {
             </Router>
         );
     }
-    updateMoney(money)
+
+    updateMoney(cash)
     {
-      this.setState({money:this.state.money+Number(money)});
+      this.setState({money:this.state.money+Number(cash)});
     }
     openModal(){
         this.setState({isModalShow: true});

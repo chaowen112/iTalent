@@ -4,88 +4,116 @@ import {
     Route,
     Link
 } from 'react-router-dom';
-
+import axios from 'axios';
 import {Card, CardDeck , Container, Row, Col, CardColumns, Button}from 'react-bootstrap';
 import './Recommend.css';
+import {newPost,getHot} from 'api/post.js';
 import PostModal from 'components/PostModal.jsx';
 import Post from 'components/Post.jsx';
+import { $$asyncIterator } from 'iterall';
 export default class Recommend extends React.Component{
 
     constructor(props){
         super(props);
+
         this.state={
-            isModalShow: false
+            isModalShow: false,
+            Title:[],
+            category:[],
+            ts:[],
+            by_hour:[],
+            price:[],
+            experience:[],
+            dataAllocate:[],
+            datas:[]
         }
+
         this.closeModal = this.closeModal.bind(this);
         this.openModal = this.openModal.bind(this);
+        this.addCollection = this.addCollection.bind(this);
+
+
     }
 
+
+
     render(){
+      var titles=[]
+      var categorys=[]
+      var data=[]
+      var prices = []
+      var experiences=[]
+      let cards
+      getHot().then(res=>{
 
-        let data = [
-            {
-                key: 0,
-                title: 'Andrew',
-                text: 'I can play guitar',
-                img: `images/guitar.jpg`,
-                updated: '2019/05/18'
-            },
-            {
-                key: 1,
-                title: 'Lawson',
-                text: 'I can tell stories',
-                img: `images/guitar.jpg`,
-                updated: '2019/05/10'
-            },
-            {
-                key: 2,
-                title: 'Andy',
-                text: 'I can play piano',
-                img: `images/piano.jpg`,
-                updated: '2019/05/19'
-            },
-            {
-                key: 3,
-                title: 'Allen',
-                text: 'I can sing',
-                img: `images/sing.jpg`,
-                updated: '2019/05/19'
-            },
-            {
-                key: 5,
-                title: 'John',
-                text: 'I can dance',
-                img: `images/ballet.jpg`,
-                updated: '2019/05/19'
-            },
-            {
-                key: 6,
-                title: 'Lisa',
-                text: 'I can be a clown',
-                img: `images/clown.jpg`,
-                updated: '2019/05/19'
-            }
-        ]
+        res.data.forEach((data)=>{
 
-        let cards = data.map(d => {
-            return (
-            <Card onClick={this.openModal} key={d.key} style={{minWidth: '200px'}}>
-                <Card.Img className="carding" style={{width:'150px',height:'150px',borderRadius:'50%',marginLeft:'22px',marginTop:'10px',border:'solid 5px #eee'}} variant="top" src={d.img}/>
-                <Card.Body style={{textAlign: 'center'}}>
-                    <Post userId={this.props.userId}/>
-                </Card.Body>
-            </Card>)
-        });
+          titles.push(data.title);
+          categorys.push(data.category);
+          prices.push(data.price);
+          experiences.push(data.experience);
+        })
+        for(var i=0;i<titles.length;i++)
+        {
+          data.push({
+            img: `images/guitar.jpg`,
+            text:titles[i],
+            category:categorys[i],
+            price:prices[i],
+            experience:experiences[i]
+          })
+        }
 
-        return(
-        <div>
-            <h1 className="title">{this.props.title}</h1>
-            <Row className='justify-content-md-center scrollbar' style={{margin: "50px 80px"}}>
-                <CardDeck style={{flexFlow: "row nowrap", margin: "10px 0"}}>
-                    {cards}
-                </CardDeck>
+      }).then(res=>{
+           this.setState({
+             datas:data
+           })
+        })
+      cards = this.state.datas.map(d => {
+        var cardStyle = {boxShadow: "0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)", minWidth: '200px'}
+           return (
+
+           <Card onClick={this.openModal} key={d.key} style={cardStyle}>
+               <Card.Img className="carding" style={{ width: '150px', height: '150px', borderRadius: '50%', marginLeft: '22px', marginTop: '10px', border:'solid 5px #17a3b873'}} variant="top" src={d.img}/>
+               <Card.Body style={{textAlign: 'center'}}>
+                     <Card.Title >{this.props.name}</Card.Title>
+                     <Card.Text>{d.text}</Card.Text>
+                     <Card.Text>經驗：{d.experience}</Card.Text>
+                     <Card.Text>{d.price}$</Card.Text>
+                     <Button onClick={this.addCollection}>add</Button>
+               </Card.Body>
+           </Card>)
+       });
+      return(
+      <div>
+          <hr/>
+          <h1 className="title">{this.props.title}</h1>
+          <hr/>
+          <div style={{display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center"}}>
+            <i className="fas fa-chevron-circle-left fa-3x arrow-btn" onClick={this.handleLeftScroll.bind(this)}></i>
+            <Row className='justify-content-md-center scrollbar' style={{margin: "20px", maxWidth: "680px"}}>
+              <CardDeck style={{flexFlow: "row nowrap", margin: "10px 0", width: "100%"}}>
+                {cards}
+              </CardDeck>
             </Row>
-        </div>);
+            <i className="fas fa-chevron-circle-right fa-3x arrow-btn" onClick={this.handleRightScroll.bind(this)}></i>
+          </div>
+          <div className="circles">
+            <i className="fas fa-circle highlight"></i>
+            <i className="fas fa-circle"></i>
+            <i className="fas fa-circle"></i>
+            <i className="fas fa-circle"></i>
+            <i className="fas fa-circle"></i>
+            <i className="fas fa-circle"></i>
+            <i className="fas fa-circle"></i>
+            <i className="fas fa-circle"></i>
+          </div>
+      </div>
+      );
+
+    }
+    addCollection(){
+        console.log('add');
     }
     openModal(){
         this.setState({isModalShow: true});
@@ -94,5 +122,29 @@ export default class Recommend extends React.Component{
     closeModal(e){
         e.stopPropagation();
         this.setState({isModalShow: false})
+    }
+
+    handleRightScroll(e) {
+      var el = $(e.target).prev();
+      var width = el.scrollLeft() + 230;
+      var remove_hi = el.parent().next().children('.highlight');
+      var add_hi = remove_hi.next();
+      if (add_hi.length === 1) {
+        remove_hi.removeClass("highlight");
+        add_hi.addClass("highlight");
+      }
+      el.animate({scrollLeft: width}, 500, 'swing', () => {});
+    }
+
+    handleLeftScroll(e) {
+      var el = $(e.target).next();
+      var width = el.scrollLeft() - 230;
+      var remove_hi = el.parent().next().children('.highlight');
+      var add_hi = remove_hi.prev();
+      if (add_hi.length === 1) {
+        remove_hi.removeClass("highlight");
+        add_hi.addClass("highlight");
+      }
+      el.animate({scrollLeft: width}, 500, 'swing', () => {});
     }
 }
