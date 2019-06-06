@@ -64,6 +64,15 @@
   cursor: pointer;
 }
 
+.window {
+  overflow-y: scroll;
+  height: 65vh;
+}
+
+.window::-webkit-scrollbar {
+  display: none;
+}
+
 /* talk-input */
 
 .talk-input {
@@ -76,7 +85,7 @@
 
 .talk-input input {
   height: 100%;
-  width: 100%;
+  width: 90%;
   border: none;
   border-top: 1px solid #ddd;
   padding: 0 1rem;
@@ -85,4 +94,8 @@
 
 .talk-input input:focus {
   outline: none;
+}
+
+.talk-input i {
+  cursor: pointer;
 }

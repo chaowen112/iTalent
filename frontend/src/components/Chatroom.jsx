@@ -5,52 +5,57 @@ import {
   Link
 } from 'react-router-dom';
 
+import { getChat, newChat } from '../api/chats.js';
+import { updateChatList } from '../api/chatlists.js';
+
 import { Card, CardDeck, Container, Row, Col, CardColumns, Button } from 'react-bootstrap';
 import './Chatroom.css';
 export default class Chatroom extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {data: [], inputMsg: ''};
+  }
+
+  componentWillMount() {
+    getChat(this.props.other.roomkey).then(res => {
+      this.setState({data: res});
+    })
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    var el = document.querySelector('.window');
+    el.scrollTop = el.scrollHeight;
   }
 
   render() {
 
-    let data = [
-      {
-        key: 0,
-        name: 'Andrew',
-        text: 'I can play guitar',
-        img: `images/guitar.jpg`,
-        updated: '2019/05/18',
-      },
-      {
-        key: 1,
-        name: 'Jim',
-        text: 'Nice to meet you!',
-        img: `images/ballet.jpg`,
-        updated: '2019/05/13',
-      },
-      {
-        key: 2,
-        name: 'Alex',
-        text: 'hello, i am Lee.',
-        img: `images/piano.jpg`,
-        updated: '2019/05/10',
-      },
-    ]
-    console.log(data.length)
+    let data = this.state.data;
+    let other = this.props.other;
+    // console.log(data.length)
 
-    var UserName = 'Alex';
+    var userId = 'b3ca56e6-7a33-4d42-bcda-5e25e799566a';
+    var userImg = 'images/piano.jpg';
+    var username = 'Alex';
 
     let posts = data.map(d => {
-      let reverse = d.name === UserName ? 'reverse' : '';
+      var reverse, img, name;
+      if (d.owner === userId) {
+        reverse = 'reverse';
+        img = userImg;
+        name = username;
+      } else {
+        reverse = '';
+        img = other.img;
+        name = other.name;
+      }
       return (
-        <div className={`talk-box ${reverse}`}>
+        <div key={d.key} className={`talk-box ${reverse}`}>
           <div className="user-img">
-            <img src={`${d.img}`} alt="" />
+            <img src={`${img}`} alt="" />
           </div>
           <div className={`talk-info ${reverse}`}>
-            <div className="user-name">{d.name}</div>
+            <div className="user-name">{name}</div>
             <div className={`message ${reverse}`}>
               <div className={`user-message ${reverse}`}>{d.text}</div>
               <div className="send-time">{d.updated}</div>
@@ -60,15 +65,52 @@ export default class Chatroom extends React.Component {
       )
     });
 
-    console.log(posts);
+    // console.log(posts);
 
     return (
       <Container>
         <i className="fas fa-chevron-left back-btn" onClick={this.props.backOnClick}></i>
-        {posts}
+        <div className="window">{posts}</div>
         <div className="talk-input">
-          <input type="text" placeholder="Message..." id="inputMsg" />
+          <input
+            type="text"
+            placeholder="Message..."
+            id="inputMsg"
+            onChange={this.handleMsgInput.bind(this)}
+            onKeyDown={this.handleKeyDown.bind(this)}
+            value={this.state.inputMsg}/>
+          <i className="far fa-paper-plane" onClick={this.handleMsgSubmit.bind(this)}></i>
         </div>
       </Container>);
+  }
+
+  handleMsgInput(e) {
+    var msg = e.target.value;
+    this.setState({inputMsg: msg});
+  }
+
+  async handleMsgSubmit(e) {
+    var userId = 'b3ca56e6-7a33-4d42-bcda-5e25e799566a';
+    var text = this.state.inputMsg;
+    var updated = this.getTime();
+    var roomkey = this.props.other.key;
+    var res = await newChat(userId, text, updated, roomkey);
+    this.setState({data: res, inputMsg: ''});
+    updateChatList(roomkey, text, updated);
+  }
+
+  handleKeyDown(e) {
+    if (e.key == 'Enter') {
+      this.handleMsgSubmit();
+    }
+  }
+
+  getTime() {
+    let date = new Date();
+    let hour = date.getHours();
+    let min = date.getMinutes();
+    hour = hour < 10 ? '0' + hour : hour;
+    min = min < 10 ? '0' + min : min;
+    return hour + ':' + min;
   }
 }
