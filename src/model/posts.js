@@ -13,7 +13,7 @@ function getAllPosts(){
     return db.any(sql);
 }
 
-function getRecommend(userId){
+function getRecommend(){
     sql = `SELECT * FROM history`;
     return db.any(sql);
 }
@@ -34,22 +34,41 @@ function getLatest(){
 
 function create(userid,title, category, by_hour, price, experience, detail, youtubeid){
   console.log('enter create');
-    console.log(title);
+    //console.log(title);
     sql = `
         INSERT INTO posts (userid,title, category, by_hour, price, experience, detail, youtubeId)
         VALUES ($<userid>,$<title>, $<category>, $<by_hour>, $<price>, $<experience>, $<detail>, $<youtubeid>)
     `;
     return db.any(sql, {userid,title, category, by_hour, price, experience, detail, youtubeid});
 }
-function addCollect(title, category, by_hour, price, experience, detail, id){
-    console.log(title);
+//新增收藏
+function addCollect(userid,title, category, by_hour, price, experience, detail, youtubeid){
+    //.log(title);
     sql = `
-        INSERT INTO collects (title, category, by_hour, price, experience, detail, youtubeId)
-        VALUES ($<title>, $<category>, $<by_hour>, $<price>, $<experience>, $<detail>, $<id>)
+        INSERT INTO collects (userid,title, category, by_hour, price, experience, detail, youtubeId)
+        VALUES ($<userid>,$<title>, $<category>, $<by_hour>, $<price>, $<experience>, $<detail>, $<youtubeid>)
     `;
-    return db.any(sql, {title, category, by_hour, price, experience, detail, id});
+    return db.any(sql, {userid,title, category, by_hour, price, experience, detail, youtubeid});
 }
+//得到目前這個帳號的餘額
+function postMoney(userid,money)
+{
+    sql = `
+        INSERT INTO users (id,money)
+        VALUES ($<userid>,$<money>)
+    `;
+    return db.any(sql, {userid,money});
+}
+function getMoney(userId)
+{
+  //console.log(userId,'backend get money 2');
+  //console.log(typeof(userId));
+  sql = `
+      SELECT money FROM users WHERE id = $<userId>;
 
+  `;
+  return db.any(sql,{userId});
+}
 function addView(postId){
     console.log(postId);
     sql = `
@@ -66,5 +85,7 @@ module.exports = {
     getLatest,
     create,
     addView,
-    addCollect
+    addCollect,
+    postMoney,
+    getMoney
 };

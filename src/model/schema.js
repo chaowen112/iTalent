@@ -6,6 +6,7 @@ const db = pgp(process.env.DB_URL);
 const schemaSql = `
     -- Drop (droppable only when no dependency)
     DROP TABLE IF EXISTS posts;
+    DROP TABLE IF EXISTS collects;
     DROP TYPE IF EXISTS category;
     DROP TABLE IF EXISTS history;
     DROP TABLE IF EXISTS users;
@@ -14,10 +15,10 @@ const schemaSql = `
 
     -- Create
     CREATE TYPE category AS ENUM (
-        '演員/女演員', 
-        '樂隊/音樂人', 
-        '書法藝術家', 
-        '小丑', 
+        '演員/女演員',
+        '樂隊/音樂人',
+        '書法藝術家',
+        '小丑',
         '漫畫家',
         '文案作家',
         '舞蹈家',
@@ -33,19 +34,33 @@ const schemaSql = `
         '影像編輯',
         '其他'
     );
-    CREATE TABLE posts (
+    CREATE TABLE "collects" (
         id          SERIAL PRIMARY KEY NOT NULL,
         userId      TEXT NOT NULL,
-        title       TEXT NOT NULL, 
+        title       TEXT NOT NULL,
         category    category NOT NULL,
         ts          BIGINT NOT NULL DEFAULT (EXTRACT(EPOCH FROM NOW())),
         by_hour     BOOL NOT NULL DEFAULT TRUE,
         price       INTEGER NOT NULL DEFAULT 0,
-        experience  INTEGER NOT NULL DEFAULT 0, 
-        detail      TEXT NOT NULL, 
+        experience  INTEGER NOT NULL DEFAULT 0,
+        detail      TEXT NOT NULL,
         youtubeId   TEXT NOT NULL,
         views       INTEGER NOT NULL DEFAULT 0
     );
+    CREATE TABLE posts (
+        id          SERIAL PRIMARY KEY NOT NULL,
+        userId      TEXT NOT NULL,
+        title       TEXT NOT NULL,
+        category    category NOT NULL,
+        ts          BIGINT NOT NULL DEFAULT (EXTRACT(EPOCH FROM NOW())),
+        by_hour     BOOL NOT NULL DEFAULT TRUE,
+        price       INTEGER NOT NULL DEFAULT 0,
+        experience  INTEGER NOT NULL DEFAULT 0,
+        detail      TEXT NOT NULL,
+        youtubeId   TEXT NOT NULL,
+        views       INTEGER NOT NULL DEFAULT 0
+    );
+
     CREATE TABLE history (
         id          SERIAL PRIMARY KEY NOT NULL,
         postId      INTEGER NOT NULL,
@@ -81,9 +96,22 @@ const selectCategory = `select enum_range (null::category);`;
 const dataSql = `
         INSERT INTO posts (userId, title, category, price, experience, detail, youtubeId, ts)
         SELECT
-            'b3ca56e6-7a33-4d42-bcda-5e25e799566a', 
-            'title', 
-            '其他', 
+            'b3ca56e6-7a33-4d42-bcda-5e25e799566a',
+            'title',
+            '其他',
+            i,
+            i+1,
+            'detail',
+            'id',
+            i+100000
+        FROM generate_series(1, 100) AS s(i);
+
+        --create collections
+        INSERT INTO collects (userId, title, category, price, experience, detail, youtubeId, ts)
+        SELECT
+            'b3ca56e6-7a33-4d42-bcda-5e25e799566a',
+            'title',
+            '其他',
             i,
             i+1,
             'detail',

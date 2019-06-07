@@ -7,7 +7,7 @@ import {
 import axios from 'axios';
 import {Card, CardDeck , Container, Row, Col, CardColumns, Button}from 'react-bootstrap';
 import './Recommend.css';
-import {newPost,getHot} from 'api/post.js';
+import {newPost,getHot,addCollect} from 'api/post.js';
 import PostModal from 'components/PostModal.jsx';
 import { $$asyncIterator } from 'iterall';
 export default class Recommend extends React.Component{
@@ -24,7 +24,8 @@ export default class Recommend extends React.Component{
             price:[],
             experience:[],
             dataAllocate:[],
-            datas:[]
+            datas:[],
+            colletion_title:''
         }
 
         this.closeModal = this.closeModal.bind(this);
@@ -56,7 +57,7 @@ export default class Recommend extends React.Component{
         {
           data.push({
             img: `images/guitar.jpg`,
-            text:titles[i],
+            title:titles[i],
             category:categorys[i],
             price:prices[i],
             experience:experiences[i]
@@ -68,23 +69,28 @@ export default class Recommend extends React.Component{
              datas:data
            })
         })
-      cards = this.state.datas.map(d => {
-           return (
+          cards = this.state.datas.map(d => {
+               return (
 
-           <Card onClick={this.openModal} key={d.key} style={{minWidth: '200px'}}>
-               <Card.Text>{d.category}</Card.Text>
-               <Card.Img className="carding" style={{width:'150px',height:'150px',borderRadius:'50%',marginLeft:'20px',marginTop:'10px',border:'solid 5px #eee'}} variant="top" src={d.img}/>
-               <Card.Body style={{textAlign: 'center'}}>
+               <Card  key={d.key} style={{minWidth: '200px'}}>
+                   <Card.Text>{d.category}</Card.Text>
+                   <Card.Img onClick={this.openModal} className="carding" style={{width:'150px',height:'150px',borderRadius:'50%',marginLeft:'20px',marginTop:'10px',border:'solid 5px #eee'}} variant="top" src={d.img}/>
+                   <Card.Body style={{textAlign: 'center'}}>
 
-                     <Card.Title >{this.props.name}</Card.Title>
-                     <Card.Text>{d.text}</Card.Text>
-                     <Card.Text>經驗：{d.experience}</Card.Text>
-                     <Card.Text>{d.price}$</Card.Text>
-                     <Button onClick={this.addCollection}>add</Button>
-               </Card.Body>
-              <PostModal onHide={this.closeModal} show={this.state.isModalShow}/>
-           </Card>)
-       });
+                         <Card.Title >{this.props.name}</Card.Title>
+                         <Card.Text>{d.title}</Card.Text>
+                         <Card.Text>經驗：{d.experience}</Card.Text>
+                         <Card.Text>{d.price}$</Card.Text>
+                         <Button onClick={this.addCollection}>add</Button>
+                   </Card.Body>
+                  <PostModal onHide={this.closeModal} show={this.state.isModalShow}/>
+               </Card>
+
+             )
+
+           });
+
+
       return(
       <div>
           <h1 className="title">{this.props.title}</h1>
@@ -103,7 +109,9 @@ export default class Recommend extends React.Component{
 
     }
     addCollection(){
-        console.log('add');
+        //console.log('add');
+        var userid = 123;
+        addCollect(userid,'title', '演員/女演員', 1, 100, false, 'detail', ' ');
     }
     openModal(){
         this.setState({isModalShow: true});

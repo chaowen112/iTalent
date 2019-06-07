@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export function newPost(userid,title, category, experience, price, by_hour, detail, id){
   // TODO insert to database
-   console.log('truly enter');
+   //console.log('truly enter');
     axios.post('/api/posts/new', {
         userid:userid,
         title: title,
@@ -23,33 +23,47 @@ export function newPost(userid,title, category, experience, price, by_hour, deta
 export function getHot()
 {
   return axios.get('/api/posts/hot')
-  var titles=[];
-  var prices=[];
-  var datas=[];
 
-axios.get('/api/posts/hot')
- .then((res)=>{
+}
 
+export function addCollect(userid,title, category, experience, price, by_hour, detail, id)
+{
 
-    res.data.forEach((data)=>{
-      titles.push(data.title);
-      prices.push(data.price);
-    })
-    for(var i=0;i<titles.length;i++)
-    {
-      datas.push({
-        img: `images/guitar.jpg`,
-        text:titles[i],
-        price:prices[i]
-      })
-    }
-    console.log(datas);
+   axios.post('/api/posts/collect', {
+       userid:userid,
+       title: title,
+       category: category,
+       experience: experience,
+       price: price,
+       detail: detail,
+       by_hour: by_hour,
+       id: id
+   }).then(() => {
+       //alert('success');
+   }).catch(e => {
+       console.log(e);
+       alert('fail!!');
+   });
+}
 
- })
- .catch(e=>{
-   alert('fail');
-   console.log(e);
- })
- return datas;
+export function postMoney(userid,money)
+{
+   console.log('enter getmoney')
+   axios.post('/api/post/money', {
+       userid:userid,
+       money:money
+   }).then(() => {
+       alert('success');
+   }).catch(e => {
+       console.log(e);
+       alert('fail!!');
+   });
+}
+export function getMoney(userid){
+  console.log(userid,'user');
 
+  return axios.post('/api/get/money',{
+    userid:userid
+
+  })
 }
