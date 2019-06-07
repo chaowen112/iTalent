@@ -3,8 +3,7 @@
   border-bottom: 1px solid #eee;
   display: flex;
   flex-direction: row;
-  padding: 0.6rem;
-  padding: 20px auto;
+  padding: 25px 0;
 }
 
 .chat-box:hover {
@@ -15,7 +14,7 @@
   height: 8vh;
   width: auto;
   border-radius: 100%;
-  margin: 0 0.6rem;
+  margin: 0 1rem 0 0.6rem;
 }
 
 .user-info {

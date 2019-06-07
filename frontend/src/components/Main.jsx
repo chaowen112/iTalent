@@ -74,17 +74,14 @@ class Main extends React.Component {
 
                         <Navbar color="faded" light toggleable>
                             <NavbarBrand className='text-info' href="/">iTalents</NavbarBrand>
-                                <Nav navbar style={{display: "flex", flexDirection: "row"}}>
-                                    <NavItem>
-
-                                    </NavItem>
+                                <Nav navbar className="justify-content-start d-flex flex-row flex-wrap">
                                     <NavItem>
                                         <Button onClick={this.openModal}>儲值
                                              <Store triggerchangemoney={this.updateMoney} onHide={this.closeModal} show={this.state.isModalShow}/>
 
                                         </Button>
                                     </NavItem>
-                                    <NavItem style={{marginLeft: "10px"}}>
+                                    <NavItem>
                                     <Dropdown>
                                         <Dropdown.Toggle variant="success" id="dropdown-basic">
                                           Category
@@ -97,14 +94,6 @@ class Main extends React.Component {
                                         </Dropdown.Menu>
                                     </Dropdown>
                                     </NavItem>
-                                    {/* { authState === 'signedIn' &&
-                                    <NavItem>
-                                        <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/register' >Sign out</NavLink>
-                                    </NavItem>
-                                    }
-                                    { authState === 'signIn' &&
-                                        <OAuthButton/>
-                                    } */}
                                     <NavItem>
                                         <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/artist'>Artist</NavLink>
                                     </NavItem>

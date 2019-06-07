@@ -10,7 +10,7 @@ import './Recommend.css';
 import {newPost,getHot} from 'api/post.js';
 import PostModal from 'components/PostModal.jsx';
 import Post from 'components/Post.jsx';
-import { $$asyncIterator } from 'iterall';
+
 export default class Recommend extends React.Component{
 
     constructor(props){
@@ -70,7 +70,7 @@ export default class Recommend extends React.Component{
            })
         })
       cards = this.state.datas.map(d => {
-        var cardStyle = {boxShadow: "0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)", minWidth: '200px'}
+        var cardStyle = {boxShadow: "0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)", minWidth: '200px', margin: "0 15px"}
            return (
 
            <Card onClick={this.openModal} key={d.key} style={cardStyle}>
@@ -89,10 +89,10 @@ export default class Recommend extends React.Component{
           <hr/>
           <h1 className="title">{this.props.title}</h1>
           <hr/>
-          <div style={{display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center"}}>
+          <div className="d-flex justify-content-around align-items-center" style={{margin: "0"}}>
             <i className="fas fa-chevron-circle-left fa-3x arrow-btn" onClick={this.handleLeftScroll.bind(this)}></i>
-            <Row className='justify-content-md-center scrollbar' style={{margin: "20px", maxWidth: "680px"}}>
-              <CardDeck style={{flexFlow: "row nowrap", margin: "10px 0", width: "100%"}}>
+            <Row className='justify-content-md-center scrollbar' style={{margin: "20px 0", maxWidth: "680px"}}>
+              <CardDeck style={{flexFlow: "row nowrap", margin: "10px 0", minWidth: "230px"}}>
                 {cards}
               </CardDeck>
             </Row>
@@ -126,7 +126,8 @@ export default class Recommend extends React.Component{
 
     handleRightScroll(e) {
       var el = $(e.target).prev();
-      var width = el.scrollLeft() + 230;
+      var distance = parseInt($('.card').css('width').replace('px', '')) + 2 * parseInt($('.card').css('margin-left').replace('px', ''));
+      var width = el.scrollLeft() + distance;
       var remove_hi = el.parent().next().children('.highlight');
       var add_hi = remove_hi.next();
       if (add_hi.length === 1) {
@@ -138,7 +139,8 @@ export default class Recommend extends React.Component{
 
     handleLeftScroll(e) {
       var el = $(e.target).next();
-      var width = el.scrollLeft() - 230;
+      var distance = parseInt($('.card').css('width').replace('px', '')) + 2 * parseInt($('.card').css('margin-left').replace('px', ''));
+      var width = el.scrollLeft() - distance;
       var remove_hi = el.parent().next().children('.highlight');
       var add_hi = remove_hi.prev();
       if (add_hi.length === 1) {
