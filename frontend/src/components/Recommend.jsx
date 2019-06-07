@@ -10,7 +10,8 @@ import './Recommend.css';
 import {newPost,getHot,addCollect} from 'api/post.js';
 import PostModal from 'components/PostModal.jsx';
 import Post from 'components/Post.jsx';
-
+import PostCard from 'components/PostCard.jsx';
+import { $$asyncIterator } from 'iterall';
 export default class Recommend extends React.Component{
 
     constructor(props){
@@ -39,52 +40,34 @@ export default class Recommend extends React.Component{
 
 
     render(){
+
+      //console.log(this.props.hotData,'hotdata');
+
+      let getHot_card = this.props.hotData.map( (d, id) => {
+        return <PostCard data={d} key={id}/>
+      })
+      let getLatest_card = this.props.latestData.map( (d, id) => {
+        return <PostCard data={d} key={id}/>
+      })
+      let card
+      if(this.props.keyword=='hot')
+      {
+        //console.log('hot');
+        card = getHot_card
+      }
+      else if(this.props.keyword=='latest')
+      {
+        //console.log('latest');
+        card = getLatest_card
+      }
       var titles=[]
       var categorys=[]
       var data=[]
       var prices = []
       var experiences=[]
       let cards
-      getHot().then(res=>{
+      
 
-        res.data.forEach((data)=>{
-
-          titles.push(data.title);
-          categorys.push(data.category);
-          prices.push(data.price);
-          experiences.push(data.experience);
-        })
-        for(var i=0;i<titles.length;i++)
-        {
-          data.push({
-            img: `images/guitar.jpg`,
-            title:titles[i],
-            category:categorys[i],
-            price:prices[i],
-            experience:experiences[i]
-          })
-        }
-
-      }).then(res=>{
-           this.setState({
-             datas:data
-           })
-        })
-      cards = this.state.datas.map(d => {
-        var cardStyle = {boxShadow: "0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)", minWidth: '200px', margin: "0 15px"}
-           return (
-
-           <Card onClick={this.openModal} key={d.key} style={cardStyle}>
-               <Card.Img className="carding" style={{ width: '150px', height: '150px', borderRadius: '50%', marginLeft: '22px', marginTop: '10px', border:'solid 5px #17a3b873'}} variant="top" src={d.img}/>
-               <Card.Body style={{textAlign: 'center'}}>
-                     <Card.Title >{this.props.name}</Card.Title>
-                     <Card.Text>{d.text}</Card.Text>
-                     <Card.Text>經驗：{d.experience}</Card.Text>
-                     <Card.Text>{d.price}$</Card.Text>
-                     <Button onClick={this.addCollection}>add</Button>
-               </Card.Body>
-           </Card>)
-       });
       return(
       <div>
           <hr/>
@@ -92,9 +75,9 @@ export default class Recommend extends React.Component{
           <hr/>
           <div className="d-flex justify-content-around align-items-center" style={{margin: "0"}}>
             <i className="fas fa-chevron-circle-left fa-3x arrow-btn" onClick={this.handleLeftScroll.bind(this)}></i>
-            <Row className='justify-content-md-center scrollbar' style={{margin: "20px 0", maxWidth: "680px"}}>
-              <CardDeck style={{flexFlow: "row nowrap", margin: "10px 0", minWidth: "230px"}}>
-                {cards}
+            <Row className='justify-content-md-center scrollbar' style={{margin: "20px", maxWidth: "680px"}}>
+              <CardDeck style={{flexFlow: "row nowrap", margin: "10px 0", width: "100%"}}>
+                {card}
               </CardDeck>
             </Row>
             <i className="fas fa-chevron-circle-right fa-3x arrow-btn" onClick={this.handleRightScroll.bind(this)}></i>
@@ -109,6 +92,7 @@ export default class Recommend extends React.Component{
             <i className="fas fa-circle"></i>
             <i className="fas fa-circle"></i>
           </div>
+
       </div>
       );
 
