@@ -92,8 +92,8 @@ router.post('/get/money', (req, res) => {
       console.log(e);
   });
 });
+
 router.post('/posts/view/add', (req, res) => {
-    console.log(req.body)
     const {postId} = req.body;
     post.addView(postId)
     .then((result) => {
@@ -103,5 +103,16 @@ router.post('/posts/view/add', (req, res) => {
         console.log(e);
     });
 });
+
+router.get('/post/detail', (req, res) => {
+    const{id} = req.body;
+    post.getDetail(res.id)
+    .then((result) => {
+        res.json(result);
+    })
+    .catch(e => {
+        console.log(e);
+    })
+})
 
 module.exports = router;

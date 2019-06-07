@@ -12,6 +12,8 @@ const schemaSql = `
     DROP TABLE IF EXISTS users;
     DROP TABLE IF EXISTS chatlists;
     DROP TABLE IF EXISTS chats;
+    DROP TABLE IF EXISTS contracts;
+    DROP TABLE IF EXISTS availability;
 
     -- Create
     CREATE TYPE category AS ENUM (
@@ -69,7 +71,8 @@ const schemaSql = `
 
     CREATE TABLE users (
         id          TEXT NOT NULL,
-        money       INTEGER NOT NULL DEFAULT 0
+        money       INTEGER NOT NULL DEFAULT 0,
+        description TEXT
     );
 
     CREATE TABLE chatlists (
@@ -88,7 +91,22 @@ const schemaSql = `
         text        TEXT NOT NULL,
         updated     TEXT NOT NULL,
         roomkey     INTEGER NOT NULL DEFAULT 0
-    )
+    );
+
+    CREATE TABLE availability (
+        id          SERIAL PRIMARY KEY NOT NULL,
+        orderId     TEXT NOT NULL,
+        date        TEXT NOT NULL,
+        time        INTEGER NOT NULL,
+        allDay      BOOL NOT NULL DEFAULT FALSE
+    );
+
+    CREATE TABLE contracts (
+        id          SERIAL PRIMARY KEY NOT NULL,
+        orderUser   TEXT NOT NULL,
+        artist      TEXT NOT NULL,
+        postId      INTEGER NOT NULL
+    );
 `;
 
 const selectCategory = `select enum_range (null::category);`;
@@ -102,9 +120,9 @@ const dataSql = `
             i,
             i+1,
             'detail',
-            'id',
+            'mtAc_bMYBsM',
             i+100000
-        FROM generate_series(1, 100) AS s(i);
+        FROM generate_series(1, 10) AS s(i);
 
         --create collections
         INSERT INTO collects (userId, title, category, price, experience, detail, youtubeId, ts)
@@ -129,6 +147,7 @@ const dataSql = `
             '23:44',
             1
             );
+
         INSERT INTO chatlists(id, name, img, text, updated, roomkey)
         VALUES(
             'b3ca56e6-7a33-4d42-bcda-5e25e799566a',
@@ -138,6 +157,7 @@ const dataSql = `
             '14:39',
             2
         );
+
         INSERT INTO chatlists(id, name, img, text, updated, roomkey)
         VALUES(
             'b3ca56e6-7a33-4d42-bcda-5e25e799566a',

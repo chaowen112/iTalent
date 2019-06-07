@@ -99,8 +99,8 @@ export default class Recommend extends React.Component{
                     <Comment/>
                     </Col>
                     <Col className="post-col" sm={12} lg={6}>
-                        <Post userId={this.props.userId}/>
-                        <Post userId={this.props.userId}/>
+                        <Post userId={this.props.userId} postId={1}/>
+                        <Post userId={this.props.userId} postId={2}/>
                     </Col>
                 </Row>
             </Container>

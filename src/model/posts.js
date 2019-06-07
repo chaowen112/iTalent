@@ -78,6 +78,13 @@ function addView(postId){
     return db.any(sql, {postId});
 }
 
+function getDetail(id){
+    sql = `
+        SELECT (title, category, ts, by_hour, price, experience, detail, youtubeId, views) from posts where id = $<id>;
+    `
+    return db.any(sql, {id});
+}
+
 module.exports = {
     getAllPosts,
     getRecommend,
@@ -87,5 +94,6 @@ module.exports = {
     addView,
     addCollect,
     postMoney,
-    getMoney
+    getMoney,
+    getDetail
 };

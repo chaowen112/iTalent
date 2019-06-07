@@ -19,6 +19,7 @@ export default class Availability extends React.Component{
 
         this.handleDateChange = this.handleDateChange.bind(this);
         this.handleTimeClick = this.handleTimeClick.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     render(){
@@ -57,7 +58,12 @@ export default class Availability extends React.Component{
                     <Col sm={12} lg={6}>
                         {time.map(t => {return t;})}
                     </Col>
-                </Row> 
+                </Row>
+                <Row>
+                    <Col>
+                        <Button color='primary' onClick={this.handleSubmit}>Submit</Button>
+                    </Col>
+                </Row>
             </Container>
         );
     }
@@ -71,5 +77,9 @@ export default class Availability extends React.Component{
         this.setState({time: this.state.time.map((t, it) => {
             return it == value? !t : t;
         })})
+    }
+
+    handleSubmit(){
+
     }
 };

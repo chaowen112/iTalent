@@ -12,3 +12,12 @@ export async function getUserData(id){
         console.log(err);
     }
 }
+
+export async function get(url, params){
+    try{
+        let res = await axios.get(url, {params: params})
+        return res.data;
+    } catch(e){
+        console.log(e);
+    }
+}
