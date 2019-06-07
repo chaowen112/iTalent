@@ -13,7 +13,8 @@ import './Wellcome.css';
 import Button from 'react-bootstrap/Button'
 // import React_icon from './img/React-icon.png';
 import Recommend from './Recommend.jsx'
-import { newPost, getHot } from 'api/post.js';
+import PostCard from 'components/PostCard.jsx';
+import { newPost, getHot,getLatest,getRecommend } from 'api/post.js';
 import { $$asyncIterator } from 'iterall';
 export default class Wellcome extends React.Component {
 
@@ -22,8 +23,9 @@ export default class Wellcome extends React.Component {
         this.toggle = this.toggle.bind(this);
         this.state = {
           loading:false,
-          dropdownOpen: false
-
+          dropdownOpen: false,
+          hot_datas:[],
+          latest_datas:[]
         };
 
         this._validAuthStates = ['signedIn'];
@@ -35,16 +37,82 @@ export default class Wellcome extends React.Component {
         }));
     }
 
-    render() {
+    componentDidMount() {
+      console.log('gethotdata enter');
+      var titles=[]
+      var categorys=[]
+      var data=[]
+      var prices = []
+      var experiences=[]
+      let cards
+      getHot()
+      .then(res=>{
 
+        res.data.forEach((data)=>{
+
+          titles.push(data.title);
+          categorys.push(data.category);
+          prices.push(data.price);
+          experiences.push(data.experience);
+        })
+        for(var i=0;i<titles.length;i++)
+        {
+          data.push({
+            img: `images/guitar.jpg`,
+            title:titles[i],
+            category:categorys[i],
+            price:prices[i],
+            experience:experiences[i]
+          })
+        }
+
+      })
+      .then(res=>{
+           this.setState({
+             hot_datas:data
+           })
+           //console.log(this.state.datas);
+        })
+
+        getLatest().then(res=>{
+
+          res.data.forEach((data)=>{
+
+            titles.push(data.title);
+            categorys.push(data.category);
+            prices.push(data.price);
+            experiences.push(data.experience);
+          })
+          for(var i=0;i<titles.length;i++)
+          {
+            data.push({
+              img: `images/guitar.jpg`,
+              title:titles[i],
+              category:categorys[i],
+              price:prices[i],
+              experience:experiences[i]
+            })
+          }
+
+        }).then(res=>{
+             this.setState({
+               latest_datas:data
+             })
+             //console.log(this.state.datas);
+          })
+    }
+    render() {
+        //console.log(this.state.datas);
         const carousel_title = {
             color: 'black'
         };
         const carousel_second_title = {
             color: 'black'
         };
-        return (
 
+
+
+        return (
             <div className="wellcome">
                 <div className="container">
                     <br />
@@ -71,9 +139,8 @@ export default class Wellcome extends React.Component {
                 <Container>
                     <Row>
                         <Col>
-                            <Recommend showId='hot' name={this.state.title} title="熱門" />
-                            <Recommend title="最新" />
-                            <Recommend title="推薦" />
+                            <Recommend  hotData={this.state.hot_datas} latestData={this.state.latest_datas} name={this.state.title} title="熱門" keyword='hot'/>
+                            <Recommend  hotData={this.state.hot_datas} latestData={this.state.latest_datas} name={this.state.title} title="最新" keyword='latest'/>
                         </Col>
                     </Row>
                 </Container>
@@ -94,7 +161,7 @@ export default class Wellcome extends React.Component {
                                     <b>chaowen.nthu@gmail.com</b>
                                 </div>
                                 <div>
-                                    <span className="phone"><i class="fas fa-phone"></i></span>
+                                    <span className="phone"><i className="fas fa-phone"></i></span>
                                     <b>+886-931-875-878</b>
                                 </div>
                             </Col>

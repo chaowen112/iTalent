@@ -25,7 +25,14 @@ export function getHot()
   return axios.get('/api/posts/hot')
 
 }
-
+export function getRecommend()
+{
+  return axios.get('/api/posts/recommend')
+}
+export function getLatest()
+{
+  return axios.get('/api/posts/latest')
+}
 export function addCollect(userid,title, category, experience, price, by_hour, detail, id)
 {
 
