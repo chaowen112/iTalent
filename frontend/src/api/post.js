@@ -60,7 +60,7 @@ export function postMoney(userid,money)
    });
 }
 export function getMoney(userid){
-  console.log(userid,'user');
+  //console.log(userid,'user');
 
   return axios.post('/api/get/money',{
     userid:userid

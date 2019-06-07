@@ -55,7 +55,6 @@ class Main extends React.Component {
         this.toggle = this.toggle.bind(this);
 
         this.handleNavbarToggle = this.handleNavbarToggle.bind(this);
-        this.handleUnitChange = this.handleUnitChange.bind(this);
         this.closeModal = this.closeModal.bind(this);
         this.openModal = this.openModal.bind(this);
         this.updateMoney = this.updateMoney.bind(this);
@@ -77,10 +76,7 @@ class Main extends React.Component {
                             <NavbarBrand className='text-info' href="/">iTalents</NavbarBrand>
                                 <Nav navbar style={{display: "flex", flexDirection: "row"}}>
                                     <NavItem>
-                                    <Button onClick={this.test}>test
-
-
-                                    </Button>
+                                    
                                     </NavItem>
                                     <NavItem>
                                         <Button onClick={this.openModal}>儲值
@@ -123,16 +119,16 @@ class Main extends React.Component {
                     </div>
 
                     <Route exact path="/" render={() => (
-                        <Wellcome/>
+                        <Wellcome userid={this.props.userid}/>
                     )}/>
                     <Route exact path="/artist" render={() => (
-                        <Artist/>
+                        <Artist userid={this.props.userid}/>
                     )}/>
                     <Route exact path="/account" render={() => (
-                        <Account/>
+                        <Account userid={this.props.userid}/>
                     )}/>
                     <Route exact path="/upload" render={() => (
-                        <PostForm/>
+                        <PostForm userid={this.props.userid}/>
                     )}/>
                 </div>
             </Router>
@@ -145,7 +141,7 @@ class Main extends React.Component {
         money=res.data[0].money;
         //console.dir(money,'moneyyy');
       }).then(res=>{
-        console.log('enter');
+        //console.log('enter');
         this.setState({
           money:money
         })
@@ -169,10 +165,8 @@ class Main extends React.Component {
         //console.log('openModal', this.state.isModalShow)
     }
     closeModal(e){
-        console.log(e)
         e.stopPropagation();
         this.setState({isModalShow: false})
-        console.log('closeModal', this.state.isModalShow)
     }
     toggle() {
         this.setState(prevState => ({
@@ -185,16 +179,10 @@ class Main extends React.Component {
         }));
     }
 
-    handleUnitChange(unit) {
-        this.setState({
-            unit: unit
-        });
-    }
-
     getUserData(id){
-        let data = getUserData(id);
-        console.log(data);
-        this.setState({userData: data});
+        getUserData(id)
+        .then(data => {console.log(data)})
+        .catch(e => {console.log(e)});
     }
 }
 

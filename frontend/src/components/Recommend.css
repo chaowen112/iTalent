@@ -1,8 +1,15 @@
+
+
 .title{
+    font-family: 'Noto Sans TC', sans-serif; 
     text-align: center;
-    margin: 1.2rem;
-    color: #333;
+    color: #17a2b8;
     font-size: 2rem;
+    letter-spacing: 1rem;
+    /* border-bottom: 3px double #777; */
+    /* border-top: 5px double #777; */
+    padding: 0rem;
+    margin: 0;
 }
 
 .row {
@@ -12,9 +19,26 @@
 .arrow-btn {
     cursor: pointer;
     transition: all .01s;
-    color: rgba(0, 0, 0, 0.2);
+    color: #17a2b8;
 }
 
 .arrow-btn:hover {
+    transform: scale(1.05);
+}
+
+.circles {
+    text-align: center;
+    transition: all 0.2s;
+    margin-bottom: 5rem;
+}
+
+.circles i {
+    margin: 0px 6px;
+    transform: scale(0.5);
+    color: lightgray;
+}
+
+.circles .highlight {
+    color: #17a2b8;
     transform: scale(1.05);
 }

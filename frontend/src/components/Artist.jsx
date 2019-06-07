@@ -99,10 +99,8 @@ export default class Recommend extends React.Component{
                     <Comment/>
                     </Col>
                     <Col className="post-col" sm={12} lg={6}>
-                        <Post/>
-                        <Post/>
-                        <Post/>
-                        <Post/>
+                        <Post userId={this.props.userId}/>
+                        <Post userId={this.props.userId}/>
                     </Col>
                 </Row>
             </Container>
@@ -111,7 +109,6 @@ export default class Recommend extends React.Component{
     }
 
     toggleIntro(){
-        console.log('toggleIntro')
         if(this.state.isToggle){
             this.setState({
                 isToggle: false,

@@ -77,12 +77,12 @@ router.post('/post/money', (req, res) => {
     });
 })
 router.post('/get/money', (req, res) => {
-  console.log('backend get money');
-  console.log(req.body,'money');
+  //console.log('backend get money');
+  //console.log(req.body,'money');
   //const {userid} = req.body;
   const userId= req.body.userid;
   //userId = 'henry';
-  console.log(userId);
+  //console.log(userId);
   post.getMoney(userId)
   .then((result) => {
       //console.log(result);
