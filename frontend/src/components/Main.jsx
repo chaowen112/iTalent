@@ -67,6 +67,13 @@ class Main extends React.Component {
 
 
     render() {
+        var btn_info_style = {
+            background: "#17a2b8",
+            border: "none",
+            padding: "6px 12px",
+            color: "white"
+        };
+
         return (
             <Router>
                 <div className={`main bg-faded ${this.state.group}`}>
@@ -74,19 +81,15 @@ class Main extends React.Component {
 
                         <Navbar color="faded" light toggleable>
                             <NavbarBrand className='text-info' href="/">iTalents</NavbarBrand>
-                                <Nav navbar style={{display: "flex", flexDirection: "row"}}>
+                                <Nav navbar className="justify-content-start d-flex flex-row flex-wrap">
                                     <NavItem>
-                                    
-                                    </NavItem>
-                                    <NavItem>
-                                        <Button onClick={this.openModal}>儲值
+                                    <Button variant="outline-info" onClick={this.openModal}>儲值
                                              <Store triggerchangemoney={this.updateMoney} onHide={this.closeModal} show={this.state.isModalShow}/>
-
-                                        </Button>
+                                    </Button>
                                     </NavItem>
-                                    <NavItem style={{marginLeft: "10px"}}>
+                                    <NavItem>
                                     <Dropdown>
-                                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                        <Dropdown.Toggle style={{backgroundImage: "none", padding: "6px 20px 6px 12px"}} variant="success" id="dropdown-basic">
                                           Category
                                         </Dropdown.Toggle>
                                         <Dropdown.Menu>
@@ -97,7 +100,6 @@ class Main extends React.Component {
                                         </Dropdown.Menu>
                                     </Dropdown>
                                     </NavItem>
-
                                     <NavItem>
                                         <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/artist'>Artist</NavLink>
                                     </NavItem>

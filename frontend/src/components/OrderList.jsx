@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 
 import {Col, Row, Button, Container, Tab, Nav, Card, Image} from 'react-bootstrap';
+import './OrderList.css';
 
 export default class OrderList extends React.Component{
 
@@ -45,35 +46,29 @@ export default class OrderList extends React.Component{
 
 
       let cards = data.map(d => {
-          return (
-          <Container>
-          <Row>
-          <Col>
-          <Card  key={d.key} id="collection_data" style={{width:'100%'}}>
-              <Card.Img  style={{width:'40vh',height:'30vh'}} src={d.img}/>
-              <Card.Body className="cardsize" >
-                  <Card.Title>姓名：{d.title}</Card.Title>
-                  <Card.Text>才藝：{d.talent}</Card.Text>
-                  <Card.Text>價錢：{d.price}</Card.Text>
-
-                  <Card.Text>評分：{d.score}</Card.Text>
-              </Card.Body>
-              <Card.Footer>
-                  <Card.Text >付款狀態：{d.payment}</Card.Text>
-                  <button>付款</button>
-              </Card.Footer>
-
-          </Card>
-          </Col>
-          </Row>
-          </Container>
+        return (
+            <Card  key={d.key} className="m-4" style={{width: "100%"}}>
+                <div className="d-flex flex-row align-items-center">
+                    <Card.Img  className="round float-left m-3" style={{width: "15vh", height: "15vh", border: "3px solid #f4f4f4", borderRadius: "50%"}} src={d.img}/>
+                    <Card.Body>
+                        <Card.Title style={{ background: "#17a2b8", color: "white", display: "inline-block", padding: "0 5px", letterSpacing: "3px"}}>{d.title}</Card.Title>
+                        <Card.Text>才藝：{d.talent}</Card.Text>
+                        <Card.Text>價錢：{d.price}</Card.Text>
+                        <Card.Text>評分：{d.score}</Card.Text>
+                    </Card.Body>                    
+                </div>
+                <Card.Footer className="d-flex flex-row align-items-center justify-content-between">
+                    <Card.Text className="m-0">付款狀態：{d.payment}</Card.Text>
+                    <button className="m-2 pay-btn">付款</button>
+                </Card.Footer>
+            </Card>
         )
 
       });
       return(
-        <div>
-        {cards}
-        </div>
+        <Container>
+            {cards}
+        </Container>
       )
 
     };

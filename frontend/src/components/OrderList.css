@@ -1,0 +1,16 @@
+.pay-btn {
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #17a2b8;
+  border-radius: 5px;
+  padding: 0.2rem 0.7rem;
+}
+
+.pay-btn:hover {
+  background: #14bbd4;
+}
+
+.pay-btn:focus {
+  outline: none;
+}

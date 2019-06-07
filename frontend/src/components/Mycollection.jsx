@@ -40,15 +40,30 @@ export default class Recommend extends React.Component{
                 updated: '2019/05/19',
                 score:7
             },
-
+            {
+                key: 3,
+                title: 'Tony',
+                text: 'I can concour the universe',
+                img: `images/piano.jpg`,
+                updated: '2019/05/19',
+                score: 7
+            },
+            {
+                key: 4,
+                title: 'Peter',
+                text: 'I can concour the universe',
+                img: `images/piano.jpg`,
+                updated: '2019/05/19',
+                score: 7
+            },
         ]
         console.log(data.length)
 
         let cards = data.map(d => {
             return (
-            <Card key={d.key} id="collection_data">
+            <Card className="m-2" key={d.key} style={{width: "200px"}}>
                 <Card.Img style={{width:'150px',height:'150px',borderRadius:'50%',marginLeft:'22px',marginTop:'10px',border:'solid 5px #eee'}} src={d.img}/>
-                <Card.Body>
+                <Card.Body style={{textAlign: "center"}}>
                     <Card.Title>{d.title}</Card.Title>
                     <Card.Text>{d.text}</Card.Text>
                     <Card.Text>score:{d.score}</Card.Text>
@@ -62,13 +77,11 @@ export default class Recommend extends React.Component{
         console.log(cards)
 
         return(
-        <div>
+        <Container>
             <h1 className="title">{this.props.title}</h1>
-            <Row className='justify-content-md-center'>
-                <CardDeck style={{display: 'flex', flexDirection: 'row'}}>
-                    {cards}
-                </CardDeck>
-            </Row>
-        </div>);
+            <div className="d-flex flex-row flex-wrap">
+                {cards}
+            </div>
+        </Container>);
     }
 }

@@ -27,3 +27,17 @@
     outline: none;
     box-shadow: none;
 }
+
+.link a {
+    color: #17a2b8;
+}
+
+.inline-border {
+    width: 100%;
+    height: 1px;
+    border-top: 1px solid #17a2b8;
+}
+
+.contact {
+    color: #17a2b8;
+}

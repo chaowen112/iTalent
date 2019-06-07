@@ -25,3 +25,8 @@
 .nav-item{
   margin: 10px;
 }
+
+.btn-success::after {
+  position: absolute;
+  top: 50%;
+}

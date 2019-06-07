@@ -53,7 +53,7 @@ export default class Booking extends React.Component{
         let cards = data.map(d => {
             return (
             <div  >
-            <Card  key={d.key} id="collection_data" style={{width:'60%',left:200}}>
+            <Card  key={d.key} className="m-2">
                 <Card.Img  style={{width:'40%'}} src={d.img}/>
                 <Card.Body className="cardsize" >
                     <Card.Title>姓名：{d.title}</Card.Title>
@@ -68,7 +68,6 @@ export default class Booking extends React.Component{
                 </Card.Footer>
 
             </Card>
-            <br></br>
             </div>
           )
         });
@@ -79,7 +78,7 @@ export default class Booking extends React.Component{
         <div>
             <h1 className="title">{this.props.title}</h1>
             <Row className='justify-content-md-center'>
-                <CardDeck style={{display: 'flex', flexDirection: 'row'}}>
+                <CardDeck>
                     {cards}
                 </CardDeck>
             </Row>
