@@ -27,7 +27,7 @@ import {
 } from 'reactstrap';
 
 import {getUserData} from '../api/user.js';
-
+import {postMoney,getMoney} from 'api/post.js'
 import Today from 'components/Today.jsx';
 
 import Wellcome from 'components/Wellcome.jsx';
@@ -59,13 +59,13 @@ class Main extends React.Component {
         this.openModal = this.openModal.bind(this);
         this.updateMoney = this.updateMoney.bind(this);
         this.getUserData = this.getUserData.bind(this);
-
+        this.test = this.test.bind(this);
         if(this.props.authState == "signedIn"){
             this.getUserData(this.props.authData.attributes.sub);
         }
     }
 
-    
+
     render() {
         return (
             <Router>
@@ -130,13 +130,35 @@ class Main extends React.Component {
             </Router>
         );
     }
+    test()
+    {
+      var money=0;
+      getMoney('allen').then(res=>{
+        money=res.data[0].money;
+        //console.dir(money,'moneyyy');
+      }).then(res=>{
+        //console.log('enter');
+        this.setState({
+          money:money
+        })
+        console.log(this.state.money);
+      }).catch(e => {
+          console.log(e);
+          alert('fail');
+      });;
 
+    }
     updateMoney(cash)
     {
       this.setState({money:this.state.money+Number(cash)});
+      console.log(typeof(this.state.money));
+      postMoney('henry',300);
+
     }
     openModal(){
         this.setState({isModalShow: true});
+
+        //console.log('openModal', this.state.isModalShow)
     }
     closeModal(e){
         e.stopPropagation();

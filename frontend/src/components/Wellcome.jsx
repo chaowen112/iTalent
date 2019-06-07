@@ -21,15 +21,9 @@ export default class Wellcome extends React.Component {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = {
-            loading: false,
-            dropdownOpen: false,
-            title: [],
-            category: [],
-            by_hour: [],
-            price: [],
-            detail: [],
-            id: [],
-            experience: []
+          loading:false,
+          dropdownOpen: false
+
         };
 
         this._validAuthStates = ['signedIn'];

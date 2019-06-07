@@ -7,7 +7,7 @@ import {
 import axios from 'axios';
 import {Card, CardDeck , Container, Row, Col, CardColumns, Button}from 'react-bootstrap';
 import './Recommend.css';
-import {newPost,getHot} from 'api/post.js';
+import {newPost,getHot,addCollect} from 'api/post.js';
 import PostModal from 'components/PostModal.jsx';
 import Post from 'components/Post.jsx';
 
@@ -25,7 +25,8 @@ export default class Recommend extends React.Component{
             price:[],
             experience:[],
             dataAllocate:[],
-            datas:[]
+            datas:[],
+            colletion_title:''
         }
 
         this.closeModal = this.closeModal.bind(this);
@@ -57,7 +58,7 @@ export default class Recommend extends React.Component{
         {
           data.push({
             img: `images/guitar.jpg`,
-            text:titles[i],
+            title:titles[i],
             category:categorys[i],
             price:prices[i],
             experience:experiences[i]
@@ -113,7 +114,9 @@ export default class Recommend extends React.Component{
 
     }
     addCollection(){
-        console.log('add');
+        //console.log('add');
+        var userid = 123;
+        addCollect(userid,'title', '演員/女演員', 1, 100, false, 'detail', ' ');
     }
     openModal(){
         this.setState({isModalShow: true});
