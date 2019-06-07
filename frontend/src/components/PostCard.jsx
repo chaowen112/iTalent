@@ -71,7 +71,7 @@ export default class PostCard extends React.Component{
     addCollection(){
         //console.log('add');
         var userid = 123;
-        addCollect(userid,'title', '演員/女演員', 1, 100, false, 'detail', ' ');
+        addCollect(userid,this.props.data.title, '演員/女演員', 1, this.props.data.price, false, 'detail', ' ');
     }
     openModal(){
         this.setState({isModalShow: true});

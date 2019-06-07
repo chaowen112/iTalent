@@ -56,12 +56,14 @@ export default class Store extends React.Component{
             <Form.Group controlId="formBasicEmail">
               <Form.Label>卡號</Form.Label>
               <Form.Control  placeholder="請輸入卡號" />
-
             </Form.Group>
-
             <Form.Group controlId="formBasicPassword">
-              <Form.Label>密碼</Form.Label>
-              <Form.Control type="password" placeholder="請輸入密碼" />
+              <Form.Label>到期月年</Form.Label>
+              <Form.Control placeholder="MM/YY" />
+            </Form.Group>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>背面驗證碼</Form.Label>
+              <Form.Control placeholder="驗證碼" />
             </Form.Group>
             <input type='number'  onChange={this.changeText}/>
             <input type="button" value="金額" onClick={this.getText}/>

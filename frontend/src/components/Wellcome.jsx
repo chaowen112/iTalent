@@ -13,6 +13,8 @@ import './Wellcome.css';
 import Button from 'react-bootstrap/Button'
 // import React_icon from './img/React-icon.png';
 import Recommend from './Recommend.jsx'
+import Hot from './Hot.jsx'
+import Latest from './Latest.jsx'
 import PostCard from 'components/PostCard.jsx';
 import { newPost, getHot,getLatest,getRecommend } from 'api/post.js';
 import { $$asyncIterator } from 'iterall';
@@ -25,7 +27,8 @@ export default class Wellcome extends React.Component {
           loading:false,
           dropdownOpen: false,
           hot_datas:[],
-          latest_datas:[]
+          latest_datas:[],
+          recommend_datas:[]
         };
 
         this._validAuthStates = ['signedIn'];
@@ -38,7 +41,7 @@ export default class Wellcome extends React.Component {
     }
 
     componentDidMount() {
-      console.log('gethotdata enter');
+      //console.log('gethotdata enter');
       var titles=[]
       var categorys=[]
       var data=[]
@@ -66,13 +69,18 @@ export default class Wellcome extends React.Component {
           })
         }
 
-      })
-      .then(res=>{
-           this.setState({
-             hot_datas:data
-           })
-           //console.log(this.state.datas);
+      }).then(res=>{
+        this.setState({
+          hot_datas:data
         })
+        titles=[]
+         categorys=[]
+         data=[]
+         prices = []
+         experiences=[]
+
+      })
+
 
         getLatest().then(res=>{
 
@@ -100,8 +108,36 @@ export default class Wellcome extends React.Component {
              })
              //console.log(this.state.datas);
           })
+
+          getRecommend().then(res=>{
+
+            res.data.forEach((data)=>{
+
+              titles.push(data.title);
+              categorys.push(data.category);
+              prices.push(data.price);
+              experiences.push(data.experience);
+            })
+            for(var i=0;i<titles.length;i++)
+            {
+              data.push({
+                img: `images/guitar.jpg`,
+                title:titles[i],
+                category:categorys[i],
+                price:prices[i],
+                experience:experiences[i]
+              })
+            }
+
+          }).then(res=>{
+               this.setState({
+                 recommend_datas:data
+               })
+               //console.log(this.state.datas);
+            })
     }
     render() {
+    //  console.log('welcome enter');
         //console.log(this.state.datas);
         const carousel_title = {
             color: 'black'
@@ -139,8 +175,10 @@ export default class Wellcome extends React.Component {
                 <Container>
                     <Row>
                         <Col>
-                            <Recommend  hotData={this.state.hot_datas} latestData={this.state.latest_datas} name={this.state.title} title="熱門" keyword='hot'/>
-                            <Recommend  hotData={this.state.hot_datas} latestData={this.state.latest_datas} name={this.state.title} title="最新" keyword='latest'/>
+                            <Hot  hotData={this.state.hot_datas}  name={this.state.title} title="熱門" />
+
+                            <Latest  latestData={this.state.latest_datas} name={this.state.title} title="最新" />
+                            <Recommend  recommendData={this.state.recommend_datas} name={this.state.title} title="推薦" />
                         </Col>
                     </Row>
                 </Container>

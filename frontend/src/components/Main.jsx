@@ -67,6 +67,7 @@ class Main extends React.Component {
 
 
     render() {
+       //console.log('main enter');
         var btn_info_style = {
             background: "#17a2b8",
             border: "none",
@@ -147,7 +148,7 @@ class Main extends React.Component {
         this.setState({
           money:money
         })
-        console.log(this.state.money);
+        //console.log(this.state.money);
       }).catch(e => {
           console.log(e);
           alert('fail');
@@ -157,7 +158,7 @@ class Main extends React.Component {
     updateMoney(cash)
     {
       this.setState({money:this.state.money+Number(cash)});
-      console.log(typeof(this.state.money));
+      //console.log(typeof(this.state.money));
       postMoney('henry',300);
 
     }
