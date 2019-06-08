@@ -42,11 +42,8 @@ export default class Wellcome extends React.Component {
 
     componentDidMount() {
       //console.log('gethotdata enter');
-      var titles=[]
-      var categorys=[]
-      var data=[]
-      var prices = []
-      var experiences=[]
+      var titles=[],categorys=[],data=[],prices = [],experiences=[]
+      var rec_titles=[],rec_categorys=[],rec_data=[],rec_prices = [],rec_experiences=[]
       let cards
       getHot()
       .then(res=>{
@@ -118,25 +115,25 @@ export default class Wellcome extends React.Component {
 
             res.data.forEach((data)=>{
 
-              titles.push(data.title);
-              categorys.push(data.category);
-              prices.push(data.price);
-              experiences.push(data.experience);
+              rec_titles.push(data.title);
+              rec_categorys.push(data.category);
+              rec_prices.push(data.price);
+              rec_experiences.push(data.experience);
             })
-            for(var i=0;i<titles.length;i++)
+            for(var i=0;i<rec_titles.length;i++)
             {
-              data.push({
+              rec_data.push({
                 img: `images/guitar.jpg`,
-                title:titles[i],
-                category:categorys[i],
-                price:prices[i],
-                experience:experiences[i]
+                title:rec_titles[i],
+                category:rec_categorys[i],
+                price:rec_prices[i],
+                experience:rec_experiences[i]
               })
             }
 
           }).then(res=>{
                this.setState({
-                 recommend_datas:data
+                 recommend_datas:rec_data
                })
                //console.log(this.state.datas);
             })
@@ -205,7 +202,7 @@ export default class Wellcome extends React.Component {
                         <div>
                             <span className="phone"><i class="fas fa-phone"></i></span>
                             <b>+886-931-875-878</b>
-                        </div>                    
+                        </div>
                     </div>
                     <div style={{ color: "#17a2b8", textAlign: "center", marginTop: "2rem"}}>
                         <i class="far fa-copyright"></i> 2019 iTalent - All Rights Reserved
