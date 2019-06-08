@@ -11,7 +11,7 @@ function getUserData(id, name){
         SELECT * FROM users WHERE id = $<id>;
     `;
     insert = `
-        INSERT INTO users (id, name) VALUES ($<id>, $<name>);
+        INSERT INTO users (id, name, photo) VALUES ($<id>, $<name>, 'images/guitar.jpg');
     `
     return db.any(select, {id})
     .then(r => {

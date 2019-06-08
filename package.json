@@ -21,6 +21,7 @@
     "nodeman": "^1.1.2",
     "nodemon": "^1.18.10",
     "pg-promise": "^8.7.2",
+    "react-google-recaptcha-v3": "^1.2.0",
     "uuid": "^3.3.2",
     "webpack": "^4.29.6",
     "yargs": "^13.2.2"

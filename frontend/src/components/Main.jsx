@@ -26,7 +26,12 @@ import {
     NavLink,
     NavDropdown,
     Form,
-    NavbarCollapse
+    NavbarCollapse,
+    UncontrolledDropdown,
+    Dropdown,
+    DropdownItem,
+    DropdownMenu,
+    DropdownToggle
 } from 'reactstrap';
 
 import {getUserData} from '../api/user.js';
@@ -50,12 +55,11 @@ class Main extends React.Component {
         var authData = this.props.authData;
         this.state = {
             unit: 'metric',
-            navbarToggle: false,
             dropdownOpen: false,
             isModalShow: false,
             money: 0,
             userData: { id: authData.attributes.sub, name: authData.username},
-            isOpen: false
+            navbarToggle: false
 
         };
         this.toggle = this.toggle.bind(this);
@@ -89,10 +93,10 @@ class Main extends React.Component {
             <Router>
 
                 <div className={`main bg-faded ${this.state.group}`}>
-                    <Navbar color="light" light expand="md">
+                    <Navbar color="light" light expand={"md"}>
                         <NavbarBrand href="/">iTalent</NavbarBrand>
-                        <NavbarToggler onClick={() => {this.setState({isOpen: !this.state.isOpen})}} />
-                        <Collapse isOpen={this.state.isOpen} navbar>
+                        <NavbarToggler onClick={this.handleNavbarToggle} />
+                        <Collapse isOpen={this.state.navbarToggle} navbar>
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
                                     <Button variant="outline-info" onClick={this.openModal}>儲值
@@ -100,13 +104,13 @@ class Main extends React.Component {
                                     </Button>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink tag={Link} to='/artist'>Artist</NavLink>
+                                    <NavLink tag={Link} onClick={this.handleNavbarToggle} to='/artist'>Artist</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink tag={Link} to='/account'>Account</NavLink>
+                                    <NavLink tag={Link} onClick={this.handleNavbarToggle} to='/account'>Account</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink tag={Link} to='/upload'>Upload</NavLink>
+                                    <NavLink tag={Link} onClick={this.handleNavbarToggle} to='/upload'>Upload</NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink tag={Link} to='/'>
@@ -115,7 +119,7 @@ class Main extends React.Component {
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <Button variant="outline-info" onClick={this.logout}>登出
+                                    <Button variant="outline-danger" onClick={this.logout}>登出
                                     </Button>
                                 </NavItem>
                             </Nav>

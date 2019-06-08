@@ -11,11 +11,12 @@ import InputGroup from 'react-bootstrap/InputGroup'
 import './PostModal.css';
 import Post from 'components/Post.jsx';
 import Form from 'react-bootstrap/Form'
+
 export default class Store extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            intro: 10,
+            intro: 0,
         }
         this.getText = this.getText.bind(this);
         this.changeText = this.changeText.bind(this);
