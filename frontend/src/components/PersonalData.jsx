@@ -21,36 +21,63 @@ export default class PersonalData extends React.Component{
     }
 
     render(){
-      var img = this.props.userData.photo || 'images/guitar.jpg';
+        var img = 'images/' + this.props.userData.photo;
 
         return (
             <div >
-            <Card style={{width:'100%'}}>
-            <div >
-            <Card.Img  className="imgsize"  src={`images/${this.props.userData.photo}`}/>
-            </div>
-            <Card.Body>
-                <Card.Title ><p className="card_title">姓名：{this.props.userData.name}</p>
-                            <br></br>
-                            <p className="card_title">簡介：{this.props.userData.description}</p>
-                            <InputGroup style={{height: '5rem'}}>
-                                <FormControl as="textarea" value={this.state.description}
-                                    onChange={(e)=>this.setState({description: e.target.value})}
-                                />
-                            </InputGroup>
-                            <br></br>
-                            <InputGroup style={{height: '5rem'}}>
-                                <FormControl as="input" type="file"
-                                    onChange={(e)=>this.setState({photo: e.target.files[0]})}
-                                />
-                            </InputGroup>
-                            <p className="card_title">
-                                <Button onClick={this.uploadDescription}>上傳簡介</Button>
-                                <Button onClick={this.uploadPhoto}>上傳頭像</Button>
-                            </p>
-                </Card.Title>
-            </Card.Body>
-            </Card>
+
+                <div className="person-card">
+                    <img src={img} alt="photo" onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = "https://source.unsplash.com/500x500/?sing,dance"
+                    }} />
+                    <div className="username">{this.props.userData.name}</div>
+                </div>
+                <div className="info">
+                    <div>
+                        <div className="info-title">
+                            Email
+                    </div>
+                        <div className="border"></div>
+                        <i className="far fa-envelope"></i>{this.props.userData.email}
+                    </div>
+                    <div className="split-line"></div>
+                    <div>
+                        <div className="info-title">
+                            Phone
+                    </div>
+                        <div className="border"></div>
+                        <i className="fas fa-phone"></i>{this.props.userData.phone}
+                    </div>
+                </div>  
+
+                <Card style={{width:'100%'}}>
+                {/* <div >
+                <Card.Img  className="imgsize"  src={`images/${this.props.userData.photo}`}/>
+                </div> */}
+                <Card.Body>
+                    <Card.Title >
+                                {/* <p className="card_title">姓名：{this.props.userData.name}</p> */}
+                                {/* <br></br> */}
+                                <p className="card_title">簡介：{this.props.userData.description}</p>
+                                <InputGroup style={{height: '5rem'}}>
+                                    <FormControl as="textarea" value={this.state.description}
+                                        onChange={(e)=>this.setState({description: e.target.value})}
+                                    />
+                                </InputGroup>
+                                <br></br>
+                                <InputGroup style={{height: '5rem'}}>
+                                    <FormControl as="input" type="file"
+                                        onChange={(e)=>this.setState({photo: e.target.files[0]})}
+                                    />
+                                </InputGroup>
+                                <p className="card_title">
+                                    <Button onClick={this.uploadDescription}>上傳簡介</Button>
+                                    <Button onClick={this.uploadPhoto}>上傳頭像</Button>
+                                </p>
+                    </Card.Title>
+                </Card.Body>
+                </Card>
             </div>
         )
     }
