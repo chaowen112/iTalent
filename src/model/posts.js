@@ -41,15 +41,7 @@ function create(userid,title, category, by_hour, price, experience, detail, yout
     `;
     return db.any(sql, {userid,title, category, by_hour, price, experience, detail, youtubeid});
 }
-//新增收藏
-function addCollect(userid,title, category, by_hour, price, experience, detail, youtubeid){
-    //.log(title);
-    sql = `
-        INSERT INTO collects (userid,title, category, by_hour, price, experience, detail, youtubeId)
-        VALUES ($<userid>,$<title>, $<category>, $<by_hour>, $<price>, $<experience>, $<detail>, $<youtubeid>)
-    `;
-    return db.any(sql, {userid,title, category, by_hour, price, experience, detail, youtubeid});
-}
+
 //得到目前這個帳號的餘額
 function postMoney(userid,money)
 {
@@ -124,7 +116,6 @@ module.exports = {
     getLatest,
     create,
     addView,
-    addCollect,
     postMoney,
     getMoney,
     getDetail,

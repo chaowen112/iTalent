@@ -106,6 +106,11 @@ export default class Wellcome extends React.Component {
              this.setState({
                latest_datas:data
              })
+             titles=[]
+              categorys=[]
+              data=[]
+              prices = []
+              experiences=[]
              //console.log(this.state.datas);
           })
 
