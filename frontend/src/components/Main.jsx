@@ -43,13 +43,14 @@ class Main extends React.Component {
     constructor(props) {
         super(props);
         console.log(props);
+        var authData = this.props.authData;
         this.state = {
             unit: 'metric',
             navbarToggle: false,
             dropdownOpen: false,
             isModalShow: false,
             money: 0,
-            userData: null
+            userData: { id: authData.attributes.sub, name: authData.username}
 
         };
         this.toggle = this.toggle.bind(this);
@@ -122,16 +123,16 @@ class Main extends React.Component {
                     </div>
 
                     <Route exact path="/" render={() => (
-                        <Wellcome userid={this.props.userid}/>
+                        <Wellcome userData={this.state.userData}/>
                     )}/>
                     <Route exact path="/artist" render={() => (
-                        <Artist userid={this.props.userid}/>
+                        <Artist userData={this.state.userData}/>
                     )}/>
                     <Route exact path="/account" render={() => (
-                        <Account userid={this.props.userid}/>
+                        <Account userData={this.state.userData}/>
                     )}/>
                     <Route exact path="/upload" render={() => (
-                        <PostForm userid={this.props.userid}/>
+                        <PostForm userData={this.state.userData}/>
                     )}/>
                 </div>
             </Router>
@@ -184,7 +185,9 @@ class Main extends React.Component {
 
     getUserData(id){
         getUserData(id)
-        .then(data => {console.log(data)})
+        .then(data => {
+            console.log(data);
+        })
         .catch(e => {console.log(e)});
     }
 }

@@ -15,6 +15,14 @@ export default class Chatroom extends React.Component {
   constructor(props) {
     super(props);
     this.state = {data: [], inputMsg: ''};
+
+    setInterval(() => {
+      getChat(this.props.other.roomkey).then(res => {
+        this.setState({ data: res });
+        var el = document.querySelector('.window');
+        el.scrollTop = el.scrollHeight;
+      })
+    }, 1000);
   }
 
   componentWillMount() {
@@ -23,20 +31,15 @@ export default class Chatroom extends React.Component {
     })
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    var el = document.querySelector('.window');
-    el.scrollTop = el.scrollHeight;
-  }
-
   render() {
 
     let data = this.state.data;
     let other = this.props.other;
     // console.log(data.length)
 
-    var userId = 'b3ca56e6-7a33-4d42-bcda-5e25e799566a';
+    var userId = this.props.userData.id;
     var userImg = 'images/piano.jpg';
-    var username = 'Alex';
+    var username = this.props.userData.name;
 
     let posts = data.map(d => {
       var reverse, img, name;
@@ -90,10 +93,10 @@ export default class Chatroom extends React.Component {
   }
 
   async handleMsgSubmit(e) {
-    var userId = 'b3ca56e6-7a33-4d42-bcda-5e25e799566a';
+    var userId = this.props.userData.id;
     var text = this.state.inputMsg;
     var updated = this.getTime();
-    var roomkey = this.props.other.key;
+    var roomkey = this.props.other.roomkey;
     var res = await newChat(userId, text, updated, roomkey);
     this.setState({data: res, inputMsg: ''});
     updateChatList(roomkey, text, updated);

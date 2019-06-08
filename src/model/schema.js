@@ -123,38 +123,29 @@ const dataSql = `
         INSERT INTO chatlists(id, name, img, text, updated, roomkey)
         VALUES(
             'b3ca56e6-7a33-4d42-bcda-5e25e799566a',
-            'Andrew',
+            'testUser2',
             'images/guitar.jpg',
-            'how old are you?',
-            '23:44',
+            'Start chatting now!',
+            '00:00',
             1
             );
         INSERT INTO chatlists(id, name, img, text, updated, roomkey)
         VALUES(
-            'b3ca56e6-7a33-4d42-bcda-5e25e799566a',
-            'Alex',
+            '4e27b01b-ccbe-47db-a539-8c00d5624739',
+            'testUser',
             'images/piano.jpg',
-            'How are you?',
-            '14:39',
-            2
-        );
-        INSERT INTO chatlists(id, name, img, text, updated, roomkey)
-        VALUES(
-            'b3ca56e6-7a33-4d42-bcda-5e25e799566a',
-            'Samuel',
-            'images/ballet.jpg',
-            'Are you free now?',
-            '12:16',
-            3
+            'Start chatting now!',
+            '00:00',
+            1
         );
 
         -- create chat log
-        INSERT INTO chats(owner, text, updated, roomkey)
-        VALUES('b3ca56e6-7a33-4d42-bcda-5e25e799566a', 'hi', '23:43', 1);
-        INSERT INTO chats(owner, text, updated, roomkey)
-        VALUES('b3ca56e6-7a33-4d42-bcda-5e25e799566b', 'hi', '23:43', 1);
-        INSERT INTO chats(owner, text, updated, roomkey)
-        VALUES('b3ca56e6-7a33-4d42-bcda-5e25e799566b', 'how old are you?', '23:44', 1);
+        --INSERT INTO chats(owner, text, updated, roomkey)
+        --VALUES('b3ca56e6-7a33-4d42-bcda-5e25e799566a', 'hi', '23:43', 1);
+        --INSERT INTO chats(owner, text, updated, roomkey)
+        --VALUES('4e27b01b-ccbe-47db-a539-8c00d5624739', 'hi', '23:43', 1);
+        --INSERT INTO chats(owner, text, updated, roomkey)
+        --VALUES('4e27b01b-ccbe-47db-a539-8c00d5624739', 'how old are you?', '23:44', 1);
 `
 
 db.none(schemaSql).then(() => {

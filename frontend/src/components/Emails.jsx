@@ -16,20 +16,20 @@ export default class Emails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {isChat: false, data: [], other: {}};
+
+    setInterval(() => {
+      let userId = this.props.userData.id;
+      getChatList(userId).then(res => {
+        this.setState({ data: res });
+      })
+    }, 1000);
   }
 
   componentWillMount() {
-    let userId = 'b3ca56e6-7a33-4d42-bcda-5e25e799566a'
+    let userId = this.props.userData.id;
     getChatList(userId).then(res => {
       this.setState({data: res});
     })
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    let userId = 'b3ca56e6-7a33-4d42-bcda-5e25e799566a'
-    getChatList(userId).then(res => {
-      this.setState({ data: res });
-    })    
   }
 
   render() {
@@ -58,6 +58,7 @@ export default class Emails extends React.Component {
     var component = cards;
     if (this.state.isChat) {
       component = <Chatroom
+                    userData={this.props.userData}
                     other={this.state.other}
                     backOnClick={this.closeChatroom.bind(this)}
                   ></Chatroom>;
