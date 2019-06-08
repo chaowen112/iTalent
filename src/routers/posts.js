@@ -67,22 +67,6 @@ router.post('/post/money', (req, res) => {
         console.log(e);
     });
 })
-router.post('/get/money', (req, res) => {
-  //console.log('backend get money');
-  //console.log(req.body,'money');
-  //const {userid} = req.body;
-  const userId= req.body.userid;
-  //userId = 'henry';
-  //console.log(userId);
-  post.getMoney(userId)
-  .then((result) => {
-      //console.log(result);
-      res.json(result)
-  })
-  .catch(e => {
-      console.log(e);
-  });
-});
 
 router.post('/posts/view/add', (req, res) => {
     const {postId} = req.body;

@@ -200,12 +200,12 @@ export default class Wellcome extends React.Component {
                             <b>chaowen.nthu@gmail.com</b>
                         </div>
                         <div>
-                            <span className="phone"><i class="fas fa-phone"></i></span>
+                            <span className="phone"><i className="fas fa-phone"></i></span>
                             <b>+886-931-875-878</b>
                         </div>
                     </div>
                     <div style={{ color: "#17a2b8", textAlign: "center", marginTop: "2rem"}}>
-                        <i class="far fa-copyright"></i> 2019 iTalent - All Rights Reserved
+                        <i className="far fa-copyright"></i> 2019 iTalent - All Rights Reserved
                     </div>
                 </div>
             </div>

@@ -17,7 +17,8 @@ export default class Availability extends React.Component{
         this.state = {
             time: new Array(24).fill(false),
             allDay: false,
-            disabled: []
+            disabled: [],
+            disableAllday: false
         };
 
         this.handleDateChange = this.handleDateChange.bind(this);
@@ -71,6 +72,7 @@ export default class Availability extends React.Component{
                         <Label check className={'p-2'}>
                             <Input type="checkbox"
                             checked={this.state.allDay}
+                            disabled={this.state.disableAllday}
                             onChange={e=>{
                                 this.setState({
                                     allDay: e.target.checked, 
@@ -89,12 +91,17 @@ export default class Availability extends React.Component{
     }
 
     handleDateChange(value){
+        let disableAllday = false;
         this.setState({date: value.toLocaleDateString(), time: Array(24).fill(false)});
         get('/api/post/available', {id: this.props.postData.userid, date: value.toLocaleDateString()})
         .then(data => {
             let disabled = Array(24).fill(false);
             data.forEach(d => {console.log(d.time);disabled[d.time] = true});
             this.setState({disabled: disabled});
+            this.state.disabled.forEach(d => {
+                if(d) disableAllday = true;
+            })
+            this.setState({disableAllday: disableAllday});
         })
         .catch(e => {console.log(e)});
     }

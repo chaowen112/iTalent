@@ -73,7 +73,9 @@ const schemaSql = `
     CREATE TABLE users (
         id          TEXT NOT NULL,
         money       INTEGER NOT NULL DEFAULT 0,
-        description TEXT
+        description TEXT,
+        name        TEXT NOT NULL,
+        photo       TEXT
     );
 
     CREATE TABLE chatlists (

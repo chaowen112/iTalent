@@ -8,8 +8,8 @@ const router = express.Router();
 router.use(bodyParser.json());
 
 router.get('/user/data', (req, res, next) => {
-    const {id} = req.query;
-    users.getUserData(id)
+    const {id, name} = req.query;
+    users.getUserData(id, name)
     .then(result => res.json(result))
     .catch(e => next(e));
 });
