@@ -14,50 +14,49 @@ export default class PersonalData extends React.Component{
     }
 
     render(){
+      var img = this.props.userData.photo || 'images/guitar.jpg';
 
-        let data = [
-            {
-                key: 0,
-                title: 'Andrew',
-                text: 'I can play guitar',
-                img: `images/guitar.jpg`,
-                updated: '2019/05/18'
-            }
-        ]
-
-
-        //let cards = data.map(d => {
-            //return (
-            //<Card key={d.key}>
-                //<Card.Img variant="top" src={d.img}/>
-                //<Card.Body>
-                    //<Card.Title>{d.title}</Card.Title>
-                    //<Card.Text>{d.text}</Card.Text>
-                //</Card.Body>
-                //<Card.Footer>
-                  //  <small className="text-muted">Last updated on {d.updated}</small>
-              //  </Card.Footer>
-          //</Card>)
-      //  });
       return (
-        <div >
-        <Card style={{width:'80%'}}>
-        <div >
-        <Card.Img  className="imgsize"  src={`images/guitar.jpg`}/>
-        </div>
-        <Card.Body>
-            <Card.Title ><p className="card_title">姓名：Andrew</p>
-                         <br></br>
-                         <p className="card_title">生日：1996/05/23</p>
-                         <br></br>
-                         <p className="card_title">性別：男</p>
-                         <br></br>
-                         <p className="card_title">才藝：吉他</p>
-            </Card.Title>
+          <div>
+            <div className="person-card">
+                <img src={img} alt="photo"/>
+                <div className="username">{this.props.userData.name}</div>
+            </div>
+            <div className="info">
+                <div>
+                    <div className="info-title">
+                        Email
+                    </div>
+                    <div className="border"></div>
+                    <i className="far fa-envelope"></i>{this.props.userData.email}
+                </div>
+                <div className="split-line"></div>
+                <div>
+                    <div className="info-title">
+                        Phone
+                    </div>
+                    <div className="border"></div>
+                    <i className="fas fa-phone"></i>{this.props.userData.phone}
+                </div>
+            </div>              
+          </div>
 
-        </Card.Body>
-        </Card>
-        </div>
+        // <Card className="d-flex flex-row justify-content-center align-items-center" style={{minWidth: "80%", boxShadow: "0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)"}}>
+        //     <Card.Img style={{ width: "15vh", height: "15vh", borderRadius: "50%", border: "solid 5px #17a3b873"}} src={img}/>
+        //     <Card.Body>
+        //         <Card.Title >
+        //             <p className="card_title">姓名：{this.props.userData.name}</p>
+        //             {/* <br></br>
+        //             <p className="card_title">生日：1996/05/23</p> */}
+        //             {/* <br></br>
+        //             <p className="card_title">性別：男</p> */}
+        //             {/* <br></br>
+        //             <p className="card_title">才藝：吉他</p> */}
+        //             <p className="card_title">電話：{this.props.userData.phone}</p>
+        //             <p className="card_title">郵件：{this.props.userData.email}</p>
+        //         </Card.Title>
+        //     </Card.Body>
+        // </Card>
       )
 
 

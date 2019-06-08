@@ -47,24 +47,15 @@ export default class PostCard extends React.Component{
       let img = this.props.data.img;
       var cardStyle = {boxShadow: "0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)", minWidth: '200px'}
       return(
-      <div>
-          <hr/>
+          <Card onClick={this.openModal}  style={cardStyle}>
+              <Card.Img className="carding" style={{ width: '150px', height: '150px', borderRadius: '50%', marginLeft: '22px', marginTop: '10px', border:'solid 5px #17a3b873'}} variant="top" src={img}/>
+              <Card.Body style={{textAlign: 'center'}}>
+                    <Card.Title >{title}</Card.Title>
 
-          <hr/>
-
-
-              <Card onClick={this.openModal}  style={cardStyle}>
-                  <Card.Img className="carding" style={{ width: '150px', height: '150px', borderRadius: '50%', marginLeft: '22px', marginTop: '10px', border:'solid 5px #17a3b873'}} variant="top" src={img}/>
-                  <Card.Body style={{textAlign: 'center'}}>
-                        <Card.Title >{title}</Card.Title>
-
-                        <Card.Text>{price}</Card.Text>
-                        <Button onClick={this.addCollection}>add</Button>
-                  </Card.Body>
-              </Card>
-
-
-      </div>
+                    <Card.Text>{price}</Card.Text>
+                    <Button onClick={this.addCollection}>add</Button>
+              </Card.Body>
+          </Card>
       );
 
     }

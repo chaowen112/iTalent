@@ -43,15 +43,17 @@ class Main extends React.Component {
     constructor(props) {
         super(props);
         console.log(props);
-        var authData = this.props.authData;
         this.state = {
-            unit: 'metric',
             navbarToggle: false,
             dropdownOpen: false,
             isModalShow: false,
             money: 0,
-            userData: { id: authData.attributes.sub, name: authData.username}
-
+            userData: {
+                id: null,
+                name: null,
+                email: null,
+                phone: null
+            }
         };
         this.toggle = this.toggle.bind(this);
 
@@ -81,7 +83,7 @@ class Main extends React.Component {
 
         return (
             <Router>
-                <div className={`main bg-faded ${this.state.group}`}>
+                <div>
                     <div className='container'>
 
                         <Navbar color="faded" light toggleable>
@@ -132,7 +134,7 @@ class Main extends React.Component {
                         <Artist userId={this.state.userData.id} userData={this.state.userData}/>
                     )}/>
                     <Route exact path="/account" render={() => (
-                        <Account userId={this.state.userData} userData={this.state.userData}/>
+                        <Account userData={this.state.userData}/>
                     )}/>
                     <Route exact path="/upload" render={() => (
                         <PostForm userId={this.state.userData.id} userData={this.state.userData}/>
@@ -187,6 +189,10 @@ class Main extends React.Component {
     getUserData(id){
         getUserData(id)
         .then(data => {
+            // data.id = this.props.authData.attributes.sub,
+            data.name = this.props.authData.username,
+            data.email = this.props.authData.attributes.email,
+            data.phone = this.props.authData.attributes.phone_number
             this.setState({userData: data});
         })
         .catch(e => {
