@@ -25,6 +25,19 @@ function getUserData(id, name){
     .catch(e => {console.log(e)});
 }
 
+function uploadPhoto(id, photo){
+    console.log(photo)
+    sql = `
+        UPDATE users
+        SET photo = $<name>
+        WHERE id = $<id>;
+    `
+    let name = photo.name
+    fs.writeFile('dist/images/'+name, photo.data, (e) => {console.log(e)});
+    return db.any(sql, {id, name});
+}
+
 module.exports = {
-    getUserData
+    getUserData,
+    uploadPhoto
 }

@@ -128,17 +128,6 @@ const dataSql = `
         FROM generate_series(1, 10) AS s(i);
 
         --create collections
-        INSERT INTO collects (userId, title, category, price, experience, detail, youtubeId, ts)
-        SELECT
-            'b3ca56e6-7a33-4d42-bcda-5e25e799566a',
-            'title',
-            '其他',
-            i,
-            i+1,
-            'detail',
-            'id',
-            i+100000
-        FROM generate_series(1, 100) AS s(i);
 
         -- create chat list
         INSERT INTO chatlists(id, name, img, text, updated, roomkey)

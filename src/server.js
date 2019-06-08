@@ -10,6 +10,7 @@ const errorHandler = require('./middleware/errorHandler.js');
 const app = express();
 
 app.use(express.static('dist'));
+//app.use(fileupload);
 app.use('/api', userRouter);
 app.use('/api', postRouter);
 app.use('/api', chatlistRouter);
