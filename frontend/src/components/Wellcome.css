@@ -41,3 +41,21 @@
 .contact {
     color: #17a2b8;
 }
+
+button.search-btn {
+    border-radius: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.dropdown-select select {
+    height: 3rem;
+    padding: 0 0.5rem;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 2px solid #17a2b8;
+}
+
+.dropdown-select select:focus {
+    outline: none;
+}
