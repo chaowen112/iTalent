@@ -42,13 +42,16 @@ import './Main.css';
 class Main extends React.Component {
     constructor(props) {
         super(props);
+        console.log(props);
+        var authData = this.props.authData;
         this.state = {
             unit: 'metric',
             navbarToggle: false,
             dropdownOpen: false,
             isModalShow: false,
             money: 0,
-            userData: null
+            userData: { id: authData.attributes.sub, name: authData.username}
+
         };
         this.toggle = this.toggle.bind(this);
 
@@ -68,6 +71,7 @@ class Main extends React.Component {
 
 
     render() {
+       //console.log('main enter');
         var btn_info_style = {
             background: "#17a2b8",
             border: "none",
@@ -125,13 +129,13 @@ class Main extends React.Component {
                         <Wellcome/>
                     )}/>
                     <Route exact path="/artist" render={() => (
-                        <Artist userId={this.state.userData.id}/>
+                        <Artist userId={this.state.userData.id} userData={this.state.userData}/>
                     )}/>
                     <Route exact path="/account" render={() => (
-                        <Account userId={this.state.userData}/>
+                        <Account userId={this.state.userData} userData={this.state.userData}/>
                     )}/>
                     <Route exact path="/upload" render={() => (
-                        <PostForm userId={this.state.userData}/>
+                        <PostForm userId={this.state.userData.id} userData={this.state.userData}/>
                     )}/>
                 </div>
             </Router>
@@ -148,7 +152,7 @@ class Main extends React.Component {
         this.setState({
           money:money
         })
-        console.log(this.state.money);
+        //console.log(this.state.money);
       }).catch(e => {
           console.log(e);
           alert('fail');
@@ -158,7 +162,7 @@ class Main extends React.Component {
     updateMoney(cash)
     {
       this.setState({money:this.state.money+Number(cash)});
-      console.log(typeof(this.state.money));
+      //console.log(typeof(this.state.money));
       postMoney('henry',300);
 
     }

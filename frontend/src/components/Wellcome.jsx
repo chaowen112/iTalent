@@ -13,6 +13,8 @@ import './Wellcome.css';
 import Button from 'react-bootstrap/Button'
 // import React_icon from './img/React-icon.png';
 import Recommend from './Recommend.jsx'
+import Hot from './Hot.jsx'
+import Latest from './Latest.jsx'
 import PostCard from 'components/PostCard.jsx';
 import { newPost, getHot,getLatest,getRecommend } from 'api/post.js';
 import { $$asyncIterator } from 'iterall';
@@ -25,7 +27,8 @@ export default class Wellcome extends React.Component {
           loading:false,
           dropdownOpen: false,
           hot_datas:[],
-          latest_datas:[]
+          latest_datas:[],
+          recommend_datas:[]
         };
 
         this._validAuthStates = ['signedIn'];
@@ -38,7 +41,7 @@ export default class Wellcome extends React.Component {
     }
 
     componentDidMount() {
-      console.log('gethotdata enter');
+      //console.log('gethotdata enter');
       var titles=[]
       var categorys=[]
       var data=[]
@@ -66,13 +69,18 @@ export default class Wellcome extends React.Component {
           })
         }
 
-      })
-      .then(res=>{
-           this.setState({
-             hot_datas:data
-           })
-           //console.log(this.state.datas);
+      }).then(res=>{
+        this.setState({
+          hot_datas:data
         })
+        titles=[]
+         categorys=[]
+         data=[]
+         prices = []
+         experiences=[]
+
+      })
+
 
         getLatest().then(res=>{
 
@@ -100,8 +108,36 @@ export default class Wellcome extends React.Component {
              })
              //console.log(this.state.datas);
           })
+
+          getRecommend().then(res=>{
+
+            res.data.forEach((data)=>{
+
+              titles.push(data.title);
+              categorys.push(data.category);
+              prices.push(data.price);
+              experiences.push(data.experience);
+            })
+            for(var i=0;i<titles.length;i++)
+            {
+              data.push({
+                img: `images/guitar.jpg`,
+                title:titles[i],
+                category:categorys[i],
+                price:prices[i],
+                experience:experiences[i]
+              })
+            }
+
+          }).then(res=>{
+               this.setState({
+                 recommend_datas:data
+               })
+               //console.log(this.state.datas);
+            })
     }
     render() {
+    //  console.log('welcome enter');
         //console.log(this.state.datas);
         const carousel_title = {
             color: 'black'
@@ -139,35 +175,37 @@ export default class Wellcome extends React.Component {
                 <Container>
                     <Row>
                         <Col>
-                            <Recommend  hotData={this.state.hot_datas} latestData={this.state.latest_datas} name={this.state.title} title="熱門" keyword='hot'/>
-                            <Recommend  hotData={this.state.hot_datas} latestData={this.state.latest_datas} name={this.state.title} title="最新" keyword='latest'/>
+                            <Hot  hotData={this.state.hot_datas}  name={this.state.title} title="熱門" />
+
+                            <Latest  latestData={this.state.latest_datas} name={this.state.title} title="最新" />
+                            <Recommend  recommendData={this.state.recommend_datas} name={this.state.title} title="推薦" />
                         </Col>
                     </Row>
                 </Container>
-                <footer className="container-fluid fh5co-footer" id="id_footer">
-                    <Container>
-                        <Row>
-                            <Col lg={6} sm={12} className='justify-content-center d-flex'>
-                                <div className='p-2'>
-                                    <a href='www.facebook.com'><b>Facebook</b></a>
-                                </div>
-                                <div className='p-2'>
-                                    <a href='www.instagram.com'><b>Instagram</b></a>
-                                </div>
-                            </Col>
-                            <Col lg={6} sm={12}>
-                                <div>
-                                    <span className="email"><i className="far fa-envelope"></i></span>
-                                    <b>chaowen.nthu@gmail.com</b>
-                                </div>
-                                <div>
-                                    <span className="phone"><i className="fas fa-phone"></i></span>
-                                    <b>+886-931-875-878</b>
-                                </div>
-                            </Col>
-                        </Row>
-                    </Container>
-                </footer>
+                <div style={{background: "white", padding: "2rem"}}>
+                    <div className="link d-flex flex-row justify-content-center align-items-center">
+                        <span className="inline-border"></span>
+                        <a href="#" title="Facebook"><i className="fab fa-facebook fa-2x m-2"></i></a>
+                        <a href="#" title="Twitter"><i className="fab fa-twitter fa-2x m-2"></i></a>
+                        <a href="#" title="Instagram"><i className="fab fa-instagram fa-2x m-2"></i></a>
+                        <a href="#" title="Youtube"><i className="fab fa-youtube fa-2x m-2"></i></a>
+                        <a href="#" title="Google Plus"><i className="fab fa-google-plus fa-2x m-2"></i></a>
+                        <span className="inline-border"></span>
+                    </div>
+                    <div className="contact d-flex flex-column justify-content-center align-items-center m-2">
+                        <div>
+                            <span className="email"><i className="far fa-envelope"></i></span>
+                            <b>chaowen.nthu@gmail.com</b>
+                        </div>
+                        <div>
+                            <span className="phone"><i class="fas fa-phone"></i></span>
+                            <b>+886-931-875-878</b>
+                        </div>                    
+                    </div>
+                    <div style={{ color: "#17a2b8", textAlign: "center", marginTop: "2rem"}}>
+                        <i class="far fa-copyright"></i> 2019 iTalent - All Rights Reserved
+                    </div>
+                </div>
             </div>
         );
     }

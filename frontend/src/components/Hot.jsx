@@ -12,7 +12,7 @@ import PostModal from 'components/PostModal.jsx';
 import Post from 'components/Post.jsx';
 import PostCard from 'components/PostCard.jsx';
 import { $$asyncIterator } from 'iterall';
-export default class Recommend extends React.Component{
+export default class Hot extends React.Component{
 
     constructor(props){
         super(props);
@@ -45,7 +45,7 @@ export default class Recommend extends React.Component{
 
 
 
-      let card = this.props.recommendData.map( (d, id) => {
+      let card = this.props.hotData.map( (d, id) => {
         return <PostCard data={d} key={id}/>
       })
 

@@ -46,7 +46,7 @@ export default class Account extends React.Component{
                         <OrderList/>
                         </Tab.Pane>
                         <Tab.Pane eventKey="second">
-                        <Emails/>
+                        <Emails userData={this.props.userData} />
                         </Tab.Pane>
                         <Tab.Pane eventKey="third">
                         <Mycollection/>
