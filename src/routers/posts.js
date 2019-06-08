@@ -83,8 +83,8 @@ router.post('/get/money', (req, res) => {
       console.log(e);
   });
 });
+
 router.post('/posts/view/add', (req, res) => {
-    console.log(req.body)
     const {postId} = req.body;
     post.addView(postId)
     .then((result) => {
@@ -94,5 +94,50 @@ router.post('/posts/view/add', (req, res) => {
         console.log(e);
     });
 });
+
+router.get('/post/detail', (req, res) => {
+    const{id} = req.query;
+    post.getDetail(id)
+    .then((result) => {
+        res.json(result);
+    })
+    .catch(e => {
+        console.log(e);
+    })
+});
+
+router.get('/posts/user', (req, res) => {
+    const{id} = req.query;
+    post.getAll(id)
+    .then(result => {
+        res.json(result);
+    })
+    .catch(e => {
+        console.log(e);
+    })
+});
+
+router.get('/post/available', (req, res) => {
+    const{id, date} = req.query;
+    post.available(id, date)
+    .then(result => {
+        res.json(result);
+    })
+    .catch(e => {
+        console.log(e);
+    })
+});
+
+router.post('/contract/new', (req, res) => {
+    const{orderId, time, orderer, artist, postId, date} = req.body;
+    post.newContract(orderId, time, orderer, postId, date, artist)
+    .then(result => {
+        res.json('success');
+    })
+    .catch(e => {
+        console.log(e);
+        res.json('fail');
+    })
+})
 
 module.exports = router;

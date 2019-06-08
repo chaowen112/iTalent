@@ -1,7 +1,25 @@
 import axios from 'axios';
 
+
+export async function get(url, params){
+    try{
+        let res = await axios.get(url, {params: params})
+        return res.data;
+    } catch(e){
+        console.log(e);
+    }
+}
+
+export async function post(url, body){
+    try{
+        let res = await axios.post(url, body)
+        return res.data;
+    } catch(e){
+        console.log(e);
+    }
+}
+
 export function newPost(userid,title, category, experience, price, by_hour, detail, id){
-  // TODO insert to database
    //console.log('truly enter');
     axios.post('/api/posts/new', {
         userid:userid,

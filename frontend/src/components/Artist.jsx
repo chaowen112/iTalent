@@ -11,6 +11,8 @@ import './Artist.css';
 import Post from 'components/Post.jsx';
 import Comment from 'components/Comment.jsx';
 
+import {get, post} from '../api/post.js';
+
 export default class Recommend extends React.Component{
 
     constructor(props){
@@ -66,17 +68,28 @@ export default class Recommend extends React.Component{
                 talentsId: 'adjfd-3l39d-dafd9-398fk-dsf84',
                 photo1: `images/guitar.jpg`,
                 comments: `good`
-            }
+            },
+            posts: null
         }
         this.toggleIntro = this.toggleIntro.bind(this);
     }
 
     componentDidMount(){
         this.toggleIntro();
+
+        let myPosts = get('/api/posts/user', {id: this.props.userId})
+            .then((data) => {
+                data = data.map((d, it) => {
+                    return <Post postId={d.id} userId={this.props.userId} key={it}/>
+                })
+                this.setState({posts: data});
+            })
+            .catch(e => {
+                console.log(e);
+            })
     }
 
     render(){
-
         return(
             <div>
             <Container>
@@ -94,13 +107,10 @@ export default class Recommend extends React.Component{
                         {this.state.introduction}
                             <Button variant="outline-secondary" onClick={this.toggleIntro}>顯示完整訊息</Button>
                         <hr/>
-                    <Comment/>
-                    <Comment/>
-                    <Comment/>
+                    <Comment key={0}/>
                     </Col>
                     <Col className="post-col" sm={12} lg={6}>
-                        <Post userId={this.props.userId}/>
-                        <Post userId={this.props.userId}/>
+                        {this.state.posts}
                     </Col>
                 </Row>
             </Container>

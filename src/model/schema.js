@@ -12,6 +12,8 @@ const schemaSql = `
     DROP TABLE IF EXISTS users;
     DROP TABLE IF EXISTS chatlists;
     DROP TABLE IF EXISTS chats;
+    DROP TABLE IF EXISTS contracts;
+    DROP TABLE IF EXISTS availability;
 
     -- Create
     CREATE TYPE category AS ENUM (
@@ -69,7 +71,8 @@ const schemaSql = `
 
     CREATE TABLE users (
         id          TEXT NOT NULL,
-        money       INTEGER NOT NULL DEFAULT 0
+        money       INTEGER NOT NULL DEFAULT 0,
+        description TEXT
     );
 
     CREATE TABLE chatlists (
@@ -88,7 +91,23 @@ const schemaSql = `
         text        TEXT NOT NULL,
         updated     TEXT NOT NULL,
         roomkey     INTEGER NOT NULL DEFAULT 0
-    )
+    );
+
+    CREATE TABLE availability (
+        id          SERIAL PRIMARY KEY NOT NULL,
+        contractId  INTEGER NOT NULL,
+        date        TEXT NOT NULL,
+        time        INTEGER NOT NULL
+    );
+
+    CREATE TABLE contracts (
+        id          TEXT NOT NULL,
+        orderer     TEXT NOT NULL,
+        artist      TEXT NOT NULL,
+        postId      INTEGER NOT NULL,
+        date        TEXT NOT NULL,
+        time        TEXT NOT NULL
+    );
 `;
 
 const selectCategory = `select enum_range (null::category);`;
@@ -102,9 +121,9 @@ const dataSql = `
             i,
             i+1,
             'detail',
-            'id',
+            'mtAc_bMYBsM',
             i+100000
-        FROM generate_series(1, 100) AS s(i);
+        FROM generate_series(1, 10) AS s(i);
 
         --create collections
         INSERT INTO collects (userId, title, category, price, experience, detail, youtubeId, ts)
@@ -123,21 +142,23 @@ const dataSql = `
         INSERT INTO chatlists(id, name, img, text, updated, roomkey)
         VALUES(
             'b3ca56e6-7a33-4d42-bcda-5e25e799566a',
-            'Andrew',
+            'testUser2',
             'images/guitar.jpg',
-            'how old are you?',
-            '23:44',
+            'Start chatting now!',
+            '00:00',
             1
             );
+
         INSERT INTO chatlists(id, name, img, text, updated, roomkey)
         VALUES(
-            'b3ca56e6-7a33-4d42-bcda-5e25e799566a',
-            'Alex',
+            '4e27b01b-ccbe-47db-a539-8c00d5624739',
+            'testUser',
             'images/piano.jpg',
             'How are you?',
             '14:39',
             2
         );
+
         INSERT INTO chatlists(id, name, img, text, updated, roomkey)
         VALUES(
             'b3ca56e6-7a33-4d42-bcda-5e25e799566a',
@@ -149,12 +170,12 @@ const dataSql = `
         );
 
         -- create chat log
-        INSERT INTO chats(owner, text, updated, roomkey)
-        VALUES('b3ca56e6-7a33-4d42-bcda-5e25e799566a', 'hi', '23:43', 1);
-        INSERT INTO chats(owner, text, updated, roomkey)
-        VALUES('b3ca56e6-7a33-4d42-bcda-5e25e799566b', 'hi', '23:43', 1);
-        INSERT INTO chats(owner, text, updated, roomkey)
-        VALUES('b3ca56e6-7a33-4d42-bcda-5e25e799566b', 'how old are you?', '23:44', 1);
+        --INSERT INTO chats(owner, text, updated, roomkey)
+        --VALUES('b3ca56e6-7a33-4d42-bcda-5e25e799566a', 'hi', '23:43', 1);
+        --INSERT INTO chats(owner, text, updated, roomkey)
+        --VALUES('4e27b01b-ccbe-47db-a539-8c00d5624739', 'hi', '23:43', 1);
+        --INSERT INTO chats(owner, text, updated, roomkey)
+        --VALUES('4e27b01b-ccbe-47db-a539-8c00d5624739', 'how old are you?', '23:44', 1);
 `
 
 db.none(schemaSql).then(() => {
