@@ -52,6 +52,7 @@ const schemaSql = `
     CREATE TABLE posts (
         id          SERIAL PRIMARY KEY NOT NULL,
         userId      TEXT NOT NULL,
+        
         title       TEXT NOT NULL,
         category    category NOT NULL,
         ts          BIGINT NOT NULL DEFAULT (EXTRACT(EPOCH FROM NOW())),
@@ -72,7 +73,9 @@ const schemaSql = `
     CREATE TABLE users (
         id          TEXT NOT NULL,
         money       INTEGER NOT NULL DEFAULT 0,
-        description TEXT
+        description TEXT,
+        name        TEXT NOT NULL,
+        photo       TEXT
     );
 
     CREATE TABLE chatlists (

@@ -6,10 +6,12 @@ import {
 } from 'react-router-dom';
 import axios from 'axios';
 import {Card, CardDeck , Container, Row, Col, CardColumns, Button}from 'react-bootstrap';
-import './Recommend.css';
-import {newPost,getHot,addCollect} from 'api/post.js';
+//import './Recommend.css';
+import {newPost,getHot} from 'api/post.js';
+import {addCollect,getCollect} from 'api/collect.js';
 import PostModal from 'components/PostModal.jsx';
 import Post from 'components/Post.jsx';
+import './PostCard.css';
 import { $$asyncIterator } from 'iterall';
 export default class PostCard extends React.Component{
 
@@ -25,8 +27,7 @@ export default class PostCard extends React.Component{
             price:[],
             experience:[],
             dataAllocate:[],
-            datas:[],
-            colletion_title:''
+            datas:[]
         }
 
         this.closeModal = this.closeModal.bind(this);
@@ -47,6 +48,7 @@ export default class PostCard extends React.Component{
       let img = this.props.data.img;
       var cardStyle = {boxShadow: "0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)", minWidth: '200px'}
       return(
+<<<<<<< HEAD
           <Card onClick={this.openModal}  style={cardStyle}>
               <Card.Img className="carding" style={{ width: '150px', height: '150px', borderRadius: '50%', marginLeft: '22px', marginTop: '10px', border:'solid 5px #17a3b873'}} variant="top" src={img}/>
               <Card.Body style={{textAlign: 'center'}}>
@@ -56,13 +58,67 @@ export default class PostCard extends React.Component{
                     <Button onClick={this.addCollection}>add</Button>
               </Card.Body>
           </Card>
+=======
+      <div>
+          <hr/>
+
+          <hr/>
+
+
+              <Card   style={cardStyle}>
+                  <Card.Img onClick={this.openModal} className="carding" style={{ width: '150px', height: '150px', borderRadius: '50%', marginLeft: '22px', marginTop: '10px', border:'solid 5px #17a3b873'}} variant="top" src={img}/>
+                  <Card.Body style={{textAlign: 'center'}}>
+                        <Card.Title >{title}</Card.Title>
+
+                        <Card.Text>{price}</Card.Text>
+                        <Button variant="outline-dark"  onClick={this.addCollection}>收藏</Button>
+                  </Card.Body>
+              </Card>
+              <PostModal onHide={this.closeModal} show={this.state.isModalShow} artistId={this.state.artistId} userId={this.props.userId}/>
+
+      </div>
+>>>>>>> 97e5b967835b2539e29a429214c4924a1809080c
       );
 
     }
     addCollection(){
         //console.log('add');
         var userid = 123;
+        var titles=[]
+        var categorys=[]
+        var data=[]
+        var prices = []
+        var experiences=[]
+        let cards
         addCollect(userid,this.props.data.title, '演員/女演員', 1, this.props.data.price, false, 'detail', ' ');
+        getCollect()
+        .then(res=>{
+
+          res.data.forEach((data)=>{
+
+            titles.push(data.title);
+            categorys.push(data.category);
+            prices.push(data.price);
+            experiences.push(data.experience);
+          })
+          for(var i=0;i<titles.length;i++)
+          {
+            data.push({
+              img: `images/guitar.jpg`,
+              title:titles[i],
+              category:categorys[i],
+              price:prices[i],
+              experience:experiences[i]
+            })
+          }
+
+        }).then(res=>{
+          this.setState({
+            datas:data
+          })
+          console.log(this.state.datas);
+
+        })
     }
     openModal(){
         this.setState({isModalShow: true});

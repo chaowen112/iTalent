@@ -52,7 +52,11 @@ export default class Account extends React.Component{
                         <Mycollection/>
                         </Tab.Pane>
                         <Tab.Pane eventKey="fourth">
+<<<<<<< HEAD
                         <PersonalData userData={this.props.userData}/>
+=======
+                        <PersonalData userData={this.props.userData} />
+>>>>>>> 97e5b967835b2539e29a429214c4924a1809080c
                         </Tab.Pane>
                     </Tab.Content>
                     </Col>
