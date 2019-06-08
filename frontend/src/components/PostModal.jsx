@@ -45,7 +45,7 @@ export default class PostModal extends React.Component{
                 onReady={this._onReady}
             />
             <Post/>
-            <Availability artistId={this.states.artistId} userId={this.props.userId}/>
+            <Availability userId={this.props.userId} postData={this.props.postData}/>
             </Modal.Body>
             <Modal.Footer>
               <Button onClick={this.props.onHide}>Close</Button>

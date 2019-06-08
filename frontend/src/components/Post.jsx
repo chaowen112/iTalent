@@ -24,9 +24,9 @@ export default class Post extends React.Component{
     }
 
     componentDidMount(){
-        get('api/post/detail', {id: this.postId})
+        get('api/post/detail', {id: this.props.postId})
         .then(data => {
-            this.setState({postData: data});
+            this.setState({postData: data[0]});
         })
         .catch(e => {
             console.log(e);
@@ -49,8 +49,8 @@ export default class Post extends React.Component{
                     <Image style={{width:'30%', height: '100%', display: 'inline', borderRadius: "10px", border: "3px solid #eee", marginRight: "0.5rem"}} src={`images/guitar.jpg`}/>
                     <p><span>Title: </span></p>
                     <p><span>Introduction</span></p>
-                    <PostModal onHide={this.closeModal} show={this.state.isModalShow} artistId={this.state.artistId} userId={this.props.userId} postId={this.props.postId}/>
                 </Row>
+                <PostModal onHide={this.closeModal} show={this.state.isModalShow} userId={this.props.userId} postData={this.state.postData}/>
             </Col>
         )
     }
@@ -60,7 +60,6 @@ export default class Post extends React.Component{
     }
 
     closeModal(e){
-        console.log(e)
         if(e)
             e.stopPropagation();
         this.setState({isModalShow: false})

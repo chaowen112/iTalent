@@ -80,9 +80,39 @@ function addView(postId){
 
 function getDetail(id){
     sql = `
-        SELECT (title, category, ts, by_hour, price, experience, detail, youtubeId, views) from posts where id = $<id>;
+        SELECT * from posts where id = $<id>;
     `
     return db.any(sql, {id});
+}
+
+function getAll(id){
+    sql = `
+        SELECT (id) from posts where userId = $<id>;
+    `
+
+    return db.any(sql, {id});
+}
+
+function available(id, date){
+    sql = `
+        SELECT (time) FROM contracts
+        WHERE artist = $<id> AND date = $<date>;
+    `
+    return db.any(sql, {id, date});
+}
+
+function newContract(orderId, time, orderer, postId, date, artist){
+    sql = `
+        INSERT INTO contracts (id, orderer, artist, postid, date, time)
+        VALUES ($<orderId>, $<orderer>, $<artist>, $<postId>, $<date>, $<it>);
+    `
+    //return db.any(sql, {orderId, orderer, artist, postId, date, it:1});
+    time.forEach((t, it) => {
+        console.log(orderId, orderer, artist, postId, date, it);
+        if(t)
+            db.any(sql, {orderId, orderer, artist, postId, date, it});
+    });
+    return db.any(`SELECT id FROM contracts WHERE id = 'a';`)
 }
 
 module.exports = {
@@ -95,5 +125,8 @@ module.exports = {
     addCollect,
     postMoney,
     getMoney,
-    getDetail
+    getDetail,
+    getAll,
+    available,
+    newContract
 };

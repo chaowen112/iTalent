@@ -105,13 +105,47 @@ router.post('/posts/view/add', (req, res) => {
 });
 
 router.get('/post/detail', (req, res) => {
-    const{id} = req.body;
-    post.getDetail(res.id)
+    const{id} = req.query;
+    post.getDetail(id)
     .then((result) => {
         res.json(result);
     })
     .catch(e => {
         console.log(e);
+    })
+});
+
+router.get('/posts/user', (req, res) => {
+    const{id} = req.query;
+    post.getAll(id)
+    .then(result => {
+        res.json(result);
+    })
+    .catch(e => {
+        console.log(e);
+    })
+});
+
+router.get('/post/available', (req, res) => {
+    const{id, date} = req.query;
+    post.available(id, date)
+    .then(result => {
+        res.json(result);
+    })
+    .catch(e => {
+        console.log(e);
+    })
+});
+
+router.post('/contract/new', (req, res) => {
+    const{orderId, time, orderer, artist, postId, date} = req.body;
+    post.newContract(orderId, time, orderer, postId, date, artist)
+    .then(result => {
+        res.json('success');
+    })
+    .catch(e => {
+        console.log(e);
+        res.json('fail');
     })
 })
 

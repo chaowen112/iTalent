@@ -42,7 +42,6 @@ import './Main.css';
 class Main extends React.Component {
     constructor(props) {
         super(props);
-        console.log(props);
         this.state = {
             unit: 'metric',
             navbarToggle: false,
@@ -50,7 +49,6 @@ class Main extends React.Component {
             isModalShow: false,
             money: 0,
             userData: null
-
         };
         this.toggle = this.toggle.bind(this);
 
@@ -60,6 +58,9 @@ class Main extends React.Component {
         this.updateMoney = this.updateMoney.bind(this);
         this.getUserData = this.getUserData.bind(this);
         this.test = this.test.bind(this);
+    }
+
+    componentDidMount (){
         if(this.props.authState == "signedIn"){
             this.getUserData(this.props.authData.attributes.sub);
         }
@@ -121,16 +122,16 @@ class Main extends React.Component {
                     </div>
 
                     <Route exact path="/" render={() => (
-                        <Wellcome userid={this.props.userid}/>
+                        <Wellcome/>
                     )}/>
                     <Route exact path="/artist" render={() => (
-                        <Artist userid={this.props.userid}/>
+                        <Artist userId={this.state.userData.id}/>
                     )}/>
                     <Route exact path="/account" render={() => (
-                        <Account userid={this.props.userid}/>
+                        <Account userId={this.state.userData}/>
                     )}/>
                     <Route exact path="/upload" render={() => (
-                        <PostForm userid={this.props.userid}/>
+                        <PostForm userId={this.state.userData}/>
                     )}/>
                 </div>
             </Router>
@@ -163,8 +164,6 @@ class Main extends React.Component {
     }
     openModal(){
         this.setState({isModalShow: true});
-
-        //console.log('openModal', this.state.isModalShow)
     }
     closeModal(e){
         e.stopPropagation();
@@ -183,8 +182,12 @@ class Main extends React.Component {
 
     getUserData(id){
         getUserData(id)
-        .then(data => {console.log(data)})
-        .catch(e => {console.log(e)});
+        .then(data => {
+            this.setState({userData: data});
+        })
+        .catch(e => {
+            console.log(e)}
+        );
     }
 }
 

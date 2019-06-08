@@ -95,17 +95,18 @@ const schemaSql = `
 
     CREATE TABLE availability (
         id          SERIAL PRIMARY KEY NOT NULL,
-        orderId     TEXT NOT NULL,
+        contractId  INTEGER NOT NULL,
         date        TEXT NOT NULL,
-        time        INTEGER NOT NULL,
-        allDay      BOOL NOT NULL DEFAULT FALSE
+        time        INTEGER NOT NULL
     );
 
     CREATE TABLE contracts (
-        id          SERIAL PRIMARY KEY NOT NULL,
-        orderUser   TEXT NOT NULL,
+        id          TEXT NOT NULL,
+        orderer     TEXT NOT NULL,
         artist      TEXT NOT NULL,
-        postId      INTEGER NOT NULL
+        postId      INTEGER NOT NULL,
+        date        TEXT NOT NULL,
+        time        TEXT NOT NULL
     );
 `;
 
