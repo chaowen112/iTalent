@@ -151,6 +151,7 @@ export default class Wellcome extends React.Component {
 
 
         return (
+          <Router>
             <div className="wellcome">
                 <div className="container">
                     <br />
@@ -164,7 +165,7 @@ export default class Wellcome extends React.Component {
                                     </div>
                                     <div className="col-auto dropdown-select d-none d-md-inline">
                                       <select>
-                                        <option value="0">演員/女演員</option>
+                                        <option value="0">全部</option>
                                         <option value="1">樂隊/音樂人</option>
                                         <option value="2">書法藝術家</option>
                                         <option value="3">小丑</option>
@@ -181,33 +182,49 @@ export default class Wellcome extends React.Component {
                                         <option value="14">歌手</option>
                                         <option value="15">翻譯員</option>
                                         <option value="16">影像編輯</option>
+                                        <option value="17">演員/女演員</option>
                                       </select>
                                     </div>
                                     <div className="col-auto">
-                                      <button
-                                        // onMouseOut={this.outMainbtn}
-                                        // onMouseOver={this.hoverMainbtn}
-                                        style={{ background: "#17a2b8", color: "#fff" }}
-                                        className="btn btn-lg search-btn" type="submit">
-                                        <i class="fas fa-search"></i>
-                                      </button>
+                                      <Link to="/search">
+                                        <button
+                                          // onMouseOut={this.outMainbtn}
+                                          // onMouseOver={this.hoverMainbtn}
+                                          style={{ background: "#17a2b8", color: "#fff" }}
+                                          className="btn btn-lg search-btn" type="submit">
+                                          <i className="fas fa-search"></i>
+                                        </button>
+                                      </Link>
+
                                     </div>
 
                                 </div>
                             </form>
                         </div>
-
                     </div>
                 </div>
 
                 <Container>
                     <Row>
-                        <Col>
-                            <Hot  hotData={this.state.hot_datas}  name={this.state.title} title="熱門" />
-
-                            <Latest  latestData={this.state.latest_datas} name={this.state.title} title="最新" />
-                            <Recommend  recommendData={this.state.recommend_datas} name={this.state.title} title="推薦" />
-                        </Col>
+                    <Route exact path="/" render={() => {
+                      return(
+                      <Col>
+                          <Hot  hotData={this.state.hot_datas}  name={this.state.title} title="熱門" />
+                          <Latest  latestData={this.state.latest_datas} name={this.state.title} title="最新" />
+                          <Recommend  recommendData={this.state.recommend_datas} name={this.state.title} title="推薦" />
+                      </Col>
+                      )
+                    }} />
+                    <Route exact path="/search" render={() => {
+                      var input = $('form input').val();
+                      var category = $('form select').find(':selected').text();
+                      var title = `搜尋'${category}'類別中關於'${input}'的結果`;
+                      return(
+                      <Col>
+                        <Hot  hotData={this.state.hot_datas}  name={this.state.title} title={title} />
+                      </Col>
+                      )
+                    }} />
                     </Row>
                 </Container>
                 <div style={{background: "white", padding: "2rem"}}>
@@ -235,6 +252,8 @@ export default class Wellcome extends React.Component {
                     </div>
                 </div>
             </div>
+          </Router>
+
         );
     }
 
@@ -244,6 +263,13 @@ export default class Wellcome extends React.Component {
 
     outMainbtn(e) {
         $(e.target).css('background', "#17a2b8");
+    }
+
+    handleSearch(e) {
+      e.preventDefault();
+      // var input = $('form input').val();
+      // var category = $('form select').find(':selected').text();
+      // console.log(`搜尋'${category}'類別中關於'${input}'的結果`);
     }
 
 }
