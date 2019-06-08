@@ -33,25 +33,7 @@ export function getLatest()
 {
   return axios.get('/api/posts/latest')
 }
-export function addCollect(userid,title, category, experience, price, by_hour, detail, id)
-{
 
-   axios.post('/api/posts/collect', {
-       userid:userid,
-       title: title,
-       category: category,
-       experience: experience,
-       price: price,
-       detail: detail,
-       by_hour: by_hour,
-       id: id
-   }).then(() => {
-       //alert('success');
-   }).catch(e => {
-       console.log(e);
-       alert('fail!!');
-   });
-}
 
 export function postMoney(userid,money)
 {

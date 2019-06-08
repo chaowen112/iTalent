@@ -55,16 +55,7 @@ router.post('/posts/new', (req, res) => {
         console.log(e);
     });
 });
-router.post('/posts/collect', (req, res) => {
-    const {userid,title, category, by_hour, price, experience, detail, id} = req.body
-    post.addCollect(userid,title, category, by_hour, price, experience, detail, id)
-    .then((result) => {
-        res.json('success');
-    })
-    .catch(e => {
-        console.log(e);
-    });
-});
+
 router.post('/post/money', (req, res) => {
     const {userid,money} = req.body;
     console.log(req.body);
