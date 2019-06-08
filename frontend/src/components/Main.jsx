@@ -8,7 +8,6 @@ import awsmobile from '../aws-exports';
 
 Amplify.configure(awsmobile);
 
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, UncontrolledDropdown} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button'
 
 import {
@@ -16,6 +15,7 @@ import {
     Route,
     Link
 } from 'react-router-dom'
+
 import {
     Collapse,
     Navbar,
@@ -23,11 +23,14 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink
+    NavLink,
+    NavDropdown,
+    Form,
+    NavbarCollapse
 } from 'reactstrap';
 
 import {getUserData} from '../api/user.js';
-import {postMoney,getMoney} from 'api/post.js'
+import {postMoney,getMoney, get, post} from 'api/post.js'
 import Today from 'components/Today.jsx';
 
 import Wellcome from 'components/Wellcome.jsx';
@@ -38,6 +41,7 @@ import PostForm from 'components/PostForm.jsx';
 import PostModal from 'components/PostModal.jsx';
 import Store from 'components/Store.jsx';
 import './Main.css';
+
 
 class Main extends React.Component {
     constructor(props) {
@@ -50,7 +54,8 @@ class Main extends React.Component {
             dropdownOpen: false,
             isModalShow: false,
             money: 0,
-            userData: { id: authData.attributes.sub, name: authData.username}
+            userData: { id: authData.attributes.sub, name: authData.username},
+            isOpen: false
 
         };
         this.toggle = this.toggle.bind(this);
@@ -61,11 +66,12 @@ class Main extends React.Component {
         this.updateMoney = this.updateMoney.bind(this);
         this.getUserData = this.getUserData.bind(this);
         this.test = this.test.bind(this);
+        this.logout = this.logout.bind(this);
     }
 
     componentDidMount (){
         if(this.props.authState == "signedIn"){
-            this.getUserData(this.props.authData.attributes.sub);
+            this.getUserData(this.props.authData.attributes.sub, this.props.authData.username);
         }
     }
 
@@ -81,49 +87,40 @@ class Main extends React.Component {
 
         return (
             <Router>
+
                 <div className={`main bg-faded ${this.state.group}`}>
-                    <div className='container'>
-
-                        <Navbar color="faded" light toggleable>
-                            <NavbarBrand className='text-info' href="/">iTalents</NavbarBrand>
-                                <Nav navbar className="justify-content-start d-flex flex-row flex-wrap">
-                                    <NavItem>
+                    <Navbar color="light" light expand="md">
+                        <NavbarBrand href="/">iTalent</NavbarBrand>
+                        <NavbarToggler onClick={() => {this.setState({isOpen: !this.state.isOpen})}} />
+                        <Collapse isOpen={this.state.isOpen} navbar>
+                            <Nav className="ml-auto" navbar>
+                                <NavItem>
                                     <Button variant="outline-info" onClick={this.openModal}>儲值
-                                             <Store triggerchangemoney={this.updateMoney} onHide={this.closeModal} show={this.state.isModalShow}/>
+                                        <Store triggerchangemoney={this.updateMoney} onHide={this.closeModal} show={this.state.isModalShow}/>
                                     </Button>
-                                    </NavItem>
-                                    <NavItem>
-                                    <Dropdown>
-                                        <Dropdown.Toggle style={{backgroundImage: "none", padding: "6px 20px 6px 12px"}} variant="success" id="dropdown-basic">
-                                          Category
-                                        </Dropdown.Toggle>
-                                        <Dropdown.Menu>
-                                          <Dropdown.Item href="#/action-1">音樂</Dropdown.Item>
-                                          <Dropdown.Item href="#/action-2">運動</Dropdown.Item>
-                                          <Dropdown.Item href="#/action-3">學業</Dropdown.Item>
-                                          <Dropdown.Item href="#/action-3">主持</Dropdown.Item>
-                                        </Dropdown.Menu>
-                                    </Dropdown>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/artist'>Artist</NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/account'>Account</NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/upload'>Upload</NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink left onClick={this.handleNavbarToggle} tag={Link} to='/'>
-                                          <img src="images/coins.png" style={{width: "20px", marginRight: "10px"}}></img>
-                                          <span>餘額 ： {this.state.money} 元</span>
-
-                                          </NavLink>
-                                    </NavItem>
-                                </Nav>
-                        </Navbar>
-                    </div>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink tag={Link} to='/artist'>Artist</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink tag={Link} to='/account'>Account</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink tag={Link} to='/upload'>Upload</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink tag={Link} to='/'>
+                                        <img src="images/coins.png" style={{width: "20px", marginRight: "10px"}}></img>
+                                        <span>餘額 ： {this.state.userData.money} 元</span>
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <Button variant="outline-info" onClick={this.logout}>登出
+                                    </Button>
+                                </NavItem>
+                            </Nav>
+                        </Collapse>
+                    </Navbar>
 
                     <Route exact path="/" render={() => (
                         <Wellcome/>
@@ -132,7 +129,7 @@ class Main extends React.Component {
                         <Artist userId={this.state.userData.id} userData={this.state.userData}/>
                     )}/>
                     <Route exact path="/account" render={() => (
-                        <Account userId={this.state.userData} userData={this.state.userData}/>
+                        <Account userId={this.state.userData.id} userData={this.state.userData}/>
                     )}/>
                     <Route exact path="/upload" render={() => (
                         <PostForm userId={this.state.userData.id} userData={this.state.userData}/>
@@ -161,10 +158,16 @@ class Main extends React.Component {
     }
     updateMoney(cash)
     {
-      this.setState({money:this.state.money+Number(cash)});
-      //console.log(typeof(this.state.money));
-      postMoney('henry',300);
-
+        post('api/post/money', {
+            userid: this.state.userData.id, money: cash
+        })
+        .then(()=>{
+            this.getUserData(this.state.userData.id);
+        })
+        .catch(e=>{
+            console.log(e);
+        })
+      
     }
     openModal(){
         this.setState({isModalShow: true});
@@ -184,8 +187,8 @@ class Main extends React.Component {
         }));
     }
 
-    getUserData(id){
-        getUserData(id)
+    getUserData(id, username){
+        getUserData(id, username)
         .then(data => {
             this.setState({userData: data});
         })
@@ -193,11 +196,19 @@ class Main extends React.Component {
             console.log(e)}
         );
     }
+
+    logout(){
+        try {
+            Auth.signOut()
+        } catch(e){
+            console.log(e);
+        }
+    }
 }
 
 export default withAuthenticator(Main, {
     // Render a sign out button once logged in
-    includeGreetings: true,
+    // includeGreetings: true,
     // Show only certain components
     // authenticatorComponents: [MyComponents],
     // display federation/social provider buttons

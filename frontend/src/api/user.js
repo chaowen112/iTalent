@@ -1,10 +1,11 @@
 import axios from 'axios';
 
-export async function getUserData(id){
+export async function getUserData(id, name){
     try{ 
         let res = await axios.get('/api/user/data', {
             params: {
-                id: id
+                id: id,
+                name: name
             }
         })
         return res.data[0];

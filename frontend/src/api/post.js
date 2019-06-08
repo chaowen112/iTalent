@@ -73,7 +73,6 @@ export function addCollect(userid,title, category, experience, price, by_hour, d
 
 export function postMoney(userid,money)
 {
-   console.log('enter getmoney')
    axios.post('/api/post/money', {
        userid:userid,
        money:money

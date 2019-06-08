@@ -54,9 +54,11 @@ function addCollect(userid,title, category, by_hour, price, experience, detail, 
 function postMoney(userid,money)
 {
     sql = `
-        INSERT INTO users (id,money)
-        VALUES ($<userid>,$<money>)
+        UPDATE users 
+        SET money = (SELECT money FROM users WHERE id = $<userid>)+$<money>
+        WHERE id = $<userid>
     `;
+    console.log(userid, money)
     return db.any(sql, {userid,money});
 }
 function getMoney(userId)
