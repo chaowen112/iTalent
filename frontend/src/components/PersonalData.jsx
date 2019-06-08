@@ -20,6 +20,7 @@ export default class PersonalData extends React.Component{
           <div>
             <div className="person-card">
                 <img src={img} alt="photo"/>
+                <Button style={{margin: "1rem auto 0.5rem auto", color: "#fff", borderColor: "#fff"}} variant="outline-info">上傳頭像</Button>
                 <div className="username">{this.props.userData.name}</div>
             </div>
             <div className="info">
