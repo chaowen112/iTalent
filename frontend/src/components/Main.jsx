@@ -53,7 +53,6 @@ class Main extends React.Component {
         super(props);
         console.log(props);
         this.state = {
-<<<<<<< HEAD
             navbarToggle: false,
             dropdownOpen: false,
             isModalShow: false,
@@ -64,15 +63,6 @@ class Main extends React.Component {
                 email: null,
                 phone: null
             }
-=======
-            unit: 'metric',
-            dropdownOpen: false,
-            isModalShow: false,
-            money: 0,
-            userData: { id: authData.attributes.sub, name: authData.username},
-            navbarToggle: false
-
->>>>>>> 97e5b967835b2539e29a429214c4924a1809080c
         };
         this.toggle = this.toggle.bind(this);
 
@@ -103,13 +93,7 @@ class Main extends React.Component {
 
         return (
             <Router>
-<<<<<<< HEAD
                 <div>
-                    <div className='container'>
-=======
->>>>>>> 97e5b967835b2539e29a429214c4924a1809080c
-
-                <div className={`main bg-faded ${this.state.group}`}>
                     <Navbar color="light" light expand={"md"}>
                         <NavbarBrand href="/">iTalent</NavbarBrand>
                         <NavbarToggler onClick={this.handleNavbarToggle} />
@@ -150,11 +134,7 @@ class Main extends React.Component {
                         <Artist userId={this.state.userData.id} userData={this.state.userData}/>
                     )}/>
                     <Route exact path="/account" render={() => (
-<<<<<<< HEAD
-                        <Account userData={this.state.userData}/>
-=======
                         <Account userId={this.state.userData.id} userData={this.state.userData}/>
->>>>>>> 97e5b967835b2539e29a429214c4924a1809080c
                     )}/>
                     <Route exact path="/upload" render={() => (
                         <PostForm userId={this.state.userData.id} userData={this.state.userData}/>

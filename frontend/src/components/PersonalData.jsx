@@ -14,7 +14,6 @@ export default class PersonalData extends React.Component{
     }
 
     render(){
-<<<<<<< HEAD
       var img = this.props.userData.photo || 'images/guitar.jpg';
 
       return (
@@ -58,26 +57,6 @@ export default class PersonalData extends React.Component{
         //         </Card.Title>
         //     </Card.Body>
         // </Card>
-=======
-        console.log(this.props.userData.photo)
-
-      return (
-        <div >
-        <Card style={{width:'100%'}}>
-        <div >
-        <Card.Img  className="imgsize"  src={this.props.userData.photo}/>
-        </div>
-        <Card.Body>
-            <Card.Title ><p className="card_title">姓名：{this.props.userData.name}</p>
-                         <br></br>
-                         <p className="card_title">簡介：{this.props.userData.description}</p>
-                         <br></br>
-                         <p className="card_title"><Button>編輯簡介</Button><Button>上傳頭像</Button></p>
-            </Card.Title>
-        </Card.Body>
-        </Card>
-        </div>
->>>>>>> 97e5b967835b2539e29a429214c4924a1809080c
       )
 
 
