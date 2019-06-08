@@ -21,7 +21,7 @@ export default class PersonalData extends React.Component{
     }
 
     render(){
-        console.log(this.props.userData.photo)
+      var img = this.props.userData.photo || 'images/guitar.jpg';
 
         return (
             <div >

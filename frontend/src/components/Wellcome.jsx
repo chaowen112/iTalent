@@ -42,11 +42,8 @@ export default class Wellcome extends React.Component {
 
     componentDidMount() {
       //console.log('gethotdata enter');
-      var titles=[]
-      var categorys=[]
-      var data=[]
-      var prices = []
-      var experiences=[]
+      var titles=[],categorys=[],data=[],prices = [],experiences=[]
+      var rec_titles=[],rec_categorys=[],rec_data=[],rec_prices = [],rec_experiences=[]
       let cards
       getHot()
       .then(res=>{
@@ -118,25 +115,25 @@ export default class Wellcome extends React.Component {
 
             res.data.forEach((data)=>{
 
-              titles.push(data.title);
-              categorys.push(data.category);
-              prices.push(data.price);
-              experiences.push(data.experience);
+              rec_titles.push(data.title);
+              rec_categorys.push(data.category);
+              rec_prices.push(data.price);
+              rec_experiences.push(data.experience);
             })
-            for(var i=0;i<titles.length;i++)
+            for(var i=0;i<rec_titles.length;i++)
             {
-              data.push({
+              rec_data.push({
                 img: `images/guitar.jpg`,
-                title:titles[i],
-                category:categorys[i],
-                price:prices[i],
-                experience:experiences[i]
+                title:rec_titles[i],
+                category:rec_categorys[i],
+                price:rec_prices[i],
+                experience:rec_experiences[i]
               })
             }
 
           }).then(res=>{
                this.setState({
-                 recommend_datas:data
+                 recommend_datas:rec_data
                })
                //console.log(this.state.datas);
             })
@@ -161,13 +158,39 @@ export default class Wellcome extends React.Component {
                         <div className="col-12 col-md-10 col-lg-8">
                             <form /*className="card card-sm"*/ style={{ margin: 'auto', width: '80%'}}>
                                 <div className=" row no-gutters align-items-center" >
-                                    <div className="col">
+                                    <div className="col m-2">
                                         <input style={{fontFamily: "'Noto Sans TC', sans-serif"}} className="form-control form-control-lg" type="search" placeholder="藝人、才藝...">
                                         </input>
                                     </div>
-
+                                    <div className="col-auto dropdown-select d-none d-md-inline">
+                                      <select>
+                                        <option value="0">演員/女演員</option>
+                                        <option value="1">樂隊/音樂人</option>
+                                        <option value="2">書法藝術家</option>
+                                        <option value="3">小丑</option>
+                                        <option value="4">漫畫家</option>
+                                        <option value="5">文案作家</option>
+                                        <option value="6">舞蹈家</option>
+                                        <option value="7">DJ</option>
+                                        <option value="8">平面設計師</option>
+                                        <option value="9">主持/司儀</option>
+                                        <option value="10">魔術師</option>
+                                        <option value="11">彩妝師</option>
+                                        <option value="12">攝影師</option>
+                                        <option value="13">編劇</option>
+                                        <option value="14">歌手</option>
+                                        <option value="15">翻譯員</option>
+                                        <option value="16">影像編輯</option>
+                                      </select>
+                                    </div>
                                     <div className="col-auto">
-                                        <button onMouseOut={this.outMainbtn} onMouseOver={this.hoverMainbtn} style={{ marginLeft: "0.5rem", background: "#17a2b8", color: "#fff" }} className="btn btn-lg search-btn" type="submit">Search</button>
+                                      <button
+                                        // onMouseOut={this.outMainbtn}
+                                        // onMouseOver={this.hoverMainbtn}
+                                        style={{ background: "#17a2b8", color: "#fff" }}
+                                        className="btn btn-lg search-btn" type="submit">
+                                        <i class="fas fa-search"></i>
+                                      </button>
                                     </div>
 
                                 </div>
@@ -205,7 +228,7 @@ export default class Wellcome extends React.Component {
                         <div>
                             <span className="phone"><i className="fas fa-phone"></i></span>
                             <b>+886-931-875-878</b>
-                        </div>                    
+                        </div>
                     </div>
                     <div style={{ color: "#17a2b8", textAlign: "center", marginTop: "2rem"}}>
                         <i className="far fa-copyright"></i> 2019 iTalent - All Rights Reserved

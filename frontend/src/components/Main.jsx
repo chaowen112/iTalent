@@ -52,15 +52,17 @@ class Main extends React.Component {
     constructor(props) {
         super(props);
         console.log(props);
-        var authData = this.props.authData;
         this.state = {
-            unit: 'metric',
+            navbarToggle: false,
             dropdownOpen: false,
             isModalShow: false,
             money: 0,
-            userData: { id: authData.attributes.sub, name: authData.username},
-            navbarToggle: false
-
+            userData: {
+                id: null,
+                name: null,
+                email: null,
+                phone: null
+            }
         };
         this.toggle = this.toggle.bind(this);
 
@@ -91,8 +93,7 @@ class Main extends React.Component {
 
         return (
             <Router>
-
-                <div className={`main bg-faded ${this.state.group}`}>
+                <div>
                     <Navbar color="light" light expand={"md"}>
                         <NavbarBrand href="/">iTalent</NavbarBrand>
                         <NavbarToggler onClick={this.handleNavbarToggle} />
@@ -194,6 +195,10 @@ class Main extends React.Component {
     getUserData(id, username){
         getUserData(id, username)
         .then(data => {
+            // data.id = this.props.authData.attributes.sub,
+            data.name = this.props.authData.username,
+            data.email = this.props.authData.attributes.email,
+            data.phone = this.props.authData.attributes.phone_number
             this.setState({userData: data});
         })
         .catch(e => {
