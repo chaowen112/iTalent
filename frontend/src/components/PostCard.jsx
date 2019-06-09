@@ -8,7 +8,7 @@ import axios from 'axios';
 import {Card, CardDeck , Container, Row, Col, CardColumns, Button,ButtonGroup}from 'react-bootstrap';
 //import './Recommend.css';
 import {newPost,getHot} from 'api/post.js';
-import {addCollect,getCollect} from 'api/collect.js';
+import {addCollect,getCollect,deleteCollect} from 'api/collect.js';
 import {getUserData} from '../api/user.js';
 import PostModal from 'components/PostModal.jsx';
 import Post from 'components/Post.jsx';
@@ -31,7 +31,8 @@ export default class PostCard extends React.Component{
             dataAllocate:[],
             datas:[],
             disabled: false,
-            userId:''
+            userId:'',
+            hasClick:'收藏'
         }
 
         this.closeModal = this.closeModal.bind(this);
@@ -49,10 +50,45 @@ export default class PostCard extends React.Component{
     render(){
 
      //console.log(this.props.data);
-
+      var number = Math.floor((Math.random() * 10) + 1);
       let title=this.props.data.title;
       let price=this.props.data.price;
-      let img = this.props.data.img;
+      let img ;
+      switch(number){
+        case 1:
+          img = `images/guitar.jpg`;
+        break;
+        case 2:
+          img=`images/ballet.jpg`;
+        break;
+        case 3:
+          img=`images/clown.jpg`;
+        break;
+        case 4:
+          img = `images/guitar.jpg`;
+        break;
+        case 5:
+          img=`images/ballet.jpg`;
+        break;
+        case 6:
+          img=`images/clown.jpg`;
+        break;
+        case 7:
+          img = `images/guitar.jpg`;
+        break;
+        case 8:
+          img=`images/ballet.jpg`;
+        break;
+        case 9:
+          img=`images/clown.jpg`;
+        break;
+        case 10:
+          img=`images/sing.jpg`;
+        break;
+        default:
+          img=`images/piano.jpg`;
+        break;
+      }
       let postid = this.props.data.id;
       var cardStyle = {boxShadow: "0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)", minWidth: '200px'}
       return(
@@ -68,7 +104,7 @@ export default class PostCard extends React.Component{
                         <Card.Title >{title}</Card.Title>
                         <Card.Text>{postid}</Card.Text>
                         <Card.Text>{price}</Card.Text>
-                        <Button onClick={this.addCollection} variant={this.state.disabled ?"outline-secondary" :"outline-dark"} disabled={this.state.disabled}   >收藏</Button>
+                        <Button onClick={this.addCollection} variant={this.state.disabled ?"info" :"outline-secondary"}    >{this.state.hasClick}</Button>
                   </Card.Body>
               </Card>
               <PostModal onHide={this.closeModal} show={this.state.isModalShow} artistId={this.state.artistId} userId={this.props.userId}/>
@@ -79,7 +115,33 @@ export default class PostCard extends React.Component{
     }
     addCollection(){
         //console.log('add');
+        if(this.state.disabled)
+        {
+          deleteCollect(this.props.userId, this.props.data.id)
+            console.log(this.props.data.id);
+            this.setState({
+              disabled:false,
+              hasClick:'收藏'
+            })
+        }
+        else{
+          console.log(this.state.userId,'false');
 
+            var titles=[]
+            var categorys=[]
+            var data=[]
+            var prices = []
+            var experiences=[]
+            let cards
+
+              addCollect(this.props.userId,this.props.data.title, '演員/女演員', 1, this.props.data.price, false, 'detail', this.props.data.id)
+                console.log(this.props.data.id);
+                this.setState({
+                  disabled:true,
+                  hasClick:'移除'
+                })
+
+<<<<<<< HEAD
         console.log(this.props.userId,'enter');
           var userid = 123;
           var titles=[]
@@ -90,10 +152,10 @@ export default class PostCard extends React.Component{
           let cards
 
             addCollect(this.props.userId,this.props.data.title, '演員/女演員', 1, this.props.data.price, false, 'detail', this.props.data.id)
+=======
+        }
+>>>>>>> fed60aca1a776543f8dda8a6d9719d318a833bff
 
-              this.setState({
-                disabled:true
-              })
 
 
     }

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export function addCollect(userid,title, category, experience, price, by_hour, detail, id)
 {
-
+  console.log('addcollect id:',id)
    axios.post('/api/posts/collect', {
        userid:userid,
        title: title,
