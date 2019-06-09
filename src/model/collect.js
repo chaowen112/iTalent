@@ -15,16 +15,25 @@ function addCollect(userid,title, category, by_hour, price, experience, detail, 
     `;
     return db.any(sql, {userid,title, category, by_hour, price, experience, detail, youtubeid});
 }
-
-//得到目前的收藏
-function getAllCollects(){
+function deleteCollect(userid,postid)
+{
   sql = `
-      SELECT * FROM collects;
+      delete  from collects where (id=$<postid> and userid=$<userid>);
   `;
-  return db.any(sql);
+  return db.any(sql,{userid,postid});
+}
+//得到目前的收藏
+function getAllCollects(userid){
+  console.log(typeof(userid));
+
+  sql = `
+      select * from collects WHERE userid = $<userid>;
+  `;
+  return db.any(sql,{userid});
 }
 
 module.exports = {
     addCollect,
-    getAllCollects
+    getAllCollects,
+    deleteCollect
 };

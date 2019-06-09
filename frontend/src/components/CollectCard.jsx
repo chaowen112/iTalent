@@ -8,14 +8,15 @@ import axios from 'axios';
 import {Card, CardDeck , Container, Row, Col, CardColumns, Button,ButtonGroup}from 'react-bootstrap';
 //import './Recommend.css';
 import {newPost,getHot} from 'api/post.js';
-import {addCollect,getCollect} from 'api/collect.js';
+import {addCollect,getCollect,deleteCollect} from 'api/collect.js';
 import {getUserData} from '../api/user.js';
 import PostModal from 'components/PostModal.jsx';
 import Post from 'components/Post.jsx';
+import Mycollection from 'components/Mycollection.jsx';
 import './PostCard.css';
 import uuid from 'uuid/v4';
 import { $$asyncIterator } from 'iterall';
-export default class PostCard extends React.Component{
+export default class CollectCard extends React.Component{
 
     constructor(props){
         super(props);
@@ -36,9 +37,8 @@ export default class PostCard extends React.Component{
 
         this.closeModal = this.closeModal.bind(this);
         this.openModal = this.openModal.bind(this);
-        this.addCollection = this.addCollection.bind(this);
-
-
+        //this.addCollection = this.addCollection.bind(this);
+        this.deleteCollect = this.deleteCollect.bind(this);
     }
     componentDidMount(){
       //console.log(typeof(this.props.userId),'enter postcard');
@@ -53,29 +53,40 @@ export default class PostCard extends React.Component{
       let title=this.props.data.title;
       let price=this.props.data.price;
       let img = this.props.data.img;
-      let postid = this.props.data.id;
+      var postid = this.props.data.id;
       var cardStyle = {boxShadow: "0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)", minWidth: '200px'}
       return(
+        <Router>
       <div>
           <hr/>
 
           <hr/>
 
 
-              <Card   style={cardStyle}>
+              <Card className="m-2"  style={{width: "200px"}}>
                   <Card.Img onClick={this.openModal} className="carding" style={{ width: '150px', height: '150px', borderRadius: '50%', marginLeft: '22px', marginTop: '10px', border:'solid 5px #17a3b873'}} variant="top" src={img}/>
                   <Card.Body style={{textAlign: 'center'}}>
                         <Card.Title >{title}</Card.Title>
                         <Card.Text>{postid}</Card.Text>
                         <Card.Text>{price}</Card.Text>
-                        <Button onClick={this.addCollection} variant={this.state.disabled ?"outline-secondary" :"outline-dark"} disabled={this.state.disabled}   >收藏</Button>
+                        <Link to ='mycollection'>
+                        <Button onClick={this.deleteCollect} variant={this.state.disabled ?"outline-secondary" :"outline-dark"} disabled={this.state.disabled}   >移除</Button>
+                        </Link>
                   </Card.Body>
               </Card>
               <PostModal onHide={this.closeModal} show={this.state.isModalShow} artistId={this.state.artistId} userId={this.props.userId}/>
-
+              <Route exact path="/mycollection" render={() => (
+                  <Mycollection userid={this.props.userid}/>
+              )}/>
       </div>
+      </Router>
       );
 
+    }
+    deleteCollect(){
+      //console.log('enter');
+
+      deleteCollect(this.props.userId,this.props.data.id)
     }
     addCollection(){
         //console.log('add');

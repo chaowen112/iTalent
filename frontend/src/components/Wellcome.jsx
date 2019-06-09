@@ -16,6 +16,8 @@ import Recommend from './Recommend.jsx'
 import Hot from './Hot.jsx'
 import Latest from './Latest.jsx'
 import PostCard from 'components/PostCard.jsx';
+import Artist from 'components/Artist.jsx';
+
 import { newPost, getHot,getLatest,getRecommend } from 'api/post.js';
 import { $$asyncIterator } from 'iterall';
 export default class Wellcome extends React.Component {
@@ -42,8 +44,8 @@ export default class Wellcome extends React.Component {
 
     componentDidMount() {
       //console.log('gethotdata enter');
-      var titles=[],categorys=[],data=[],prices = [],experiences=[]
-      var rec_titles=[],rec_categorys=[],rec_data=[],rec_prices = [],rec_experiences=[]
+      var titles=[],categorys=[],data=[],prices = [],experiences=[],id=[]
+      var rec_titles=[],rec_categorys=[],rec_data=[],rec_prices = [],rec_experiences=[],rec_id=[]
       let cards
       getHot()
       .then(res=>{
@@ -54,6 +56,7 @@ export default class Wellcome extends React.Component {
           categorys.push(data.category);
           prices.push(data.price);
           experiences.push(data.experience);
+          id.push(data.id);
         })
         for(var i=0;i<titles.length;i++)
         {
@@ -62,7 +65,8 @@ export default class Wellcome extends React.Component {
             title:titles[i],
             category:categorys[i],
             price:prices[i],
-            experience:experiences[i]
+            experience:experiences[i],
+            id:id[i]
           })
         }
 
@@ -87,6 +91,7 @@ export default class Wellcome extends React.Component {
             categorys.push(data.category);
             prices.push(data.price);
             experiences.push(data.experience);
+            id.push(data.id);
           })
           for(var i=0;i<titles.length;i++)
           {
@@ -95,7 +100,8 @@ export default class Wellcome extends React.Component {
               title:titles[i],
               category:categorys[i],
               price:prices[i],
-              experience:experiences[i]
+              experience:experiences[i],
+              id:id[i]
             })
           }
 
@@ -119,6 +125,7 @@ export default class Wellcome extends React.Component {
               rec_categorys.push(data.category);
               rec_prices.push(data.price);
               rec_experiences.push(data.experience);
+              rec_id.push(data.id);
             })
             for(var i=0;i<rec_titles.length;i++)
             {
@@ -127,7 +134,8 @@ export default class Wellcome extends React.Component {
                 title:rec_titles[i],
                 category:rec_categorys[i],
                 price:rec_prices[i],
-                experience:rec_experiences[i]
+                experience:rec_experiences[i],
+                id:rec_id[i]
               })
             }
 
@@ -151,6 +159,7 @@ export default class Wellcome extends React.Component {
 
 
         return (
+
             <div className="wellcome">
                 <div className="container">
                     <br />
@@ -164,7 +173,11 @@ export default class Wellcome extends React.Component {
                                     </div>
 
                                     <div className="col-auto">
+
+
                                         <button onMouseOut={this.outMainbtn} onMouseOver={this.hoverMainbtn} style={{ marginLeft: "0.5rem", background: "#17a2b8", color: "#fff" }} className="btn btn-lg search-btn" type="submit">Search</button>
+
+
                                     </div>
 
                                 </div>
@@ -177,10 +190,10 @@ export default class Wellcome extends React.Component {
                 <Container>
                     <Row>
                         <Col>
-                            <Hot  hotData={this.state.hot_datas}  name={this.state.title} title="熱門" />
+                            <Hot  userId={this.props.userId} hotData={this.state.hot_datas}  name={this.state.title} title="熱門" />
 
-                            <Latest  latestData={this.state.latest_datas} name={this.state.title} title="最新" />
-                            <Recommend  recommendData={this.state.recommend_datas} name={this.state.title} title="推薦" />
+                            <Latest  userId={this.props.userId} latestData={this.state.latest_datas} name={this.state.title} title="最新" />
+                            <Recommend  userId={this.props.userId} recommendData={this.state.recommend_datas} name={this.state.title} title="推薦" />
                         </Col>
                     </Row>
                 </Container>
@@ -208,7 +221,10 @@ export default class Wellcome extends React.Component {
                         <i className="far fa-copyright"></i> 2019 iTalent - All Rights Reserved
                     </div>
                 </div>
+
             </div>
+
+
         );
     }
 

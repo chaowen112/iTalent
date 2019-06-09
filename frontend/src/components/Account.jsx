@@ -49,7 +49,7 @@ export default class Account extends React.Component{
                         <Emails userData={this.props.userData} />
                         </Tab.Pane>
                         <Tab.Pane eventKey="third">
-                        <Mycollection/>
+                        <Mycollection userId={this.props.userId}/>
                         </Tab.Pane>
                         <Tab.Pane eventKey="fourth">
                         <PersonalData userData={this.props.userData} />

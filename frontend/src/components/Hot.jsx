@@ -7,7 +7,7 @@ import {
 import axios from 'axios';
 import {Card, CardDeck , Container, Row, Col, CardColumns, Button}from 'react-bootstrap';
 import './Recommend.css';
-import {newPost,getHot,addCollect,getLatest,getMoney,getRecommend} from 'api/post.js';
+import {newPost,getHot,getLatest,getMoney,getRecommend} from 'api/post.js';
 import PostModal from 'components/PostModal.jsx';
 import Post from 'components/Post.jsx';
 import PostCard from 'components/PostCard.jsx';
@@ -46,7 +46,7 @@ export default class Hot extends React.Component{
 
 
       let card = this.props.hotData.map( (d, id) => {
-        return <PostCard data={d} key={id}/>
+        return <PostCard userId={this.props.userId} data={d} key={id}/>
       })
 
 

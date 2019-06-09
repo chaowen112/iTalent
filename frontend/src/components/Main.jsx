@@ -77,6 +77,7 @@ class Main extends React.Component {
         if(this.props.authState == "signedIn"){
             this.getUserData(this.props.authData.attributes.sub, this.props.authData.username);
         }
+
     }
 
 
@@ -105,6 +106,7 @@ class Main extends React.Component {
                                 </NavItem>
                                 <NavItem>
                                     <NavLink tag={Link} onClick={this.handleNavbarToggle} to='/artist'>Artist</NavLink>
+
                                 </NavItem>
                                 <NavItem>
                                     <NavLink tag={Link} onClick={this.handleNavbarToggle} to='/account'>Account</NavLink>
@@ -127,7 +129,7 @@ class Main extends React.Component {
                     </Navbar>
 
                     <Route exact path="/" render={() => (
-                        <Wellcome/>
+                        <Wellcome userId={this.state.userData.id}/>
                     )}/>
                     <Route exact path="/artist" render={() => (
                         <Artist userId={this.state.userData.id} userData={this.state.userData}/>
@@ -171,7 +173,7 @@ class Main extends React.Component {
         .catch(e=>{
             console.log(e);
         })
-      
+
     }
     openModal(){
         this.setState({isModalShow: true});

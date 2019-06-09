@@ -19,7 +19,24 @@ export function addCollect(userid,title, category, experience, price, by_hour, d
        alert('fail!!');
    });
 }
+export function getCollect(userid)
+{
 
-export function getCollect(){
-  return axios.get('/api/collect/all')
+  return axios.post('/api/collect/user',{
+    userid:userid
+  })
+}
+export function deleteCollect(userid,postid)
+{
+  console.log('enter 2',userid,postid);
+  axios.post('/api/collect/delete', {
+      userid:userid,
+      postid: postid
+  }).then(() => {
+      //alert('success');
+  }).catch(e => {
+      console.log(e);
+      alert('fail!!');
+  });
+
 }

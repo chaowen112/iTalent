@@ -19,10 +19,24 @@ router.post('/posts/collect', (req, res) => {
     });
 });
 
-router.get('/collect/all', (req, res) => {
-    collect.getAllCollects()
+
+router.post('/collect/user', (req, res) => {
+  console.log('backend enter');
+    const userid = req.body.userid
+    console.log(req.body);
+    collect.getAllCollects(userid)
     .then((result) => {
         res.json(result);
+    });
+});
+router.post('/collect/delete', (req, res) => {
+    const {userid,postid} = req.body
+    collect.deleteCollect(userid, postid)
+    .then((result) => {
+        res.json('success');
+    })
+    .catch(e => {
+        console.log(e);
     });
 });
 module.exports = router;
