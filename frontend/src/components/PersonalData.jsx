@@ -14,7 +14,8 @@ export default class PersonalData extends React.Component{
         super(props)
         this.state={
             description: this.props.userData.description,
-            photo: null
+            photo: null,
+            ready_upload: false
         }
         this.uploadDescription = this.uploadDescription.bind(this);
         this.uploadPhoto = this.uploadPhoto.bind(this);
@@ -30,8 +31,14 @@ export default class PersonalData extends React.Component{
                     <img src={img} alt="photo" onError={(e) => {
                         e.target.onerror = null;
                         e.target.src = "https://source.unsplash.com/500x500/?sing,dance"
-                    }} />
-                    <Button style={{borderColor: "#fff", color: "#fff", margin: "1rem auto 0.5rem auto"}} variant="outline-info" onClick={this.uploadPhoto}>上傳頭像</Button>
+                    }} />               
+                    <Button
+                        className="photo-upload-btn"
+                        style={{borderColor: "#fff", color: "#fff", margin: "1rem auto 0.5rem auto"}}
+                        variant="outline-info"
+                        onClick={this.uploadPhoto}>
+                        上傳頭像
+                    </Button>
                     <div className="username">{this.props.userData.name}</div>
                 </div>
                 <div className="info">
@@ -76,7 +83,10 @@ export default class PersonalData extends React.Component{
                                 <div className="d-flex flex-row">
                                     <InputGroup>
                                         <FormControl as="input" type="file"
-                                            onChange={(e)=>this.setState({photo: e.target.files[0]})}
+                                            onChange={(e)=> {
+                                                this.setState({photo: e.target.files[0], ready_upload: true});
+                                                $('.photo-upload-btn').text('確認上傳');
+                                            }}
                                         />
                                     </InputGroup>
                                     <Button className="align-self-start" onClick={this.uploadDescription}>上傳簡介</Button>                                    
@@ -95,15 +105,24 @@ export default class PersonalData extends React.Component{
 
     uploadPhoto(){
         console.log(this.state.photo);
-        var formData = new FormData();
-        formData.append("photo", this.state.photo);
-        formData.append("id", this.props.userData.id);
-        post('/api/user/photo', formData, {
-            headers: {
-            'Content-Type': 'multipart/form-data'
-            }
-        })
-        .then(r => console.log(r))
-        .catch(e => console.log(e))
+        if (!this.state.ready_upload) {
+            $('input.form-control-file').click();
+        } else {
+            var formData = new FormData();
+            formData.append("photo", this.state.photo);
+            formData.append("id", this.props.userData.id);
+            post('/api/user/photo', formData, {
+                headers: {
+                'Content-Type': 'multipart/form-data'
+                }
+            })
+            .then(r => {
+                console.log(r);
+                $('.photo-upload-btn').text('上傳頭像');
+                $('.person-card img').attr("src", "images/" + this.state.photo.name);
+                this.setState({ready_upload: false});
+            })
+            .catch(e => console.log(e))            
+        }
     }
 }

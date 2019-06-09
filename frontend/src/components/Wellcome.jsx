@@ -217,9 +217,9 @@ export default class Wellcome extends React.Component {
                     <Route exact path="/" render={() => {
                       return(
                       <Col>
-                          <Hot  hotData={this.state.hot_datas}  name={this.state.title} title="熱門" />
-                          <Latest  latestData={this.state.latest_datas} name={this.state.title} title="最新" />
-                          <Recommend  recommendData={this.state.recommend_datas} name={this.state.title} title="推薦" />
+                          <Hot userId={this.props.userId} hotData={this.state.hot_datas}  name={this.state.title} title="熱門" />
+                          <Latest userId={this.props.userId} latestData={this.state.latest_datas} name={this.state.title} title="最新" />
+                          <Recommend userId={this.props.userId} recommendData={this.state.recommend_datas} name={this.state.title} title="推薦" />
                       </Col>
                       )
                     }} />

@@ -13,7 +13,7 @@ export function addCollect(userid,title, category, experience, price, by_hour, d
        by_hour: by_hour,
        id: id
    }).then(() => {
-       //alert('success');
+      //  alert('success');
    }).catch(e => {
        console.log(e);
        alert('fail!!');

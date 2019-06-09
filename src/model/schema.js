@@ -37,7 +37,7 @@ const schemaSql = `
         '其他'
     );
     CREATE TABLE "collects" (
-        id          SERIAL PRIMARY KEY NOT NULL,
+        id          INTEGER NOT NULL DEFAULT 0,
         userId      TEXT NOT NULL,
         title       TEXT NOT NULL,
         category    category NOT NULL,
