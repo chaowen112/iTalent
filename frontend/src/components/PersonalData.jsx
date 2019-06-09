@@ -31,6 +31,7 @@ export default class PersonalData extends React.Component{
                         e.target.onerror = null;
                         e.target.src = "https://source.unsplash.com/500x500/?sing,dance"
                     }} />
+                    <Button style={{borderColor: "#fff", color: "#fff", margin: "1rem auto 0.5rem auto"}} variant="outline-info" onClick={this.uploadPhoto}>上傳頭像</Button>
                     <div className="username">{this.props.userData.name}</div>
                 </div>
                 <div className="info">
@@ -66,15 +67,15 @@ export default class PersonalData extends React.Component{
                                     />
                                 </InputGroup>
                                 <br></br>
-                                <InputGroup style={{height: '5rem'}}>
-                                    <FormControl as="input" type="file"
-                                        onChange={(e)=>this.setState({photo: e.target.files[0]})}
-                                    />
-                                </InputGroup>
-                                <p className="card_title">
-                                    <Button onClick={this.uploadDescription}>上傳簡介</Button>
-                                    <Button onClick={this.uploadPhoto}>上傳頭像</Button>
-                                </p>
+                                <div className="d-flex flex-row">
+                                    <InputGroup>
+                                        <FormControl as="input" type="file"
+                                            onChange={(e)=>this.setState({photo: e.target.files[0]})}
+                                        />
+                                    </InputGroup>
+                                    <Button className="align-self-start" onClick={this.uploadDescription}>上傳簡介</Button>                                    
+                                </div>
+
                     </Card.Title>
                 </Card.Body>
                 </Card>
