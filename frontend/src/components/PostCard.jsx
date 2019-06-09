@@ -50,10 +50,45 @@ export default class PostCard extends React.Component{
     render(){
 
      //console.log(this.props.data);
-
+      var number = Math.floor((Math.random() * 10) + 1);
       let title=this.props.data.title;
       let price=this.props.data.price;
-      let img = this.props.data.img;
+      let img ;
+      switch(number){
+        case 1:
+          img = `images/guitar.jpg`;
+        break;
+        case 2:
+          img=`images/ballet.jpg`;
+        break;
+        case 3:
+          img=`images/clown.jpg`;
+        break;
+        case 4:
+          img = `images/guitar.jpg`;
+        break;
+        case 5:
+          img=`images/ballet.jpg`;
+        break;
+        case 6:
+          img=`images/clown.jpg`;
+        break;
+        case 7:
+          img = `images/guitar.jpg`;
+        break;
+        case 8:
+          img=`images/ballet.jpg`;
+        break;
+        case 9:
+          img=`images/clown.jpg`;
+        break;
+        case 10:
+          img=`images/sing.jpg`;
+        break;
+        default:
+          img=`images/piano.jpg`;
+        break;
+      }
       let postid = this.props.data.id;
       var cardStyle = {boxShadow: "0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)", minWidth: '200px'}
       return(
