@@ -100,7 +100,7 @@ export default class CollectCard extends React.Component{
           var experiences=[]
           let cards
 
-            addCollect(this.props.userId,this.props.data.title, '演員/女演員', 1, this.props.data.price, false, 'detail', ' ')
+            addCollect(this.props.userId,this.props.data.title, '演員/女演員', 1, this.props.data.price, false, 'detail', this.props.data.id)
 
               this.setState({
                 disabled:true

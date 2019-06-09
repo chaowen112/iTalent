@@ -4,7 +4,7 @@ import {
     Route,
     Link
 } from 'react-router-dom';
-import PostCard from 'components/PostCard.jsx';
+//import PostCard from 'components/PostCard.jsx';
 import CollectCard from 'components/CollectCard.jsx';
 import {Card, CardDeck , Container, Row, Col, CardColumns}from 'react-bootstrap';
 import {getCollect} from 'api/collect.js';
