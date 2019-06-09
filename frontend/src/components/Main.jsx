@@ -166,6 +166,7 @@ class Main extends React.Component {
         })
         .then(()=>{
             this.getUserData(this.state.userData.id);
+            alert("儲值成功");
         })
         .catch(e=>{
             console.log(e);

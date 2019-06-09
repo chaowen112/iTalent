@@ -105,7 +105,7 @@ export default class PostCard extends React.Component{
             datas:data
           })
           console.log(this.state.datas);
-
+          alert("成功加入收藏");
         })
     }
     openModal(){

@@ -50,6 +50,12 @@ export default class PersonalData extends React.Component{
                         <div className="border"></div>
                         <i className="fas fa-phone"></i>{this.props.userData.phone}
                     </div>
+                    <div className="split-line"></div>
+                    <div className="info-title">
+                            About
+                    </div>
+                        <div className="border"></div>
+                        <p className="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste corporis, deleniti cum dignissimos quas dolorum magnam enim mollitia doloribus sapiente. Distinctio eius deleniti vel corrupti. Atque, in delectus perferendis minima maiores amet, necessitatibus non neque officia optio, molestias quia. At, odit. Praesentium optio itaque dolorum, fugiat natus earum est facilis.</p>
                 </div>  
 
                 <Card style={{width:'100%'}}>
