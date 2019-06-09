@@ -46,7 +46,7 @@ const schemaSql = `
         price       INTEGER NOT NULL DEFAULT 0,
         experience  INTEGER NOT NULL DEFAULT 0,
         detail      TEXT NOT NULL,
-        youtubeId   TEXT NOT NULL,
+        youtubeId   TEXT ,
         views       INTEGER NOT NULL DEFAULT 0
     );
     CREATE TABLE posts (

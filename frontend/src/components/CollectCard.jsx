@@ -85,7 +85,7 @@ export default class CollectCard extends React.Component{
     }
     deleteCollect(){
       //console.log('enter');
-
+      
       deleteCollect(this.props.userId,this.props.data.id)
     }
     addCollection(){

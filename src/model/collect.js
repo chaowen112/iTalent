@@ -7,13 +7,13 @@ const pgp = require('pg-promise')();
 const db = pgp(process.env.DB_URL);
 
 //新增收藏
-function addCollect(userid,title, category, by_hour, price, experience, detail, youtubeid){
+function addCollect(userid,title, category, by_hour, price, experience, detail, id){
     //.log(title);
     sql = `
-        INSERT INTO collects (userid,title, category, by_hour, price, experience, detail, youtubeId)
-        VALUES ($<userid>,$<title>, $<category>, $<by_hour>, $<price>, $<experience>, $<detail>, $<youtubeid>)
+        INSERT INTO collects (userid,title, category, by_hour, price, experience, detail, Id)
+        VALUES ($<userid>,$<title>, $<category>, $<by_hour>, $<price>, $<experience>, $<detail>, $<id>)
     `;
-    return db.any(sql, {userid,title, category, by_hour, price, experience, detail, youtubeid});
+    return db.any(sql, {userid,title, category, by_hour, price, experience, detail, id});
 }
 function deleteCollect(userid,postid)
 {

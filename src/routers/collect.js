@@ -10,6 +10,7 @@ router.use(bodyParser.json());
 
 router.post('/posts/collect', (req, res) => {
     const {userid,title, category, by_hour, price, experience, detail, id} = req.body
+    console.log('backend',id);
     collect.addCollect(userid,title, category, by_hour, price, experience, detail, id)
     .then((result) => {
         res.json('success');

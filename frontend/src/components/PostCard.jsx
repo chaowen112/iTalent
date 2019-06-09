@@ -8,7 +8,7 @@ import axios from 'axios';
 import {Card, CardDeck , Container, Row, Col, CardColumns, Button,ButtonGroup}from 'react-bootstrap';
 //import './Recommend.css';
 import {newPost,getHot} from 'api/post.js';
-import {addCollect,getCollect} from 'api/collect.js';
+import {addCollect,getCollect,deleteCollect} from 'api/collect.js';
 import {getUserData} from '../api/user.js';
 import PostModal from 'components/PostModal.jsx';
 import Post from 'components/Post.jsx';
@@ -31,7 +31,8 @@ export default class PostCard extends React.Component{
             dataAllocate:[],
             datas:[],
             disabled: false,
-            userId:''
+            userId:'',
+            hasClick:'收藏'
         }
 
         this.closeModal = this.closeModal.bind(this);
@@ -68,7 +69,7 @@ export default class PostCard extends React.Component{
                         <Card.Title >{title}</Card.Title>
                         <Card.Text>{postid}</Card.Text>
                         <Card.Text>{price}</Card.Text>
-                        <Button onClick={this.addCollection} variant={this.state.disabled ?"outline-secondary" :"outline-dark"} disabled={this.state.disabled}   >收藏</Button>
+                        <Button onClick={this.addCollection} variant={this.state.disabled ?"dark" :"outline-secondary"}    >{this.state.hasClick}</Button>
                   </Card.Body>
               </Card>
               <PostModal onHide={this.closeModal} show={this.state.isModalShow} artistId={this.state.artistId} userId={this.props.userId}/>
@@ -79,21 +80,34 @@ export default class PostCard extends React.Component{
     }
     addCollection(){
         //console.log('add');
+        if(this.state.disabled)
+        {
+          deleteCollect(this.props.userId, this.props.data.id)
+            console.log(this.props.data.id);
+            this.setState({
+              disabled:false,
+              hasClick:'收藏'
+            })
+        }
+        else{
+          console.log(this.state.userId,'false');
 
-        console.log(this.state.userId,'enter');
-          
-          var titles=[]
-          var categorys=[]
-          var data=[]
-          var prices = []
-          var experiences=[]
-          let cards
+            var titles=[]
+            var categorys=[]
+            var data=[]
+            var prices = []
+            var experiences=[]
+            let cards
 
-            addCollect(this.props.userId,this.props.data.title, '演員/女演員', 1, this.props.data.price, false, 'detail', this.props.data.id)
+              addCollect(this.props.userId,this.props.data.title, '演員/女演員', 1, this.props.data.price, false, 'detail', this.props.data.id)
+                console.log(this.props.data.id);
+                this.setState({
+                  disabled:true,
+                  hasClick:'移除'
+                })
 
-              this.setState({
-                disabled:true
-              })
+        }
+
 
 
     }
