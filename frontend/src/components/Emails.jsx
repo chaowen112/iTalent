@@ -15,14 +15,12 @@ export default class Emails extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {isChat: false, data: [], other: {}};
-
-    setInterval(() => {
-      let userId = this.props.userData.id;
-      getChatList(userId).then(res => {
-        this.setState({ data: res });
-      })
-    }, 1000);
+    this.state = {
+      isChat: false, 
+      data: [], 
+      other: {},
+      interval: null
+    };
   }
 
   componentWillMount() {
@@ -30,6 +28,19 @@ export default class Emails extends React.Component {
     getChatList(userId).then(res => {
       this.setState({data: res});
     })
+  }
+
+  componentDidMount(){
+    this.setState({interval: setInterval(() => {
+      let userId = this.props.userData.id;
+      getChatList(userId).then(res => {
+        this.setState({ data: res });
+      })
+    }, 1000)});
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.state.interval);
   }
 
   render() {

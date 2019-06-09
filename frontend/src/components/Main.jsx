@@ -52,15 +52,17 @@ class Main extends React.Component {
     constructor(props) {
         super(props);
         console.log(props);
-        var authData = this.props.authData;
         this.state = {
-            unit: 'metric',
+            navbarToggle: false,
             dropdownOpen: false,
             isModalShow: false,
             money: 0,
-            userData: { id: authData.attributes.sub, name: authData.username},
-            navbarToggle: false
-
+            userData: {
+                id: null,
+                name: null,
+                email: null,
+                phone: null
+            }
         };
         this.toggle = this.toggle.bind(this);
 
@@ -92,17 +94,20 @@ class Main extends React.Component {
 
         return (
             <Router>
-
-                <div className={`main bg-faded ${this.state.group}`}>
+                <div>
                     <Navbar color="light" light expand={"md"}>
-                        <NavbarBrand href="/">iTalent</NavbarBrand>
+                        <NavbarBrand href="/" style={{color: "#17a2b8"}}>iTalent</NavbarBrand>
                         <NavbarToggler onClick={this.handleNavbarToggle} />
                         <Collapse isOpen={this.state.navbarToggle} navbar>
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
-                                    <Button variant="outline-info" onClick={this.openModal}>儲值
-                                        <Store triggerchangemoney={this.updateMoney} onHide={this.closeModal} show={this.state.isModalShow}/>
-                                    </Button>
+                                    <NavLink tag={Link} to='/'>
+                                        <img src="images/coins.png" style={{width: "20px", marginRight: "10px"}}></img>
+                                        <span>餘額 ： {this.state.userData.money} 元</span>
+                                        <Button className="ml-2" size="sm" variant="outline-info" onClick={this.openModal}>儲值
+                                            <Store triggerchangemoney={this.updateMoney} onHide={this.closeModal} show={this.state.isModalShow}/>
+                                        </Button>                                        
+                                    </NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink tag={Link} onClick={this.handleNavbarToggle} to='/artist'>Artist</NavLink>
@@ -115,13 +120,7 @@ class Main extends React.Component {
                                     <NavLink tag={Link} onClick={this.handleNavbarToggle} to='/upload'>Upload</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink tag={Link} to='/'>
-                                        <img src="images/coins.png" style={{width: "20px", marginRight: "10px"}}></img>
-                                        <span>餘額 ： {this.state.userData.money} 元</span>
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <Button variant="outline-danger" onClick={this.logout}>登出
+                                    <Button size="sm" variant="outline-danger" onClick={this.logout}>登出
                                     </Button>
                                 </NavItem>
                             </Nav>
@@ -169,6 +168,7 @@ class Main extends React.Component {
         })
         .then(()=>{
             this.getUserData(this.state.userData.id);
+            alert("儲值成功");
         })
         .catch(e=>{
             console.log(e);
@@ -196,6 +196,10 @@ class Main extends React.Component {
     getUserData(id, username){
         getUserData(id, username)
         .then(data => {
+            // data.id = this.props.authData.attributes.sub,
+            data.name = this.props.authData.username,
+            data.email = this.props.authData.attributes.email,
+            data.phone = this.props.authData.attributes.phone_number
             this.setState({userData: data});
         })
         .catch(e => {
