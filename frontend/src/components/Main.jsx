@@ -95,14 +95,18 @@ class Main extends React.Component {
             <Router>
                 <div>
                     <Navbar color="light" light expand={"md"}>
-                        <NavbarBrand href="/">iTalent</NavbarBrand>
+                        <NavbarBrand href="/" style={{color: "#17a2b8"}}>iTalent</NavbarBrand>
                         <NavbarToggler onClick={this.handleNavbarToggle} />
                         <Collapse isOpen={this.state.navbarToggle} navbar>
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
-                                    <Button variant="outline-info" onClick={this.openModal}>儲值
-                                        <Store triggerchangemoney={this.updateMoney} onHide={this.closeModal} show={this.state.isModalShow}/>
-                                    </Button>
+                                    <NavLink tag={Link} to='/'>
+                                        <img src="images/coins.png" style={{width: "20px", marginRight: "10px"}}></img>
+                                        <span>餘額 ： {this.state.userData.money} 元</span>
+                                        <Button className="ml-2" size="sm" variant="outline-info" onClick={this.openModal}>儲值
+                                            <Store triggerchangemoney={this.updateMoney} onHide={this.closeModal} show={this.state.isModalShow}/>
+                                        </Button>                                        
+                                    </NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink tag={Link} onClick={this.handleNavbarToggle} to='/artist'>Artist</NavLink>
@@ -114,13 +118,7 @@ class Main extends React.Component {
                                     <NavLink tag={Link} onClick={this.handleNavbarToggle} to='/upload'>Upload</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink tag={Link} to='/'>
-                                        <img src="images/coins.png" style={{width: "20px", marginRight: "10px"}}></img>
-                                        <span>餘額 ： {this.state.userData.money} 元</span>
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <Button variant="outline-danger" onClick={this.logout}>登出
+                                    <Button size="sm" variant="outline-danger" onClick={this.logout}>登出
                                     </Button>
                                 </NavItem>
                             </Nav>
