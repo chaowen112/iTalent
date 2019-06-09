@@ -69,7 +69,7 @@ export default class PostCard extends React.Component{
                         <Card.Title >{title}</Card.Title>
                         <Card.Text>{postid}</Card.Text>
                         <Card.Text>{price}</Card.Text>
-                        <Button onClick={this.addCollection} variant={this.state.disabled ?"dark" :"outline-secondary"}    >{this.state.hasClick}</Button>
+                        <Button onClick={this.addCollection} variant={this.state.disabled ?"info" :"outline-secondary"}    >{this.state.hasClick}</Button>
                   </Card.Body>
               </Card>
               <PostModal onHide={this.closeModal} show={this.state.isModalShow} artistId={this.state.artistId} userId={this.props.userId}/>
