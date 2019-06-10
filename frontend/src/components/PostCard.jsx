@@ -7,7 +7,7 @@ import {
 import axios from 'axios';
 import {Card, CardDeck , Container, Row, Col, CardColumns, Button,ButtonGroup}from 'react-bootstrap';
 //import './Recommend.css';
-import {newPost,getHot} from 'api/post.js';
+import {newPost,getHot, post} from 'api/post.js';
 import {addCollect,getCollect} from 'api/collect.js';
 import {getUserData} from '../api/user.js';
 import PostModal from 'components/PostModal.jsx';
@@ -48,30 +48,24 @@ export default class PostCard extends React.Component{
 
     render(){
 
-     //console.log(this.props.data);
-
-      let title=this.props.data.title;
-      let price=this.props.data.price;
-      let img = this.props.data.img;
-      let postid = this.props.data.id;
+      let img = <img src={`${this.props.userData.photo}`} alt="photo" onError={(e) => {
+        e.target.onerror = null;
+        e.target.src = "https://source.unsplash.com/500x500/?sing,dance"
+    }} />
       var cardStyle = {boxShadow: "0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)", minWidth: '200px'}
       return(
       <div>
           <hr/>
-
-          <hr/>
-
-
-              <Card   style={cardStyle}>
-                  <Card.Img onClick={this.openModal} className="carding" style={{ width: '150px', height: '150px', borderRadius: '50%', marginLeft: '22px', marginTop: '10px', border:'solid 5px #17a3b873'}} variant="top" src={img}/>
+          <hr/><Card  onClick={this.openModal} style={cardStyle}>
+                  {img}
                   <Card.Body style={{textAlign: 'center'}}>
-                        <Card.Title >{title}</Card.Title>
-                        <Card.Text>{postid}</Card.Text>
-                        <Card.Text>{price}</Card.Text>
+                        <Card.Title >Title: {this.props.postData.title}</Card.Title>
+                        <Card.Text>Detail: {this.props.postData.detail}</Card.Text>
+                        <Card.Text>$: {this.props.postData.price}</Card.Text>
                         <Button onClick={this.addCollection} variant={this.state.disabled ?"outline-secondary" :"outline-dark"} disabled={this.state.disabled}   >收藏</Button>
                   </Card.Body>
               </Card>
-              <PostModal onHide={this.closeModal} show={this.state.isModalShow} artistId={this.state.artistId} userId={this.props.userId}/>
+              <PostModal onHide={this.closeModal} show={this.state.isModalShow} postData={this.props.postData} userId={this.props.userId}/>
 
       </div>
       );
@@ -99,7 +93,11 @@ export default class PostCard extends React.Component{
     }
 
     openModal(){
+        console.log('open modal')
         this.setState({isModalShow: true});
+        post('api/posts/view', {postId: this.props.postData.id})
+        .then(r=>console.log('add view count'))
+        .catch(e=>{console.log(e)});
     }
 
     closeModal(e){

@@ -17,7 +17,10 @@ export default class Post extends React.Component{
         this.state={
             isModalShow: false,
             artistId: '',
-            postData: null
+            postData: {
+                title: '',
+                detail: ''
+            }
         }
         this.closeModal = this.closeModal.bind(this);
         this.openModal = this.openModal.bind(this);
@@ -47,8 +50,8 @@ export default class Post extends React.Component{
             <Col>
                 <Row onClick={this.openModal}>
                     <Image style={{width:'30%', height: '100%', display: 'inline', borderRadius: "10px", border: "3px solid #eee", marginRight: "0.5rem"}} src={`images/guitar.jpg`}/>
-                    <p><span>Title: </span></p>
-                    <p><span>Introduction</span></p>
+                    <p><span>Title: {this.state.postData.title} </span></p>
+                    <p><span>Introduction: {this.state.postData.detail}</span></p>
                 </Row>
                 <PostModal onHide={this.closeModal} show={this.state.isModalShow} userId={this.props.userId} postData={this.state.postData}/>
             </Col>

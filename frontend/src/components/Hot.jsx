@@ -43,13 +43,9 @@ export default class Hot extends React.Component{
 
     render(){
 
-
-
-      let card = this.props.hotData.map( (d, id) => {
-        return <PostCard userId={this.props.userId} data={d} key={id}/>
+      let card = this.props.data.map( (d, id) => {
+        return <PostCard userId={this.props.userId} postData={d} key={id} userData={this.props.userData}/>
       })
-
-
 
       return(
       <div>
@@ -81,7 +77,6 @@ export default class Hot extends React.Component{
 
     }
     addCollection(){
-        //console.log('add');
         var userid = 123;
         addCollect(userid,'title', '演員/女演員', 1, 100, false, 'detail', ' ');
     }

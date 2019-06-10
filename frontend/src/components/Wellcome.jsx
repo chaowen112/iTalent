@@ -30,7 +30,13 @@ export default class Wellcome extends React.Component {
           dropdownOpen: false,
           hot_datas:[],
           latest_datas:[],
-          recommend_datas:[]
+          recommend_datas:[],
+          hotData: [{
+            title: '',
+            detail: ''
+        }],
+          recommendData: [],
+          latestData: []
         };
 
         this._validAuthStates = ['signedIn'];
@@ -46,42 +52,13 @@ export default class Wellcome extends React.Component {
       //console.log('gethotdata enter');
       var titles=[],categorys=[],data=[],prices = [],experiences=[],id=[]
       var rec_titles=[],rec_categorys=[],rec_data=[],rec_prices = [],rec_experiences=[],rec_id=[]
-      let cards
+      let cards = null;
       getHot()
-      .then(res=>{
-
-        res.data.forEach((data)=>{
-
-          titles.push(data.title);
-          categorys.push(data.category);
-          prices.push(data.price);
-          experiences.push(data.experience);
-          id.push(data.id);
-        })
-        for(var i=0;i<titles.length;i++)
-        {
-          data.push({
-            img: `images/guitar.jpg`,
-            title:titles[i],
-            category:categorys[i],
-            price:prices[i],
-            experience:experiences[i],
-            id:id[i]
-          })
-        }
-
-      }).then(res=>{
-        this.setState({
-          hot_datas:data
-        })
-        titles=[]
-         categorys=[]
-         data=[]
-         prices = []
-         experiences=[]
-
-      })
-
+      .then(r => {this.setState({hotData: r.data})});
+      getLatest()
+      .then(r=>{this.setState({latestData: r.data})});
+      getRecommend()
+      .then(r=>{this.setState({recommendData: r.data})});
 
         getLatest().then(res=>{
 
@@ -155,7 +132,7 @@ export default class Wellcome extends React.Component {
         const carousel_second_title = {
             color: 'black'
         };
-
+        console.log(this.props.userData);
 
 
         return (
@@ -203,9 +180,7 @@ export default class Wellcome extends React.Component {
                                           <i className="fas fa-search"></i>
                                         </button>
                                       </Link>
-
                                     </div>
-
                                 </div>
                             </form>
                         </div>
@@ -217,9 +192,11 @@ export default class Wellcome extends React.Component {
                     <Route exact path="/" render={() => {
                       return(
                       <Col>
-                          <Hot  hotData={this.state.hot_datas}  name={this.state.title} title="熱門" />
-                          <Latest  latestData={this.state.latest_datas} name={this.state.title} title="最新" />
-                          <Recommend  recommendData={this.state.recommend_datas} name={this.state.title} title="推薦" />
+                          <Hot data={this.state.hotData} title="熱門" userId={this.props.userId}  userData={this.props.userData}/>
+                          <Hot data={this.state.latestData} title="最新" userId={this.props.userId}  userData={this.props.userData}/>
+                          <Hot data={this.state.recommendData} title="推薦" userId={this.props.userId}  userData={this.props.userData}/>
+                          {/*<Latest  latestData={this.state.latest_datas} name={this.state.title} title="最新" />
+                          <Recommend  recommendData={this.state.recommend_datas} name={this.state.title} title="推薦" />*/}
                       </Col>
                       )
                     }} />
@@ -229,7 +206,7 @@ export default class Wellcome extends React.Component {
                       var title = `搜尋'${category}'類別中關於'${input}'的結果`;
                       return(
                       <Col>
-                        <Hot  hotData={this.state.hot_datas}  name={this.state.title} title={title} />
+                        <Hot  hotData={this.state.hot_datas}  name={this.state.title} title={title} userId={this.props.userId} />
                       </Col>
                       )
                     }} />

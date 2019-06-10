@@ -22,6 +22,12 @@ export default class PersonalData extends React.Component{
 
     render(){
         var img = 'images/' + this.props.userData.photo;
+        let description = null;
+        if(this.state.description)
+            description = this.state.description.split('\n').map(
+            (d, it) =>{return(<p key={it}>{d}</p>)
+        })
+        console.log(description)
 
         return (
             <div >
@@ -31,7 +37,13 @@ export default class PersonalData extends React.Component{
                         e.target.onerror = null;
                         e.target.src = "https://source.unsplash.com/500x500/?sing,dance"
                     }} />
-                    <Button style={{borderColor: "#fff", color: "#fff", margin: "1rem auto 0.5rem auto"}} variant="outline-info" onClick={this.uploadPhoto}>上傳頭像</Button>
+                    <Button 
+                        style={{borderColor: "#fff", color: "#fff", margin: "1rem auto 0.5rem auto"}} variant="outline-info" onClick={this.uploadPhoto}>
+                        上傳頭像
+                        <FormControl as="input" type="file"
+                            onChange={(e)=>this.setState({photo: e.target.files[0]})}
+                        />
+                    </Button>
                     <div className="username">{this.props.userData.name}</div>
                 </div>
                 <div className="info">
@@ -55,7 +67,7 @@ export default class PersonalData extends React.Component{
                             About
                     </div>
                         <div className="border"></div>
-                        <p className="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste corporis, deleniti cum dignissimos quas dolorum magnam enim mollitia doloribus sapiente. Distinctio eius deleniti vel corrupti. Atque, in delectus perferendis minima maiores amet, necessitatibus non neque officia optio, molestias quia. At, odit. Praesentium optio itaque dolorum, fugiat natus earum est facilis.</p>
+                        <p className="lead">{description}</p>
                 </div>  
 
                 <Card style={{width:'100%'}}>
@@ -64,24 +76,26 @@ export default class PersonalData extends React.Component{
                 </div> */}
                 <Card.Body>
                     <Card.Title >
-                                {/* <p className="card_title">姓名：{this.props.userData.name}</p> */}
-                                {/* <br></br> */}
-                                <p className="card_title">簡介：{this.props.userData.description}</p>
-                                <InputGroup style={{height: '5rem'}}>
-                                    <FormControl as="textarea" value={this.state.description}
-                                        onChange={(e)=>this.setState({description: e.target.value})}
-                                    />
-                                </InputGroup>
-                                <br></br>
-                                <div className="d-flex flex-row">
-                                    <InputGroup>
-                                        <FormControl as="input" type="file"
-                                            onChange={(e)=>this.setState({photo: e.target.files[0]})}
-                                        />
-                                    </InputGroup>
-                                    <Button className="align-self-start" onClick={this.uploadDescription}>上傳簡介</Button>                                    
-                                </div>
-
+                        <p className="card_title">更新資料</p>
+                        <br></br>
+                        <InputGroup style={{height: '5rem'}}>
+                            <FormControl as="textarea" value={this.state.description} style={{height: '5rem'}}
+                                onChange={(e)=>{
+                                    this.setState({
+                                        description: e.target.value
+                                    });
+                                }}
+                            />
+                        </InputGroup>
+                        <br></br>
+                        <div className="d-flex flex-row">
+                            <InputGroup>
+                                
+                            </InputGroup>
+                            <Button className="align-self-start" onClick={this.uploadDescription}>
+                                上傳簡介
+                            </Button>                                    
+                        </div>
                     </Card.Title>
                 </Card.Body>
                 </Card>
@@ -90,6 +104,12 @@ export default class PersonalData extends React.Component{
     }
 
     uploadDescription(){
+        post('api/user/description', {
+            id: this.props.userData.id,
+            text: this.state.description
+        })
+        .then(console.log(r))
+        .catch(console.log(e));
 
     }
 

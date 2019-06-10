@@ -37,7 +37,17 @@ function uploadPhoto(id, photo){
     return db.any(sql, {id, name});
 }
 
+function uploadDescription(id, text){
+    sql =  `
+        UPDATE users
+        SET description = $<text>
+        WHERE id = $<id>
+    `
+    return db.any(sql, {id, text});
+}
+
 module.exports = {
     getUserData,
-    uploadPhoto
+    uploadPhoto,
+    uploadDescription
 }

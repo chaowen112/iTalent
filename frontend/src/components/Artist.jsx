@@ -69,7 +69,8 @@ export default class Recommend extends React.Component{
                 photo1: `images/guitar.jpg`,
                 comments: `good`
             },
-            posts: null
+            posts: null,
+            postCount: 0
         }
         this.toggleIntro = this.toggleIntro.bind(this);
     }
@@ -82,7 +83,7 @@ export default class Recommend extends React.Component{
                 data = data.map((d, it) => {
                     return <Post postId={d.id} userId={this.props.userId} key={it}/>
                 })
-                this.setState({posts: data});
+                this.setState({posts: data, postCount: data.length});
             })
             .catch(e => {
                 console.log(e);
@@ -98,7 +99,7 @@ export default class Recommend extends React.Component{
                         <h1>Artist</h1>
                         <Image style={{width:'100%', borderRadius: "10px", border: "5px solid #eee", margin: "2rem 0"}} src={this.state.data.photo1}/>
                         <h6>Name: {this.state.data.name}</h6>
-                        <span>Posts: {this.state.data.posts} </span><span> Subscribers: {this.state.data.subscribers} </span><span> Jobs: {this.state.data.jobs} </span>
+                        <span>Posts: {this.state.postCount} </span><span> Subscribers: {this.state.data.subscribers} </span><span> Jobs: {this.state.data.jobs} </span>
                         <ButtonToolbar>
                             <Button variant='outline-info'>Subscribe</Button>
                             <Button variant='outline-success'>Contact</Button>
@@ -122,7 +123,7 @@ export default class Recommend extends React.Component{
         if(this.state.isToggle){
             this.setState({
                 isToggle: false,
-                introduction: this.state.data.introduction.split('\n').map((d, it) =>{
+                introduction: this.props.userData.description.split('\n').map((d, it) =>{
                     return(it < 10 ? <p key={it}>{d}</p> : '')
                 })
             })
@@ -130,7 +131,7 @@ export default class Recommend extends React.Component{
         else {
             this.setState({
                 isToggle: true,
-                introduction: this.state.data.introduction.split('\n').map((d, it) =>{
+                introduction: this.props.userData.description.split('\n').map((d, it) =>{
                     return(<p key={it}>{d}</p>)
                 })
             })

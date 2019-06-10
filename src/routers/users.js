@@ -24,4 +24,11 @@ router.post('/user/photo', (req, res, next) => {
     .catch(e => next(e));
 })
 
+router.post('/user/description', (req, res, next)=>{
+    const {id, text} = req.body;
+    users.uploadDescription(id, text)
+    .then(result => res.json(result))
+    .catch(e=>next(e));
+})
+
 module.exports = router;

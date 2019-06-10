@@ -27,7 +27,7 @@ export default class Availability extends React.Component{
     }
 
     render(){
-
+        console.log(this.props.postData);
         let time = [];
         for(let i = 0; i < 24; i+=4){
             time[i] = (
@@ -114,7 +114,6 @@ export default class Availability extends React.Component{
     }
 
     handleSubmit(){
-        console.log(this.props.postData);
         if(!this.state.date || !this.state.time){
             alert('請選擇日期與時間');
             return;
@@ -127,7 +126,6 @@ export default class Availability extends React.Component{
             time = this.state.time.map((d, it) => {
             return d & !this.state.disabled[it];
         })
-        console.log(this.props.postData.userid);
         post('/api/contract/new', {
             artist: this.props.postData.userid,
             orderId: uuid(),
@@ -141,7 +139,6 @@ export default class Availability extends React.Component{
             let disabled = this.state.time.map((t, it) => {
                 return t|this.state.disabled[it];
             })
-            console.log(disabled)
             this.setState({disabled: disabled})
         })
         .catch(e => {

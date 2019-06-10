@@ -61,7 +61,8 @@ class Main extends React.Component {
                 id: null,
                 name: null,
                 email: null,
-                phone: null
+                phone: null,
+                photo: null
             }
         };
         this.toggle = this.toggle.bind(this);
@@ -128,7 +129,7 @@ class Main extends React.Component {
                     </Navbar>
 
                     <Route exact path="/" render={() => (
-                        <Wellcome userId={this.state.userData.id}/>
+                        <Wellcome userId={this.state.userData.id} userData={this.state.userData}/>
                     )}/>
                     <Route exact path="/artist" render={() => (
                         <Artist userId={this.state.userData.id} userData={this.state.userData}/>

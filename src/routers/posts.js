@@ -68,7 +68,7 @@ router.post('/post/money', (req, res) => {
     });
 })
 
-router.post('/posts/view/add', (req, res) => {
+router.post('/posts/view', (req, res) => {
     const {postId} = req.body;
     post.addView(postId)
     .then((result) => {

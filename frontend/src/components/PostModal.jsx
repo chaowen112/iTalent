@@ -5,12 +5,14 @@ import {
     Link
 } from 'react-router-dom';
 
-import {Modal, Button} from 'react-bootstrap';
+import {Modal, Button, Col, Row} from 'react-bootstrap';
 import YouTube from 'react-youtube';
 
 import './PostModal.css';
 import Post from 'components/Post.jsx';
 import Availability from './Availability.jsx';
+
+import {get, post} from '../api/post.js';
 
 export default class PostModal extends React.Component{
     constructor(props){
@@ -25,7 +27,6 @@ export default class PostModal extends React.Component{
               autoplay: 0
             }
         };
-
         return(
             <Modal
                 {...this.props}
@@ -35,16 +36,21 @@ export default class PostModal extends React.Component{
             >
             <Modal.Header>
               <Modal.Title id="contained-modal-title-vcenter">
-                Title
+                Title: {this.props.postData.title}
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
             <YouTube
-                videoId="GsrIZ1mnOvU"
+                videoId={this.props.postData.youtubeid}
                 opts={opts}
                 onReady={this._onReady}
-            />
-            <Post/>
+            />            
+            <Col>
+              <Row onClick={this.openModal}>
+                  <p><span>Title: {this.props.postData.title} </span></p>
+                  <p><span>Introduction: {this.props.postData.detail}</span></p>
+              </Row>
+            </Col>
             <Availability userId={this.props.userId} postData={this.props.postData}/>
             </Modal.Body>
             <Modal.Footer>
