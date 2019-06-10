@@ -44,8 +44,8 @@ export default class Wellcome extends React.Component {
 
     componentDidMount() {
       //console.log('gethotdata enter');
-      var titles=[],categorys=[],data=[],prices = [],experiences=[],id=[]
-      var rec_titles=[],rec_categorys=[],rec_data=[],rec_prices = [],rec_experiences=[],rec_id=[]
+      var titles=[],categorys=[],data=[],prices = [],experiences=[],id=[],views=[]
+      var rec_titles=[],rec_categorys=[],rec_data=[],rec_prices = [],rec_experiences=[],rec_id=[],rec_views=[]
       let cards
       getHot()
       .then(res=>{
@@ -57,6 +57,7 @@ export default class Wellcome extends React.Component {
           prices.push(data.price);
           experiences.push(data.experience);
           id.push(data.id);
+          views.push(data.views);
         })
         for(var i=0;i<titles.length;i++)
         {
@@ -66,7 +67,8 @@ export default class Wellcome extends React.Component {
             category:categorys[i],
             price:prices[i],
             experience:experiences[i],
-            id:id[i]
+            id:id[i],
+            views: views[i]
           })
         }
 
@@ -79,7 +81,7 @@ export default class Wellcome extends React.Component {
          data=[]
          prices = []
          experiences=[]
-
+         views=[]
       })
 
 
@@ -92,6 +94,7 @@ export default class Wellcome extends React.Component {
             prices.push(data.price);
             experiences.push(data.experience);
             id.push(data.id);
+            views.push(data.views);
           })
           for(var i=0;i<titles.length;i++)
           {
@@ -101,7 +104,8 @@ export default class Wellcome extends React.Component {
               category:categorys[i],
               price:prices[i],
               experience:experiences[i],
-              id:id[i]
+              id:id[i],
+              views:views[i]
             })
           }
 
@@ -114,6 +118,7 @@ export default class Wellcome extends React.Component {
               data=[]
               prices = []
               experiences=[]
+              views=[]
              //console.log(this.state.datas);
           })
 
@@ -126,6 +131,7 @@ export default class Wellcome extends React.Component {
               rec_prices.push(data.price);
               rec_experiences.push(data.experience);
               rec_id.push(data.id);
+              rec_views.push(data.id);
             })
             for(var i=0;i<rec_titles.length;i++)
             {
@@ -135,7 +141,8 @@ export default class Wellcome extends React.Component {
                 category:rec_categorys[i],
                 price:rec_prices[i],
                 experience:rec_experiences[i],
-                id:rec_id[i]
+                id:rec_id[i],
+                views:rec_views[i]
               })
             }
 

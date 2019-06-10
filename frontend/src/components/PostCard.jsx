@@ -14,7 +14,7 @@ import PostModal from 'components/PostModal.jsx';
 import Post from 'components/Post.jsx';
 import './PostCard.css';
 import uuid from 'uuid/v4';
-import { $$asyncIterator } from 'iterall';
+import './Postcard.css';
 export default class PostCard extends React.Component{
 
     constructor(props){
@@ -32,7 +32,8 @@ export default class PostCard extends React.Component{
             datas:[],
             disabled: false,
             userId:'',
-            hasClick:'收藏'
+            hasClick:'收藏',
+            img: this.chooseImg(0,40)
         }
 
         this.closeModal = this.closeModal.bind(this);
@@ -46,50 +47,21 @@ export default class PostCard extends React.Component{
 
     }
 
+    chooseImg(min, max) {
+      // var number = Math.floor(Math.random() * (max-min+1)) + min;
+      return `images/random/${this.props.data.id}.jpg`;
+    }
+
 
     render(){
-
+      let name_pool = ['Noah','Liam','William','Benjamin','Jacob','Elijah','Ethan','Oliver','Daniel','Lucas','Matthew'];
      //console.log(this.props.data);
-      var number = Math.floor((Math.random() * 10) + 1);
       let title=this.props.data.title;
       let price=this.props.data.price;
-      let img ;
-      switch(number){
-        case 1:
-          img = `images/guitar.jpg`;
-        break;
-        case 2:
-          img=`images/ballet.jpg`;
-        break;
-        case 3:
-          img=`images/clown.jpg`;
-        break;
-        case 4:
-          img = `images/guitar.jpg`;
-        break;
-        case 5:
-          img=`images/ballet.jpg`;
-        break;
-        case 6:
-          img=`images/clown.jpg`;
-        break;
-        case 7:
-          img = `images/guitar.jpg`;
-        break;
-        case 8:
-          img=`images/ballet.jpg`;
-        break;
-        case 9:
-          img=`images/clown.jpg`;
-        break;
-        case 10:
-          img=`images/sing.jpg`;
-        break;
-        default:
-          img=`images/piano.jpg`;
-        break;
-      }
+      let img = this.state.img;
       let postid = this.props.data.id;
+      let views = this.props.data.views;
+      let category = this.props.data.category;
       var cardStyle = {boxShadow: "0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)", minWidth: '200px'}
       return(
       <div>
@@ -101,10 +73,10 @@ export default class PostCard extends React.Component{
               <Card   style={cardStyle}>
                   <Card.Img onClick={this.openModal} className="carding" style={{ width: '150px', height: '150px', borderRadius: '50%', marginLeft: '22px', marginTop: '10px', border:'solid 5px #17a3b873'}} variant="top" src={img}/>
                   <Card.Body style={{textAlign: 'center'}}>
-                        <Card.Title >{title}</Card.Title>
-                        <Card.Text>{postid}</Card.Text>
-                        <Card.Text>{price}</Card.Text>
-                        <Button onClick={this.addCollection} variant={this.state.disabled ?"info" :"outline-secondary"}    >{this.state.hasClick}</Button>
+                        <Card.Title style={{letterSpacing: "0.3rem", fontSize: "1.5rem", fontWeight: "900"}}>{name_pool[postid%10]}</Card.Title>
+                        <Card.Text>{category}</Card.Text>
+                        <Card.Text><i className="far fa-eye m-2"></i>{views}</Card.Text>
+                        <Button onClick={this.addCollection} variant={this.state.disabled ?"info" :"outline-secondary"} >{this.state.hasClick}</Button>
                   </Card.Body>
               </Card>
               <PostModal onHide={this.closeModal} show={this.state.isModalShow} artistId={this.state.artistId} userId={this.props.userId}/>
@@ -140,21 +112,7 @@ export default class PostCard extends React.Component{
                   disabled:true,
                   hasClick:'移除'
                 })
-
-<<<<<<< HEAD
-        console.log(this.props.userId,'enter');
-          var userid = 123;
-          var titles=[]
-          var categorys=[]
-          var data=[]
-          var prices = []
-          var experiences=[]
-          let cards
-
-            addCollect(this.props.userId,this.props.data.title, '演員/女演員', 1, this.props.data.price, false, 'detail', this.props.data.id)
-=======
         }
->>>>>>> fed60aca1a776543f8dda8a6d9719d318a833bff
 
 
 

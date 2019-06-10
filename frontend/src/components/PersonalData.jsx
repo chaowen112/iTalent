@@ -62,7 +62,7 @@ export default class PersonalData extends React.Component{
                             About
                     </div>
                         <div className="border"></div>
-                        <p className="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste corporis, deleniti cum dignissimos quas dolorum magnam enim mollitia doloribus sapiente. Distinctio eius deleniti vel corrupti. Atque, in delectus perferendis minima maiores amet, necessitatibus non neque officia optio, molestias quia. At, odit. Praesentium optio itaque dolorum, fugiat natus earum est facilis.</p>
+                        <p className="lead">{this.props.userData.description}</p>
                 </div>  
 
                 <Card style={{width:'100%'}}>
@@ -73,7 +73,7 @@ export default class PersonalData extends React.Component{
                     <Card.Title >
                                 {/* <p className="card_title">姓名：{this.props.userData.name}</p> */}
                                 {/* <br></br> */}
-                                <p className="card_title">簡介：{this.props.userData.description}</p>
+                                {/* <p className="card_title">簡介：{this.props.userData.description}</p> */}
                                 <InputGroup style={{height: '5rem'}}>
                                     <FormControl as="textarea" value={this.state.description}
                                         onChange={(e)=>this.setState({description: e.target.value})}
@@ -81,7 +81,7 @@ export default class PersonalData extends React.Component{
                                 </InputGroup>
                                 <br></br>
                                 <div className="d-flex flex-row">
-                                    <InputGroup>
+                                    <InputGroup className="d-none">
                                         <FormControl as="input" type="file"
                                             onChange={(e)=> {
                                                 this.setState({photo: e.target.files[0], ready_upload: true});
@@ -89,7 +89,7 @@ export default class PersonalData extends React.Component{
                                             }}
                                         />
                                     </InputGroup>
-                                    <Button className="align-self-start" onClick={this.uploadDescription}>上傳簡介</Button>                                    
+                                    <Button className="align-self-start" onClick={this.uploadDescription}>上傳簡介</Button>
                                 </div>
 
                     </Card.Title>

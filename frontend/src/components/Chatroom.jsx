@@ -38,7 +38,7 @@ export default class Chatroom extends React.Component {
     // console.log(data.length)
 
     var userId = this.props.userData.id;
-    var userImg = 'images/piano.jpg';
+    var userImg = 'images/' + this.props.userData.photo;
     var username = this.props.userData.name;
 
     let posts = data.map(d => {
