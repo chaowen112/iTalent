@@ -27,7 +27,6 @@ export default class Availability extends React.Component{
     }
 
     render(){
-        console.log(this.props.postData);
         let time = [];
         for(let i = 0; i < 24; i+=4){
             time[i] = (
@@ -96,7 +95,7 @@ export default class Availability extends React.Component{
         get('/api/post/available', {id: this.props.postData.userid, date: value.toLocaleDateString()})
         .then(data => {
             let disabled = Array(24).fill(false);
-            data.forEach(d => {console.log(d.time);disabled[d.time] = true});
+            data.forEach(d => {disabled[d.time] = true});
             this.setState({disabled: disabled});
             this.state.disabled.forEach(d => {
                 if(d) disableAllday = true;

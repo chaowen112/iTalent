@@ -69,6 +69,7 @@ export default class Wellcome extends React.Component {
             prices.push(data.price);
             experiences.push(data.experience);
             id.push(data.id);
+            views.push(data.views);
           })
           for(var i=0;i<titles.length;i++)
           {
@@ -78,7 +79,8 @@ export default class Wellcome extends React.Component {
               category:categorys[i],
               price:prices[i],
               experience:experiences[i],
-              id:id[i]
+              id:id[i],
+              views:views[i]
             })
           }
 
@@ -91,6 +93,7 @@ export default class Wellcome extends React.Component {
               data=[]
               prices = []
               experiences=[]
+              views=[]
              //console.log(this.state.datas);
           })
 
@@ -103,6 +106,7 @@ export default class Wellcome extends React.Component {
               rec_prices.push(data.price);
               rec_experiences.push(data.experience);
               rec_id.push(data.id);
+              rec_views.push(data.id);
             })
             for(var i=0;i<rec_titles.length;i++)
             {
@@ -112,7 +116,8 @@ export default class Wellcome extends React.Component {
                 category:rec_categorys[i],
                 price:rec_prices[i],
                 experience:rec_experiences[i],
-                id:rec_id[i]
+                id:rec_id[i],
+                views:rec_views[i]
               })
             }
 
@@ -195,8 +200,6 @@ export default class Wellcome extends React.Component {
                           <Hot data={this.state.hotData} title="熱門" userId={this.props.userId}  userData={this.props.userData}/>
                           <Hot data={this.state.latestData} title="最新" userId={this.props.userId}  userData={this.props.userData}/>
                           <Hot data={this.state.recommendData} title="推薦" userId={this.props.userId}  userData={this.props.userData}/>
-                          {/*<Latest  latestData={this.state.latest_datas} name={this.state.title} title="最新" />
-                          <Recommend  recommendData={this.state.recommend_datas} name={this.state.title} title="推薦" />*/}
                       </Col>
                       )
                     }} />

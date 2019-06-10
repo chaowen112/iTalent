@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export function addCollect(userid,title, category, experience, price, by_hour, detail, id)
 {
-
+  console.log('addcollect id:',id)
    axios.post('/api/posts/collect', {
        userid:userid,
        title: title,
@@ -13,7 +13,7 @@ export function addCollect(userid,title, category, experience, price, by_hour, d
        by_hour: by_hour,
        id: id
    }).then(() => {
-       //alert('success');
+      //  alert('success');
    }).catch(e => {
        console.log(e);
        alert('fail!!');

@@ -37,7 +37,7 @@ const schemaSql = `
         '其他'
     );
     CREATE TABLE "collects" (
-        id          SERIAL PRIMARY KEY NOT NULL,
+        id          INTEGER NOT NULL DEFAULT 0,
         userId      TEXT NOT NULL,
         title       TEXT NOT NULL,
         category    category NOT NULL,
@@ -46,7 +46,7 @@ const schemaSql = `
         price       INTEGER NOT NULL DEFAULT 0,
         experience  INTEGER NOT NULL DEFAULT 0,
         detail      TEXT NOT NULL,
-        youtubeId   TEXT NOT NULL,
+        youtubeId   TEXT ,
         views       INTEGER NOT NULL DEFAULT 0
     );
     CREATE TABLE posts (

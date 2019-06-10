@@ -59,7 +59,7 @@ export default class Latest extends React.Component{
           <div className="d-flex justify-content-around align-items-center" style={{margin: "0"}}>
             <i className="fas fa-chevron-circle-left fa-3x arrow-btn" onClick={this.handleLeftScroll.bind(this)}></i>
             <Row className='justify-content-md-center scrollbar' style={{margin: "20px", maxWidth: "680px"}}>
-              <CardDeck style={{flexFlow: "row nowrap", margin: "10px 0", width: "100%"}}>
+              <CardDeck style={{margin: "10px 0", width: "100%"}} className="d-flex flex-row flex-nowrap">
                 {card}
               </CardDeck>
             </Row>

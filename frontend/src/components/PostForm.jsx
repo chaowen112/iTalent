@@ -159,6 +159,10 @@ export default class PostForm extends React.Component{
     handleSubmit(e){
       e.preventDefault();
       console.log("submit");
+      if(!this.state.youtubeId){
+        alert('請填入正確的youtube網址')
+        return;
+      }
 
       newPost(this.state.userid,this.state.title, this.state.category, this.state.experience, this.state.price, this.state.by_hour, this.state.detail, this.state.youtubeId);
     }

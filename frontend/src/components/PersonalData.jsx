@@ -14,7 +14,8 @@ export default class PersonalData extends React.Component{
         super(props)
         this.state={
             description: this.props.userData.description,
-            photo: null
+            photo: null,
+            ready_upload: false
         }
         this.uploadDescription = this.uploadDescription.bind(this);
         this.uploadPhoto = this.uploadPhoto.bind(this);
@@ -115,15 +116,24 @@ export default class PersonalData extends React.Component{
 
     uploadPhoto(){
         console.log(this.state.photo);
-        var formData = new FormData();
-        formData.append("photo", this.state.photo);
-        formData.append("id", this.props.userData.id);
-        post('/api/user/photo', formData, {
-            headers: {
-            'Content-Type': 'multipart/form-data'
-            }
-        })
-        .then(r => console.log(r))
-        .catch(e => console.log(e))
+        if (!this.state.ready_upload) {
+            $('input.form-control-file').click();
+        } else {
+            var formData = new FormData();
+            formData.append("photo", this.state.photo);
+            formData.append("id", this.props.userData.id);
+            post('/api/user/photo', formData, {
+                headers: {
+                'Content-Type': 'multipart/form-data'
+                }
+            })
+            .then(r => {
+                console.log(r);
+                $('.photo-upload-btn').text('上傳頭像');
+                $('.person-card img').attr("src", "images/" + this.state.photo.name);
+                this.setState({ready_upload: false});
+            })
+            .catch(e => console.log(e))            
+        }
     }
 }

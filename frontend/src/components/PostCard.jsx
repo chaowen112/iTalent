@@ -8,13 +8,13 @@ import axios from 'axios';
 import {Card, CardDeck , Container, Row, Col, CardColumns, Button,ButtonGroup}from 'react-bootstrap';
 //import './Recommend.css';
 import {newPost,getHot, post} from 'api/post.js';
-import {addCollect,getCollect} from 'api/collect.js';
+import {addCollect,getCollect,deleteCollect} from 'api/collect.js';
 import {getUserData} from '../api/user.js';
 import PostModal from 'components/PostModal.jsx';
 import Post from 'components/Post.jsx';
 import './PostCard.css';
 import uuid from 'uuid/v4';
-import { $$asyncIterator } from 'iterall';
+import './Postcard.css';
 export default class PostCard extends React.Component{
 
     constructor(props){
@@ -31,7 +31,9 @@ export default class PostCard extends React.Component{
             dataAllocate:[],
             datas:[],
             disabled: false,
-            userId:''
+            userId:'',
+            hasClick:'收藏',
+            img: this.chooseImg(0,40)
         }
 
         this.closeModal = this.closeModal.bind(this);
@@ -45,13 +47,17 @@ export default class PostCard extends React.Component{
 
     }
 
+    chooseImg(min, max) {
+      // var number = Math.floor(Math.random() * (max-min+1)) + min;
+      return `images/random/${this.props.postData.id}.jpg`;
+    }
+
 
     render(){
-
       let img = <img src={`${this.props.userData.photo}`} alt="photo" onError={(e) => {
-        e.target.onerror = null;
-        e.target.src = "https://source.unsplash.com/500x500/?sing,dance"
-    }} />
+                e.target.onerror = null;
+                e.target.src = "https://source.unsplash.com/500x500/?sing,dance"
+            }} />
       var cardStyle = {boxShadow: "0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)", minWidth: '200px'}
       return(
       <div>
@@ -73,21 +79,33 @@ export default class PostCard extends React.Component{
     }
     addCollection(){
         //console.log('add');
+        if(this.state.disabled)
+        {
+          deleteCollect(this.props.userId, this.props.data.id)
+            console.log(this.props.data.id);
+            this.setState({
+              disabled:false,
+              hasClick:'收藏'
+            })
+        }
+        else{
+          console.log(this.state.userId,'false');
 
-        console.log(this.state.userId,'enter');
-          var userid = 123;
-          var titles=[]
-          var categorys=[]
-          var data=[]
-          var prices = []
-          var experiences=[]
-          let cards
+            var titles=[]
+            var categorys=[]
+            var data=[]
+            var prices = []
+            var experiences=[]
+            let cards
 
-            addCollect(this.props.userId,this.props.data.title, '演員/女演員', 1, this.props.data.price, false, 'detail', ' ')
+              addCollect(this.props.userId,this.props.data.title, '演員/女演員', 1, this.props.data.price, false, 'detail', this.props.data.id)
+                console.log(this.props.data.id);
+                this.setState({
+                  disabled:true,
+                  hasClick:'移除'
+                })
+        }
 
-              this.setState({
-                disabled:true
-              })
 
 
     }
