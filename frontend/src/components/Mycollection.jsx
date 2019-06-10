@@ -5,7 +5,7 @@ import {
     Link
 } from 'react-router-dom';
 //import PostCard from 'components/PostCard.jsx';
-import CollectCard from 'components/CollectCard.jsx';
+import PostCard from 'components/PostCard.jsx';
 import {Card, CardDeck , Container, Row, Col, CardColumns}from 'react-bootstrap';
 import {getCollect} from 'api/collect.js';
 import './Mycollection.css';
@@ -16,94 +16,12 @@ export default class Mycollection extends React.Component{
         this.state={
           datas:[]
         }
-        setInterval(() => {
-          var titles=[]
-          var categorys=[]
-          var data=[]
-          var prices = []
-          var experiences=[]
-          var id=[]
-          getCollect(this.props.userId)
-          .then(res=>{
-
-            res.data.forEach((data)=>{
-
-              titles.push(data.title);
-              categorys.push(data.category);
-              prices.push(data.price);
-              experiences.push(data.experience);
-              id.push(data.id);
-            })
-            for(var i=0;i<titles.length;i++)
-            {
-              data.push({
-                img: `images/guitar.jpg`,
-                title:titles[i],
-                category:categorys[i],
-                price:prices[i],
-                experience:experiences[i],
-                id:id[i]
-              })
-            }
-
-          }).then(res=>{
-            this.setState({
-              datas:data
-            })
-
-
-          })
-        }, 1000);
+        
     }
     componentDidMount(){
-      var titles=[]
-      var categorys=[]
-      var data=[]
-      var prices = []
-      var experiences=[]
-      var id=[]
-      console.log(this.props.userId,'enter');
-      // getCollect(this.props.userId).then(res => {
-      //     console.log(res.data);
-      // })
-      // .catch(e => {
-      //     console.log(e)
-      //   }
-      // );
-
-      //console.log(this.state.datas,'enter collection');
-
       getCollect(this.props.userId)
-      .then(res=>{
-
-        res.data.forEach((data)=>{
-
-          titles.push(data.title);
-          categorys.push(data.category);
-          prices.push(data.price);
-          experiences.push(data.experience);
-          id.push(data.id);
-        })
-        for(var i=0;i<titles.length;i++)
-        {
-          data.push({
-            img: `images/guitar.jpg`,
-            title:titles[i],
-            category:categorys[i],
-            price:prices[i],
-            experience:experiences[i],
-            id:id[i]
-          })
-        }
-
-      }).then(res=>{
-        this.setState({
-          datas:data
-        })
-
-
-      })
-      console.log('out');
+      .then(r=>{this.setState({datas:r.data})});
+      
     }
     render(){
 
@@ -122,15 +40,17 @@ export default class Mycollection extends React.Component{
         //     </Card>)
         // });
         let cards = this.state.datas.map( (d, id) => {
-          return <CollectCard userId={this.props.userId} data={d} key={id}/>
+          return <PostCard userId={this.props.userId} postData={d} key={id} userData={this.props.userId}/>
         })
         //console.log(cards)
 
         return(
         <Container>
-            <h1 className="title">{this.props.title}</h1>
+            <h1 className="title"></h1>
             <div className="d-flex flex-row flex-wrap">
+              <CardDeck style={{flexFlow: "row nowrap", margin: "10px 0", width: "100%"}}>
                 {cards}
+              </CardDeck>
             </div>
         </Container>);
     }

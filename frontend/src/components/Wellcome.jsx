@@ -60,73 +60,7 @@ export default class Wellcome extends React.Component {
       getRecommend()
       .then(r=>{this.setState({recommendData: r.data})});
 
-        getLatest().then(res=>{
-
-          res.data.forEach((data)=>{
-
-            titles.push(data.title);
-            categorys.push(data.category);
-            prices.push(data.price);
-            experiences.push(data.experience);
-            id.push(data.id);
-            views.push(data.views);
-          })
-          for(var i=0;i<titles.length;i++)
-          {
-            data.push({
-              img: `images/guitar.jpg`,
-              title:titles[i],
-              category:categorys[i],
-              price:prices[i],
-              experience:experiences[i],
-              id:id[i],
-              views:views[i]
-            })
-          }
-
-        }).then(res=>{
-             this.setState({
-               latest_datas:data
-             })
-             titles=[]
-              categorys=[]
-              data=[]
-              prices = []
-              experiences=[]
-              views=[]
-             //console.log(this.state.datas);
-          })
-
-          getRecommend().then(res=>{
-
-            res.data.forEach((data)=>{
-
-              rec_titles.push(data.title);
-              rec_categorys.push(data.category);
-              rec_prices.push(data.price);
-              rec_experiences.push(data.experience);
-              rec_id.push(data.id);
-              rec_views.push(data.id);
-            })
-            for(var i=0;i<rec_titles.length;i++)
-            {
-              rec_data.push({
-                img: `images/guitar.jpg`,
-                title:rec_titles[i],
-                category:rec_categorys[i],
-                price:rec_prices[i],
-                experience:rec_experiences[i],
-                id:rec_id[i],
-                views:rec_views[i]
-              })
-            }
-
-          }).then(res=>{
-               this.setState({
-                 recommend_datas:rec_data
-               })
-               //console.log(this.state.datas);
-            })
+    
     }
     render() {
     //  console.log('welcome enter');

@@ -29,7 +29,6 @@ export default class PersonalData extends React.Component{
             (d, it) =>{return(<p key={it}>{d}</p>)
         })
         console.log(description)
-
         return (
             <div >
 
@@ -37,13 +36,13 @@ export default class PersonalData extends React.Component{
                     <img src={img} alt="photo" onError={(e) => {
                         e.target.onerror = null;
                         e.target.src = "https://source.unsplash.com/500x500/?sing,dance"
-                    }} />
-                    <Button 
-                        style={{borderColor: "#fff", color: "#fff", margin: "1rem auto 0.5rem auto"}} variant="outline-info" onClick={this.uploadPhoto}>
+                    }} />               
+                    <Button
+                        className="photo-upload-btn"
+                        style={{borderColor: "#fff", color: "#fff", margin: "1rem auto 0.5rem auto"}}
+                        variant="outline-info"
+                        onClick={this.uploadPhoto}>
                         上傳頭像
-                        <FormControl as="input" type="file"
-                            onChange={(e)=>this.setState({photo: e.target.files[0]})}
-                        />
                     </Button>
                     <div className="username">{this.props.userData.name}</div>
                 </div>
@@ -77,26 +76,32 @@ export default class PersonalData extends React.Component{
                 </div> */}
                 <Card.Body>
                     <Card.Title >
-                        <p className="card_title">更新資料</p>
-                        <br></br>
-                        <InputGroup style={{height: '5rem'}}>
-                            <FormControl as="textarea" value={this.state.description} style={{height: '5rem'}}
+                                {/* <p className="card_title">姓名：{this.props.userData.name}</p> */}
+                                {/* <br></br> */}
+                                {/* <p className="card_title">簡介：{this.props.userData.description}</p> */}
+                                <InputGroup style={{height: '5rem'}}>
+                                <FormControl as="textarea" value={this.state.description} 
+                                style={{height: '5rem'}}
                                 onChange={(e)=>{
                                     this.setState({
                                         description: e.target.value
                                     });
-                                }}
-                            />
-                        </InputGroup>
-                        <br></br>
-                        <div className="d-flex flex-row">
-                            <InputGroup>
-                                
-                            </InputGroup>
-                            <Button className="align-self-start" onClick={this.uploadDescription}>
-                                上傳簡介
-                            </Button>                                    
-                        </div>
+                                    console.log(e.target.value);
+                                }}/>
+                                </InputGroup>
+                                <br></br>
+                                <div className="d-flex flex-row">
+                                    <InputGroup className="d-none">
+                                        <FormControl as="input" type="file"
+                                            onChange={(e)=> {
+                                                this.setState({photo: e.target.files[0], ready_upload: true});
+                                                $('.photo-upload-btn').text('確認上傳');
+                                            }}
+                                        />
+                                    </InputGroup>
+                                    <Button className="align-self-start" onClick={this.uploadDescription}>上傳簡介</Button>
+                                </div>
+
                     </Card.Title>
                 </Card.Body>
                 </Card>
@@ -109,9 +114,8 @@ export default class PersonalData extends React.Component{
             id: this.props.userData.id,
             text: this.state.description
         })
-        .then(console.log(r))
-        .catch(console.log(e));
-
+        .then(r => console.log(r))
+        .catch(e => console.log(e));
     }
 
     uploadPhoto(){

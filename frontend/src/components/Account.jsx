@@ -12,6 +12,7 @@ import OrderList from 'components/OrderList.jsx';
 import Mycollection from 'components/Mycollection.jsx';
 import PersonalData from 'components/PersonalData.jsx';
 import Emails from 'components/Emails.jsx';
+import Artist from 'components/Artist.jsx';
 
 export default class Account extends React.Component{
 
@@ -38,6 +39,9 @@ export default class Account extends React.Component{
                         <Nav.Item>
                         <Nav.Link eventKey="fourth">個人資料</Nav.Link>
                         </Nav.Item>
+                        <Nav.Item>
+                        <Nav.Link eventKey="fifth">我的才藝</Nav.Link>
+                        </Nav.Item>
                     </Nav>
                     </Col>
                     <Col sm={9}>
@@ -49,10 +53,13 @@ export default class Account extends React.Component{
                         <Emails userData={this.props.userData} />
                         </Tab.Pane>
                         <Tab.Pane eventKey="third">
-                        <Mycollection userId={this.props.userId}/>
+                        <Mycollection userId={this.props.userId} userData={this.props.userData} />
                         </Tab.Pane>
                         <Tab.Pane eventKey="fourth">
                         <PersonalData userData={this.props.userData}/>
+                        </Tab.Pane>
+                        <Tab.Pane eventKey="fifth">
+                        <Artist userId={this.props.userData.id} userData={this.props.userData}/>
                         </Tab.Pane>
                     </Tab.Content>
                     </Col>

@@ -14,7 +14,7 @@ import PostModal from 'components/PostModal.jsx';
 import Post from 'components/Post.jsx';
 import './PostCard.css';
 import uuid from 'uuid/v4';
-import './Postcard.css';
+
 export default class PostCard extends React.Component{
 
     constructor(props){
@@ -44,6 +44,13 @@ export default class PostCard extends React.Component{
     }
     componentDidMount(){
       //console.log(typeof(this.props.userId),'enter postcard');
+      getCollect(this.props.userId)
+      .then(r => {r.data.forEach(c => {
+          if(c.id == this.props.postData.id) 
+            this.setState({disabled: true,
+                hasClick:'移除'})
+            })
+        })
 
     }
 
@@ -62,14 +69,15 @@ export default class PostCard extends React.Component{
       return(
       <div>
           <hr/>
-          <hr/><Card  onClick={this.openModal} style={cardStyle}>
+          <hr/><Card   style={cardStyle}>
+                  <Card.Body style={{textAlign: 'center'}} onClick={this.openModal}>
                   {img}
-                  <Card.Body style={{textAlign: 'center'}}>
                         <Card.Title >Title: {this.props.postData.title}</Card.Title>
                         <Card.Text>Detail: {this.props.postData.detail}</Card.Text>
                         <Card.Text>$: {this.props.postData.price}</Card.Text>
-                        <Button onClick={this.addCollection} variant={this.state.disabled ?"outline-secondary" :"outline-dark"} disabled={this.state.disabled}   >收藏</Button>
                   </Card.Body>
+                  <Button onClick={this.addCollection} variant={this.state.disabled ?"info" :"outline-secondary"}    >{this.state.hasClick}</Button>
+
               </Card>
               <PostModal onHide={this.closeModal} show={this.state.isModalShow} postData={this.props.postData} userId={this.props.userId}/>
 
@@ -81,8 +89,8 @@ export default class PostCard extends React.Component{
         //console.log('add');
         if(this.state.disabled)
         {
-          deleteCollect(this.props.userId, this.props.data.id)
-            console.log(this.props.data.id);
+          deleteCollect(this.props.userId, this.props.postData.id)
+            console.log(this.props.postData.id);
             this.setState({
               disabled:false,
               hasClick:'收藏'
@@ -98,8 +106,8 @@ export default class PostCard extends React.Component{
             var experiences=[]
             let cards
 
-              addCollect(this.props.userId,this.props.data.title, '演員/女演員', 1, this.props.data.price, false, 'detail', this.props.data.id)
-                console.log(this.props.data.id);
+              addCollect(this.props.userId,this.props.postData.title, '演員/女演員', 1, this.props.postData.price, false, 'detail', this.props.postData.id)
+                console.log(this.props.postData.id);
                 this.setState({
                   disabled:true,
                   hasClick:'移除'
