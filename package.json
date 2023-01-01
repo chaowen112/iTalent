@@ -24,7 +24,7 @@
     "pg-promise": "^8.7.2",
     "react-google-recaptcha-v3": "^1.2.0",
     "uuid": "^3.3.2",
-    "webpack": "^4.29.6",
+    "webpack": "^5.75.0",
     "yargs": "^13.2.2"
   }
 }
